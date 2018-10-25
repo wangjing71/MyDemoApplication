@@ -22,13 +22,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected abstract int setLayoutId();
-
-    protected void initView() {
-    }
-
-    protected void initData() {
-    }
-
-    protected void setEvent() {
-    }
+    protected abstract void initView() ;
+    protected abstract void initData() ;
+    protected abstract void setEvent() ;
 }
