@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="myproj.wj.com.myapplication">
+    package="dsfsdf.wj.sdfsf.myapplication">
 
     <application
         android:allowBackup="true"
