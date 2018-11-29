@@ -50,5 +50,6 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
+        Toast.makeText(this, "11111", Toast.LENGTH_SHORT).show();
     }
 }
