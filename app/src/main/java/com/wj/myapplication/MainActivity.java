@@ -1,32 +1,23 @@
 package com.wj.myapplication;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.telephony.TelephonyManager;
-import android.util.Log;
 import android.view.View;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.Toast;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
 import dsfsdf.wj.sdfsf.myapplication.R;
 
 
 public class MainActivity extends BaseActivity {
 
-    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -36,7 +27,20 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        button = findViewById(R.id.button);
+        final WebView webView = findViewById(R.id.mywebview);
+        webView.loadUrl("file:///android_asset/webviewtest.html");
+
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webView.addJavascriptInterface(new JiaoHu(),"hello");
+
+        Button btn = (Button) findViewById(R.id.get_js);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                webView.loadUrl("javascript:android(true)");
+            }
+        });
     }
 
     @Override
@@ -46,15 +50,14 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setEvent() {
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                doSomeThing();
-            }
-        });
+
     }
 
-    private void doSomeThing() {
-
+    public class JiaoHu{
+        @JavascriptInterface
+        public void showAndroid(){
+            Toast.makeText(MainActivity.this,"js调用了android的方法",Toast.LENGTH_SHORT).show();
+        }
     }
 }
+
