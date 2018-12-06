@@ -5,6 +5,7 @@ import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -28,11 +29,21 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         final WebView webView = findViewById(R.id.mywebview);
-        webView.loadUrl("file:///android_asset/webviewtest.html");
-
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        webSettings.setSupportZoom(true);
+        webSettings.setBuiltInZoomControls(true);
+        webSettings.setDisplayZoomControls(false);
+        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        webSettings.setUseWideViewPort(true);
+        webSettings.setAllowFileAccess(true);
+        webSettings.setLoadWithOverviewMode(true);
+        webView.setWebViewClient(new WebViewClient());
         webView.addJavascriptInterface(new JiaoHu(),"hello");
+
+        webView.loadUrl("http://192.168.3.110:8080/");
+
 
         Button btn = (Button) findViewById(R.id.get_js);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +67,7 @@ public class MainActivity extends BaseActivity {
     public class JiaoHu{
         @JavascriptInterface
         public void showAndroid(){
-            Toast.makeText(MainActivity.this,"js调用了android的方法",Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this,"我是汪京",Toast.LENGTH_SHORT).show();
         }
     }
 }
