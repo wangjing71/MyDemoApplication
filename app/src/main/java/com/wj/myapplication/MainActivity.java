@@ -67,7 +67,7 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    public class JiaoHu extends Activity {
+    public class JiaoHu{
         @JavascriptInterface
         public void openKefu(){
             Toast.makeText(MainActivity.this,info,Toast.LENGTH_SHORT).show();
