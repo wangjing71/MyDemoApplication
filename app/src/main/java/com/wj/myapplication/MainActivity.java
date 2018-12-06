@@ -1,5 +1,6 @@
 package com.wj.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.JavascriptInterface;
@@ -16,6 +17,7 @@ import dsfsdf.wj.sdfsf.myapplication.R;
 public class MainActivity extends BaseActivity {
 
 
+    private String info = "我是汪京 哈哈哈哈";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +69,8 @@ public class MainActivity extends BaseActivity {
     public class JiaoHu{
         @JavascriptInterface
         public void showAndroid(){
-            Toast.makeText(MainActivity.this,"我是汪京",Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this,info,Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainActivity.this,SecondActivity.class));
         }
     }
 }
