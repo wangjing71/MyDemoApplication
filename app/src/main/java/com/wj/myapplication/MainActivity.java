@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.JavascriptInterface;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -33,16 +34,18 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         final WebView webView = findViewById(R.id.mywebview);
         WebSettings webSettings = webView.getSettings();
+
         webSettings.setJavaScriptEnabled(true);
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        webSettings.setAllowFileAccess(true);// 设置允许访问文件数据
         webSettings.setSupportZoom(true);
         webSettings.setBuiltInZoomControls(true);
-        webSettings.setDisplayZoomControls(false);
-        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
-        webSettings.setUseWideViewPort(true);
-        webSettings.setAllowFileAccess(true);
-        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setDatabaseEnabled(true);
         webView.setWebViewClient(new WebViewClient());
+        webView.setWebChromeClient(new WebChromeClient());
         webView.addJavascriptInterface(new JiaoHu(),"hello");
 
         webView.loadUrl("http://192.168.3.110:8080/");
@@ -52,7 +55,7 @@ public class MainActivity extends BaseActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                webView.loadUrl("javascript:android(true)");
+                webView.loadUrl("javascript:android(false)");
             }
         });
     }
