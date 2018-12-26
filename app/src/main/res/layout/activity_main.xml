@@ -3,8 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/parent"
+    android:background="@mipmap/title_background_blue"
     tools:context="com.wj.myapplication.MainActivity">
 
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/background"
+        android:scaleType="fitXY"
+        android:src="@mipmap/title_background_blue"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
 
     <Button
         android:layout_centerInParent="true"
@@ -12,4 +22,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Button" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="95dp"
+        android:text="TextView"
+        android:textSize="25sp" />
 </RelativeLayout>
