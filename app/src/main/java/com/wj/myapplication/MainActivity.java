@@ -1,6 +1,7 @@
 package com.wj.myapplication;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ public class MainActivity extends BaseActivity {
     private View statbarHeight;
     private LinearLayout toolBars;
     private RecyclerView recyclerView;
+    public MyAdapter businessSelectAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,12 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
+        businessSelectAdapter = new MyAdapter(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setNestedScrollingEnabled(false);
+        recyclerView.setItemAnimator(null);
+        recyclerView.setAdapter(businessSelectAdapter);
     }
 
     @Override
