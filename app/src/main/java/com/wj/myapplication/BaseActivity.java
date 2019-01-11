@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.gyf.barlibrary.ImmersionBar;
+
 
 /**
  * Created by Administrator on 2018/1/4.
@@ -16,6 +18,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(setLayoutId());
+        ImmersionBar.with(this).init();
         initView();
         initData();
         setEvent();
@@ -25,4 +28,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract void initView() ;
     protected abstract void initData() ;
     protected abstract void setEvent() ;
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ImmersionBar.with(this).destroy();
+    }
 }
