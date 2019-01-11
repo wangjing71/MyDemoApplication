@@ -68,6 +68,8 @@ public class MainActivity extends BaseActivity {
                         dis = 1000;
                     }
                     toolBars.getBackground().setAlpha(255 * dis / 1000);
+                    statbarHeight.getBackground().setAlpha(255 * dis / 1000);
+                    ImmersionBar.setStatusBarView(MainActivity.this, statbarHeight);
                 }
             }
         });
