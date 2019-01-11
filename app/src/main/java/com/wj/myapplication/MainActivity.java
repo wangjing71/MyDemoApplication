@@ -22,16 +22,6 @@ public class MainActivity extends BaseActivity {
     private LinearLayoutManager linearLayoutManager;
     public MyAdapter businessSelectAdapter;
     private int index = 0;
-    private Handler handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            index ++;
-            toolBars.getBackground().setAlpha(index);
-            statbarHeight.getBackground().setAlpha(index);
-            handler.sendEmptyMessageDelayed(0,200);
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +41,6 @@ public class MainActivity extends BaseActivity {
         recyclerView = findViewById(R.id.recyclerView);
         toolBars.getBackground().setAlpha(0);
         statbarHeight.getBackground().setAlpha(0);
-        handler.sendEmptyMessage(0);
     }
 
     @Override
@@ -66,29 +55,25 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setEvent() {
-//        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-//            @Override
-//            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-//                super.onScrollStateChanged(recyclerView, newState);
-//            }
-//
-//            @Override
-//            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-//                super.onScrolled(recyclerView, dx, dy);
-//                View fitstView = linearLayoutManager.findViewByPosition(0);
-//                if (fitstView != null) {
-//                    int dis = (int) Math.abs(fitstView.getY());
-//                    Log.i("====", dis + "");
-//                    if (dis > 1000) {
-//                        dis = 1000;
-//                    }
-//                    toolBars.getBackground().setAlpha(255 * dis / 1000);
-//                }
-//            }
-//        });
-    }
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
 
-    private void doSomeThing() {
-
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                View fitstView = linearLayoutManager.findViewByPosition(0);
+                if (fitstView != null) {
+                    int dis = (int) Math.abs(fitstView.getY());
+                    Log.i("====", dis + "");
+                    if (dis > 1000) {
+                        dis = 1000;
+                    }
+                    toolBars.getBackground().setAlpha(255 * dis / 1000);
+                }
+            }
+        });
     }
 }
