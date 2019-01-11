@@ -1,14 +1,11 @@
 package com.wj.myapplication;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.gyf.barlibrary.ImmersionBar;
@@ -21,7 +18,6 @@ public class MainActivity extends BaseActivity {
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
     public MyAdapter businessSelectAdapter;
-    private int index = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
