@@ -81,7 +81,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        smartRefreshLayout.setOnRefreshLoadMoreListener(new OnMultiPurposeListener() {
+        smartRefreshLayout.setOnMultiPurposeListener(new OnMultiPurposeListener() {
             @Override
             public void onHeaderMoving(RefreshHeader header, boolean isDragging, float percent, int offset, int headerHeight, int maxDragHeight) {
 
@@ -134,14 +134,14 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onStateChanged(@NonNull RefreshLayout refreshLayout, @NonNull RefreshState oldState, @NonNull RefreshState newState) {
-               if(newState == RefreshState.None){
-                   Log.i("====","1111");
+                if(newState == RefreshState.None){
                    toolBars.setVisibility(View.VISIBLE);
                }else{
-                   Log.i("====","2222");
                    toolBars.setVisibility(View.GONE);
                }
             }
         });
+
+
     }
 }
