@@ -2,7 +2,6 @@ package com.wj.myapplication;
 
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ViewTreeObserver;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -14,7 +13,6 @@ public class MainActivity extends BaseActivity {
     private RelativeLayout parent;
 
     private boolean mBackEnable = false;
-    private boolean mIsBtnBack = false;
     private int rootBottom = Integer.MIN_VALUE;
 
     @Override
@@ -53,9 +51,7 @@ public class MainActivity extends BaseActivity {
                 // adjustResize，软键盘弹出后高度会变小
                 if (r.bottom < rootBottom) {
                     mBackEnable = false;
-                    Log.i("====","1111");
                 } else {
-                    Log.i("====","2222");
                     mBackEnable = true;
                 }
             }
