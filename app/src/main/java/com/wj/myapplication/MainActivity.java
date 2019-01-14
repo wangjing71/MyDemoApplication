@@ -1,7 +1,5 @@
 package com.wj.myapplication;
 
-import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
