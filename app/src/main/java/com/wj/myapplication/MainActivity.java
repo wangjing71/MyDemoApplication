@@ -1,7 +1,11 @@
 package com.wj.myapplication;
 
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 
@@ -44,6 +48,28 @@ public class MainActivity extends BaseActivity {
                 } else if (oldBottom != 0 && bottom != 0 && (bottom - oldBottom > keyHeight)) {
                     Log.i("====", "2222");
                 }
+            }
+        });
+
+        bot.setOnTouchListener(new View.OnTouchListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        Log.i("ACTION_DOWN", "ACTION_DOWN");
+                        bot.setBackgroundColor(Color.parseColor("#ff00ff"));
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        Log.i("ACTION_MOVE", event.getRawX() + "_" + event.getRawY());
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        bot.setBackgroundColor(getColor(R.color.colorPrimary));
+                        Log.i("ACTION_UP", "ACTION_UP");
+                        break;
+                }
+
+                return false;
             }
         });
     }
