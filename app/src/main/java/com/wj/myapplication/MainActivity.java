@@ -1,14 +1,13 @@
 package com.wj.myapplication;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class MainActivity extends BaseActivity {
 
-    private Button button;
-
+    private TextView wenzi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +21,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        button = findViewById(R.id.button);
+        wenzi = findViewById(R.id.wenzi);
     }
 
     @Override
@@ -32,15 +31,6 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setEvent() {
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                doSomeThing();
-            }
-        });
     }
 
-    private void doSomeThing() {
-
-    }
 }
