@@ -50,7 +50,6 @@ public class MainActivity extends BaseActivity {
         toolBars.getBackground().setAlpha(0);
         statbarHeight.getBackground().setAlpha(0);
         int tou = toolBars.getBackground().getAlpha();
-        Log.i("====",tou+"");
         smartRefreshLayout = findViewById(R.id.refreshLayout);
     }
 
@@ -78,22 +77,22 @@ public class MainActivity extends BaseActivity {
                 View fitstView = linearLayoutManager.findViewByPosition(0);
                 if (fitstView != null) {
                     int dis = (int) Math.abs(fitstView.getY());
-                    if (dis > 1000) {
-                        dis = 1000;
+                    if (dis > getDipx()) {
+                        dis = getDipx();
                     }
-                    toolBars.getBackground().setAlpha(255 * dis / 1000);
-                    statbarHeight.getBackground().setAlpha(255 * dis / 1000);
+                    toolBars.getBackground().setAlpha(255 * dis / getDipx());
+                    statbarHeight.getBackground().setAlpha(255 * dis / getDipx());
                     ImmersionBar.setStatusBarView(MainActivity.this, statbarHeight);
                 }
             }
         });
 
-        smartRefreshLayout.setOnMultiPurposeListener(new SimpleMultiPurposeListener(){
+        smartRefreshLayout.setOnMultiPurposeListener(new SimpleMultiPurposeListener() {
             @Override
             public void onStateChanged(@NonNull RefreshLayout refreshLayout, @NonNull RefreshState oldState, @NonNull RefreshState newState) {
-                if(newState == RefreshState.None){
+                if (newState == RefreshState.None) {
                     toolBars.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     toolBars.setVisibility(View.GONE);
                 }
             }
@@ -105,5 +104,9 @@ public class MainActivity extends BaseActivity {
                 refreshLayout.finishRefresh(3, false);
             }
         });
+    }
+
+    private int getDipx() {
+        return this.getResources().getDimensionPixelSize(R.dimen.dp_300);
     }
 }
