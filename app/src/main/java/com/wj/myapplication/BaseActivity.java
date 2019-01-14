@@ -19,7 +19,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(setLayoutId());
         ImmersionBar.with(this).init();
-        AndroidBug5497Workaround.assistActivity(this);
+        AndroidAdjustResizeBugFix.assistActivity(this);
         initView();
         initData();
         setEvent();

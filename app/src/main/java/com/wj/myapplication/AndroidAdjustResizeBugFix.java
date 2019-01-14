@@ -15,6 +15,10 @@ public class AndroidAdjustResizeBugFix {
     private FrameLayout.LayoutParams frameLayoutParams;
     private Activity mActivity;
 
+    public static void assistActivity(Activity activity) {
+        new AndroidAdjustResizeBugFix(activity);
+    }
+
     private AndroidAdjustResizeBugFix(Activity activity) {
         mActivity = activity;
         FrameLayout content = (FrameLayout) activity.findViewById(android.R.id.content);
@@ -27,9 +31,6 @@ public class AndroidAdjustResizeBugFix {
         });
         frameLayoutParams = (FrameLayout.LayoutParams) mChildOfContent.getLayoutParams();
     }
-    public static void assistActivity(Activity activity) {
-        new AndroidAdjustResizeBugFix(activity);
-    }
     private void possiblyResizeChildOfContent() {
         int usableHeightNow = computeUsableHeight();
         if (usableHeightNow != usableHeightPrevious) {
@@ -39,7 +40,7 @@ public class AndroidAdjustResizeBugFix {
                 // keyboard probably just became visible
                 // 如果有高度变化，mChildOfContent.requestLayout()之后界面才会重新测量
                 // 这里就随便让原来的高度减去了1
-                frameLayoutParams.height = usableHeightSansKeyboard - 1;
+                frameLayoutParams.height = usableHeightSansKeyboard - heightDifference;
             } else {
                 // keyboard probably just became hidden
                 frameLayoutParams.height = usableHeightSansKeyboard;
