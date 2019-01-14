@@ -10,6 +10,7 @@ public class MainActivity extends BaseActivity {
 
     private RelativeLayout parent;
     private int keyHeight = 0;
+    private RelativeLayout bot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         parent = findViewById(R.id.parent);
         keyHeight = getWindowManager().getDefaultDisplay().getHeight() / 3;
+        bot = findViewById(R.id.bot);
     }
 
     @Override

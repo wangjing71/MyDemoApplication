@@ -13,21 +13,21 @@
         android:layout_marginTop="80dp" />
 
     <RelativeLayout
-        android:background="@color/colorPrimary"
         android:id="@+id/bot"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
         android:clickable="true">
 
         <TextView
-            android:textSize="@dimen/sp_14"
             android:id="@+id/wenzi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center"
             android:text="我是底部文字"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:textSize="@dimen/sp_14" />
     </RelativeLayout>
 </RelativeLayout>
