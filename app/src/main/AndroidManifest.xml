@@ -2,9 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wj.myapplication">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name="com.wj.myapplication.MyApplication"
@@ -14,6 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name="com.wj.myapplication.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +24,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.baidu.speech.APP_ID"
+            android:value="15290428"/>
+        <meta-data
+            android:name="com.baidu.speech.API_KEY"
+            android:value="PY6qadcKYHRePcVBvvX4yR18"/>
+        <meta-data
+            android:name="com.baidu.speech.SECRET_KEY"
+            android:value="aIPiVFq6Yc3n5jSrlHL5qcpmyuSxp3jT"/>
     </application>
 
 </manifest>
