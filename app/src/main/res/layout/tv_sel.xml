@@ -4,7 +4,7 @@
     android:layout_height="@dimen/dp_35"
     android:layout_marginLeft="@dimen/dp_15"
     android:layout_marginTop="@dimen/dp_15"
-    android:background="@drawable/tag_bg"
+    android:background="@drawable/tag_sel"
     android:gravity="center"
     android:paddingLeft="@dimen/dp_10"
     android:paddingRight="@dimen/dp_10"

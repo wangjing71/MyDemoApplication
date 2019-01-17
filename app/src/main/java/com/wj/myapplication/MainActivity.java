@@ -47,10 +47,15 @@ public class MainActivity extends BaseActivity {
         flowLayout.setAdapter(new TagAdapter<String>(datas) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
-                TextView tv = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.tv_sel,
-                        flowLayout, false);
-                tv.setText(s);
-                return tv;
+                if(position == 3){
+                    TextView tv = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.tv_sel, flowLayout, false);
+                    tv.setText(s);
+                    return tv;
+                }else{
+                    TextView tv = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.tv_def, flowLayout, false);
+                    tv.setText(s);
+                    return tv;
+                }
             }
 
             @Override
@@ -66,7 +71,7 @@ public class MainActivity extends BaseActivity {
         flowLayout.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
             public boolean onTagClick(View view, int position, FlowLayout parent) {
-                Toast.makeText(MainActivity.this, mVals[position], Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, position+"", Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
