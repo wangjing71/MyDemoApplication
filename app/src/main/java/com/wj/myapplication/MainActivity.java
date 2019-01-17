@@ -11,16 +11,19 @@ import com.zhy.view.flowlayout.FlowLayout;
 import com.zhy.view.flowlayout.TagAdapter;
 import com.zhy.view.flowlayout.TagFlowLayout;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
 public class MainActivity extends BaseActivity {
 
     private TagFlowLayout flowLayout;
+    private List<String> datas = new ArrayList<>();
     private String[] mVals = new String[]
-            {"Hello", "Android", "Weclome Hi ", "Button", "TextView", "Hello",
-                    "Android", "Weclome", "Button ImageView", "TextView", "Helloworld",
-                    "Android", "Weclome Hello", "Button Text", "TextView"};
+            {"积分兑换", "iPhoneXS", "0元百兆宽带", "小魔卡", "超值定向视频流量", "限免影院",
+                    "积分兑换", "iPhoneXS", "0元百兆宽带", "小魔卡", "超值定向视频流量", "限免影院",
+                    "积分兑换", "iPhoneXS", "0元百兆宽带", "小魔卡", "超值定向视频流量", "限免影院"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,10 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        flowLayout.setAdapter(new TagAdapter<String>(mVals) {
+        for (int i = 0; i < mVals.length; i++) {
+            datas.add(mVals[i]);
+        }
+        flowLayout.setAdapter(new TagAdapter<String>(datas) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
                 TextView tv = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.tv,
