@@ -1,14 +1,20 @@
 package com.wj.myapplication;
 
 import android.Manifest;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.baidu.aip.asrwakeup3.core.mini.AutoCheck;
+import com.baidu.aip.asrwakeup3.core.recog.MyRecognizer;
+import com.baidu.aip.asrwakeup3.core.recog.listener.IRecogListener;
+import com.baidu.aip.asrwakeup3.core.recog.listener.MessageStatusRecogListener;
 import com.baidu.speech.EventListener;
 import com.baidu.speech.EventManager;
 import com.baidu.speech.EventManagerFactory;
@@ -25,11 +31,19 @@ import java.util.Map;
 import io.reactivex.functions.Consumer;
 
 
-public class MainActivity extends BaseActivity implements EventListener {
+public class MainActivity extends BaseActivity{
 
     private Button start,stop;
-    private EventManager asr;
     private TextView tv;
+    private MyRecognizer myRecognizer;
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            Log.i("====handler",msg.obj.toString());
+            tv.append(msg.obj.toString() + "\n");
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +72,13 @@ public class MainActivity extends BaseActivity implements EventListener {
 
     @Override
     protected void initData() {
-        asr = EventManagerFactory.create(this, "asr");
-        asr.registerListener(this);
+        IRecogListener listener = new MessageStatusRecogListener(handler);
+        myRecognizer = new MyRecognizer(this, listener);
+        if (true) {
+            // 基于DEMO集成1.4 加载离线资源步骤(离线时使用)。offlineParams是固定值，复制到您的代码里即可
+            Map<String, Object> offlineParams = OfflineRecogParams.fetchOfflineParams();
+            myRecognizer.loadOfflineEngine(offlineParams);
+        }
     }
 
     @Override
@@ -72,7 +91,7 @@ public class MainActivity extends BaseActivity implements EventListener {
         });
     }
 
-    private void start() {
+    protected void start() {
         tv.setText("");
         Map<String, Object> params = new LinkedHashMap<String, Object>();
         String event = null;
@@ -97,41 +116,12 @@ public class MainActivity extends BaseActivity implements EventListener {
                     synchronized (autoCheck) {
                         String message = autoCheck.obtainErrorMessage(); // autoCheck.obtainAllMessage();
                         tv.append(message + "\n");
-                        ; // 可以用下面一行替代，在logcat中查看代码
+                        // 可以用下面一行替代，在logcat中查看代码
                         // Log.w("AutoCheckMessage", message);
                     }
                 }
             }
         },true)).checkAsr(params);
-        String json = null; // 可以替换成自己的json
-        json = new JSONObject(params).toString(); // 这里可以替换成你需要测试的json
-        asr.send(event, json, null, 0, 0);
-        Log.i("====","输入参数：" + json);
-    }
-
-    @Override
-    public void onEvent(String name, String params, byte[] data, int offset, int length) {
-        String logTxt = "name: " + name;
-
-
-        if (params != null && !params.isEmpty()) {
-            logTxt += " ;params :" + params;
-        }
-        if (name.equals(SpeechConstant.CALLBACK_EVENT_ASR_PARTIAL)) {
-            if (params != null && params.contains("\"nlu_result\"")) {
-                if (length > 0 && data.length > 0) {
-                    logTxt += ", 语义解析结果：" + new String(data, offset, length);
-                }
-            }
-        } else if (data != null) {
-            logTxt += " ;data length=" + data.length;
-        }
-        try {
-            JSONObject jsonObject = new JSONObject(logTxt);
-            String result = jsonObject.optString("best_result");
-            Log.i("====",result);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        myRecognizer.start(params);
     }
 }
