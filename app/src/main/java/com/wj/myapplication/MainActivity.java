@@ -37,7 +37,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setEvent() {
-        button.setOnClickListener(new View.OnClickListener() {
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SoftKeyboardUtil.hideSoft(MainActivity.this,editText);
