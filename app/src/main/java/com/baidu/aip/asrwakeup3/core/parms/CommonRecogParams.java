@@ -1,11 +1,10 @@
-package com.wj.myapplication;
+package com.baidu.aip.asrwakeup3.core.parms;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Environment;
 
 import com.baidu.aip.asrwakeup3.core.util.FileUtil;
-import com.baidu.aip.asrwakeup3.core.util.MyLogger;
 import com.baidu.speech.asr.SpeechConstant;
 
 import java.util.ArrayList;

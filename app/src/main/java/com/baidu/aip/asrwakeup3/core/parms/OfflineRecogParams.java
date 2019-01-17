@@ -1,4 +1,4 @@
-package com.wj.myapplication;
+package com.baidu.aip.asrwakeup3.core.parms;
 
 import android.content.SharedPreferences;
 

@@ -1,29 +1,21 @@
 package com.wj.myapplication;
 
 import android.Manifest;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.baidu.aip.asrwakeup3.core.mini.AutoCheck;
+import com.baidu.aip.asrwakeup3.core.parms.OfflineRecogParams;
 import com.baidu.aip.asrwakeup3.core.recog.MyRecognizer;
-import com.baidu.aip.asrwakeup3.core.recog.listener.IRecogListener;
-import com.baidu.aip.asrwakeup3.core.recog.listener.MessageStatusRecogListener;
-import com.baidu.speech.EventListener;
-import com.baidu.speech.EventManager;
-import com.baidu.speech.EventManagerFactory;
+import com.baidu.aip.asrwakeup3.core.recog.RecogResult;
+import com.baidu.aip.asrwakeup3.core.recog.listener.StatusRecogListener;
 import com.baidu.speech.asr.SpeechConstant;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -36,14 +28,6 @@ public class MainActivity extends BaseActivity{
     private Button start,stop;
     private TextView tv;
     private MyRecognizer myRecognizer;
-    private Handler handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            Log.i("====handler",msg.obj.toString());
-            tv.append(msg.obj.toString() + "\n");
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,8 +56,12 @@ public class MainActivity extends BaseActivity{
 
     @Override
     protected void initData() {
-        IRecogListener listener = new MessageStatusRecogListener(handler);
-        myRecognizer = new MyRecognizer(this, listener);
+        myRecognizer = new MyRecognizer(this,new StatusRecogListener(){
+            @Override
+            public void onAsrPartialResult(String[] results, RecogResult recogResult) {
+                tv.append(results[0] + "\n");
+            }
+        });
         if (true) {
             // 基于DEMO集成1.4 加载离线资源步骤(离线时使用)。offlineParams是固定值，复制到您的代码里即可
             Map<String, Object> offlineParams = OfflineRecogParams.fetchOfflineParams();
@@ -94,9 +82,6 @@ public class MainActivity extends BaseActivity{
     protected void start() {
         tv.setText("");
         Map<String, Object> params = new LinkedHashMap<String, Object>();
-        String event = null;
-        event = SpeechConstant.ASR_START; // 替换成测试的event
-
         if (true) {
             params.put(SpeechConstant.DECODER, 2);
         }
