@@ -31,9 +31,9 @@ public class MessageStatusRecogListener extends StatusRecogListener {
     public void onAsrReady() {
         super.onAsrReady();
         speechEndTime = 0;
-
         Message message = Message.obtain();
         message.what = READY_SPEAK;
+        message.obj = "";
         handler.sendMessage(message);
     }
 
@@ -42,6 +42,7 @@ public class MessageStatusRecogListener extends StatusRecogListener {
         super.onAsrBegin();
         Message message = Message.obtain();
         message.what = BEGIN_SPEAK;
+        message.obj = "";
         handler.sendMessage(message);
     }
 
@@ -51,6 +52,7 @@ public class MessageStatusRecogListener extends StatusRecogListener {
         speechEndTime = System.currentTimeMillis();
         Message message = Message.obtain();
         message.what = STOP_SPEAK;
+        message.obj = "";
         handler.sendMessage(message);
     }
 
@@ -79,6 +81,7 @@ public class MessageStatusRecogListener extends StatusRecogListener {
         super.onAsrFinishError(errorCode, subErrorCode, descMessage, recogResult);
         Message message = Message.obtain();
         message.what = ERROR_SPEAK;
+        message.obj = "";
         handler.sendMessage(message);
     }
 
