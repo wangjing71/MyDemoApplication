@@ -6,12 +6,11 @@
     xmlns:zhy="http://schemas.android.com/apk/res-auto"
     tools:context="com.wj.myapplication.MainActivity">
 
-
     <com.zhy.view.flowlayout.TagFlowLayout
         android:id="@+id/id_flowlayout"
+        android:layout_marginRight="@dimen/dp_10"
         zhy:max_select="0"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp">
+        android:layout_height="wrap_content">
     </com.zhy.view.flowlayout.TagFlowLayout>
 </RelativeLayout>

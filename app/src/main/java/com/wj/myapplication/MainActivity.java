@@ -3,7 +3,6 @@ package com.wj.myapplication;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,7 +12,6 @@ import com.zhy.view.flowlayout.TagFlowLayout;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 
 public class MainActivity extends BaseActivity {
@@ -49,7 +47,7 @@ public class MainActivity extends BaseActivity {
         flowLayout.setAdapter(new TagAdapter<String>(datas) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
-                TextView tv = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.tv,
+                TextView tv = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.tv_sel,
                         flowLayout, false);
                 tv.setText(s);
                 return tv;
