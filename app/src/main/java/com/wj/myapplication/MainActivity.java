@@ -3,11 +3,14 @@ package com.wj.myapplication;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 
 public class MainActivity extends BaseActivity {
 
     private Button button;
+    private Button button2;
+    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,8 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         button = findViewById(R.id.button);
+        button2= findViewById(R.id.button2);
+        editText = findViewById(R.id.edittext);
     }
 
     @Override
@@ -35,7 +40,14 @@ public class MainActivity extends BaseActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                doSomeThing();
+                SoftKeyboardUtil.hideSoft(MainActivity.this,editText);
+            }
+        });
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SoftKeyboardUtil.showSoft(MainActivity.this,editText);
             }
         });
     }
