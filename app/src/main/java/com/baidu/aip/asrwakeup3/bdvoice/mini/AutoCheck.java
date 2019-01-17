@@ -1,4 +1,4 @@
-package com.baidu.aip.asrwakeup3.core.mini;
+package com.baidu.aip.asrwakeup3.bdvoice.mini;
 
 import android.Manifest;
 import android.content.Context;

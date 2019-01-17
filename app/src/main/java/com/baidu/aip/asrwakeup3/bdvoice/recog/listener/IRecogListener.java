@@ -1,6 +1,6 @@
-package com.baidu.aip.asrwakeup3.core.recog.listener;
+package com.baidu.aip.asrwakeup3.bdvoice.recog.listener;
 
-import com.baidu.aip.asrwakeup3.core.recog.RecogResult;
+import com.baidu.aip.asrwakeup3.bdvoice.recog.RecogResult;
 
 /**
  * 与SDK中回调参数的对应关系定义在RecogEventAdapter类中

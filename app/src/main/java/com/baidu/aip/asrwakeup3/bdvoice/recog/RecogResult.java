@@ -1,4 +1,4 @@
-package com.baidu.aip.asrwakeup3.core.recog;
+package com.baidu.aip.asrwakeup3.bdvoice.recog;
 
 import org.json.JSONArray;
 import org.json.JSONException;

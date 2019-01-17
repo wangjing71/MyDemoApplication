@@ -8,11 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.baidu.aip.asrwakeup3.core.mini.AutoCheck;
-import com.baidu.aip.asrwakeup3.core.parms.OfflineRecogParams;
-import com.baidu.aip.asrwakeup3.core.recog.MyRecognizer;
-import com.baidu.aip.asrwakeup3.core.recog.RecogResult;
-import com.baidu.aip.asrwakeup3.core.recog.listener.StatusRecogListener;
+import com.baidu.aip.asrwakeup3.bdvoice.mini.AutoCheck;
+import com.baidu.aip.asrwakeup3.bdvoice.parms.OfflineRecogParams;
+import com.baidu.aip.asrwakeup3.bdvoice.recog.MyRecognizer;
+import com.baidu.aip.asrwakeup3.bdvoice.recog.RecogResult;
+import com.baidu.aip.asrwakeup3.bdvoice.recog.listener.StatusRecogListener;
 import com.baidu.speech.asr.SpeechConstant;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;

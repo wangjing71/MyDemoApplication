@@ -1,4 +1,4 @@
-package com.baidu.aip.asrwakeup3.core.parms;
+package com.baidu.aip.asrwakeup3.bdvoice.parms;
 
 import android.content.SharedPreferences;
 

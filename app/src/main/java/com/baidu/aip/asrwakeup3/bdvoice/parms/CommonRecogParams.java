@@ -1,10 +1,10 @@
-package com.baidu.aip.asrwakeup3.core.parms;
+package com.baidu.aip.asrwakeup3.bdvoice.parms;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Environment;
 
-import com.baidu.aip.asrwakeup3.core.util.FileUtil;
+import com.baidu.aip.asrwakeup3.bdvoice.util.FileUtil;
 import com.baidu.speech.asr.SpeechConstant;
 
 import java.util.ArrayList;

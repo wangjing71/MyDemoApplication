@@ -1,4 +1,4 @@
-package com.baidu.aip.asrwakeup3.core.recog;
+package com.baidu.aip.asrwakeup3.bdvoice.recog;
 
 /**
  * Created by fujiayi on 2017/6/14.

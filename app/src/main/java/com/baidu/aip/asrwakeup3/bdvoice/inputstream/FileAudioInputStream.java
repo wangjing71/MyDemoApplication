@@ -1,4 +1,4 @@
-package com.baidu.aip.asrwakeup3.core.inputstream;
+package com.baidu.aip.asrwakeup3.bdvoice.inputstream;
 
 import android.util.Log;
 

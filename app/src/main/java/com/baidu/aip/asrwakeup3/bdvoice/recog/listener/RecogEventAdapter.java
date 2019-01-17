@@ -1,12 +1,12 @@
-package com.baidu.aip.asrwakeup3.core.recog.listener;
+package com.baidu.aip.asrwakeup3.bdvoice.recog.listener;
 
 import android.util.Log;
-import com.baidu.aip.asrwakeup3.core.util.MyLogger;
+import com.baidu.aip.asrwakeup3.bdvoice.util.MyLogger;
 import com.baidu.speech.EventListener;
 import com.baidu.speech.asr.SpeechConstant;
 import org.json.JSONException;
 import org.json.JSONObject;
-import com.baidu.aip.asrwakeup3.core.recog.RecogResult;
+import com.baidu.aip.asrwakeup3.bdvoice.recog.RecogResult;
 
 /**
  * Created by fujiayi on 2017/6/14.

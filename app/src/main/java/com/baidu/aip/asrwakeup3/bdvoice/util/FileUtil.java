@@ -1,4 +1,4 @@
-package com.baidu.aip.asrwakeup3.core.util;
+package com.baidu.aip.asrwakeup3.bdvoice.util;
 
 import android.content.res.AssetManager;
 
