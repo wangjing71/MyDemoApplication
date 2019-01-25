@@ -78,6 +78,6 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-
+        A a = new A();
     }
 }
