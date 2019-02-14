@@ -34,6 +34,7 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         button = findViewById(R.id.button);
         textView = findViewById(R.id.textView);
+
         localBroadcastManager = LocalBroadcastManager.getInstance(this);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("hello");
