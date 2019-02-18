@@ -71,9 +71,10 @@ public class MainActivity extends BaseActivity {
 
     public class JiaoHu{
         @JavascriptInterface
-        public void openKefu(){
+        public int openKefu(){
             Toast.makeText(MainActivity.this,info,Toast.LENGTH_SHORT).show();
 //            startActivity(new Intent(MainActivity.this,SecondActivity.class));
+            return 1;
         }
     }
 }
