@@ -47,14 +47,14 @@ public class MainActivity extends BaseActivity {
         webView.setWebChromeClient(new WebChromeClient());
         webView.addJavascriptInterface(new JiaoHu(),"hello");
 
-        webView.loadUrl("http://192.168.3.110:8080/");
+        webView.loadUrl("http://192.168.3.111:8080/");
 
 
         Button btn = (Button) findViewById(R.id.get_js);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                webView.loadUrl("javascript:android(false)");
+                webView.loadUrl("javascript:gotos('我是从安卓传递的参数')");
             }
         });
     }
