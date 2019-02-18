@@ -19,7 +19,7 @@ import dsfsdf.wj.sdfsf.myapplication.R;
 public class MainActivity extends BaseActivity {
 
 
-    private String info = "我是汪京 哈哈哈哈";
+    private String info = "我是安卓原生的弹框，通过js调用";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
