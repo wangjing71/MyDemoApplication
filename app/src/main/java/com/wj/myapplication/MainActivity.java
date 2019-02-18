@@ -45,7 +45,7 @@ public class MainActivity extends BaseActivity {
         webSettings.setDatabaseEnabled(true);
         webView.setWebViewClient(new WebViewClient());
         webView.setWebChromeClient(new WebChromeClient());
-        webView.addJavascriptInterface(new JiaoHu(),"hello");
+        webView.addJavascriptInterface(new JiaoHu(),"android");
 
         webView.loadUrl("http://192.168.3.111:8080/");
 
