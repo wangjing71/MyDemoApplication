@@ -73,7 +73,7 @@ public class MainActivity extends BaseActivity {
         @JavascriptInterface
         public void openKefu(){
             Toast.makeText(MainActivity.this,info,Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(MainActivity.this,SecondActivity.class));
+//            startActivity(new Intent(MainActivity.this,SecondActivity.class));
         }
     }
 }
