@@ -4,6 +4,7 @@ import android.Manifest;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -60,6 +61,12 @@ public class MainActivity extends BaseActivity{
             @Override
             public void onAsrPartialResult(String[] results, RecogResult recogResult) {
                 tv.append(results[0] + "\n");
+            }
+
+            @Override
+            public void onAsrVolume(int volumePercent, int volume) {
+                super.onAsrVolume(volumePercent, volume);
+                Log.i("===", "音量百分比" + volumePercent + " ; 音量" + volume);
             }
         });
         if (true) {
