@@ -3,12 +3,13 @@ package com.wj.myapplication;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MainActivity extends BaseActivity {
 
-    private Button button;
 
+    private Button btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +23,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        button = findViewById(R.id.button);
+        btn = findViewById(R.id.button);
     }
 
     @Override
@@ -32,15 +33,11 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setEvent() {
-        button.setOnClickListener(new View.OnClickListener() {
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                doSomeThing();
+                Toast.makeText(MainActivity.this, NavigationBarUtils.hasNavBar(MainActivity.this)+"_"+NavigationBarUtils.getNavigationBarHeight(MainActivity.this), Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    private void doSomeThing() {
-
     }
 }
