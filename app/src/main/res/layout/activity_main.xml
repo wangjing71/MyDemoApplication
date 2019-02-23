@@ -16,10 +16,8 @@
     <com.wj.myapplication.AVLoadingIndicatorView
         android:id="@+id/avi"
         android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/dp_20"
+        android:layout_height="@dimen/dp_20"
         style="@style/AVLoadingIndicatorView.Large"
-        android:visibility="visible"
-        app:indicatorColor="#ff00ff"
-        app:indicatorName="BallSpinFadeLoaderIndicator" />
+        app:indicatorColor="#ff00ff" />
 </RelativeLayout>

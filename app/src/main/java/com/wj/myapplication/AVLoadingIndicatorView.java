@@ -15,14 +15,12 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 
-import com.wj.myapplication.indicators.BallPulseIndicator;
-
 
 public class AVLoadingIndicatorView extends View {
 
     private static final String TAG="AVLoadingIndicatorView";
 
-    private static final BallPulseIndicator DEFAULT_INDICATOR=new BallPulseIndicator();
+    private static final BallSpinFadeLoaderIndicator DEFAULT_INDICATOR=new BallSpinFadeLoaderIndicator();
 
     private static final int MIN_SHOW_TIME = 500; // ms
     private static final int MIN_DELAY = 500; // ms
