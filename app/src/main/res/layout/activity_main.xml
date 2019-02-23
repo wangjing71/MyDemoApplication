@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.wj.myapplication.MainActivity">
@@ -19,5 +20,6 @@
         android:layout_height="wrap_content"
         style="@style/AVLoadingIndicatorView.Large"
         android:visibility="visible"
+        app:indicatorColor="#ff00ff"
         app:indicatorName="BallSpinFadeLoaderIndicator" />
 </RelativeLayout>
