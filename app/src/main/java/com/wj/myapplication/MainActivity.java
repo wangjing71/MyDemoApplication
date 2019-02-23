@@ -47,7 +47,7 @@ public class MainActivity extends BaseActivity {
         webView.setWebChromeClient(new WebChromeClient());
         webView.addJavascriptInterface(new JiaoHu(),"android");
 
-        webView.loadUrl("http://192.168.3.111:8080/");
+        webView.loadUrl("http://192.168.3.100:8080/");
 
 
         Button btn = (Button) findViewById(R.id.get_js);
