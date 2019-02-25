@@ -36,7 +36,7 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String time = simpleDateFormat.format(timeDate);
 
-            Log.i(TAG, "onReceive: 短信来自:" + sender);
+            Log.i(TAG, "onReceive:  来自:" + sender);
             Log.i(TAG, "onReceive: 短信内容:" + content);
             Log.i(TAG, "onReceive: 短信时间:" + time);
 
