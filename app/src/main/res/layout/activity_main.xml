@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="Button"
+        android:text="@string/button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.272"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -27,8 +27,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="232dp"
         android:layout_marginLeft="232dp"
-        android:text="Button"
+        android:text="@string/button"
         app:layout_constraintBottom_toBottomOf="@+id/button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/button" />
+
 </android.support.constraint.ConstraintLayout>
