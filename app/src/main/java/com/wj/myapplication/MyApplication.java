@@ -2,6 +2,7 @@ package com.wj.myapplication;
 
 import android.app.Application;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.tencent.bugly.Bugly;
 
 /**
@@ -14,5 +15,6 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Bugly.init(getApplicationContext(), "9c59c60539", false);
+        SDKInitializer.initialize(this);
     }
 }
