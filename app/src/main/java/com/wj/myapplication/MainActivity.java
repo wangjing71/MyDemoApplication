@@ -59,7 +59,7 @@ public class MainActivity extends BaseActivity {
 
     private void doSomeThing() {
         RxPermissions rxPermissions = new RxPermissions(this);
-        rxPermissions.requestEach(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
+        rxPermissions.requestEach(Manifest.permission.READ_SMS, Manifest.permission.RECEIVE_SMS)
                 .subscribe(new Consumer<Permission>() {
                     @Override
                     public void accept(Permission permission) throws Exception {
