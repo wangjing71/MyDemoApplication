@@ -1,13 +1,20 @@
 package com.wj.myapplication;
 
+import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
 import android.telephony.SmsMessage;
 import android.util.Log;
 
+import com.tbruyelle.rxpermissions2.Permission;
+import com.tbruyelle.rxpermissions2.RxPermissions;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import io.reactivex.functions.Consumer;
 
 /**
  * author wangjing
@@ -40,9 +47,7 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
             Log.i(TAG, "onReceive: 短信内容:" + content);
             Log.i(TAG, "onReceive: 短信时间:" + time);
 
-            //如果短信号码来自自己的短信网关号码
-            if ("your sender number".equals(sender) && mMessageListener != null) {
-                Log.i(TAG, "onReceive: 回调");
+            if(mMessageListener!=null){
                 mMessageListener.OnReceived(content);
             }
         }
