@@ -52,7 +52,13 @@ public class MainActivity extends BaseActivity {
 
     private void doSomeThing() {
         getAppList();
-//        runCommand();
+        installAPk();
+    }
+
+    private void installAPk() {
+
+
+
     }
 
     private void getAppList() {
