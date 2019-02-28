@@ -1,8 +1,13 @@
 package com.wj.myapplication;
 
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import java.util.List;
 
 
 public class MainActivity extends BaseActivity {
@@ -41,6 +46,21 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
+        getAppList();
+    }
 
+    private void getAppList() {
+        PackageManager pm = getPackageManager();
+        // Return a List of all packages that are installed on the device.
+        List<PackageInfo> packages = pm.getInstalledPackages(0);
+        for (PackageInfo packageInfo : packages) {
+            // 判断系统/非系统应用
+            if ((packageInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) // 非系统应用
+            {
+                System.out.println("MainActivity.getAppList, packageInfo=" + packageInfo.packageName);
+            } else {
+                // 系统应用
+            }
+        }
     }
 }
