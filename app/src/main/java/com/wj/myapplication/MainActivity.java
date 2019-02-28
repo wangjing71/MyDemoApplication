@@ -13,6 +13,7 @@ import java.util.List;
 public class MainActivity extends BaseActivity {
 
     private Button button;
+    private String packZUW = "com.itsource.sh_rest";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
