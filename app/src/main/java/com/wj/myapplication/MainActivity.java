@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
@@ -71,17 +72,18 @@ public class MainActivity extends BaseActivity {
                 .get()
                 .url(FILE_URL)//
                 .build()//
-                .execute(new FileCallBack(Environment.getExternalStorageDirectory().getAbsolutePath(), "111.apk")//
+                .execute(new FileCallBack(Environment.getExternalStorageDirectory().getAbsolutePath(),null)//
                 {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-
+                        Toast.makeText(MainActivity.this, "下载失败", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onResponse(File response, int id) {
-
+                        Toast.makeText(MainActivity.this, "下载成功", Toast.LENGTH_SHORT).show();
                     }
+
                 });
     }
 }
