@@ -4,9 +4,13 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.List;
 
 
@@ -48,6 +52,7 @@ public class MainActivity extends BaseActivity {
 
     private void doSomeThing() {
         getAppList();
+//        runCommand();
     }
 
     private void getAppList() {
@@ -56,9 +61,8 @@ public class MainActivity extends BaseActivity {
         List<PackageInfo> packages = pm.getInstalledPackages(0);
         for (PackageInfo packageInfo : packages) {
             // 判断系统/非系统应用
-            if ((packageInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) // 非系统应用
-            {
-                System.out.println("MainActivity.getAppList, packageInfo=" + packageInfo.packageName);
+            if ((packageInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {//非系统应用
+                Log.i("====", packageInfo.packageName);
             } else {
                 // 系统应用
             }
