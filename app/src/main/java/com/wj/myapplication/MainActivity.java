@@ -72,7 +72,7 @@ public class MainActivity extends BaseActivity {
                 .get()
                 .url(FILE_URL)//
                 .build()//
-                .execute(new FileCallBack(Environment.getExternalStorageDirectory().getAbsolutePath(),null)//
+                .execute(new FileCallBack(Environment.getExternalStorageDirectory().getAbsolutePath(),"111.apk")//
                 {
                     @Override
                     public void onError(Call call, Exception e, int id) {
