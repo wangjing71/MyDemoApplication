@@ -54,7 +54,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-        open1("com.sh.cm.shydhn");
+        openApp(packZUW,"com.itsource.activity.StartActivity");
     }
 
     private void getAppList() {
@@ -71,12 +71,12 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-//    private void openApp(String pac){
-//        Intent intent = new Intent(Intent.ACTION_MAIN);
-//        ComponentName cn =new  ComponentName(packageName,className);
-//        intent.setComponent(cn);
-//        startActivity(intent);
-//    }
+    private void openApp(String packageName,String className){
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        ComponentName cn =new  ComponentName(packageName,className);
+        intent.setComponent(cn);
+        startActivity(intent);
+    }
 
     private void doStartApplicationWithPackageName(String packagename) {
 
