@@ -1,8 +1,12 @@
 package com.wj.myapplication;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MainActivity extends BaseActivity {
@@ -41,6 +45,17 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
+        Toast.makeText(this, checkNetworkInfo()+"", Toast.LENGTH_SHORT).show();
+    }
 
+    public boolean checkNetworkInfo() {
+        ConnectivityManager conMan = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo.State mobile = conMan.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState();
+        NetworkInfo.State wifi = conMan.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState();
+        if (mobile == NetworkInfo.State.CONNECTED || mobile == NetworkInfo.State.CONNECTING)
+            return true;
+        if (wifi == NetworkInfo.State.CONNECTED || wifi == NetworkInfo.State.CONNECTING)
+            return true;
+        return false;
     }
 }
