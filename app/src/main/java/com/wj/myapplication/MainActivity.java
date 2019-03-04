@@ -48,6 +48,7 @@ public class MainActivity extends BaseActivity {
         Toast.makeText(this, checkNetworkInfo()+"", Toast.LENGTH_SHORT).show();
     }
 
+    //获取网络状态是否可用
     public boolean checkNetworkInfo() {
         ConnectivityManager conMan = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo.State mobile = conMan.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState();
