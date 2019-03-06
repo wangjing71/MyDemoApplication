@@ -26,6 +26,8 @@ import com.baidu.mapapi.search.sug.SuggestionSearchOption;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
+import java.util.List;
+
 import io.reactivex.functions.Consumer;
 
 
@@ -172,7 +174,10 @@ public class MainActivity extends BaseActivity {
 
         @Override
         public void onGetSuggestionResult(SuggestionResult suggestionResult) {
-
+            List<SuggestionResult.SuggestionInfo> lists = suggestionResult.getAllSuggestions();
+            for (int i = 0; i < lists.size(); i++) {
+                SuggestionResult.SuggestionInfo inf = lists.get(i);
+            }
         }
     }
 }
