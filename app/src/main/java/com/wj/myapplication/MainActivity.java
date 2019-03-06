@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.baidu.location.BDAbstractLocationListener;
@@ -18,6 +19,10 @@ import com.baidu.mapapi.search.geocode.GeoCodeResult;
 import com.baidu.mapapi.search.geocode.GeoCoder;
 import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
+import com.baidu.mapapi.search.sug.OnGetSuggestionResultListener;
+import com.baidu.mapapi.search.sug.SuggestionResult;
+import com.baidu.mapapi.search.sug.SuggestionSearch;
+import com.baidu.mapapi.search.sug.SuggestionSearchOption;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
@@ -27,8 +32,11 @@ import io.reactivex.functions.Consumer;
 public class MainActivity extends BaseActivity {
 
     private Button button,button2;
-    public LocationClient mLocationClient = null;
+    private EditText editText;
+
+    private LocationClient mLocationClient = null;
     private MyLocationListener myListener = new MyLocationListener();
+    private SuggestionSearch mSuggestionSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +53,7 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         button = findViewById(R.id.button);
         button2 = findViewById(R.id.button2);
+        editText = findViewById(R.id.editText);
     }
 
     @Override
@@ -60,6 +69,9 @@ public class MainActivity extends BaseActivity {
         option.setOpenGps(true);
         mLocationClient.setLocOption(option);
         //百度地图 end
+
+        mSuggestionSearch = SuggestionSearch.newInstance();
+        mSuggestionSearch.setOnGetSuggestionResultListener(new MySuggestionSerch());
     }
 
     @Override
@@ -74,11 +86,18 @@ public class MainActivity extends BaseActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                searchAdd("上海市浦东新区华绣路255弄10号401");
+                searchLianxiang(editText.getText().toString());
             }
         });
     }
 
+    private void searchLianxiang(String s){
+        mSuggestionSearch
+                .requestSuggestion((new SuggestionSearchOption())
+                        .keyword(s).city("上海"));
+    }
+
+    //查询经纬度
     private void searchAdd(String str) {
         GeoCoder mCoder = GeoCoder.newInstance();
         OnGetGeoCoderResultListener listener = new OnGetGeoCoderResultListener() {
@@ -126,6 +145,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void showLocation() {
+        mLocationClient.stop();
         mLocationClient.start();
     }
 
@@ -148,4 +168,11 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    public class MySuggestionSerch implements OnGetSuggestionResultListener {
+
+        @Override
+        public void onGetSuggestionResult(SuggestionResult suggestionResult) {
+
+        }
+    }
 }
