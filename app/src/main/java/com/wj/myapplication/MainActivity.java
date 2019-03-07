@@ -1,5 +1,6 @@
 package com.wj.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,6 +28,14 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         button = findViewById(R.id.button);
+        ImmersionBar.with(this)
+                .keyboardEnable(true)
+                .setOnKeyboardListener(new OnKeyboardListener() {    //软键盘监听回调
+                    @Override
+                    public void onKeyboardChange(boolean isPopup, int keyboardHeight) {
+                        Log.i("====",isPopup+"___"+keyboardHeight);
+                    }
+                }).init();
     }
 
     @Override

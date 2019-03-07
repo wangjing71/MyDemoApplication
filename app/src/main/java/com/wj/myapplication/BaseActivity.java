@@ -25,14 +25,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(setLayoutId());
         ImmersionBar.with(this)
-                .keyboardEnable(true)
-                .keyboardMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)  //单独指定软键盘模式
-                .setOnKeyboardListener(new OnKeyboardListener() {    //软键盘监听回调
-                    @Override
-                    public void onKeyboardChange(boolean isPopup, int keyboardHeight) {
-                        Log.i("====",isPopup+"___"+keyboardHeight);
-                    }
-                })
                 .init();  //必须调用方可沉浸式
         rxPermissions = new RxPermissions(this);
         initView();
