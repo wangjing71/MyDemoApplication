@@ -1,6 +1,7 @@
 package com.wj.myapplication;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -43,5 +44,11 @@ public class MainActivity extends BaseActivity {
 
     private void doSomeThing() {
 
+    }
+
+    @Override
+    protected void keyBoardChange(boolean isPopup, int keyboardHeight) {
+        super.keyBoardChange(isPopup, keyboardHeight);
+        Log.i("====",isPopup+"___"+keyboardHeight);
     }
 }
