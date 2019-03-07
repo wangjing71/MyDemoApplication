@@ -5,6 +5,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.gyf.barlibrary.ImmersionBar;
+import com.gyf.barlibrary.OnKeyboardListener;
+
 
 public class MainActivity extends BaseActivity {
 
@@ -24,7 +27,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         button = findViewById(R.id.button);
-
     }
 
     @Override
@@ -46,9 +48,4 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @Override
-    protected void keyBoardChange(boolean isPopup, int keyboardHeight) {
-        super.keyBoardChange(isPopup, keyboardHeight);
-        Log.i("====",isPopup+"___"+keyboardHeight);
-    }
 }

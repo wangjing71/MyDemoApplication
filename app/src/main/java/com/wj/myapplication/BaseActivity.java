@@ -25,11 +25,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(setLayoutId());
         ImmersionBar.with(this)
-                .keyboardEnable(false)  //true 键盘会把底部布局推上去 false 则不会
+                .keyboardEnable(true)
+                .keyboardMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)  //单独指定软键盘模式
                 .setOnKeyboardListener(new OnKeyboardListener() {    //软键盘监听回调
                     @Override
                     public void onKeyboardChange(boolean isPopup, int keyboardHeight) {
-                        keyBoardChange(isPopup, keyboardHeight);
+                        Log.i("====",isPopup+"___"+keyboardHeight);
                     }
                 })
                 .init();  //必须调用方可沉浸式
@@ -39,16 +40,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         setEvent();
     }
 
-    protected void keyBoardChange(boolean isPopup, int keyboardHeight) {
-    }
-
     protected abstract int setLayoutId();
-
-    protected abstract void initView();
-
-    protected abstract void initData();
-
-    protected abstract void setEvent();
+    protected abstract void initView() ;
+    protected abstract void initData() ;
+    protected abstract void setEvent() ;
 
     @Override
     protected void onDestroy() {
