@@ -29,7 +29,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                 .setOnKeyboardListener(new OnKeyboardListener() {    //软键盘监听回调
                     @Override
                     public void onKeyboardChange(boolean isPopup, int keyboardHeight) {
-                        Log.i("====",isPopup+"___"+keyboardHeight);
+                        keyBoardChange(isPopup,keyboardHeight);
                     }
                 })
                 .init();  //必须调用方可沉浸式
@@ -38,6 +38,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         initData();
         setEvent();
     }
+
+    protected abstract void keyBoardChange(boolean isPopup, int keyboardHeight);
 
     protected abstract int setLayoutId();
     protected abstract void initView() ;
