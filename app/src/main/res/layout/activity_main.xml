@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <io.vov.vitamio.widget.VideoView
+        android:background="#FFFFFF"
         android:id="@+id/buffer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
