@@ -5,17 +5,10 @@
     android:orientation="vertical">
 
     <io.vov.vitamio.widget.VideoView
-        android:background="#FFFFFF"
         android:id="@+id/buffer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:text="Button" />
 </RelativeLayout>
