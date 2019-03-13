@@ -35,7 +35,7 @@ public class MainActivity extends BaseActivity implements MediaPlayer.OnInfoList
         myMediaController = new MyMediaController(this,mVideoView);
         //设置控制器
         mVideoView.setMediaController(myMediaController);
-//        mVideoView.setMediaController(new MediaController(this));
+        mVideoView.setMediaController(new MediaController(this));
         mVideoView.requestFocus();
         mVideoView.setOnInfoListener(this);
         mVideoView.setOnBufferingUpdateListener(this);
