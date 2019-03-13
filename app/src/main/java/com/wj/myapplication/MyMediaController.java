@@ -21,48 +21,23 @@ import io.vov.vitamio.widget.VideoView;
  */
 public class MyMediaController extends MediaController {
     private GestureDetector mGestureDetector;
-    private ImageButton img_back;
-    private TextView textViewTime;
     private VideoView videoView;
-    private Activity activity;
-    private Context context;
-    private int controllerWidth = 0;//设置mediaController高度为了使横屏时top显示在屏幕顶端
 
-    //返回监听
-    private View.OnClickListener backListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            if(activity != null){
-                activity.finish();
-            }
-        }
-    };
-    //videoview 用于对视频进行控制的等，activity为了退出
-    public MyMediaController(Context context, VideoView videoView , Activity activity) {
+    public MyMediaController(Context context, VideoView videoView) {
         super(context);
-        this.context = context;
         this.videoView = videoView;
-        this.activity = activity;
-        WindowManager wm = (WindowManager) context
-                .getSystemService(Context.WINDOW_SERVICE);
-        controllerWidth = wm.getDefaultDisplay().getWidth();
         mGestureDetector = new GestureDetector(context, new MyGestureListener());
     }
 
     @Override
     protected View makeControllerView() {
-        //加入布局文件,mymediacontroller布局名称
-        View v = ((LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(getResources().getIdentifier("mymediacontroller", "layout", getContext().getPackageName()), this);
-        v.setMinimumHeight(controllerWidth);
-        img_back = (ImageButton) v.findViewById(getResources().getIdentifier("mediacontroller_top_back", "id", context.getPackageName()));
-        img_back.setOnClickListener(backListener);
-        textViewTime = (TextView)v.findViewById(getResources().getIdentifier("mediacontroller_time", "id", context.getPackageName()));
+        View v = LayoutInflater.from(getContext()).inflate(R.layout.mymdiacontroller, null, false);
         return v;
 
     }
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
-//        System.out.println("MYApp-MyMediaController-dispatchKeyEvent");
         return true;
     }
 
@@ -99,6 +74,7 @@ public class MyMediaController extends MediaController {
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
             return super.onScroll(e1, e2, distanceX, distanceY);
         }
+
         //双击暂停或开始
         @Override
         public boolean onDoubleTap(MotionEvent e) {
@@ -106,21 +82,18 @@ public class MyMediaController extends MediaController {
             return true;
         }
     }
-    //设置时间
-    public void setTime(String time){
-        if (textViewTime != null)
-            textViewTime.setText(time);
-    }
+
     //隐藏/显示
-    private void toggleMediaControlsVisiblity(){
+    private void toggleMediaControlsVisiblity() {
         if (isShowing()) {
             hide();
         } else {
             show();
         }
     }
+
     //播放与暂停
-    private void playOrPause(){
+    private void playOrPause() {
         if (videoView != null)
             if (videoView.isPlaying()) {
                 videoView.pause();
@@ -128,5 +101,4 @@ public class MyMediaController extends MediaController {
                 videoView.start();
             }
     }
-
 }
