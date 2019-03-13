@@ -11,7 +11,7 @@ import io.vov.vitamio.widget.VideoView;
 
 public class MainActivity extends BaseActivity implements MediaPlayer.OnInfoListener, MediaPlayer.OnBufferingUpdateListener {
 
-    private String path = "http://gslb.miaopai.com/stream/3D~8BM-7CZqjZscVBEYr5g__.mp4";
+    private String path = "https://media.w3.org/2010/05/sintel/trailer.mp4";
     private VideoView mVideoView;
     private MyMediaController myMediaController;
 
@@ -34,7 +34,6 @@ public class MainActivity extends BaseActivity implements MediaPlayer.OnInfoList
         //创建控制器
         myMediaController = new MyMediaController(this,mVideoView,this);
         //设置控制器
-        mVideoView.setMediaController(null);
         mVideoView.setMediaController(new MediaController(this));
         mVideoView.requestFocus();
         mVideoView.setOnInfoListener(this);
