@@ -12,7 +12,7 @@ import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 
 public class MainActivity extends BaseActivity {
 
-    StandardGSYVideoPlayer videoPlayer;
+    MyVideoView videoPlayer;
     OrientationUtils orientationUtils;
 
     @Override
