@@ -2,7 +2,10 @@ package com.wj.myapplication;
 
 import android.app.Application;
 
+import com.shuyu.gsyvideoplayer.player.PlayerFactory;
 import com.tencent.bugly.Bugly;
+
+import tv.danmaku.ijk.media.exo2.Exo2PlayerManager;
 
 /**
  * author wangjing
@@ -14,5 +17,6 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Bugly.init(getApplicationContext(), "9c59c60539", false);
+        PlayerFactory.setPlayManager(Exo2PlayerManager.class);//EXO模式
     }
 }
