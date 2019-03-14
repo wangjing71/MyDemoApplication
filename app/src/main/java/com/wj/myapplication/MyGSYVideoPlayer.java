@@ -118,7 +118,7 @@ public class MyGSYVideoPlayer extends GSYVideoPlayer {
      */
     @Override
     public int getLayoutId() {
-        return R.layout.video_layout_standard;
+        return R.layout.video_layout_my;
     }
 
     /**
