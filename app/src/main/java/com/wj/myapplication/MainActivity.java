@@ -34,7 +34,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initData() {
         String source1 = "http://192.168.3.100:8080/aaa.mp4";
-        videoPlayer.setUp(source1, true, "测试视频");
+        videoPlayer.setUp(source1, true, "");
 
         //增加封面
         ImageView imageView = new ImageView(this);
