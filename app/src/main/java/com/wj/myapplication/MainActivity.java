@@ -42,12 +42,10 @@ public class MainActivity extends BaseActivity {
         imageView.setImageResource(R.mipmap.ic_launcher);
         videoPlayer.setThumbImageView(imageView);
         videoPlayer.setSpeed(1.0f);
-        //设置旋转
         orientationUtils = new OrientationUtils(this, videoPlayer);
-        //设置全屏按键功能,这是使用的是选择屏幕，而不是全屏
-        //是否可以滑动调整
         videoPlayer.setIsTouchWiget(true);
         videoPlayer.startPlayLogic();
+
     }
 
 
