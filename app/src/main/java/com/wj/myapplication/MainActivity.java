@@ -3,17 +3,15 @@ package com.wj.myapplication;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
-import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 
 
 public class MainActivity extends BaseActivity {
 
-    StandardGSYVideoPlayer videoPlayer;
+    MyGSYVideoPlayer videoPlayer;
 
     OrientationUtils orientationUtils;
 
@@ -30,7 +28,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        videoPlayer =  (StandardGSYVideoPlayer)findViewById(R.id.video_player);
+        videoPlayer =  findViewById(R.id.video_player);
     }
 
     @Override

@@ -5,10 +5,9 @@
     android:layout_height="match_parent"
     android:background="#000000">
 
-    <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
+    <com.wj.myapplication.MyGSYVideoPlayer
         android:id="@+id/video_player"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true" />
-
 </RelativeLayout>
