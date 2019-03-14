@@ -29,8 +29,19 @@ android {
     }
 }
 
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '28.0.0'
+            }
+        }
+    }
+}
+
 dependencies {
-    final ANDROID_SUPPORT = '27.+'
+    final ANDROID_SUPPORT = '28.+'
     implementation "com.android.support:preference-v7:$ANDROID_SUPPORT"
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0'
