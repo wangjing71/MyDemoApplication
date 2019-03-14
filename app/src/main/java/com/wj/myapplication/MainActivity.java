@@ -7,8 +7,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
+import com.shuyu.gsyvideoplayer.player.PlayerFactory;
+import com.shuyu.gsyvideoplayer.player.SystemPlayerManager;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
+
+import tv.danmaku.ijk.media.exo2.Exo2PlayerManager;
 
 
 public class MainActivity extends BaseActivity {
@@ -36,13 +40,14 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initData() {
         String source1 = "http://192.168.3.100:8080/aaa.mp4";
-        videoPlayer.setUp(source1, true, "测试视频");
-
+        videoPlayer.setUp(source1, true, "WWWWW");
         //增加封面
         ImageView imageView = new ImageView(this);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         imageView.setImageResource(R.mipmap.ic_launcher);
         videoPlayer.setThumbImageView(imageView);
+        videoPlayer.setHideKey(false);
+        videoPlayer.setDismissControlTime(0);
         //增加title
         videoPlayer.getTitleTextView().setVisibility(View.VISIBLE);
         //设置返回键
