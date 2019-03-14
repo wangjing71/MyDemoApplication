@@ -46,6 +46,7 @@ public class MainActivity extends BaseActivity {
         //增加title
         videoPlayer.getTitleTextView().setVisibility(View.VISIBLE);
         //设置返回键
+        videoPlayer.setSpeed(1.0f);
         videoPlayer.getBackButton().setVisibility(View.VISIBLE);
         //设置旋转
         orientationUtils = new OrientationUtils(this, videoPlayer);
