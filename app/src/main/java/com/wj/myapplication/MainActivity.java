@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.Vitamio;
+import io.vov.vitamio.utils.Log;
 import io.vov.vitamio.widget.MediaController;
 import io.vov.vitamio.widget.VideoView;
 
@@ -32,17 +33,28 @@ public class MainActivity extends BaseActivity implements MediaPlayer.OnInfoList
         Uri uri = Uri.parse(path);
         mVideoView.setVideoURI(uri);
         //创建控制器
-        myMediaController = new MyMediaController(this,mVideoView);
+        myMediaController = new MyMediaController(this, mVideoView);
         //设置控制器
 //        mVideoView.setMediaController(myMediaController);
-        mVideoView.setMediaController(new MediaController(this));
+        mVideoView.setMediaController(new MediaController(this) {
+        });
         mVideoView.requestFocus();
         mVideoView.setOnInfoListener(this);
+        mVideoView.setBufferSize(10240); //设置视频缓冲大小
         mVideoView.setOnBufferingUpdateListener(this);
+        mVideoView.setOnTimedTextListener(new MediaPlayer.OnTimedTextListener() {
+            @Override
+            public void onTimedText(String text) {
+                Log.i("onTimedText",text);
+            }
+
+            @Override
+            public void onTimedTextUpdate(byte[] pixels, int width, int height) {
+            }
+        });
         mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mediaPlayer) {
-                // optional need Vitamio 4.0
                 mediaPlayer.setPlaybackSpeed(1.0f);
             }
         });
@@ -69,14 +81,17 @@ public class MainActivity extends BaseActivity implements MediaPlayer.OnInfoList
     @Override
     public boolean onInfo(MediaPlayer mp, int what, int extra) {
         switch (what) {
+            //开始缓冲
             case MediaPlayer.MEDIA_INFO_BUFFERING_START:
                 if (mVideoView.isPlaying()) {
                     mVideoView.pause();
                 }
                 break;
             case MediaPlayer.MEDIA_INFO_BUFFERING_END:
+                //缓冲结束
                 mVideoView.start();
                 break;
+            //正在缓冲
             case MediaPlayer.MEDIA_INFO_DOWNLOAD_RATE_CHANGED:
                 break;
         }
