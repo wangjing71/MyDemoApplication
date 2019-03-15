@@ -75,6 +75,8 @@ public class MyGSYVideoPlayer extends GSYVideoPlayer {
 
     protected int mDialogProgressNormalColor = -11;
 
+    onPlayListener onPlayListener;
+
     /**
      * 1.5.0开始加入，如果需要不同布局区分功能，需要重载
      */
@@ -109,6 +111,10 @@ public class MyGSYVideoPlayer extends GSYVideoPlayer {
             mProgressBar.setThumb(mBottomShowProgressThumbDrawable);
         }
 
+    }
+
+    public void setOnPlayListener(MyGSYVideoPlayer.onPlayListener onPlayListener) {
+        this.onPlayListener = onPlayListener;
     }
 
     /**
@@ -869,5 +875,9 @@ public class MyGSYVideoPlayer extends GSYVideoPlayer {
     public void restartTimerTask() {
         startProgressTimer();
         startDismissControlViewTimer();
+    }
+
+    interface onPlayListener{
+        void play(int position);
     }
 }

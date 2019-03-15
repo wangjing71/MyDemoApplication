@@ -44,7 +44,7 @@ public class MainActivity extends BaseActivity {
         orientationUtils = new OrientationUtils(this, videoPlayer);
         videoPlayer.setIsTouchWiget(true);
         videoPlayer.startPlayLogic();
-
+        videoPlayer.getDuration();
     }
 
 
