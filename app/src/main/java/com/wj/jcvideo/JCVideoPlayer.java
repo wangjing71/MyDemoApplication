@@ -77,11 +77,7 @@ public abstract class JCVideoPlayer extends FrameLayout implements View.OnClickL
     public Object[] objects = null;
     public int seekToInAdvance = 0;
 
-    public SeekBar progressBar;
-    public ImageView fullscreenButton;
-    public TextView currentTimeTextView, totalTimeTextView;
     public ViewGroup textureViewContainer;
-    public ViewGroup  bottomContainer;
 
     protected static JCUserAction JC_USER_EVENT;
     protected static Timer UPDATE_PROGRESS_TIMER;
@@ -113,16 +109,8 @@ public abstract class JCVideoPlayer extends FrameLayout implements View.OnClickL
 
     public void init(Context context) {
         View.inflate(context, getLayoutId(), this);
-        fullscreenButton = (ImageView) findViewById(R.id.fullscreen);
-        progressBar = (SeekBar) findViewById(R.id.progress);
-        currentTimeTextView = (TextView) findViewById(R.id.current);
-        totalTimeTextView = (TextView) findViewById(R.id.total);
-        bottomContainer = (ViewGroup) findViewById(R.id.layout_bottom);
         textureViewContainer = (ViewGroup) findViewById(R.id.surface_container);
 
-        fullscreenButton.setOnClickListener(this);
-        progressBar.setOnSeekBarChangeListener(this);
-        bottomContainer.setOnClickListener(this);
         textureViewContainer.setOnClickListener(this);
         textureViewContainer.setOnTouchListener(this);
 
@@ -145,17 +133,7 @@ public abstract class JCVideoPlayer extends FrameLayout implements View.OnClickL
     @Override
     public void onClick(View v) {
         int i = v.getId();
-        if (i == R.id.fullscreen) {
-            Log.i(TAG, "onClick fullscreen [" + this.hashCode() + "] ");
-            if (currentState == CURRENT_STATE_AUTO_COMPLETE) return;
-            if (currentScreen == SCREEN_WINDOW_FULLSCREEN) {
-                backPress();
-            } else {
-                Log.d(TAG, "toFullscreenActivity [" + this.hashCode() + "] ");
-                onEvent(JCUserAction.ON_ENTER_FULLSCREEN);
-                startWindowFullscreen();
-            }
-        } else if (i == R.id.surface_container && currentState == CURRENT_STATE_ERROR) {
+        if (i == R.id.surface_container && currentState == CURRENT_STATE_ERROR) {
             Log.i(TAG, "onClick surfaceContainer State=Error [" + this.hashCode() + "] ");
             prepareMediaPlayer();
         }
@@ -246,7 +224,6 @@ public abstract class JCVideoPlayer extends FrameLayout implements View.OnClickL
                         JCMediaManager.instance().mediaPlayer.seekTo(mSeekTimePosition);
                         int duration = getDuration();
                         int progress = mSeekTimePosition * 100 / (duration == 0 ? 1 : duration);
-                        progressBar.setProgress(progress);
                     }
                     if (mChangeVolume) {
                         onEvent(JCUserAction.ON_TOUCH_SCREEN_SEEK_VOLUME);
@@ -302,8 +279,6 @@ public abstract class JCVideoPlayer extends FrameLayout implements View.OnClickL
                 break;
             case CURRENT_STATE_AUTO_COMPLETE:
                 cancelProgressTimer();
-                progressBar.setProgress(100);
-                currentTimeTextView.setText(totalTimeTextView.getText());
                 break;
         }
     }
@@ -644,35 +619,15 @@ public abstract class JCVideoPlayer extends FrameLayout implements View.OnClickL
     }
 
     public void setProgressAndText() {
-        int position = getCurrentPositionWhenPlaying();
-        int duration = getDuration();
-        int progress = position * 100 / (duration == 0 ? 1 : duration);
-        if (!mTouchingProgressBar) {
-            if (progress != 0) progressBar.setProgress(progress);
-        }
-        if (position != 0) currentTimeTextView.setText(JCUtils.stringForTime(position));
-        totalTimeTextView.setText(JCUtils.stringForTime(duration));
     }
 
     public void setBufferProgress(int bufferProgress) {
 //        int percent = progressBarValue(bufferProgress);
 //        if (percent > 95) percent = 100;
-        if (bufferProgress != 0) progressBar.setSecondaryProgress(bufferProgress);
     }
 
     public void resetProgressAndTime() {
-        progressBar.setProgress(0);
-        progressBar.setSecondaryProgress(0);
-        currentTimeTextView.setText(JCUtils.stringForTime(0));
-        totalTimeTextView.setText(JCUtils.stringForTime(0));
     }
-
-//    private int progressBarValue(long position) {
-//        long duration = JCMediaManager.instance().mediaPlayer == null ?
-//                C.TIME_UNSET : JCMediaManager.instance().mediaPlayer.getDuration();
-//        return duration == C.TIME_UNSET || duration == 0 ? 0
-//                : (int) ((position * 100) / duration);
-//    }
 
     public static AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener = new AudioManager.OnAudioFocusChangeListener() {
         @Override
