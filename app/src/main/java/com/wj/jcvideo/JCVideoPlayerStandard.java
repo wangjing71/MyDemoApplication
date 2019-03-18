@@ -32,7 +32,7 @@ public class JCVideoPlayerStandard extends JCVideoPlayer {
     protected static Timer DISMISS_CONTROL_VIEW_TIMER;
 
     public ImageView backButton;
-    public ProgressBar bottomProgressBar, loadingProgressBar;
+    public ProgressBar bottomProgressBar;
     public TextView titleTextView;
     public ImageView thumbImageView;
     public ImageView tinyBackImageView;
@@ -56,7 +56,6 @@ public class JCVideoPlayerStandard extends JCVideoPlayer {
         titleTextView = (TextView) findViewById(R.id.title);
         backButton = (ImageView) findViewById(R.id.back);
         thumbImageView = (ImageView) findViewById(R.id.thumb);
-        loadingProgressBar = (ProgressBar) findViewById(R.id.loading);
         tinyBackImageView = (ImageView) findViewById(R.id.back_tiny);
 
         thumbImageView.setOnClickListener(this);
@@ -520,7 +519,6 @@ public class JCVideoPlayerStandard extends JCVideoPlayer {
                                       int thumbImg, int coverImg, int bottomPro) {
         topContainer.setVisibility(topCon);
         bottomContainer.setVisibility(bottomCon);
-        loadingProgressBar.setVisibility(loadingPro);
         thumbImageView.setVisibility(thumbImg);
         bottomProgressBar.setVisibility(bottomPro);
     }

@@ -723,10 +723,6 @@ public abstract class JCVideoPlayer extends FrameLayout implements View.OnClickL
                 && JCVideoPlayerManager.getCurrentJcvd() == this;
     }
 
-//    public boolean isCurrenPlayingUrl() {
-//        return url.equals(JCMediaManager.CURRENT_PLAYING_URL);
-//    }
-
     public static void releaseAllVideos() {
         if ((System.currentTimeMillis() - CLICK_QUIT_FULLSCREEN_TIME) > FULL_SCREEN_NORMAL_DELAY) {
             Log.d(TAG, "releaseAllVideos");
