@@ -604,7 +604,7 @@ public class JCVideoPlayerStandard extends JCVideoPlayer {
         }
     }
 
-    interface onPlayListener{
+    public interface onPlayListener{
         void startPre();
         void startPly();
         void playComplete();

@@ -3,8 +3,6 @@ package com.wj.myapplication;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.wj.jcvideo.JCUserAction;
-import com.wj.jcvideo.JCUserActionStandard;
 import com.wj.jcvideo.JCVideoPlayerStandard;
 
 
@@ -35,6 +33,22 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setEvent() {
+        jcVideoPlayerStandard.setOnPlayListener(new JCVideoPlayerStandard.onPlayListener() {
+            @Override
+            public void startPre() {
+                Log.i("====","startPre");
+            }
+
+            @Override
+            public void startPly() {
+                Log.i("====","startPly");
+            }
+
+            @Override
+            public void playComplete() {
+                Log.i("====","playComplete");
+            }
+        });
     }
 
     @Override
