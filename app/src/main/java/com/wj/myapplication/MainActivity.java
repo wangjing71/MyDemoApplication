@@ -32,7 +32,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        String source1 = "http://192.168.3.100:8080/aaa.mp4";
+        String source1 = "http://www.jmzsjy.com/UploadFile/微课/地方风味小吃——宫廷香酥牛肉饼.mp4";
         videoPlayer.setUp(source1, true, "");
 
         //增加封面
