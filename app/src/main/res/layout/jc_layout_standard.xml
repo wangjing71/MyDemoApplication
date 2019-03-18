@@ -90,9 +90,10 @@
         android:layout_marginLeft="6dp"
         android:layout_marginTop="6dp"
         android:background="@drawable/jc_click_back_tiny_selector"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <LinearLayout
+        android:visibility="gone"
         android:id="@+id/layout_top"
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -123,9 +124,10 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:indeterminateDrawable="@drawable/jc_loading"
-        android:visibility="invisible" />
+        android:visibility="gone" />
 
     <ImageView
+        android:visibility="gone"
         android:id="@+id/start"
         android:layout_width="60dp"
         android:layout_height="60dp"
