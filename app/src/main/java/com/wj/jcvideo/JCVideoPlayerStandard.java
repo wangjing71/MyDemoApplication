@@ -520,20 +520,12 @@ public class JCVideoPlayerStandard extends JCVideoPlayer {
                                       int thumbImg, int coverImg, int bottomPro) {
         topContainer.setVisibility(topCon);
         bottomContainer.setVisibility(bottomCon);
-        startButton.setVisibility(startBtn);
         loadingProgressBar.setVisibility(loadingPro);
         thumbImageView.setVisibility(thumbImg);
         bottomProgressBar.setVisibility(bottomPro);
     }
 
     public void updateStartImage() {
-        if (currentState == CURRENT_STATE_PLAYING) {
-            startButton.setImageResource(R.drawable.jc_click_pause_selector);
-        } else if (currentState == CURRENT_STATE_ERROR) {
-            startButton.setImageResource(R.drawable.jc_click_error_selector);
-        } else {
-            startButton.setImageResource(R.drawable.jc_click_play_selector);
-        }
     }
 
 
@@ -652,7 +644,6 @@ public class JCVideoPlayerStandard extends JCVideoPlayer {
                         public void run() {
                             bottomContainer.setVisibility(View.INVISIBLE);
                             topContainer.setVisibility(View.INVISIBLE);
-                            startButton.setVisibility(View.INVISIBLE);
                             if (currentScreen != SCREEN_WINDOW_TINY) {
                                 bottomProgressBar.setVisibility(View.VISIBLE);
                             }

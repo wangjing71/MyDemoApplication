@@ -77,7 +77,6 @@ public abstract class JCVideoPlayer extends FrameLayout implements View.OnClickL
     public Object[] objects = null;
     public int seekToInAdvance = 0;
 
-    public ImageView startButton;
     public SeekBar progressBar;
     public ImageView fullscreenButton;
     public TextView currentTimeTextView, totalTimeTextView;
@@ -114,7 +113,6 @@ public abstract class JCVideoPlayer extends FrameLayout implements View.OnClickL
 
     public void init(Context context) {
         View.inflate(context, getLayoutId(), this);
-        startButton = (ImageView) findViewById(R.id.start);
         fullscreenButton = (ImageView) findViewById(R.id.fullscreen);
         progressBar = (SeekBar) findViewById(R.id.progress);
         currentTimeTextView = (TextView) findViewById(R.id.current);
@@ -123,7 +121,6 @@ public abstract class JCVideoPlayer extends FrameLayout implements View.OnClickL
         textureViewContainer = (ViewGroup) findViewById(R.id.surface_container);
         topContainer = (ViewGroup) findViewById(R.id.layout_top);
 
-        startButton.setOnClickListener(this);
         fullscreenButton.setOnClickListener(this);
         progressBar.setOnSeekBarChangeListener(this);
         bottomContainer.setOnClickListener(this);
@@ -149,33 +146,7 @@ public abstract class JCVideoPlayer extends FrameLayout implements View.OnClickL
     @Override
     public void onClick(View v) {
         int i = v.getId();
-        if (i == R.id.start) {
-            Log.i(TAG, "onClick start [" + this.hashCode() + "] ");
-            if (TextUtils.isEmpty(url)) {
-                Toast.makeText(getContext(), getResources().getString(R.string.no_url), Toast.LENGTH_SHORT).show();
-                return;
-            }
-            if (currentState == CURRENT_STATE_NORMAL || currentState == CURRENT_STATE_ERROR) {
-                if (!url.startsWith("file") && !JCUtils.isWifiConnected(getContext()) && !WIFI_TIP_DIALOG_SHOWED) {
-                    showWifiDialog();
-                    return;
-                }
-                prepareMediaPlayer();
-                onEvent(currentState != CURRENT_STATE_ERROR ? JCUserAction.ON_CLICK_START_ICON : JCUserAction.ON_CLICK_START_ERROR);
-            } else if (currentState == CURRENT_STATE_PLAYING) {
-                onEvent(JCUserAction.ON_CLICK_PAUSE);
-                Log.d(TAG, "pauseVideo [" + this.hashCode() + "] ");
-                JCMediaManager.instance().mediaPlayer.pause();
-                setUiWitStateAndScreen(CURRENT_STATE_PAUSE);
-            } else if (currentState == CURRENT_STATE_PAUSE) {
-                onEvent(JCUserAction.ON_CLICK_RESUME);
-                JCMediaManager.instance().mediaPlayer.start();
-                setUiWitStateAndScreen(CURRENT_STATE_PLAYING);
-            } else if (currentState == CURRENT_STATE_AUTO_COMPLETE) {
-                onEvent(JCUserAction.ON_CLICK_START_AUTO_COMPLETE);
-                prepareMediaPlayer();
-            }
-        } else if (i == R.id.fullscreen) {
+        if (i == R.id.fullscreen) {
             Log.i(TAG, "onClick fullscreen [" + this.hashCode() + "] ");
             if (currentState == CURRENT_STATE_AUTO_COMPLETE) return;
             if (currentScreen == SCREEN_WINDOW_FULLSCREEN) {
@@ -771,34 +742,6 @@ public abstract class JCVideoPlayer extends FrameLayout implements View.OnClickL
     public void onEvent(int type) {
         if (JC_USER_EVENT != null && isCurrentJcvd()) {
             JC_USER_EVENT.onEvent(type, url, currentScreen, objects);
-        }
-    }
-
-    public static void startFullscreen(Context context, Class _class, String url, Object... objects) {
-        hideSupportActionBar(context);
-        JCUtils.getAppCompActivity(context).setRequestedOrientation(FULLSCREEN_ORIENTATION);
-        ViewGroup vp = (ViewGroup) (JCUtils.scanForActivity(context))//.getWindow().getDecorView();
-                .findViewById(Window.ID_ANDROID_CONTENT);
-        View old = vp.findViewById(JCVideoPlayer.FULLSCREEN_ID);
-        if (old != null) {
-            vp.removeView(old);
-        }
-        try {
-            Constructor<JCVideoPlayer> constructor = _class.getConstructor(Context.class);
-            final JCVideoPlayer jcVideoPlayer = constructor.newInstance(context);
-            jcVideoPlayer.setId(JCVideoPlayer.FULLSCREEN_ID);
-            LayoutParams lp = new LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-            vp.addView(jcVideoPlayer, lp);
-//            final Animation ra = AnimationUtils.loadAnimation(context, R.anim.start_fullscreen);
-//            jcVideoPlayer.setAnimation(ra);
-            jcVideoPlayer.setUp(url, JCVideoPlayerStandard.SCREEN_WINDOW_FULLSCREEN, objects);
-            CLICK_QUIT_FULLSCREEN_TIME = System.currentTimeMillis();
-            jcVideoPlayer.startButton.performClick();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
