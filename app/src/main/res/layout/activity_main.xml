@@ -6,6 +6,7 @@
     tools:context="com.wj.myapplication.MainActivity">
 
     <com.wj.jcvideo.JCVideoPlayerStandard
+        android:layout_centerInParent="true"
         android:id="@+id/videoplayer"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
