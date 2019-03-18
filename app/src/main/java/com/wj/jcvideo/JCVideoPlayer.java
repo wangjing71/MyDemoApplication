@@ -81,7 +81,7 @@ public abstract class JCVideoPlayer extends FrameLayout implements View.OnClickL
     public ImageView fullscreenButton;
     public TextView currentTimeTextView, totalTimeTextView;
     public ViewGroup textureViewContainer;
-    public ViewGroup topContainer, bottomContainer;
+    public ViewGroup  bottomContainer;
 
     protected static JCUserAction JC_USER_EVENT;
     protected static Timer UPDATE_PROGRESS_TIMER;
@@ -119,7 +119,6 @@ public abstract class JCVideoPlayer extends FrameLayout implements View.OnClickL
         totalTimeTextView = (TextView) findViewById(R.id.total);
         bottomContainer = (ViewGroup) findViewById(R.id.layout_bottom);
         textureViewContainer = (ViewGroup) findViewById(R.id.surface_container);
-        topContainer = (ViewGroup) findViewById(R.id.layout_top);
 
         fullscreenButton.setOnClickListener(this);
         progressBar.setOnSeekBarChangeListener(this);

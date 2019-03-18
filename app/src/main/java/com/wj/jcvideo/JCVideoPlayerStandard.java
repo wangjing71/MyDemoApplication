@@ -55,7 +55,6 @@ public class JCVideoPlayerStandard extends JCVideoPlayer {
         super.init(context);
         bottomProgressBar = (ProgressBar) findViewById(R.id.bottom_progressbar);
         titleTextView = (TextView) findViewById(R.id.title);
-        backButton = (ImageView) findViewById(R.id.back);
         thumbImageView = (ImageView) findViewById(R.id.thumb);
         tinyBackImageView = (ImageView) findViewById(R.id.back_tiny);
 
@@ -187,15 +186,7 @@ public class JCVideoPlayerStandard extends JCVideoPlayer {
             }
         } else if (i == R.id.surface_container) {
             startDismissControlViewTimer();
-        } else if (i == R.id.back) {
-            backPress();
         } else if (i == R.id.back_tiny) {
-//            if (JCVideoPlayerManager.getCurrentJcvd() != null) {
-//                if (JCVideoPlayerManager.getCurrentJcvd().getUrl() != JCMediaManager.CURRENT_PLAYING_URL) {
-//                    releaseAllVideos();
-//                    return;
-//                }
-//            }
             backPress();
         }
     }
@@ -525,7 +516,6 @@ public class JCVideoPlayerStandard extends JCVideoPlayer {
 
     public void setAllControlsVisible(int topCon, int bottomCon, int startBtn, int loadingPro,
                                       int thumbImg, int coverImg, int bottomPro) {
-        topContainer.setVisibility(topCon);
         bottomContainer.setVisibility(bottomCon);
         thumbImageView.setVisibility(thumbImg);
         bottomProgressBar.setVisibility(bottomPro);
@@ -649,7 +639,6 @@ public class JCVideoPlayerStandard extends JCVideoPlayer {
                         @Override
                         public void run() {
                             bottomContainer.setVisibility(View.INVISIBLE);
-                            topContainer.setVisibility(View.INVISIBLE);
                             if (currentScreen != SCREEN_WINDOW_TINY) {
                                 bottomProgressBar.setVisibility(View.VISIBLE);
                             }
