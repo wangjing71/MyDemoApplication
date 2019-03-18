@@ -35,7 +35,11 @@ public class JCVideoPlayerStandard extends JCVideoPlayer {
     public ProgressBar bottomProgressBar;
     public ImageView thumbImageView;
     public ImageView tinyBackImageView;
+    private onPlayListener onPlayListener;
 
+    public void setOnPlayListener(JCVideoPlayerStandard.onPlayListener onPlayListener) {
+        this.onPlayListener = onPlayListener;
+    }
 
     protected DismissControlViewTimerTask mDismissControlViewTimerTask;
 
@@ -87,36 +91,38 @@ public class JCVideoPlayerStandard extends JCVideoPlayer {
         switch (currentState) {
             case CURRENT_STATE_NORMAL:
                 changeUiToNormal();
-                Log.i("====","changeUiToNormal");
                 break;
             case CURRENT_STATE_PREPARING:
                 changeUiToPreparingShow();
                 startDismissControlViewTimer();
-                Log.i("====","CURRENT_STATE_PREPARING");
+                if(onPlayListener!=null){
+                    onPlayListener.startPre();
+                }
                 break;
             case CURRENT_STATE_PLAYING:
                 changeUiToPlayingShow();
                 startDismissControlViewTimer();
-                Log.i("====","CURRENT_STATE_PLAYING");
+                if(onPlayListener!=null){
+                    onPlayListener.startPly();
+                }
                 break;
             case CURRENT_STATE_PAUSE:
                 changeUiToPauseShow();
                 cancelDismissControlViewTimer();
-                Log.i("====","CURRENT_STATE_PAUSE");
                 break;
             case CURRENT_STATE_ERROR:
                 changeUiToError();
-                Log.i("====","CURRENT_STATE_ERROR");
                 break;
             case CURRENT_STATE_AUTO_COMPLETE:
                 changeUiToCompleteShow();
                 cancelDismissControlViewTimer();
                 bottomProgressBar.setProgress(100);
-                Log.i("====","CURRENT_STATE_AUTO_COMPLETE");
+                if(onPlayListener!=null){
+                    onPlayListener.playComplete();
+                }
                 break;
             case CURRENT_STATE_PLAYING_BUFFERING_START:
                 changeUiToPlayingBufferingShow();
-                Log.i("====","CURRENT_STATE_PLAYING_BUFFERING_START");
                 break;
         }
     }
@@ -596,5 +602,11 @@ public class JCVideoPlayerStandard extends JCVideoPlayer {
                 }
             }
         }
+    }
+
+    interface onPlayListener{
+        void startPre();
+        void startPly();
+        void playComplete();
     }
 }
