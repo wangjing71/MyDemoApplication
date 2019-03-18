@@ -112,10 +112,6 @@ public abstract class JCVideoPlayer extends FrameLayout implements View.OnClickL
         init(context);
     }
 
-    public void play(){
-        startButton.performClick();
-    }
-
     public void init(Context context) {
         View.inflate(context, getLayoutId(), this);
         startButton = (ImageView) findViewById(R.id.start);
