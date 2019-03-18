@@ -2,6 +2,7 @@ package com.wj.myapplication;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.wj.jcvideo.JCVideoPlayerStandard;
 
@@ -9,6 +10,7 @@ import com.wj.jcvideo.JCVideoPlayerStandard;
 public class MainActivity extends BaseActivity {
 
     private JCVideoPlayerStandard jcVideoPlayerStandard;
+    private View bacView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         jcVideoPlayerStandard = findViewById(R.id.videoplayer);
+        bacView = findViewById(R.id.bac);
     }
 
     @Override
@@ -42,6 +45,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void startPly() {
                 Log.i("====","startPly");
+                bacView.setVisibility(View.GONE);
             }
 
             @Override
