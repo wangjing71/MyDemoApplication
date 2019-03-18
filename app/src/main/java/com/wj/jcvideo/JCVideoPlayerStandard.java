@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -96,29 +97,36 @@ public class JCVideoPlayerStandard extends JCVideoPlayer {
         switch (currentState) {
             case CURRENT_STATE_NORMAL:
                 changeUiToNormal();
+                Log.i("====","changeUiToNormal");
                 break;
             case CURRENT_STATE_PREPARING:
                 changeUiToPreparingShow();
                 startDismissControlViewTimer();
+                Log.i("====","CURRENT_STATE_PREPARING");
                 break;
             case CURRENT_STATE_PLAYING:
                 changeUiToPlayingShow();
                 startDismissControlViewTimer();
+                Log.i("====","CURRENT_STATE_PLAYING");
                 break;
             case CURRENT_STATE_PAUSE:
                 changeUiToPauseShow();
                 cancelDismissControlViewTimer();
+                Log.i("====","CURRENT_STATE_PAUSE");
                 break;
             case CURRENT_STATE_ERROR:
                 changeUiToError();
+                Log.i("====","CURRENT_STATE_ERROR");
                 break;
             case CURRENT_STATE_AUTO_COMPLETE:
                 changeUiToCompleteShow();
                 cancelDismissControlViewTimer();
                 bottomProgressBar.setProgress(100);
+                Log.i("====","CURRENT_STATE_AUTO_COMPLETE");
                 break;
             case CURRENT_STATE_PLAYING_BUFFERING_START:
                 changeUiToPlayingBufferingShow();
+                Log.i("====","CURRENT_STATE_PLAYING_BUFFERING_START");
                 break;
         }
     }
