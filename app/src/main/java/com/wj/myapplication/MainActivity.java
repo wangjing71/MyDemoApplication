@@ -13,7 +13,7 @@ public class MainActivity extends BaseActivity {
 
     private JCVideoPlayerStandard jcVideoPlayerStandard;
     private View bacView;
-    private Button btn;
+    private Button btn,btn1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,7 @@ public class MainActivity extends BaseActivity {
         jcVideoPlayerStandard = findViewById(R.id.videoplayer);
         bacView = findViewById(R.id.bac);
         btn = findViewById(R.id.btn);
+        btn1 = findViewById(R.id.btn1);
     }
 
     @Override
@@ -62,6 +63,13 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 JCMediaManager.instance().mediaPlayer.pause();
+            }
+        });
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                JCMediaManager.instance().mediaPlayer.start();
             }
         });
     }
