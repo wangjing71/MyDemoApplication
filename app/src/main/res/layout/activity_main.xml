@@ -8,5 +8,5 @@
     <com.wj.jcvideo.JCVideoPlayerStandard
         android:id="@+id/videoplayer"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="match_parent" />
 </RelativeLayout>
