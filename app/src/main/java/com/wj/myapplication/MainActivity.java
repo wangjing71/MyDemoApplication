@@ -34,4 +34,10 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void setEvent() {
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        jcVideoPlayerStandard.releaseAllVideos();
+    }
 }
