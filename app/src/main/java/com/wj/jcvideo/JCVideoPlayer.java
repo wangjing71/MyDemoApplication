@@ -150,7 +150,6 @@ public abstract class JCVideoPlayer extends FrameLayout implements View.OnClickL
             Log.i(TAG, "onClick fullscreen [" + this.hashCode() + "] ");
             if (currentState == CURRENT_STATE_AUTO_COMPLETE) return;
             if (currentScreen == SCREEN_WINDOW_FULLSCREEN) {
-                //quit fullscreen
                 backPress();
             } else {
                 Log.d(TAG, "toFullscreenActivity [" + this.hashCode() + "] ");
@@ -267,7 +266,6 @@ public abstract class JCVideoPlayer extends FrameLayout implements View.OnClickL
     }
 
     public void addTextureView() {
-        Log.d(TAG, "addTextureView [" + this.hashCode() + "] ");
         LayoutParams layoutParams =
                 new LayoutParams(
                         ViewGroup.LayoutParams.MATCH_PARENT,
