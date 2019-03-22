@@ -43,7 +43,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-        installShortCut("我是创建的快捷方式",R.mipmap.ic_launcher,new Intent(this,MainActivity.class));
+        installShortCut("我是创建的快捷方式",R.mipmap.ic_launcher,new Intent(this,Main2Activity.class));
     }
 
     /**
