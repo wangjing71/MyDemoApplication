@@ -179,6 +179,8 @@ public class CrashHandlerUtil  implements Thread.UncaughtExceptionHandler{
         这个 crashInfo 就是我们收集到的所有信息，可以做一个异常上报的接口用来提交用户的crash信息
          */
         String crashInfo = sb.toString();
+        Log.i("====crash",crashInfo);
+
         FileWriter writer1;
         try {
             writer1 = new FileWriter(Environment.getExternalStorageDirectory()+"/crashlog.txt");
