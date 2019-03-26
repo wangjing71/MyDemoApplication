@@ -4,9 +4,13 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Environment;
 import android.os.Looper;
 import android.util.Log;
+import android.widget.Toast;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
@@ -106,6 +110,7 @@ public class CrashHandlerUtil  implements Thread.UncaughtExceptionHandler{
             public void run() {
                 Looper.prepare();
                 throwable.printStackTrace();
+                Toast.makeText(mContext, getCrashTip(), Toast.LENGTH_SHORT).show();
                 Looper.loop();
             }
         }.start();
@@ -170,16 +175,20 @@ public class CrashHandlerUtil  implements Thread.UncaughtExceptionHandler{
         printWriter.close();
         String result = writer.toString();
         sb.append(result);
-        if(BuildConfig.DEBUG) {
-            return null;
-        }
-
         /*
         这个 crashInfo 就是我们收集到的所有信息，可以做一个异常上报的接口用来提交用户的crash信息
          */
         String crashInfo = sb.toString();
-        Log.i("====crash",crashInfo);
-
+        FileWriter writer1;
+        try {
+            writer1 = new FileWriter(Environment.getExternalStorageDirectory()+"/crashlog.txt");
+            writer1.write("");//清空原文件内容
+            writer1.write(crashInfo);
+            writer1.flush();
+            writer1.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
