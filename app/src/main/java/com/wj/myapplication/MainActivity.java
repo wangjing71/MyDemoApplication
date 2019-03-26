@@ -1,13 +1,20 @@
 package com.wj.myapplication;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 
 public class MainActivity extends BaseActivity {
 
     private Button button;
+    private ExecutorService executorService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +34,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
+        executorService = Executors.newFixedThreadPool(3);
     }
 
     @Override
@@ -41,6 +48,16 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Log.i("=====",Thread.currentThread().getName());
+            }
+        });
     }
 }
