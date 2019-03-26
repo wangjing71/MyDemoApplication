@@ -1,10 +1,16 @@
 package com.wj.myapplication;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -13,6 +19,7 @@ public class MainActivity extends BaseActivity {
 
     private Button button;
     private ExecutorService executorService;
+    private int count = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,22 +47,36 @@ public class MainActivity extends BaseActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                doSomeThing();
+                try {
+                    doSomeThing();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
 
-    private void doSomeThing() {
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+    private void doSomeThing() throws Exception {
+        count ++;
+        add1(Environment.getExternalStorageDirectory()+"/"+"network_log.txt",count+"");
+    }
+
+    public void add1(String fileName, String content) throws IOException {
+        FileWriter writer = null;
+        try {
+            // 打开一个写文件器，构造函数中的第二个参数true表示以追加形式写文件
+            writer = new FileWriter(fileName, true);
+            writer.write(content);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (writer != null) {
+                    writer.close();
                 }
-                Log.i("=====",Thread.currentThread().getName());
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        });
+        }
     }
 }
