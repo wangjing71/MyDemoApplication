@@ -48,26 +48,6 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-        Toast.makeText(this, isNavigationBarShow()+"", Toast.LENGTH_SHORT).show();
-    }
-
-    public boolean isNavigationBarShow(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            Display display = getWindowManager().getDefaultDisplay();
-            Point size = new Point();
-            Point realSize = new Point();
-            display.getSize(size);
-            display.getRealSize(realSize);
-            boolean  result  = realSize.y!=size.y;
-            return realSize.y!=size.y;
-        }else {
-            boolean menu = ViewConfiguration.get(this).hasPermanentMenuKey();
-            boolean back = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK);
-            if(menu || back) {
-                return false;
-            }else {
-                return true;
-            }
-        }
+        Toast.makeText(this, Utils.getBottomNavigatorHeight(this)+"_"+Utils.checkDeviceHasNavigationBar(this), Toast.LENGTH_SHORT).show();
     }
 }
