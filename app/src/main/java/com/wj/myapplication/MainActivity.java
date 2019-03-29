@@ -36,7 +36,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        jcVideoPlayerStandard.setUp("http://www.jmzsjy.com/UploadFile/微课/地方风味小吃——宫廷香酥牛肉饼.mp4", JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, "测试视频");
+        jcVideoPlayerStandard.setUp("http://192.168.3.100:8080/aaa.mp4", JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, "测试视频");
         jcVideoPlayerStandard.startPlayLogic();
     }
 

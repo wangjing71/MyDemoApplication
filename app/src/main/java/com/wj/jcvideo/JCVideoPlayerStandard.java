@@ -90,9 +90,11 @@ public class JCVideoPlayerStandard extends JCVideoPlayer {
         super.setUiWitStateAndScreen(state);
         switch (currentState) {
             case CURRENT_STATE_NORMAL:
+                Log.i("====","CURRENT_STATE_NORMAL");
                 changeUiToNormal();
                 break;
             case CURRENT_STATE_PREPARING:
+                Log.i("====","CURRENT_STATE_PREPARING");
                 changeUiToPreparingShow();
                 startDismissControlViewTimer();
                 if(onPlayListener!=null){
@@ -100,6 +102,7 @@ public class JCVideoPlayerStandard extends JCVideoPlayer {
                 }
                 break;
             case CURRENT_STATE_PLAYING:
+                Log.i("====","CURRENT_STATE_PLAYING");
                 changeUiToPlayingShow();
                 startDismissControlViewTimer();
                 if(onPlayListener!=null){
@@ -107,13 +110,16 @@ public class JCVideoPlayerStandard extends JCVideoPlayer {
                 }
                 break;
             case CURRENT_STATE_PAUSE:
+                Log.i("====","CURRENT_STATE_PAUSE");
                 changeUiToPauseShow();
                 cancelDismissControlViewTimer();
                 break;
             case CURRENT_STATE_ERROR:
+                Log.i("====","CURRENT_STATE_ERROR");
                 changeUiToError();
                 break;
             case CURRENT_STATE_AUTO_COMPLETE:
+                Log.i("====","CURRENT_STATE_AUTO_COMPLETE");
                 changeUiToCompleteShow();
                 cancelDismissControlViewTimer();
                 bottomProgressBar.setProgress(100);
@@ -122,6 +128,7 @@ public class JCVideoPlayerStandard extends JCVideoPlayer {
                 }
                 break;
             case CURRENT_STATE_PLAYING_BUFFERING_START:
+                Log.i("====","CURRENT_STATE_PLAYING_BUFFERING_START");
                 changeUiToPlayingBufferingShow();
                 break;
         }
