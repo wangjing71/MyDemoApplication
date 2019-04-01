@@ -11,6 +11,12 @@ import android.widget.Toast;
 import com.liulishuo.filedownloader.BaseDownloadTask;
 import com.liulishuo.filedownloader.FileDownloadListener;
 import com.liulishuo.filedownloader.FileDownloader;
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.model.Progress;
+import com.lzy.okgo.request.GetRequest;
+import com.lzy.okserver.OkDownload;
+import com.lzy.okserver.download.DownloadListener;
+import com.lzy.okserver.download.DownloadTask;
 
 import java.io.File;
 
@@ -20,6 +26,8 @@ import io.reactivex.functions.Consumer;
 public class MainActivity extends BaseActivity {
 
     private Button button;
+    private String str = "http://cdn.llsapp.com/android/LLS-v4.0-595-20160908-143200.apk";
+    private String str1 = "http://117.135.11.27:8049/sh_rest/httpservice/filedownload";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,15 +60,14 @@ public class MainActivity extends BaseActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                doSomeThing();
+//                doSomeThing();
+                downLoad();
             }
         });
     }
 
     private void doSomeThing() {
         FileDownloader.setup(this);
-        String str = "http://cdn.llsapp.com/android/LLS-v4.0-595-20160908-143200.apk";
-        String str1 = "http://117.135.11.27:8049/sh_rest/httpservice/filedownload";
         FileDownloader.getImpl().create(str)
                 .setPath(Environment.getExternalStorageDirectory().getPath()+ File.separator+"11.apk")
                 .setListener(new FileDownloadListener() {
@@ -109,5 +116,35 @@ public class MainActivity extends BaseActivity {
                         Log.i("====","warn");
                     }
                 }).start();
+    }
+
+    private void downLoad() {
+        GetRequest<File> request = OkGo.get(str1);
+        DownloadTask task = OkDownload.request(str1, request).save().register(new DownloadListener(this) {
+            @Override
+            public void onStart(Progress progress) {
+                Toast.makeText(MainActivity.this, "开始下载", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onProgress(Progress progress) {
+                Log.i("====",progress.fraction*100+" %");
+            }
+
+            @Override
+            public void onError(Progress progress) {
+            }
+
+            @Override
+            public void onFinish(File file, Progress progress) {
+                Toast.makeText(MainActivity.this, "下载完成", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onRemove(Progress progress) {
+
+            }
+        });
+        task.start();
     }
 }

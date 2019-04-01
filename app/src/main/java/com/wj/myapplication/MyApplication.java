@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.liulishuo.filedownloader.FileDownloader;
 import com.liulishuo.filedownloader.connection.FileDownloadUrlConnection;
+import com.lzy.okgo.OkGo;
 import com.tencent.bugly.Bugly;
 
 /**
@@ -16,5 +17,6 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 //        Bugly.init(getApplicationContext(), "9c59c60539", false);
+        OkGo.getInstance().init(this);
     }
 }
