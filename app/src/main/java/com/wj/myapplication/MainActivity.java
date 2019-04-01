@@ -66,7 +66,6 @@ public class MainActivity extends BaseActivity {
                     protected void pending(BaseDownloadTask task, int soFarBytes, int totalBytes) {
                         Log.i("====","pending");
                         Log.i("====","pending taskId:"+task.getId()+",fileName:"+task.getFilename()+",soFarBytes:"+soFarBytes+",totalBytes:"+totalBytes+",percent:"+soFarBytes*1.0/totalBytes);
-
                     }
 
                     @Override
