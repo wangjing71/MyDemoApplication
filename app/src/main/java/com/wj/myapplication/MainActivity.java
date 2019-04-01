@@ -63,11 +63,50 @@ public class MainActivity extends BaseActivity {
         String str1 = "http://117.135.11.27:8049/sh_rest/httpservice/filedownload";
         FileDownloader.getImpl().create(str)
                 .setPath(Environment.getExternalStorageDirectory().getPath()+ File.separator+"11.apk")
-                .setListener(new SimpleFileDownloadListener(){
+                .setListener(new FileDownloadListener() {
+                    @Override
+                    protected void pending(BaseDownloadTask task, int soFarBytes, int totalBytes) {
+                        Log.i("====","pending taskId:"+task.getId()+",fileName:"+task.getFilename()+",soFarBytes:"+soFarBytes+",totalBytes:"+totalBytes+",percent:"+soFarBytes*1.0/totalBytes);
+                    }
+
+                    @Override
+                    protected void connected(BaseDownloadTask task, String etag, boolean isContinue, int soFarBytes, int totalBytes) {
+                        Log.i("====","connected");
+                    }
+
                     @Override
                     protected void progress(BaseDownloadTask task, int soFarBytes, int totalBytes) {
-                        super.progress(task, soFarBytes, totalBytes);
-                        Log.i("====",task.getSpeed()+"");
+                        Log.i("====",String.format("%dKB/s", task.getSpeed()));
+                    }
+
+                    @Override
+                    protected void blockComplete(BaseDownloadTask task) {
+                        Log.i("====","blockComplete");
+                    }
+
+                    @Override
+                    protected void retry(final BaseDownloadTask task, final Throwable ex, final int retryingTimes, final int soFarBytes) {
+                        Log.i("====","retry");
+                    }
+
+                    @Override
+                    protected void completed(BaseDownloadTask task) {
+                        Log.i("====","completed");
+                    }
+
+                    @Override
+                    protected void paused(BaseDownloadTask task, int soFarBytes, int totalBytes) {
+                        Log.i("====","paused");
+                    }
+
+                    @Override
+                    protected void error(BaseDownloadTask task, Throwable e) {
+                        Log.i("====","error");
+                    }
+
+                    @Override
+                    protected void warn(BaseDownloadTask task) {
+                        Log.i("====","warn");
                     }
                 }).start();
     }
