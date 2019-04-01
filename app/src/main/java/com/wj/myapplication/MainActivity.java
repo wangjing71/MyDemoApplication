@@ -10,7 +10,7 @@ import com.gyf.barlibrary.ImmersionBar;
 public class MainActivity extends BaseActivity {
 
     private View barView;
-    private Button button1;
+    private Button button1,button2,button3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,8 @@ public class MainActivity extends BaseActivity {
         barView = findViewById(R.id.barView);
         ImmersionBar.setStatusBarView(this,barView);
         button1 = findViewById(R.id.button1);
+        button2 = findViewById(R.id.button2);
+        button3 = findViewById(R.id.button3);
     }
 
     @Override
@@ -40,12 +42,35 @@ public class MainActivity extends BaseActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                doSomeThing();
+                doGet();
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doPost();
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doDownload();
             }
         });
     }
 
-    private void doSomeThing() {
+    private void doDownload() {
 
     }
+
+    private void doPost() {
+
+    }
+
+    private void doGet() {
+
+    }
+
 }
