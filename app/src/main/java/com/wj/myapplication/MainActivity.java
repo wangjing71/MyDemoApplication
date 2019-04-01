@@ -13,12 +13,20 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.geocode.GeoCodeOption;
 import com.baidu.mapapi.search.geocode.GeoCodeResult;
 import com.baidu.mapapi.search.geocode.GeoCoder;
 import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
+import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
+import com.baidu.mapapi.search.poi.PoiDetailResult;
+import com.baidu.mapapi.search.poi.PoiDetailSearchResult;
+import com.baidu.mapapi.search.poi.PoiIndoorResult;
+import com.baidu.mapapi.search.poi.PoiNearbySearchOption;
+import com.baidu.mapapi.search.poi.PoiResult;
+import com.baidu.mapapi.search.poi.PoiSearch;
 import com.baidu.mapapi.search.sug.OnGetSuggestionResultListener;
 import com.baidu.mapapi.search.sug.SuggestionResult;
 import com.baidu.mapapi.search.sug.SuggestionSearch;
@@ -39,6 +47,7 @@ public class MainActivity extends BaseActivity {
     private LocationClient mLocationClient = null;
     private MyLocationListener myListener = new MyLocationListener();
     private SuggestionSearch mSuggestionSearch;
+    private PoiSearch mPoiSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +83,28 @@ public class MainActivity extends BaseActivity {
 
         mSuggestionSearch = SuggestionSearch.newInstance();
         mSuggestionSearch.setOnGetSuggestionResultListener(new MySuggestionSerch());
+
+        mPoiSearch = PoiSearch.newInstance();
+        OnGetPoiSearchResultListener listener = new OnGetPoiSearchResultListener() {
+            @Override
+            public void onGetPoiResult(PoiResult poiResult) {
+
+            }
+            @Override
+            public void onGetPoiDetailResult(PoiDetailSearchResult poiDetailSearchResult) {
+
+            }
+            @Override
+            public void onGetPoiIndoorResult(PoiIndoorResult poiIndoorResult) {
+
+            }
+            //废弃
+            @Override
+            public void onGetPoiDetailResult(PoiDetailResult poiDetailResult) {
+
+            }
+        };
+        mPoiSearch.setOnGetPoiSearchResultListener(listener);
     }
 
     @Override
@@ -88,7 +119,11 @@ public class MainActivity extends BaseActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                searchLianxiang(editText.getText().toString());
+                mPoiSearch.searchNearby(new PoiNearbySearchOption()
+                        .location(new LatLng(31.185497, 121.4145))
+                        .radius(5000)
+                        .keyword("餐厅")
+                        .pageNum(10));
             }
         });
     }
@@ -167,6 +202,13 @@ public class MainActivity extends BaseActivity {
             int errorCode = location.getLocType();
             //获取定位类型、定位错误返回码，具体信息可参照类参考中BDLocation类中的说明
             mLocationClient.stop();
+
+            mPoiSearch.searchNearby(new PoiNearbySearchOption()
+                    .location(new LatLng(latitude, longitude))
+                    .radius(5000)
+                    .keyword("餐厅")
+                    .pageNum(10));
+
         }
     }
 
