@@ -11,9 +11,6 @@ import android.widget.Toast;
 import com.liulishuo.filedownloader.BaseDownloadTask;
 import com.liulishuo.filedownloader.FileDownloadListener;
 import com.liulishuo.filedownloader.FileDownloader;
-import com.liulishuo.filedownloader.util.FileDownloadUtils;
-
-import java.io.File;
 
 import io.reactivex.functions.Consumer;
 
@@ -59,18 +56,11 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-        String apkUrl = "http://cdn.llsapp.com/android/LLS-v4.0-595-20160908-143200.apk";
-        String singleFileSaveName = "liulishuo.apk";
-        String mSinglePath = Environment.getExternalStorageState()+ File.separator+"feifei_save"
-                +File.separator+singleFileSaveName;
-        String mSaveFolder = Environment.getExternalStorageState()+File.separator+"feifei_save";
-
-
         FileDownloader.setup(this);
         String str = "http://39.137.36.61:6310/cdn.llsapp.com/android/LLS-v4.0-595-20160908-143200.apk";
         String str1 = "http://117.135.11.27:8049/sh_rest/httpservice/filedownload";
         FileDownloader.getImpl().create(str)
-                .setPath(mSinglePath,true)
+                .setPath(Environment.getExternalStorageDirectory().getPath(),true)
                 .setListener(new FileDownloadListener() {
                     @Override
                     protected void pending(BaseDownloadTask task, int soFarBytes, int totalBytes) {
