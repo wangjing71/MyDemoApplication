@@ -7,7 +7,7 @@ import android.widget.Button;
 
 public class MainActivity extends BaseActivity {
 
-    private Button button;
+    private Button button1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        button = findViewById(R.id.button);
+        button1 = findViewById(R.id.button1);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setEvent() {
-        button.setOnClickListener(new View.OnClickListener() {
+        button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 doSomeThing();
