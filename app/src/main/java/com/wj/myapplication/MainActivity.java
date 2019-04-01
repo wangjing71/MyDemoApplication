@@ -74,7 +74,7 @@ public class MainActivity extends BaseActivity {
 
                     @Override
                     protected void progress(BaseDownloadTask task, int soFarBytes, int totalBytes) {
-                        Log.i("====","progress");
+                        Log.i("====",task.getSpeed()+"progress");
                     }
 
                     @Override
