@@ -4,9 +4,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.gyf.barlibrary.ImmersionBar;
+
 
 public class MainActivity extends BaseActivity {
 
+    private View barView;
     private Button button1;
 
     @Override
@@ -22,6 +25,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        barView = findViewById(R.id.barView);
+        ImmersionBar.setStatusBarView(this,barView);
         button1 = findViewById(R.id.button1);
     }
 

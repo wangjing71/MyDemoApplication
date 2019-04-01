@@ -6,6 +6,11 @@
     android:orientation="vertical"
     tools:context="com.wj.myapplication.MainActivity">
 
+    <View
+        android:id="@+id/barView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+
     <Button
         android:id="@+id/button1"
         android:layout_width="match_parent"
