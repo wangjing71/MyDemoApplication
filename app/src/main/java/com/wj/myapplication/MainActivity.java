@@ -57,7 +57,7 @@ public class MainActivity extends BaseActivity {
 
     private void doSomeThing() {
         FileDownloader.setup(this);
-        String str = "http://39.137.36.61:6310/cdn.llsapp.com/android/LLS-v4.0-595-20160908-143200.apk";
+        String str = "http://cdn.llsapp.com/android/LLS-v4.0-595-20160908-143200.apk";
         String str1 = "http://117.135.11.27:8049/sh_rest/httpservice/filedownload";
         FileDownloader.getImpl().create(str)
                 .setPath(Environment.getExternalStorageDirectory().getPath(),true)
@@ -65,6 +65,8 @@ public class MainActivity extends BaseActivity {
                     @Override
                     protected void pending(BaseDownloadTask task, int soFarBytes, int totalBytes) {
                         Log.i("====","pending");
+                        Log.i("====","pending taskId:"+task.getId()+",fileName:"+task.getFilename()+",soFarBytes:"+soFarBytes+",totalBytes:"+totalBytes+",percent:"+soFarBytes*1.0/totalBytes);
+
                     }
 
                     @Override
