@@ -61,9 +61,9 @@ public class MainActivity extends BaseActivity {
     private void doSomeThing() {
         String apkUrl = "http://cdn.llsapp.com/android/LLS-v4.0-595-20160908-143200.apk";
         String singleFileSaveName = "liulishuo.apk";
-        String mSinglePath = FileDownloadUtils.getDefaultSaveRootPath()+ File.separator+"feifei_save"
+        String mSinglePath = Environment.getExternalStorageState()+ File.separator+"feifei_save"
                 +File.separator+singleFileSaveName;
-        String mSaveFolder = FileDownloadUtils.getDefaultSaveRootPath()+File.separator+"feifei_save";
+        String mSaveFolder = Environment.getExternalStorageState()+File.separator+"feifei_save";
 
 
         FileDownloader.setup(this);
