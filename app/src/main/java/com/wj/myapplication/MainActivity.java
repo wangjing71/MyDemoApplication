@@ -55,7 +55,9 @@ public class MainActivity extends BaseActivity {
 
     private void doSomeThing() {
         FileDownloader.setup(this);
-        FileDownloader.getImpl().create("http://117.135.11.27:8049/sh_rest/httpservice/filedownload")
+        String str = "http://39.137.36.61:6310/cdn.llsapp.com/android/LLS-v4.0-595-20160908-143200.apk";
+        String str1 = "http://117.135.11.27:8049/sh_rest/httpservice/filedownload";
+        FileDownloader.getImpl().create(str1)
                 .setPath(Environment.getExternalStorageDirectory().getPath())
                 .setListener(new FileDownloadListener() {
                     @Override
