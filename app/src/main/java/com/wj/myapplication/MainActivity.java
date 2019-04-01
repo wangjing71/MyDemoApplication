@@ -1,5 +1,6 @@
 package com.wj.myapplication;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.widget.Button;
 import com.liulishuo.filedownloader.BaseDownloadTask;
 import com.liulishuo.filedownloader.FileDownloadListener;
 import com.liulishuo.filedownloader.FileDownloader;
+
+import io.reactivex.functions.Consumer;
 
 
 public class MainActivity extends BaseActivity {
@@ -32,7 +35,12 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
+        rxPermissions.request(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
+                .subscribe(new Consumer<Boolean>() {
+                    @Override
+                    public void accept(Boolean aBoolean) {
+                    }
+                });
     }
 
     @Override
