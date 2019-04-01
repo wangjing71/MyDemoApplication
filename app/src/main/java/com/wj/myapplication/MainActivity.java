@@ -12,6 +12,8 @@ import com.liulishuo.filedownloader.BaseDownloadTask;
 import com.liulishuo.filedownloader.FileDownloadListener;
 import com.liulishuo.filedownloader.FileDownloader;
 
+import java.io.File;
+
 import io.reactivex.functions.Consumer;
 
 
@@ -60,11 +62,10 @@ public class MainActivity extends BaseActivity {
         String str = "http://cdn.llsapp.com/android/LLS-v4.0-595-20160908-143200.apk";
         String str1 = "http://117.135.11.27:8049/sh_rest/httpservice/filedownload";
         FileDownloader.getImpl().create(str)
-                .setPath(Environment.getExternalStorageDirectory().getPath(),true)
+                .setPath(Environment.getExternalStorageDirectory().getPath()+ File.separator+"11.apk")
                 .setListener(new FileDownloadListener() {
                     @Override
                     protected void pending(BaseDownloadTask task, int soFarBytes, int totalBytes) {
-                        Log.i("====","pending");
                         Log.i("====","pending taskId:"+task.getId()+",fileName:"+task.getFilename()+",soFarBytes:"+soFarBytes+",totalBytes:"+totalBytes+",percent:"+soFarBytes*1.0/totalBytes);
                     }
 
@@ -75,7 +76,7 @@ public class MainActivity extends BaseActivity {
 
                     @Override
                     protected void progress(BaseDownloadTask task, int soFarBytes, int totalBytes) {
-                        Log.i("====",task.getSpeed()+"progress");
+                        Log.i("====",String.format("%dKB/s", task.getSpeed()));
                     }
 
                     @Override
