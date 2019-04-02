@@ -121,8 +121,8 @@ public class MainActivity extends BaseActivity {
             public void onClick(View v) {
                 mPoiSearch.searchNearby(new PoiNearbySearchOption()
                         .location(new LatLng(31.185497, 121.4145))
-                        .radius(5000)
-                        .keyword("餐厅")
+                        .radius(1000)
+                        .keyword("楼")
                         .pageNum(10));
             }
         });
