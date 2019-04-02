@@ -22,6 +22,9 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         pieChart1 = (PieChartLayout)findViewById(R.id.pieChart1);
+        pieChart2 = (PieChartLayout)findViewById(R.id.pieChart2);
+        pieChart3 = (PieChartLayout)findViewById(R.id.pieChart3);
+        pieChart4 = (PieChartLayout)findViewById(R.id.pieChart4);
     }
 
     @Override
@@ -48,8 +51,6 @@ public class MainActivity extends BaseActivity {
         //参数1：数据类型   参数2：数量字段名称   参数3：名称字段   参数4：数据集合   参数5:lable集合
         pieChart1.setChartData(PieBean.class, "Numner", "Name",datalist ,tableList);
 
-
-        pieChart2 = (PieChartLayout)findViewById(R.id.pieChart2);
         pieChart2.setRingWidth(DensityUtil.dip2px(this, 20));
         pieChart2.setTagModul(PieChartLayout.TAG_MODUL.MODUL_LABLE);      //在lable后面显示tag
         pieChart2.setDebug(false);
@@ -65,8 +66,6 @@ public class MainActivity extends BaseActivity {
         pieChart2.setLoading(false);
         pieChart2.setChartData(PieBean.class, "Numner", "Name",datalist ,null);
 
-
-        pieChart3 = (PieChartLayout)findViewById(R.id.pieChart3);
         //圆环宽度，如果值>0,则为空心圆环，内环为白色，可以在内环中绘制字
         pieChart3.setRingWidth(DensityUtil.dip2px(this, 0));
         pieChart3.setTagModul(PieChartLayout.TAG_MODUL.MODUL_LABLE);
@@ -74,7 +73,6 @@ public class MainActivity extends BaseActivity {
         pieChart3.setLoading(false);
         pieChart3.setChartData(PieBean.class, "Numner", "Name",datalist ,null);
 
-        pieChart4 = (PieChartLayout)findViewById(R.id.pieChart4);
         //圆环宽度，如果值>0,则为空心圆环，内环为白色，可以在内环中绘制字
         pieChart4.setRingWidth(DensityUtil.dip2px(this, 0));
         pieChart4.setTagModul(PieChartLayout.TAG_MODUL.MODUL_CHART);
