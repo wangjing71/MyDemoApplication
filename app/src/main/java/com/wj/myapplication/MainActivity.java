@@ -25,10 +25,27 @@ public class MainActivity extends BaseActivity {
         pieChart2 = (PieChartLayout)findViewById(R.id.pieChart2);
         pieChart3 = (PieChartLayout)findViewById(R.id.pieChart3);
         pieChart4 = (PieChartLayout)findViewById(R.id.pieChart4);
+
     }
 
     @Override
     protected void initData() {
+        //RGB颜色数组
+         int[][] colorRgb = {
+                {0, 0, 0},   //    UIColorFromRGB(0xD95F5B),
+                {255, 0, 91},     //    UIColorFromRGB(0x7189E6),
+                {255, 255, 0},    //    UIColorFromRGB(0x5AB9C7),
+                {255, 0, 255},   //   UIColorFromRGB(0xB096D5),
+                {107, 186, 151},   //    UIColorFromRGB(0x6BBA97),
+                {91, 164, 231},    //    UIColorFromRGB(0x5BA4E7),
+                {220, 170, 97},//    UIColorFromRGB(0xDCAA61),
+                {125, 171, 88},//    UIColorFromRGB(0x7DAB58),
+                {233, 200, 88},//    UIColorFromRGB(0xE9C858),
+                {213, 150, 196},//    UIColorFromRGB(0xd596c4)
+                {220, 127, 104},//    UIColorFromRGB(0xDC7F68),
+        };
+
+
         /*
          * 圆环宽度
          * ringWidth > 0 :空心圆环，内环为白色，可以在内环中绘制字
@@ -55,6 +72,7 @@ public class MainActivity extends BaseActivity {
         pieChart2.setTagModul(PieChartLayout.TAG_MODUL.MODUL_LABLE);      //在lable后面显示tag
         pieChart2.setDebug(false);
         pieChart2.setLoading(true);
+        pieChart2.setArrColorRgb(colorRgb);
         //请求数据
         datalist.clear();
         datalist.add(new PieBean(20, "IT"));
