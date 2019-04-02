@@ -11,14 +11,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private PieChartLayout pieChart1, pieChart2, pieChart3,pieChart4;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected int setLayoutId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected void initView() {
         pieChart1 = (PieChartLayout)findViewById(R.id.pieChart1);
+    }
+
+    @Override
+    protected void initData() {
         /*
          * 圆环宽度
          * ringWidth > 0 :空心圆环，内环为白色，可以在内环中绘制字
@@ -86,6 +93,10 @@ public class MainActivity extends AppCompatActivity {
         datalist.add(new PieBean(15, "农业"));
         pieChart4.setLoading(false);
         pieChart4.setChartData(PieBean.class, "Numner", "Name",datalist ,null);
+    }
+
+    @Override
+    protected void setEvent() {
 
     }
 }
