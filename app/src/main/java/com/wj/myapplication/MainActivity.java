@@ -82,6 +82,7 @@ public class MainActivity extends BaseActivity {
         datalist.add(new PieBean(15, "制造"));
         datalist.add(new PieBean(15, "农业"));
         pieChart2.setLoading(false);
+        pieChart2.setRectRaidus(100);
         pieChart2.setChartData(PieBean.class, "Numner", "Name",datalist ,null);
 
         //圆环宽度，如果值>0,则为空心圆环，内环为白色，可以在内环中绘制字
