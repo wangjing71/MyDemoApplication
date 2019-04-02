@@ -81,6 +81,8 @@ public class MainActivity extends BaseActivity {
         datalist.add(new PieBean(8, "林木业"));
         datalist.add(new PieBean(15, "制造"));
         datalist.add(new PieBean(15, "农业"));
+        datalist.add(new PieBean(15, "土木"));
+        datalist.add(new PieBean(15, "林业"));
         pieChart2.setLoading(false);
         pieChart2.setRectRaidus(100);
         pieChart2.setChartData(PieBean.class, "Numner", "Name",datalist ,null);
