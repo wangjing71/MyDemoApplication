@@ -24,12 +24,12 @@
         android:paddingRight="10dp">
 
         <com.openxu.cview.chart.piechart.PieChart
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
         <com.openxu.cview.chart.piechart.PieChartLableView
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2" />
     </com.openxu.cview.chart.piechart.PieChartLayout>
