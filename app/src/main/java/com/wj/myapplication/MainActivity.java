@@ -75,14 +75,14 @@ public class MainActivity extends BaseActivity {
         pieChart2.setArrColorRgb(colorRgb);
         //请求数据
         datalist.clear();
-        datalist.add(new PieBean(20, "IT"));
-        datalist.add(new PieBean(10, "销售"));
-        datalist.add(new PieBean(30, "金融"));
-        datalist.add(new PieBean(8, "林木业"));
-        datalist.add(new PieBean(15, "制造"));
-        datalist.add(new PieBean(15, "农业"));
-        datalist.add(new PieBean(15, "土木"));
-        datalist.add(new PieBean(15, "林业"));
+        datalist.add(new PieBean(20, "销售销售销售销售销售销售"));
+        datalist.add(new PieBean(10, "销售销售销售销售销售销售"));
+        datalist.add(new PieBean(30, "销售销售销售销售销售销售"));
+        datalist.add(new PieBean(8, "销售销售销售销售销售销售"));
+        datalist.add(new PieBean(15, "销售销售销售销售销售销售"));
+        datalist.add(new PieBean(15, "销售销售销售销售销售销售"));
+        datalist.add(new PieBean(15, "销售销售销售销售销售销售"));
+        datalist.add(new PieBean(15, "销售销售销售销售销售销售"));
         pieChart2.setLoading(false);
         pieChart2.setRectRaidus(100);
         pieChart2.setChartData(PieBean.class, "Numner", "Name",datalist ,null);
