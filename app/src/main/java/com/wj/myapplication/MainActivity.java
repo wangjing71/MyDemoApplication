@@ -2,6 +2,8 @@ package com.wj.myapplication;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 
 import com.openxu.cview.chart.bean.ChartLable;
 import com.openxu.cview.chart.piechart.PieChartLayout;
@@ -13,6 +15,9 @@ import java.util.List;
 
 public class MainActivity extends BaseActivity {
     private PieChartLayout pieChart2;
+    private Button btn;
+    private List<PieBean> datalist = new ArrayList<>();
+    private List<ChartLable> tableList = new ArrayList<>();
 
     @Override
     protected int setLayoutId() {
@@ -21,7 +26,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        pieChart2 = (PieChartLayout)findViewById(R.id.pieChart2);
+        pieChart2 = findViewById(R.id.pieChart2);
+        btn = findViewById(R.id.button);
     }
 
     @Override
@@ -42,9 +48,7 @@ public class MainActivity extends BaseActivity {
         };
 
         //请求数据
-        List<PieBean> datalist = new ArrayList<>();
 
-        List<ChartLable> tableList = new ArrayList<>();
         tableList.add(new ChartLable("建筑", DensityUtil.sp2px(this, 12), getResources().getColor(R.color.text_color_light_gray)));
         tableList.add(new ChartLable("性质", DensityUtil.sp2px(this, 12), getResources().getColor(R.color.text_color_light_gray)));
 
@@ -70,6 +74,11 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setEvent() {
-
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pieChart2.setChartData(PieBean.class, "Numner", "Name",datalist ,tableList);
+            }
+        });
     }
 }
