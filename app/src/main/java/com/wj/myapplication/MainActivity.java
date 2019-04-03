@@ -63,12 +63,13 @@ public class MainActivity extends BaseActivity {
         datalist.add(new PieBean(10, "销售销售销售销售销售销售"));
         datalist.add(new PieBean(30, "销售销售销售销售销售销售"));
         datalist.add(new PieBean(8, "销售销售销售销售销售销售"));
-        datalist.add(new PieBean(15, "销售销售销售销售销售销售"));
-        datalist.add(new PieBean(15, "销售销售销售销售销售销售"));
-        datalist.add(new PieBean(15, "销售销售销售销售销售销售"));
-        datalist.add(new PieBean(15, "销售销售销售销售销售销售"));
+        datalist.add(new PieBean(0, "销售销售销售销售销售销售"));
+        datalist.add(new PieBean(0, "销售销售销售销售销售销售"));
+        datalist.add(new PieBean(0, "销售销售销售销售销售销售"));
+        datalist.add(new PieBean(0, "销售销售销售销售销售销售"));
         pieChart2.setLoading(false);
         pieChart2.setRectRaidus(100);
+        pieChart2.setShowZeroPart(true);
         pieChart2.setChartData(PieBean.class, "Numner", "Name",datalist ,tableList);
     }
 
