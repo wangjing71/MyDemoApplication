@@ -44,6 +44,10 @@ public class MainActivity extends BaseActivity {
         //请求数据
         List<PieBean> datalist = new ArrayList<>();
 
+        List<ChartLable> tableList = new ArrayList<>();
+        tableList.add(new ChartLable("建筑", DensityUtil.sp2px(this, 12), getResources().getColor(R.color.text_color_light_gray)));
+        tableList.add(new ChartLable("性质", DensityUtil.sp2px(this, 12), getResources().getColor(R.color.text_color_light_gray)));
+
         pieChart2.setRingWidth(DensityUtil.dip2px(this, 20));
         pieChart2.setTagModul(PieChartLayout.TAG_MODUL.MODUL_LABLE);      //在lable后面显示tag
         pieChart2.setDebug(false);
@@ -61,7 +65,7 @@ public class MainActivity extends BaseActivity {
         datalist.add(new PieBean(15, "销售销售销售销售销售销售"));
         pieChart2.setLoading(false);
         pieChart2.setRectRaidus(100);
-        pieChart2.setChartData(PieBean.class, "Numner", "Name",datalist ,null);
+        pieChart2.setChartData(PieBean.class, "Numner", "Name",datalist ,tableList);
     }
 
     @Override
