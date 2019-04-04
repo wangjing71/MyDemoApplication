@@ -489,90 +489,24 @@ public class JCVideoPlayerStandard extends JCVideoPlayer {
     }
 
 
-    protected Dialog mProgressDialog;
     protected ProgressBar mDialogProgressBar;
     protected TextView mDialogSeekTime;
     protected TextView mDialogTotalTime;
-    protected ImageView mDialogIcon;
 
     @Override
     public void showProgressDialog(float deltaX, String seekTime, int seekTimePosition, String totalTime, int totalTimeDuration) {
         super.showProgressDialog(deltaX, seekTime, seekTimePosition, totalTime, totalTimeDuration);
-        if (mProgressDialog == null) {
-            View localView = LayoutInflater.from(getContext()).inflate(R.layout.jc_progress_dialog, null);
-            mDialogProgressBar = ((ProgressBar) localView.findViewById(R.id.duration_progressbar));
-            mDialogSeekTime = ((TextView) localView.findViewById(R.id.tv_current));
-            mDialogTotalTime = ((TextView) localView.findViewById(R.id.tv_duration));
-            mDialogIcon = ((ImageView) localView.findViewById(R.id.duration_image_tip));
-            mProgressDialog = new Dialog(getContext(), R.style.jc_style_dialog_progress);
-            mProgressDialog.setContentView(localView);
-            mProgressDialog.getWindow().addFlags(Window.FEATURE_ACTION_BAR);
-            mProgressDialog.getWindow().addFlags(32);
-            mProgressDialog.getWindow().addFlags(16);
-            mProgressDialog.getWindow().setLayout(-2, -2);
-            WindowManager.LayoutParams localLayoutParams = mProgressDialog.getWindow().getAttributes();
-            localLayoutParams.gravity = 49;
-            localLayoutParams.y = getResources().getDimensionPixelOffset(R.dimen.jc_progress_dialog_margin_top);
-            mProgressDialog.getWindow().setAttributes(localLayoutParams);
-        }
-        if (!mProgressDialog.isShowing()) {
-            mProgressDialog.show();
-        }
-
         mDialogSeekTime.setText(seekTime);
         mDialogTotalTime.setText(" / " + totalTime);
         mDialogProgressBar.setProgress(totalTimeDuration <= 0 ? 0 : (seekTimePosition * 100 / totalTimeDuration));
-        if (deltaX > 0) {
-            mDialogIcon.setBackgroundResource(R.drawable.jc_forward_icon);
-        } else {
-            mDialogIcon.setBackgroundResource(R.drawable.jc_backward_icon);
-        }
 
     }
 
     @Override
     public void dismissProgressDialog() {
         super.dismissProgressDialog();
-        if (mProgressDialog != null) {
-            mProgressDialog.dismiss();
-        }
     }
 
-
-    protected Dialog mVolumeDialog;
-    protected ProgressBar mDialogVolumeProgressBar;
-
-    @Override
-    public void showVolumeDialog(float deltaY, int volumePercent) {
-        super.showVolumeDialog(deltaY, volumePercent);
-        if (mVolumeDialog == null) {
-            View localView = LayoutInflater.from(getContext()).inflate(R.layout.jc_volume_dialog, null);
-            mDialogVolumeProgressBar = ((ProgressBar) localView.findViewById(R.id.volume_progressbar));
-            mVolumeDialog = new Dialog(getContext(), R.style.jc_style_dialog_progress);
-            mVolumeDialog.setContentView(localView);
-            mVolumeDialog.getWindow().addFlags(8);
-            mVolumeDialog.getWindow().addFlags(32);
-            mVolumeDialog.getWindow().addFlags(16);
-            mVolumeDialog.getWindow().setLayout(-2, -2);
-            WindowManager.LayoutParams localLayoutParams = mVolumeDialog.getWindow().getAttributes();
-            localLayoutParams.gravity = 19;
-            localLayoutParams.x = getContext().getResources().getDimensionPixelOffset(R.dimen.jc_volume_dialog_margin_left);
-            mVolumeDialog.getWindow().setAttributes(localLayoutParams);
-        }
-        if (!mVolumeDialog.isShowing()) {
-            mVolumeDialog.show();
-        }
-
-        mDialogVolumeProgressBar.setProgress(volumePercent);
-    }
-
-    @Override
-    public void dismissVolumeDialog() {
-        super.dismissVolumeDialog();
-        if (mVolumeDialog != null) {
-            mVolumeDialog.dismiss();
-        }
-    }
 
     public void startDismissControlViewTimer() {
         cancelDismissControlViewTimer();

@@ -203,15 +203,6 @@ public abstract class JCVideoPlayer extends FrameLayout implements View.OnClickL
 
                         showProgressDialog(deltaX, seekTime, mSeekTimePosition, totalTime, totalTimeDuration);
                     }
-                    if (mChangeVolume) {
-                        deltaY = -deltaY;
-                        int max = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-                        int deltaV = (int) (max * deltaY * 3 / mScreenHeight);
-                        mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, mGestureDownVolume + deltaV, 0);
-                        int volumePercent = (int) (mGestureDownVolume * 100 / max + deltaY * 3 * 100 / mScreenHeight);
-
-                        showVolumeDialog(-deltaY, volumePercent);
-                    }
 
                     break;
                 case MotionEvent.ACTION_UP:
