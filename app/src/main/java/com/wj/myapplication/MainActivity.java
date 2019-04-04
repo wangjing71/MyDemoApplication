@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.wj.jcvideo.JCMediaManager;
+import com.wj.jcvideo.JCUtils;
 import com.wj.jcvideo.JCVideoPlayerStandard;
 
 
@@ -36,7 +37,9 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        jcVideoPlayerStandard.setUp("http://192.168.3.100:8080/aaa.mp4", JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, "测试视频");
+        String videoUrl = "http://192.168.3.100:8080/aaa.mp4";
+        JCUtils.clearSavedProgress(this,videoUrl);
+        jcVideoPlayerStandard.setUp(videoUrl, JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, "测试视频");
         jcVideoPlayerStandard.startPlayLogic();
     }
 
