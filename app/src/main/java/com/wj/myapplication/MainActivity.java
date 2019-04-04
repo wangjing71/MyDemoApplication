@@ -42,6 +42,7 @@ public class MainActivity extends BaseActivity {
                 .subscribe(new Consumer<Boolean>() {
                     @Override
                     public void accept(Boolean aBoolean) {
+
                     }
                 });
     }
