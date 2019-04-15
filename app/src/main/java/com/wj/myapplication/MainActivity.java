@@ -1,13 +1,13 @@
 package com.wj.myapplication;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
-import com.gyf.barlibrary.ImmersionBar;
-import com.gyf.barlibrary.OnKeyboardListener;
+import com.gyf.immersionbar.ImmersionBar;
+import com.gyf.immersionbar.OnKeyboardListener;
 
 
 public class MainActivity extends BaseActivity {
@@ -34,6 +34,7 @@ public class MainActivity extends BaseActivity {
                     @Override
                     public void onKeyboardChange(boolean isPopup, int keyboardHeight) {
                         Log.i("====",isPopup+"___"+keyboardHeight);
+                        Toast.makeText(MainActivity.this, isPopup+"___"+keyboardHeight, Toast.LENGTH_SHORT).show();
                     }
                 }).init();
     }
@@ -54,7 +55,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-
+        Toast.makeText(MainActivity.this,ImmersionBar.hasNavigationBar(this)+"", Toast.LENGTH_SHORT).show();
     }
 
 }
