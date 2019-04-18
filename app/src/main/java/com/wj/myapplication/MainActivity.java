@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.lzy.okgo.OkGo;
@@ -81,6 +82,7 @@ public class MainActivity extends BaseActivity {
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
+                        Toast.makeText(MainActivity.this, response.body(), Toast.LENGTH_SHORT).show();
 
                     }
                 });
@@ -94,7 +96,7 @@ public class MainActivity extends BaseActivity {
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
-
+                        Toast.makeText(MainActivity.this, response.body(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
