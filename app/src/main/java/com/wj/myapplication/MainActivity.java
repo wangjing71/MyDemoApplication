@@ -4,6 +4,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+
+import okhttp3.Call;
+
 
 public class MainActivity extends BaseActivity {
 
@@ -41,6 +46,20 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
+        OkHttpUtils.postString()
+                .url("www.baidu.com")
+                .content("1111111")
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
 
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+
+                    }
+                });
     }
 }
