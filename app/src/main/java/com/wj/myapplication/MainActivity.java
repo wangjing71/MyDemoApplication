@@ -3,6 +3,7 @@ package com.wj.myapplication;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -53,12 +54,12 @@ public class MainActivity extends BaseActivity {
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-
+                        Toast.makeText(MainActivity.this, "onError", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onResponse(String response, int id) {
-
+                        Toast.makeText(MainActivity.this, response, Toast.LENGTH_SHORT).show();
                     }
                 });
     }
