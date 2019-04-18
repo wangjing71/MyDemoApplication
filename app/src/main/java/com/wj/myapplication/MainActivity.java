@@ -47,9 +47,11 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-        OkHttpUtils.postString()
-                .url("www.baidu.com")
-                .content("1111111")
+
+        OkHttpUtils.post()
+                .url("http://www.baidu.com")
+                .addParams("username", "hyman")
+                .addParams("password", "123")
                 .build()
                 .execute(new StringCallback() {
                     @Override
@@ -59,7 +61,7 @@ public class MainActivity extends BaseActivity {
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Toast.makeText(MainActivity.this, response, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "onResponse", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
