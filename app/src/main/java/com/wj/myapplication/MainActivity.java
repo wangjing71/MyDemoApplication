@@ -61,7 +61,7 @@ public class MainActivity extends BaseActivity {
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Toast.makeText(MainActivity.this, "onResponse", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, response, Toast.LENGTH_SHORT).show();
                     }
                 });
     }
