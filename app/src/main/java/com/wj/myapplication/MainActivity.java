@@ -98,6 +98,7 @@ public class MainActivity extends BaseActivity {
                     @Override
                     public void onSuccess(Response<String> response) {
                         Toast.makeText(MainActivity.this, response.body(), Toast.LENGTH_SHORT).show();
+                        Log.i("====",response.body());
                     }
                 });
     }
