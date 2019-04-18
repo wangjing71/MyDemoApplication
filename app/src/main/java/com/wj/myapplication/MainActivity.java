@@ -48,7 +48,7 @@ public class MainActivity extends BaseActivity {
 
     private void doSomeThing() {
 
-        OkHttpUtils.post()
+        OkHttpUtils.get()
                 .url("http://www.baidu.com")
                 .addParams("username", "hyman")
                 .addParams("password", "123")
