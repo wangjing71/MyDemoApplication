@@ -30,6 +30,7 @@ public class MainActivity extends BaseActivity {
         button = findViewById(R.id.button);
         ImmersionBar.with(this)
                 .keyboardEnable(true)
+                .keyboardMode()
                 .setOnKeyboardListener(new OnKeyboardListener() {    //软键盘监听回调
                     @Override
                     public void onKeyboardChange(boolean isPopup, int keyboardHeight) {
