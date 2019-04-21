@@ -3,6 +3,7 @@ package com.wj.myapplication;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -30,7 +31,7 @@ public class MainActivity extends BaseActivity {
         button = findViewById(R.id.button);
         ImmersionBar.with(this)
                 .keyboardEnable(true)
-                .keyboardMode()
+                .keyboardMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN )
                 .setOnKeyboardListener(new OnKeyboardListener() {    //软键盘监听回调
                     @Override
                     public void onKeyboardChange(boolean isPopup, int keyboardHeight) {
