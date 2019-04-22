@@ -1,10 +1,13 @@
 package com.wj.myapplication;
 
 import android.annotation.TargetApi;
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.view.View;
 import android.widget.Button;
 
@@ -45,24 +48,23 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
+        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             String channelId = "chat";
             String channelName = "聊天消息";
             int importance = NotificationManager.IMPORTANCE_HIGH;
-            createNotificationChannel(channelId, channelName, importance);
-
-            channelId = "subscribe";
-            channelName = "订阅消息";
-            importance = NotificationManager.IMPORTANCE_DEFAULT;
-            createNotificationChannel(channelId, channelName, importance);
+            NotificationChannel channel = new NotificationChannel(channelId, channelName, importance);
+            manager.createNotificationChannel(channel);
         }
-    }
 
-    @TargetApi(Build.VERSION_CODES.O)
-    private void createNotificationChannel(String channelId, String channelName, int importance) {
-        NotificationChannel channel = new NotificationChannel(channelId, channelName, importance);
-        NotificationManager notificationManager = (NotificationManager) getSystemService(
-                NOTIFICATION_SERVICE);
-        notificationManager.createNotificationChannel(channel);
+        Notification notification = new NotificationCompat.Builder(this, "chat")
+                .setContentTitle("收到一条聊天消息")
+                .setContentText("今天中午吃什么？")
+                .setWhen(System.currentTimeMillis())
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
+                .setAutoCancel(true)
+                .build();
+        manager.notify(1, notification);
     }
 }
