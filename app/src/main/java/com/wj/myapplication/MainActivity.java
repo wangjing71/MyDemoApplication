@@ -2,6 +2,7 @@ package com.wj.myapplication;
 
 import android.Manifest;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -93,6 +94,8 @@ public class MainActivity extends BaseActivity {
                     @Override
                     protected void completed(BaseDownloadTask task) {
                         Log.i("====","completed");
+                        File file = new File(task.getPath()+task.getFilename());
+                        installApk1(file);
                     }
 
                     @Override
@@ -117,6 +120,13 @@ public class MainActivity extends BaseActivity {
         // 仅需改变这一行
         FileProvider7.setIntentDataAndType(this,
                 intent, "application/vnd.android.package-archive", file, true);
+        startActivity(intent);
+    }
+
+    public void installApk1(File file) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(Uri.fromFile(file),
+                "application/vnd.android.package-archive");
         startActivity(intent);
     }
 
