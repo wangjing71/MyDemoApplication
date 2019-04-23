@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -19,15 +20,12 @@ import android.widget.Button;
 public class MainActivity extends BaseActivity {
 
     private Button button;
-
-    private Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-
-
-
-        }
-    };
+    private Button button1;
+    private Button button2;
+    private NotificationManager manager;
+    NotificationCompat.Builder builder = null;
+    private Notification notification;
+    private int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +41,8 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         button = findViewById(R.id.button);
+        button1 = findViewById(R.id.button1);
+        button2 = findViewById(R.id.button2);
     }
 
     @Override
@@ -58,11 +58,38 @@ public class MainActivity extends BaseActivity {
                 doSomeThing();
             }
         });
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                count ++;
+                builder.setProgress(100, count, false);
+                builder.setContentText("下载进度:" + count + "%");
+                notification = builder.build();
+                manager.notify(1, notification);
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                builder.setContentTitle("下载完成")
+                        .setContentText("点击安装")
+                        .setAutoCancel(true);//设置通知被点击一次是否自动取消
+//                Intent intent = new Intent(Intent.ACTION_VIEW);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                intent.setDataAndType(Uri.parse("file://" + file.toString()), "application/vnd.android.package-archive");
+//                PendingIntent pi = PendingIntent.getActivity(context, 0, intent, 0);
+//                notification = builder.setContentIntent(pi).build();
+                notification = builder.build();
+                manager.notify(1, notification);
+            }
+        });
+
     }
 
     private void doSomeThing() {
-        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        NotificationCompat.Builder builder = null;
+        manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             String channelId = "message";
             NotificationChannel channel = new NotificationChannel(channelId, "消息", NotificationManager.IMPORTANCE_HIGH);
@@ -72,15 +99,20 @@ public class MainActivity extends BaseActivity {
             builder = new NotificationCompat.Builder(this);
         }
 
-        builder.setContentTitle("收到一条订阅消息")
+        builder.setContentTitle("正在更新...")
                 .setContentText("地铁沿线30万商铺抢购中！")
                 .setWhen(System.currentTimeMillis())
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
-                .setAutoCancel(true);
-
-        Notification notification = builder.build();
+                .setDefaults(Notification.DEFAULT_LIGHTS) //设置通知的提醒方式： 呼吸灯
+                .setPriority(NotificationCompat.PRIORITY_MAX) //设置通知的优先级：最大
+                .setAutoCancel(false)//设置通知被点击一次是否自动取消
+                .setContentText("下载进度:" + "0%")
+                .setProgress(100, 0, false);
+        notification = builder.build();
         //发送通知
-        manager.notify(2, notification);
+        manager.notify(1, notification);
+
     }
+
 }
