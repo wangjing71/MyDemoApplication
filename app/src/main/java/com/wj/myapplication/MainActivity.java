@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.NotificationCompat;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +19,15 @@ import android.widget.Button;
 public class MainActivity extends BaseActivity {
 
     private Button button;
+
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+
+
+
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
