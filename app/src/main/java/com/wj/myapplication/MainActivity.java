@@ -24,7 +24,7 @@ public class MainActivity extends BaseActivity {
 
     private Button button;
     private String str = "https://imtt.dd.qq.com/16891/3CCE99DE9355B0AFDEF59EC03A2C8450.apk?fsname=com.sh.cm.shydhn_2.0.1_7.apk";
-
+    private String pat = Environment.getExternalStorageDirectory().getPath()+ File.separator+"aaa.apk";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +56,8 @@ public class MainActivity extends BaseActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                doSomeThing();
+                File file = new File(pat);
+                installApk(file);
             }
         });
     }
@@ -95,7 +96,7 @@ public class MainActivity extends BaseActivity {
                     protected void completed(BaseDownloadTask task) {
                         Log.i("====","completed");
                         File file = new File(task.getPath()+task.getFilename());
-                        installApk1(file);
+                        installApk(file);
                     }
 
                     @Override
