@@ -49,7 +49,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        String videoUrl = SDCardUtils.getSDPath()+"aaa.mp4";
+        String videoUrl = "http://www.jmzsjy.com/UploadFile/%E5%BE%AE%E8%AF%BE/%E5%9C%B0%E6%96%B9%E9%A3%8E%E5%91%B3%E5%B0%8F%E5%90%83%E2%80%94%E2%80%94%E5%AE%AB%E5%BB%B7%E9%A6%99%E9%85%A5%E7%89%9B%E8%82%89%E9%A5%BC.mp4";
         JCUtils.clearSavedProgress(this,videoUrl);
         jcVideoPlayerStandard.setUp(videoUrl, JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, "测试视频");
         jcVideoPlayerStandard.startPlayLogic();
