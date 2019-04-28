@@ -1,6 +1,7 @@
 package com.wj.myapplication;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -13,6 +14,13 @@ public class MainActivity extends BaseActivity {
 
     private Button button;
     private RelativeLayout parent;
+
+    private Handler handler = new Handler() {
+        public void handleMessage(android.os.Message msg) {
+            if (msg.what == 1) {
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
