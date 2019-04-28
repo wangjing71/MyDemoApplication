@@ -3,6 +3,7 @@ package com.wj.myapplication;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.tbruyelle.rxpermissions2.RxPermissions;
@@ -16,7 +17,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
 
     protected RxPermissions rxPermissions;
-    private View
+    private View barView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,6 +25,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         setContentView(setLayoutId());
         ImmersionBar.with(this).init();
         rxPermissions = new RxPermissions(this);
+        barView = findViewById(R.id.barView);
+        ImmersionBar.setStatusBarView(this, barView);
         initView();
         initData();
         setEvent();
