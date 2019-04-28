@@ -6,6 +6,8 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import me.leolin.shortcutbadger.ShortcutBadger;
+
 
 public class MainActivity extends BaseActivity {
 
@@ -39,7 +41,9 @@ public class MainActivity extends BaseActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "1111", Toast.LENGTH_SHORT).show();
+                int badgeCount = 1;
+                ShortcutBadger.applyCount(MainActivity.this, badgeCount); //for 1.1.4+
+
             }
         });
 
