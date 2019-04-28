@@ -41,11 +41,14 @@ public class MainActivity extends BaseActivity {
             Bundle bundle = new Bundle();
             bundle.putString("pageTitle", "页面 "+ i);
             childFragment.setArguments(bundle);
-
             fragList.add(childFragment);
         }
 
         mViewPager.setAdapter(new MyBusinessAdapter(getSupportFragmentManager()));
+
+        myTab.setmViewPager(mViewPager);
+
+
     }
 
     @Override

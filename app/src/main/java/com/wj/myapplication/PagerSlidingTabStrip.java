@@ -1,6 +1,7 @@
 package com.wj.myapplication;
 
 import android.content.Context;
+import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.widget.HorizontalScrollView;
 
@@ -10,6 +11,12 @@ import android.widget.HorizontalScrollView;
  * Description
  */
 public class PagerSlidingTabStrip extends HorizontalScrollView {
+    private ViewPager mViewPager;
+
+    public void setmViewPager(ViewPager mViewPager) {
+        this.mViewPager = mViewPager;
+    }
+
     public PagerSlidingTabStrip(Context context) {
         super(context);
     }
