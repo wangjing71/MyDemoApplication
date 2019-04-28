@@ -1,12 +1,16 @@
 package com.wj.myapplication;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends BaseActivity {
     private PagerSlidingTabStrip myTab;
     private ViewPager mViewPager;
+    private ArrayList<Fragment> fragList;
 
     @Override
     protected int setLayoutId() {
@@ -21,7 +25,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
+        fragList = new ArrayList<>();
     }
 
     @Override
