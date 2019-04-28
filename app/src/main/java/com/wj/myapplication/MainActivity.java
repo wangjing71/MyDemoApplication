@@ -38,6 +38,10 @@ public class MainActivity extends BaseActivity {
 
         for (int i = 0; i < 4; i++) {
             ChildFragment childFragment = new ChildFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("pageTitle", "页面 "+ i);
+            childFragment.setArguments(bundle);
+
             fragList.add(childFragment);
         }
 
