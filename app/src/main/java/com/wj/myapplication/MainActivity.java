@@ -1,11 +1,10 @@
 package com.wj.myapplication;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
 
 public class MainActivity extends BaseActivity {
+    private PagerSlidingTabStrip myTab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +19,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        myTab = findViewById(R.id.myTab);
     }
 
     @Override

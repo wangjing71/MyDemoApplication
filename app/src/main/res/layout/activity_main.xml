@@ -25,9 +25,7 @@
     </LinearLayout>
 
     <com.wj.myapplication.PagerSlidingTabStrip
+        android:id="@+id/myTab"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_50">
-
-
-    </com.wj.myapplication.PagerSlidingTabStrip>
+        android:layout_height="@dimen/dp_50"/>
 </LinearLayout>
