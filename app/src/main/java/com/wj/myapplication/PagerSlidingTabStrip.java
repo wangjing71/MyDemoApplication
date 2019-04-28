@@ -4,8 +4,11 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.view.Gravity;
+import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /**
  * author wangjing
@@ -19,6 +22,9 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     private final PageListener pageListener = new PageListener();
     private int tabCount;
+
+    private LinearLayout.LayoutParams defaultTabLayoutParams;
+    private LinearLayout.LayoutParams expandedTabLayoutParams;
 
     public void setmViewPager(ViewPager pager) {
         this.pager = pager;
@@ -51,13 +57,34 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     private void init() {
         tabsContainer = new LinearLayout(context);
+
+        defaultTabLayoutParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
+        expandedTabLayoutParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT, 1.0f);
     }
 
     private void notifyDataSetChanged() {
         tabsContainer.removeAllViews();
         tabCount = pager.getAdapter().getCount();
 
+
+        for (int i = 0; i < tabCount; i++) {
+            addTextTab(i, pager.getAdapter().getPageTitle(i).toString());
+        }
     }
+
+    private void addTextTab(int position, String title) {
+        TextView tab = new TextView(getContext());
+        tab.setText(title);
+        tab.setGravity(Gravity.CENTER);
+        tab.setSingleLine();
+        addTab(position, tab);
+    }
+
+    private void addTab(int position, View tab) {
+        tab.setFocusable(true);
+        tabsContainer.addView(tab, position, expandedTabLayoutParams);
+    }
+
     private class PageListener implements ViewPager.OnPageChangeListener {
 
         @Override
