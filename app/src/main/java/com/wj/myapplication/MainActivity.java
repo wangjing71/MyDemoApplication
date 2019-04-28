@@ -9,12 +9,6 @@ public class MainActivity extends BaseActivity {
     private ViewPager mViewPager;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
-
-    @Override
     protected int setLayoutId() {
         return R.layout.activity_main;
     }
