@@ -16,6 +16,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
 
     protected RxPermissions rxPermissions;
+    private View
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
