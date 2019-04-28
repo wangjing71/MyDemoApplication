@@ -1,9 +1,11 @@
 package com.wj.myapplication;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
 
 /**
  * author wangjing
@@ -11,7 +13,9 @@ import android.widget.HorizontalScrollView;
  * Description
  */
 public class PagerSlidingTabStrip extends HorizontalScrollView {
+    private Context context;
     private ViewPager mViewPager;
+    private LinearLayout tabsContainer;
 
     private final PageListener pageListener = new PageListener();
 
@@ -28,14 +32,24 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     public PagerSlidingTabStrip(Context context) {
         super(context);
+        this.context = context;
+        init();
     }
 
     public PagerSlidingTabStrip(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.context = context;
+        init();
     }
 
     public PagerSlidingTabStrip(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        this.context = context;
+        init();
+    }
+
+    private void init() {
+        tabsContainer = new LinearLayout(context);
     }
 
     private void notifyDataSetChanged() {
@@ -59,5 +73,10 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         public void onPageScrollStateChanged(int state) {
 
         }
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
     }
 }
