@@ -13,6 +13,8 @@ import android.widget.HorizontalScrollView;
 public class PagerSlidingTabStrip extends HorizontalScrollView {
     private ViewPager mViewPager;
 
+    private final PageListener pageListener = new PageListener();
+
     public void setmViewPager(ViewPager mViewPager) {
         this.mViewPager = mViewPager;
         if (mViewPager.getAdapter() == null) {
@@ -40,5 +42,22 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
 
 
+    }
+    private class PageListener implements ViewPager.OnPageChangeListener {
+
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+
+        }
     }
 }
