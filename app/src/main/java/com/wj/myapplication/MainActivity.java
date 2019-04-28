@@ -26,13 +26,13 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initData() {
         fragList = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            fragList.add(new ChildFragment());
+        }
     }
 
     @Override
     protected void setEvent() {
     }
 
-    private void doSomeThing() {
-
-    }
 }
