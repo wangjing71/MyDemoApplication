@@ -40,6 +40,8 @@ public class MainActivity extends BaseActivity {
             ChildFragment childFragment = new ChildFragment();
             fragList.add(childFragment);
         }
+
+        mViewPager.setAdapter(new MyBusinessAdapter(getSupportFragmentManager()));
     }
 
     @Override
