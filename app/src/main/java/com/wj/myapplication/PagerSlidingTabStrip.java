@@ -15,6 +15,13 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     public void setmViewPager(ViewPager mViewPager) {
         this.mViewPager = mViewPager;
+        if (mViewPager.getAdapter() == null) {
+            throw new IllegalStateException("ViewPager does not have adapter instance.");
+        }
+
+        mViewPager.addOnPageChangeListener(pageListener);
+
+        notifyDataSetChanged();
     }
 
     public PagerSlidingTabStrip(Context context) {
@@ -27,5 +34,11 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     public PagerSlidingTabStrip(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+    }
+
+    private void notifyDataSetChanged() {
+
+
+
     }
 }
