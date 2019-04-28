@@ -1,11 +1,15 @@
 package com.wj.myapplication;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import java.lang.ref.WeakReference;
 
 import me.leolin.shortcutbadger.ShortcutBadger;
 
@@ -15,12 +19,7 @@ public class MainActivity extends BaseActivity {
     private Button button;
     private RelativeLayout parent;
 
-    private Handler handler = new Handler() {
-        public void handleMessage(android.os.Message msg) {
-            if (msg.what == 1) {
-            }
-        }
-    };
+    private MyHandler handler = new MyHandler(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +48,17 @@ public class MainActivity extends BaseActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int badgeCount = 1;
-                ShortcutBadger.applyCount(MainActivity.this, badgeCount); //for 1.1.4+
-
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(5000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        handler.sendEmptyMessage(0);
+                    }
+                }).start();
             }
         });
 
@@ -63,7 +70,21 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    private void doSomeThing() {
+    public static class MyHandler extends Handler {
+        WeakReference<Activity> mWeakReference;
 
+        public MyHandler(Activity activity) {
+            mWeakReference = new WeakReference<Activity>(activity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            final Activity activity = mWeakReference.get();
+            if (activity != null) {
+                if (msg.what == 0) {
+                    Toast.makeText(activity, "1111", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
     }
 }
