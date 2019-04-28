@@ -14,18 +14,19 @@ import android.widget.LinearLayout;
  */
 public class PagerSlidingTabStrip extends HorizontalScrollView {
     private Context context;
-    private ViewPager mViewPager;
+    private ViewPager pager;
     private LinearLayout tabsContainer;
 
     private final PageListener pageListener = new PageListener();
+    private int tabCount;
 
-    public void setmViewPager(ViewPager mViewPager) {
-        this.mViewPager = mViewPager;
-        if (mViewPager.getAdapter() == null) {
+    public void setmViewPager(ViewPager pager) {
+        this.pager = pager;
+        if (pager.getAdapter() == null) {
             throw new IllegalStateException("ViewPager does not have adapter instance.");
         }
 
-        mViewPager.addOnPageChangeListener(pageListener);
+        pager.addOnPageChangeListener(pageListener);
 
         notifyDataSetChanged();
     }
@@ -53,8 +54,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     }
 
     private void notifyDataSetChanged() {
-
-
+        tabsContainer.removeAllViews();
+        tabCount = pager.getAdapter().getCount();
 
     }
     private class PageListener implements ViewPager.OnPageChangeListener {
