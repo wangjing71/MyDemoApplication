@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.HorizontalScrollView;
@@ -110,12 +111,15 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     }
 
     private void addTextTab(int position, String title) {
-        TextView tab = new TextView(getContext());
-        tab.setText(title);
-        tab.setTextColor(Color.parseColor("#FF00FF"));
-        tab.setGravity(Gravity.CENTER);
-        tab.setSingleLine();
-        addTab(position, tab);
+        View item = LayoutInflater.from(context).inflate(R.layout.tab_item,null,false);
+        TextView tabText = item.findViewById(R.id.title);
+        tabText.setText(title);
+//        TextView tab = new TextView(getContext());
+//        tab.setText(title);
+//        tab.setTextColor(Color.parseColor("#FF00FF"));
+//        tab.setGravity(Gravity.CENTER);
+//        tab.setSingleLine();
+        addTab(position, item);
     }
 
     private void addTab(final int position, final View tab) {
@@ -126,14 +130,14 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 pager.setCurrentItem(position);
             }
         });
-
         tab.setPadding(tabPadding, 0, tabPadding, 0);
         tabsContainer.addView(tab, position, defaultTabLayoutParams);
     }
 
     private void updateTabStyles() {
         for (int i = 0; i < tabCount; i++) {
-            View v = tabsContainer.getChildAt(i);
+            View vg = tabsContainer.getChildAt(i);
+            TextView v = vg.findViewById(R.id.title);
             if (v instanceof TextView) {
                 TextView tab = (TextView) v;
 
