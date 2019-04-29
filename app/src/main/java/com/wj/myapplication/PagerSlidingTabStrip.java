@@ -2,6 +2,7 @@ package com.wj.myapplication;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -57,6 +58,9 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     private void init() {
         tabsContainer = new LinearLayout(context);
+        tabsContainer.setOrientation(LinearLayout.HORIZONTAL);
+        tabsContainer.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+        addView(tabsContainer);
 
         defaultTabLayoutParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
         expandedTabLayoutParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT, 1.0f);
@@ -75,6 +79,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     private void addTextTab(int position, String title) {
         TextView tab = new TextView(getContext());
         tab.setText(title);
+        tab.setTextColor(Color.parseColor("#FF00FF"));
         tab.setGravity(Gravity.CENTER);
         tab.setSingleLine();
         addTab(position, tab);
