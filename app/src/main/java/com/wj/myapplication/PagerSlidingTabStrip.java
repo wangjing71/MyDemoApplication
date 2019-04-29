@@ -34,7 +34,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     private int selectedPosition = 0;
 
-    private int tabPadding = 24;
+    private int tabPadding = 0;
 
     public void setDefaultPosition(int selectedPosition) {
         this.selectedPosition = selectedPosition;
