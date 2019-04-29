@@ -65,7 +65,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     private void init() {
         setFillViewport(true);
         setWillNotDraw(false);
-
+        setBackgroundColor(Color.parseColor("#efe9e5"));
         tabsContainer = new LinearLayout(context);
         tabsContainer.setOrientation(LinearLayout.HORIZONTAL);
         tabsContainer.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
@@ -103,13 +103,12 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 pager.setCurrentItem(position);
             }
         });
-        tabsContainer.addView(tab, position, expandedTabLayoutParams);
+        tabsContainer.addView(tab, position, defaultTabLayoutParams);
     }
 
     private void updateTabStyles() {
         for (int i = 0; i < tabCount; i++) {
             View v = tabsContainer.getChildAt(i);
-            v.setBackgroundColor(Color.parseColor("#efe9e5"));
             if (v instanceof TextView) {
                 TextView tab = (TextView) v;
 
