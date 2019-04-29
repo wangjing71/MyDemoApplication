@@ -46,9 +46,7 @@ public class MainActivity extends BaseActivity {
 
         mViewPager.setAdapter(new MyBusinessAdapter(getSupportFragmentManager()));
 
-        myTab.setmViewPager(mViewPager);
-
-
+        myTab.setViewPager(mViewPager);
     }
 
     @Override

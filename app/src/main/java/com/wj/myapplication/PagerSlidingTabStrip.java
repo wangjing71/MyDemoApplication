@@ -27,7 +27,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     private LinearLayout.LayoutParams defaultTabLayoutParams;
     private LinearLayout.LayoutParams expandedTabLayoutParams;
 
-    public void setmViewPager(ViewPager pager) {
+    public void setViewPager(ViewPager pager) {
         this.pager = pager;
         if (pager.getAdapter() == null) {
             throw new IllegalStateException("ViewPager does not have adapter instance.");
@@ -74,6 +74,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         for (int i = 0; i < tabCount; i++) {
             addTextTab(i, pager.getAdapter().getPageTitle(i).toString());
         }
+        updateTabStyles();
     }
 
     private void addTextTab(int position, String title) {
@@ -89,6 +90,14 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         tab.setFocusable(true);
         tabsContainer.addView(tab, position, expandedTabLayoutParams);
     }
+
+    private void updateTabStyles() {
+        for (int i = 0; i < tabCount; i++) {
+            View v = tabsContainer.getChildAt(i);
+            v.setBackgroundColor(Color.parseColor("#FF0000"));
+        }
+    }
+
 
     private class PageListener implements ViewPager.OnPageChangeListener {
 
