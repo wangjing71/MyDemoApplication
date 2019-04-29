@@ -5,6 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
@@ -14,6 +16,7 @@ public class MainActivity extends BaseActivity {
     private ViewPager mViewPager;
     private ArrayList<String> titles;
     private ArrayList<Fragment> fragList;
+    private Button btn1,btn2;
 
     @Override
     protected int setLayoutId() {
@@ -24,6 +27,8 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         myTab = findViewById(R.id.myTab);
         mViewPager = findViewById(R.id.mViewPager);
+        btn1 = findViewById(R.id.btn1);
+        btn2 = findViewById(R.id.btn2);
     }
 
     @Override
@@ -47,6 +52,19 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setEvent() {
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myTab.scrollBy(10,0);
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myTab.scrollBy(-10,0);
+            }
+        });
     }
 
     class MyBusinessAdapter extends FragmentPagerAdapter {
