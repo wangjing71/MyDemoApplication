@@ -29,6 +29,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     private LinearLayout.LayoutParams expandedTabLayoutParams;
 
     private int selectedPosition = 0;
+    private int tabPadding = 24;
 
     public void setDefaultPosition(int selectedPosition) {
         this.selectedPosition = selectedPosition;
@@ -65,6 +66,9 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     private void init() {
         setFillViewport(true);
         setWillNotDraw(false);
+//        setVerticalScrollBarEnabled(false);
+        setHorizontalScrollBarEnabled(false);
+
         setBackgroundColor(Color.parseColor("#efe9e5"));
         tabsContainer = new LinearLayout(context);
         tabsContainer.setOrientation(LinearLayout.HORIZONTAL);
@@ -103,6 +107,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 pager.setCurrentItem(position);
             }
         });
+
+        tab.setPadding(tabPadding, 0, tabPadding, 0);
         tabsContainer.addView(tab, position, defaultTabLayoutParams);
     }
 
