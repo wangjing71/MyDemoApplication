@@ -8,7 +8,6 @@ import android.os.Build;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -143,10 +142,10 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
                 //设置标题选中的颜色
                 if (i == selectedPosition) {
-                    tab.setTextSize(TypedValue.COMPLEX_UNIT_PX, 25);
+                    tab.setTextSize(TypedValue.COMPLEX_UNIT_PX, 40);
                     tab.setTextColor(getResources().getColor(R.color.new_color_btn_col));
                 }else{
-                    tab.setTextSize(TypedValue.COMPLEX_UNIT_PX, 25);
+                    tab.setTextSize(TypedValue.COMPLEX_UNIT_PX, 40);
                     tab.setTextColor(getResources().getColor(R.color.black));
                 }
             }

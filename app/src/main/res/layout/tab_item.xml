@@ -19,13 +19,12 @@
         android:layout_marginLeft="@dimen/dp_10"
         android:layout_toRightOf="@+id/imageView"
         android:text="11111"
-        android:textSize="@dimen/sp_20" />
+        android:textSize="@dimen/sp_30" />
 
     <View
         android:layout_width="@dimen/dp_10"
         android:layout_height="@dimen/dp_10"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/title"
         android:background="@color/red" />
 
     <View
