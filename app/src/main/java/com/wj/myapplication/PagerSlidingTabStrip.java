@@ -8,12 +8,14 @@ import android.os.Build;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * author wangjing
@@ -110,15 +112,15 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     }
 
     private void addTextTab(int position, String title) {
-        View item = LayoutInflater.from(context).inflate(R.layout.tab_item,null,false);
-        TextView tabText = item.findViewById(R.id.title);
-        tabText.setText(title);
-//        TextView tab = new TextView(getContext());
-//        tab.setText(title);
-//        tab.setTextColor(Color.parseColor("#FF00FF"));
-//        tab.setGravity(Gravity.CENTER);
-//        tab.setSingleLine();
-        addTab(position, item);
+//        View item = LayoutInflater.from(context).inflate(R.layout.tab_item,null,false);
+//        TextView tabText = item.findViewById(R.id.title);
+//        tabText.setText(title);
+        TextView tab = new TextView(getContext());
+        tab.setText(title);
+        tab.setTextColor(Color.parseColor("#FF00FF"));
+        tab.setGravity(Gravity.CENTER);
+        tab.setSingleLine();
+        addTab(position, tab);
     }
 
     private void addTab(final int position, final View tab) {
@@ -160,6 +162,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
         @Override
         public void onPageSelected(int position) {
+            Toast.makeText(context, position+"", Toast.LENGTH_SHORT).show();
             selectedPosition = position;
             updateTabStyles();
 
