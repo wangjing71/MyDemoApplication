@@ -8,16 +8,13 @@ import android.graphics.Paint;
 import android.os.Build;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * author wangjing
@@ -230,5 +227,4 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             scrollTo(newScrollX, 0);
         }
     }
-
 }
