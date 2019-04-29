@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -175,8 +176,6 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     private void scrollToChild(int currentItem) {
         scrollTo(20, 0);
-
-
     }
 
     @Override
