@@ -35,7 +35,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     private int selectedPosition = 0;
 
-    private int tabPadding = 0;
+    private int tabPadding = 24;
 
     public void setDefaultPosition(int selectedPosition) {
         this.selectedPosition = selectedPosition;
@@ -115,6 +115,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 //        View item = LayoutInflater.from(context).inflate(R.layout.tab_item,null,false);
 //        TextView tabText = item.findViewById(R.id.title);
 //        tabText.setText(title);
+
         TextView tab = new TextView(getContext());
         tab.setText(title);
         tab.setTextColor(Color.parseColor("#FF00FF"));
@@ -137,8 +138,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     private void updateTabStyles() {
         for (int i = 0; i < tabCount; i++) {
-            View vg = tabsContainer.getChildAt(i);
-            TextView v = vg.findViewById(R.id.title);
+            View v = tabsContainer.getChildAt(i);
             if (v instanceof TextView) {
                 TextView tab = (TextView) v;
 
