@@ -168,8 +168,17 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
         @Override
         public void onPageScrollStateChanged(int state) {
+            if (state == ViewPager.SCROLL_STATE_IDLE) {
+                scrollToChild(pager.getCurrentItem());
+            }
 
         }
+    }
+
+    private void scrollToChild(int currentItem) {
+        scrollTo(currentItem, 0);
+
+
     }
 
     @Override
