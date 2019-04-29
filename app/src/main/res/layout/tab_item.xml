@@ -11,17 +11,18 @@
         android:src="@mipmap/ic_launcher" />
 
     <TextView
-        android:layout_toRightOf="@+id/imageView"
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/imageView"
         android:text="11111"
         android:textSize="@dimen/sp_20" />
 
     <View
-        android:layout_width="@dimen/dp_15"
-        android:layout_height="@dimen/dp_15"
+        android:layout_width="@dimen/dp_10"
+        android:layout_height="@dimen/dp_10"
+        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:background="@color/red" />
 </RelativeLayout>
