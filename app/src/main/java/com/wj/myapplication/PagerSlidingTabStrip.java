@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Build;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
@@ -44,6 +45,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     private int currentPosition = 0;
     private float currentPositionOffset = 0f;
 
+    private Paint rectPaint;
+
     public void setDefaultPosition(int selectedPosition) {
         this.selectedPosition = selectedPosition;
     }
@@ -80,6 +83,10 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         setFillViewport(true);
         setWillNotDraw(false);
         setHorizontalScrollBarEnabled(false);
+
+        rectPaint = new Paint();
+        rectPaint.setAntiAlias(true);
+        rectPaint.setStyle(Paint.Style.FILL);
 
         setBackgroundColor(Color.parseColor("#efe9e5"));
         tabsContainer = new LinearLayout(context);
@@ -152,12 +159,33 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 if (i == selectedPosition) {
                     tab.setTextSize(TypedValue.COMPLEX_UNIT_PX, 40);
                     tab.setTextColor(getResources().getColor(R.color.new_color_btn_col));
-                }else{
+                } else {
                     tab.setTextSize(TypedValue.COMPLEX_UNIT_PX, 40);
                     tab.setTextColor(getResources().getColor(R.color.black));
                 }
             }
         }
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        final int height = getHeight();
+        View currentTab = tabsContainer.getChildAt(currentPosition);
+        float lineLeft = currentTab.getLeft();
+        float lineRight = currentTab.getRight();
+        rectPaint.setColor(getResources().getColor(R.color.blue_primary));
+
+        if (currentPositionOffset > 0f && currentPosition < tabCount - 1) {
+
+            View nextTab = tabsContainer.getChildAt(currentPosition + 1);
+            final float nextTabLeft = nextTab.getLeft();
+            final float nextTabRight = nextTab.getRight();
+
+            lineLeft = (currentPositionOffset * nextTabLeft + (1f - currentPositionOffset) * lineLeft);
+            lineRight = (currentPositionOffset * nextTabRight + (1f - currentPositionOffset) * lineRight);
+        }
+        canvas.drawRect(lineLeft + 0, height - 10, lineRight - 0, height, rectPaint);
     }
 
     private class PageListener implements ViewPager.OnPageChangeListener {
@@ -168,6 +196,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             currentPositionOffset = positionOffset;
 
             scrollToChild(position, (int) (positionOffset * tabsContainer.getChildAt(position).getWidth()));
+
+            invalidate();
         }
 
         @Override
@@ -179,7 +209,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         @Override
         public void onPageScrollStateChanged(int state) {
             if (state == ViewPager.SCROLL_STATE_IDLE) {
-                scrollToChild(pager.getCurrentItem(),0);
+                scrollToChild(pager.getCurrentItem(), 0);
             }
         }
     }
@@ -201,8 +231,4 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         }
     }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-    }
 }
