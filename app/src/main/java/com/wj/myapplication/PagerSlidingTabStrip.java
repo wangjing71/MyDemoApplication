@@ -28,6 +28,12 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     private LinearLayout.LayoutParams defaultTabLayoutParams;
     private LinearLayout.LayoutParams expandedTabLayoutParams;
 
+    private int defaultPosition = 0;
+
+    public void setDefaultPosition(int defaultPosition) {
+        this.defaultPosition = defaultPosition;
+    }
+
     public void setViewPager(ViewPager pager) {
         this.pager = pager;
         if (pager.getAdapter() == null) {
