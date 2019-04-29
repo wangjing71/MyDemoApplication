@@ -28,10 +28,10 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     private LinearLayout.LayoutParams defaultTabLayoutParams;
     private LinearLayout.LayoutParams expandedTabLayoutParams;
 
-    private int defaultPosition = 0;
+    private int selectedPosition = 0;
 
-    public void setDefaultPosition(int defaultPosition) {
-        this.defaultPosition = defaultPosition;
+    public void setDefaultPosition(int selectedPosition) {
+        this.selectedPosition = selectedPosition;
     }
 
     public void setViewPager(ViewPager pager) {
@@ -109,11 +109,18 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     private void updateTabStyles() {
         for (int i = 0; i < tabCount; i++) {
             View v = tabsContainer.getChildAt(i);
-            v.setBackgroundColor(Color.parseColor("#FF0000"));
+            v.setBackgroundColor(Color.parseColor("#efe9e5"));
             if (v instanceof TextView) {
                 TextView tab = (TextView) v;
-                tab.setTextSize(TypedValue.COMPLEX_UNIT_PX, 25);
-                tab.setTextColor(getResources().getColor(R.color.white));
+
+                //设置标题选中的颜色
+                if (i == selectedPosition) {
+                    tab.setTextSize(TypedValue.COMPLEX_UNIT_PX, 30);
+                    tab.setTextColor(getResources().getColor(R.color.new_color_btn_col));
+                }else{
+                    tab.setTextSize(TypedValue.COMPLEX_UNIT_PX, 25);
+                    tab.setTextColor(getResources().getColor(R.color.black));
+                }
             }
         }
     }
@@ -128,6 +135,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
         @Override
         public void onPageSelected(int position) {
+            selectedPosition = position;
+            updateTabStyles();
 
         }
 
