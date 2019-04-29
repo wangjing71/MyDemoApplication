@@ -161,7 +161,6 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
         @Override
         public void onPageSelected(int position) {
-            Toast.makeText(context, position+"", Toast.LENGTH_SHORT).show();
             selectedPosition = position;
             updateTabStyles();
         }
@@ -171,7 +170,6 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             if (state == ViewPager.SCROLL_STATE_IDLE) {
                 scrollToChild(pager.getCurrentItem());
             }
-
         }
     }
 
