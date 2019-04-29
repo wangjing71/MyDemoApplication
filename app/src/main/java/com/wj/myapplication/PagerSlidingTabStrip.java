@@ -141,7 +141,6 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             View v = tabsContainer.getChildAt(i);
             if (v instanceof TextView) {
                 TextView tab = (TextView) v;
-
                 //设置标题选中的颜色
                 if (i == selectedPosition) {
                     tab.setTextSize(TypedValue.COMPLEX_UNIT_PX, 40);
