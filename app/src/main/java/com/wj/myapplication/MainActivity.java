@@ -31,17 +31,8 @@ public class MainActivity extends BaseActivity {
         fragList = new ArrayList<>();
         titles = new ArrayList<>();
 
-        titles.add("基础套餐");
-        titles.add("自有业务");
-        titles.add("群组业务");
-        titles.add("其他业务");
-        titles.add("增值服务");
-        titles.add("在线充值");
-        titles.add("升级打怪");
-        titles.add("完美世界");
-        titles.add("英雄联盟");
-
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 15; i++) {
+            titles.add("条目 " + i);
             ChildFragment childFragment = new ChildFragment();
             Bundle bundle = new Bundle();
             bundle.putString("pageTitle", "页面 "+ i);
