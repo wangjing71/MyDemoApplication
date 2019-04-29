@@ -176,7 +176,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     }
 
     private void scrollToChild(int currentItem) {
-        scrollTo(currentItem, 0);
+        scrollTo(20, 0);
 
 
     }
