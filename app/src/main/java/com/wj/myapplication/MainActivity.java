@@ -32,7 +32,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        String source1 = "http://211.136.164.120:18082/configSystem3/icon/test.mp4";
+        String source1 = "https://aweme.snssdk.com/aweme/v1/playwm/?video_id=v0200f830000bj7og0kuatl33n5bonjg&line=0";
         videoPlayer.setUp(source1, true, "");
 
         //增加封面
