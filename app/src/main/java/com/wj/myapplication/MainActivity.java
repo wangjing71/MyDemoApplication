@@ -33,7 +33,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        String source1 = "http://192.168.3.100:8080/aaa.mp4";
+        String source1 = "http://211.136.164.120:18082/upload/v4/img/homePage/2019-05-07-15-05-53-468/cmbh_0.mp4";
         videoPlayer.setUp(source1, true, "WWWWW");
         //增加封面
         ImageView imageView = new ImageView(this);
