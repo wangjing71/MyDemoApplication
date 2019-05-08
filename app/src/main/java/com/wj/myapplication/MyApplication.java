@@ -23,6 +23,8 @@ public class MyApplication extends Application {
 
     private void initGSYVideoPlayer() {
         PlayerFactory.setPlayManager(Exo2PlayerManager.class);//EXO模式
-        GSYVideoType.setShowType(GSYVideoType.SCREEN_TYPE_FULL);
+        GSYVideoType.setShowType(GSYVideoType.SCREEN_TYPE_FULL); //全屏
+
+//        GSYVideoType.setShowType(GSYVideoType.SCREEN_MATCH_FULL); //全屏
     }
 }
