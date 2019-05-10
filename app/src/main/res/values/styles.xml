@@ -9,7 +9,7 @@
     </style>
 
     <style name="MyTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
-
+        <item name="android:windowBackground">@mipmap/splash_bg</item>
 
     </style>
 
