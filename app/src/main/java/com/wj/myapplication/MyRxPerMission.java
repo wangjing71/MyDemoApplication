@@ -1,28 +1,17 @@
 package com.wj.myapplication;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
-import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.text.TextUtils;
 import android.util.Log;
 
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
-import com.tbruyelle.rxpermissions2.RxPermissionsFragment;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
 import io.reactivex.ObservableTransformer;
-import io.reactivex.functions.Function;
-import io.reactivex.subjects.PublishSubject;
 
 /**
  * author wangjing
@@ -60,6 +49,7 @@ public class MyRxPerMission extends RxPermissions {
     }
 
     public Observable<Boolean> request(String... permissions) {
+        Log.i("====","1111");
         return rxPermissions.request(permissions);
     }
 
