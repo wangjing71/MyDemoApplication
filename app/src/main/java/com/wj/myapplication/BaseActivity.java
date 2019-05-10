@@ -1,7 +1,9 @@
 package com.wj.myapplication;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -13,7 +15,7 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
  * Created by Administrator on 2018/1/4.
  */
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends FragmentActivity {
 
 
     protected MyRxPerMission rxPermissions;
