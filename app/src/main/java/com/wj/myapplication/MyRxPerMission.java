@@ -38,7 +38,7 @@ public class MyRxPerMission extends RxPermissions {
             isFirst = false;
             return rxPermissions.request(permissions);
         } else {
-            return null;
+            return rxPermissions.request(null);
         }
     }
 }
