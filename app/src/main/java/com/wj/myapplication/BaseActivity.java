@@ -16,7 +16,7 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 public abstract class BaseActivity extends AppCompatActivity {
 
 
-    protected RxPermissions rxPermissions;
+    protected MyRxPerMission rxPermissions;
     private View barView;
 
     @Override
@@ -24,7 +24,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(setLayoutId());
         ImmersionBar.with(this).init();
-        rxPermissions = new RxPermissions(this);
+        rxPermissions = new MyRxPerMission(this);
         barView = findViewById(R.id.barView);
         ImmersionBar.setStatusBarView(this, barView);
         initView();
