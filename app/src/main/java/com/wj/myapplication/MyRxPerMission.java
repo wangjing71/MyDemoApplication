@@ -34,6 +34,7 @@ public class MyRxPerMission extends RxPermissions {
 
 
     public Observable<Boolean> request(String... permissions) {
+//        return rxPermissions.request(permissions);
         if (isFirst) {
             isFirst = false;
             return rxPermissions.request(permissions);
