@@ -9,6 +9,7 @@ package com.wj.myapplication;
  */
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.igexin.sdk.GTIntentService;
 import com.igexin.sdk.PushManager;
@@ -48,7 +49,9 @@ public class DemoIntentService extends GTIntentService {
             Log.e(TAG, "receiver payload = null");
         } else {
             String data = new String(payload);
+            Toast.makeText(context, data, Toast.LENGTH_SHORT).show();
             Log.d(TAG, "receiver payload = " + data);
+            Log.d(TAG, "receiver payload = " + Thread.currentThread().getName());
         }
 
         Log.d(TAG, "----------------------------------------------------------------------------------------------");
