@@ -13,6 +13,5 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Bugly.init(getApplicationContext(), "9c59c60539", false);
     }
 }
