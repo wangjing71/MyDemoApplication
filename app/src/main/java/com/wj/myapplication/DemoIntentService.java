@@ -56,7 +56,6 @@ public class DemoIntentService extends GTIntentService {
         }
 
         Log.d(TAG, "----------------------------------------------------------------------------------------------");
-
     }
 
     @Override
