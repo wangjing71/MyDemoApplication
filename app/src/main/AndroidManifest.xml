@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+
     <application
         android:name="com.wj.myapplication.MyApplication"
         android:allowBackup="true"
@@ -22,6 +23,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- android:permission在2.13.1.0版本后必须配置 -->
+        <service
+            android:name="com.wj.myapplication.DemoIntentService"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+
+        <!-- 配置SDK核心服务 -->
+        <!-- process必须指定为":pushservice"，切勿随意更改 -->
+        <service
+            android:name=".DemoPushService"
+            android:exported="true"
+            android:label="PushService"
+            android:process=":pushservice">
+        </service>
     </application>
 
 </manifest>

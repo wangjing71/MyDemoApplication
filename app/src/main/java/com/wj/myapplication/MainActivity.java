@@ -4,16 +4,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.igexin.sdk.PushManager;
+
 
 public class MainActivity extends BaseActivity {
 
     private Button button;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
     @Override
     protected int setLayoutId() {
@@ -27,7 +23,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
+        PushManager.getInstance().initialize(getApplicationContext(), DemoPushService .class);
+        PushManager.getInstance().registerPushIntentService(getApplicationContext(), DemoIntentService .class);
     }
 
     @Override
