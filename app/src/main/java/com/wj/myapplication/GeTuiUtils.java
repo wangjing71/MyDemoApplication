@@ -9,7 +9,8 @@ import android.support.v4.content.LocalBroadcastManager;
  * Date 2019/5/13
  * Description
  */
-public class GeTuiutils {
+public class GeTuiUtils {
+
     public static void sendMessage(Context context,String message){
         LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(context);
 		Intent intent = new Intent();

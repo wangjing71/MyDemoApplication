@@ -52,6 +52,7 @@ public class DemoIntentService extends GTIntentService {
             Toast.makeText(context, data, Toast.LENGTH_SHORT).show();
             Log.d(TAG, "receiver payload = " + data);
             Log.d(TAG, "receiver payload = " + Thread.currentThread().getName());
+            GeTuiUtils.sendMessage(context,data);
         }
 
         Log.d(TAG, "----------------------------------------------------------------------------------------------");
