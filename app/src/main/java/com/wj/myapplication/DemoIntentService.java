@@ -77,5 +77,6 @@ public class DemoIntentService extends GTIntentService {
 
     @Override
     public void onNotificationMessageClicked(Context context, GTNotificationMessage msg) {
+        Log.i("====","消息被点击了");
     }
 }
