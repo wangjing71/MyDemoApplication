@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.igexin.sdk.PushManager;
 
@@ -61,8 +62,8 @@ public class MainActivity extends BaseActivity {
     public class GTuiMessageBroadcastReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-
-
+            String message  = intent.getStringExtra("message");
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
 
         }
     }
