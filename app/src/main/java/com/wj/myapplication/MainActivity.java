@@ -36,7 +36,7 @@ public class MainActivity extends BaseActivity {
         //注册广播监听登录状态变化
         localBroadcastManager = LocalBroadcastManager.getInstance(this);
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("login_state_change");
+        intentFilter.addAction("getui_message");
         gTuiMessageBroadcastReceiver = new GTuiMessageBroadcastReceiver();
         localBroadcastManager.registerReceiver(gTuiMessageBroadcastReceiver, intentFilter);
 
