@@ -1,46 +1,27 @@
 package com.wj.myapplication;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.view.AsyncLayoutInflater;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends AppCompatActivity {
 
     private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-    }
-
-    @Override
-    protected int setLayoutId() {
-        return R.layout.activity_main;
-    }
-
-    @Override
-    protected void initView() {
-        button = findViewById(R.id.button);
-    }
-
-    @Override
-    protected void initData() {
-
-    }
-
-    @Override
-    protected void setEvent() {
-        button.setOnClickListener(new View.OnClickListener() {
+        new AsyncLayoutInflater(this).inflate(R.layout.activity_main, null, new AsyncLayoutInflater.OnInflateFinishedListener() {
             @Override
-            public void onClick(View v) {
-                doSomeThing();
+            public void onInflateFinished(@NonNull View view, int i, @Nullable ViewGroup viewGroup) {
+                setContentView(R.layout.activity_main);
             }
         });
-    }
-
-    private void doSomeThing() {
-
     }
 }
