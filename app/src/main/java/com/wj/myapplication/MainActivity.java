@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         new AsyncLayoutInflater(this).inflate(R.layout.activity_main, null, new AsyncLayoutInflater.OnInflateFinishedListener() {
             @Override
             public void onInflateFinished(@NonNull View view, int i, @Nullable ViewGroup viewGroup) {
-                setContentView(R.layout.activity_main);
+                setContentView(view);
             }
         });
     }
