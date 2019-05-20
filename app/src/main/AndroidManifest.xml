@@ -24,6 +24,8 @@
             </intent-filter>
         </activity>
 
+
+
         <!-- android:permission在2.13.1.0版本后必须配置 -->
         <service
             android:name="com.wj.myapplication.DemoIntentService"
