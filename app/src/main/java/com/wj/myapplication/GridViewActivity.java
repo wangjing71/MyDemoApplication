@@ -34,7 +34,7 @@ public class GridViewActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 4));
         mRecyclerView.setHasFixedSize(true);
 
-        RecyItemTouchHelperCallback itemTouchHelperCallback = new RecyItemTouchHelperCallback(mRecyAdapter, false, true);
+            RecyItemTouchHelperCallback itemTouchHelperCallback = new RecyItemTouchHelperCallback(mRecyAdapter, false, true);
         final ItemTouchHelper itemTouchHelper = new ItemTouchHelper(itemTouchHelperCallback);
         itemTouchHelper.attachToRecyclerView(mRecyclerView);
 

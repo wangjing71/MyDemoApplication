@@ -46,7 +46,7 @@ public class RecyItemTouchHelperCallback extends ItemTouchHelper.Callback {
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
         int fromPosition = viewHolder.getAdapterPosition();
         int toPosition = target.getAdapterPosition();
-        if (isFirstDragUnable && toPosition == 0) {
+        if (isFirstDragUnable && toPosition == 1) {
             return false;
         }
         if (fromPosition < toPosition) {
