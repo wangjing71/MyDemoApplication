@@ -1,6 +1,7 @@
 package com.wj.myapplication;
 
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -32,7 +33,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initData() {
         myAdapter = new MyAdapter(this);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        GridLayoutManager linearLayoutManager = new GridLayoutManager(this,3);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(myAdapter);
 
