@@ -2,15 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
-
-    <View
-        android:background="#FD3D7F"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_50"/>
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/dp_10"
+    android:paddingRight="@dimen/dp_10">
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_5"/>
+        android:layout_height="@dimen/dp_80"
+        android:background="#FD3D7F" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_5" />
 
 </LinearLayout>
