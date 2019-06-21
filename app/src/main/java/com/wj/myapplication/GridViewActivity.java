@@ -34,7 +34,7 @@ public class GridViewActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 4));
         mRecyclerView.setHasFixedSize(true);
 
-            RecyItemTouchHelperCallback itemTouchHelperCallback = new RecyItemTouchHelperCallback(mRecyAdapter, false, true);
+        RecyItemTouchHelperCallback itemTouchHelperCallback = new RecyItemTouchHelperCallback(mRecyAdapter, false, true);
         final ItemTouchHelper itemTouchHelper = new ItemTouchHelper(itemTouchHelperCallback);
         itemTouchHelper.attachToRecyclerView(mRecyclerView);
 
@@ -49,7 +49,7 @@ public class GridViewActivity extends AppCompatActivity {
             @Override
             public void onLongClick(RecyclerView.ViewHolder viewHolder) {
                 Toast.makeText(GridViewActivity.this, "" + "长按拖动...", Toast.LENGTH_SHORT).show();
-                if (viewHolder.getLayoutPosition() != 0) {
+                if (viewHolder.getLayoutPosition() != 2) {
                     itemTouchHelper.startDrag(viewHolder);
                 }
             }
