@@ -44,15 +44,9 @@ public class RecyAdapter extends RecyclerView.Adapter<RecyAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         String string = mDataList.get(position);
-        if (isFirstSpecial && position == 0) {
-            holder.itemView.setBackgroundColor(Color.LTGRAY);
-            holder.mTextView.setText("精选");
-            holder.mImageView.setImageResource(R.mipmap.ic_launcher);
-        } else {
-            holder.itemView.setBackgroundColor(Color.WHITE);
-            holder.mTextView.setText(string);
-            holder.mImageView.setImageResource(mInts.get(position % mInts.size()));
-        }
+        holder.itemView.setBackgroundColor(Color.WHITE);
+        holder.mTextView.setText(string);
+        holder.mImageView.setImageResource(mInts.get(position % mInts.size()));
     }
 
     @Override
