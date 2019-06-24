@@ -77,6 +77,7 @@ public class MainActivity extends BaseActivity {
                 .tag(this)
                 .cacheKey("cachePostKey")
                 .cacheMode(CacheMode.DEFAULT)
+                .upJson("")
                 .params("param2", "paramValue2")
                 .params("param3", "paramValue3")
                 .execute(new StringCallback() {
