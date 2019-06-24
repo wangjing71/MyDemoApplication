@@ -16,7 +16,7 @@ import com.lzy.okgo.model.Response;
 public class MainActivity extends BaseActivity {
 
     private View barView;
-    private Button button1,button2,button3;
+    private Button button1,button2,button3,button4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +65,27 @@ public class MainActivity extends BaseActivity {
                 doDownload();
             }
         });
+
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dostParms();
+            }
+        });
+    }
+
+    private void dostParms() {
+        OkGo.<String>post("http://www.baidu.com")
+                .tag(this)
+                .upJson("") //这里传JSON参数
+                .execute(new StringCallback() {
+                    @Override
+                    public void onSuccess(Response<String> response) {
+                        Toast.makeText(MainActivity.this, response.body(), Toast.LENGTH_SHORT).show();
+                        Log.i("====",response.body());
+
+                    }
+                });
     }
 
     private void doDownload() {
