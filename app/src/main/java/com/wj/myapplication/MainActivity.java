@@ -11,8 +11,15 @@ import com.gyf.barlibrary.ImmersionBar;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheMode;
 import com.lzy.okgo.callback.StringCallback;
+import com.lzy.okgo.model.Progress;
 import com.lzy.okgo.model.Response;
+import com.lzy.okgo.request.GetRequest;
+import com.lzy.okserver.OkDownload;
+import com.lzy.okserver.download.DownloadListener;
+import com.lzy.okserver.download.DownloadTask;
 import com.tbruyelle.rxpermissions2.Permission;
+
+import java.io.File;
 
 import io.reactivex.functions.Consumer;
 
@@ -110,7 +117,37 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doDown() {
+        GetRequest<File> request = OkGo.get(FILE_URL);
+        DownloadTask task = OkDownload.request(FILE_URL, request).save().register(new DownloadListener(this) {
+            @Override
+            public void onStart(Progress progress) {
+                Toast.makeText(MainActivity.this, "onStart", Toast.LENGTH_SHORT).show();
+            }
 
+            @Override
+            public void onProgress(Progress progress) {
+                Log.i("====",progress.fraction+"");
+                Log.i("====",progress.speed+" byte/s");
+            }
+
+            @Override
+            public void onError(Progress progress) {
+                Toast.makeText(MainActivity.this, "onError", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFinish(File file, Progress progress) {
+                Log.i("=====",file.getAbsolutePath());
+//                installApk(file);
+                Toast.makeText(MainActivity.this, "下载完成", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onRemove(Progress progress) {
+
+            }
+        });
+        task.start();
     }
 
     private void doPost() {
