@@ -1,5 +1,6 @@
 package com.wj.myapplication;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,12 +12,16 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheMode;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
+import com.tbruyelle.rxpermissions2.Permission;
+
+import io.reactivex.functions.Consumer;
 
 
 public class MainActivity extends BaseActivity {
 
     private View barView;
     private Button button1,button2,button3,button4;
+    private String FILE_URL = "https://imtt.dd.qq.com/16891/3CCE99DE9355B0AFDEF59EC03A2C8450.apk?fsname=com.sh.cm.shydhn_2.0.1_7.apk";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +94,22 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doDownload() {
+        rxPermissions.requestEach(Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .subscribe(new Consumer<Permission>() {
+                    @Override
+                    public void accept(Permission permission) throws Exception {
+                        if (permission.name.equalsIgnoreCase(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                            if (permission.granted) {//同意后调用
+                                doDown();
+                            } else if (permission.shouldShowRequestPermissionRationale) {//禁止，但没有选择“以后不再询问”，以后申请权限，会继续弹出提示
+                            } else {//禁止，但选择“以后不再询问”，以后申请权限，不会继续弹出提示
+                            }
+                        }
+                    }
+                });
+    }
+
+    private void doDown() {
 
     }
 
