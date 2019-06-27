@@ -51,6 +51,7 @@ public class MainActivity extends BaseActivity {
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
+        button4 = findViewById(R.id.button4);
     }
 
     @Override
