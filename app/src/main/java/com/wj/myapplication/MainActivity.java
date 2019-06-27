@@ -95,7 +95,7 @@ public class MainActivity extends BaseActivity {
         String token = "";  //token随便传
         String serviceId = "SHNGCRM";
 
-        String url = "http://117.135.11.22:8081/portal-4a/"+"user/getToken";
+        String url = "http://117.135.11.22:8081/portal-4a/"+"user/getToken.do";
 
         String parms = "";
         try {
@@ -110,8 +110,14 @@ public class MainActivity extends BaseActivity {
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
-                        Toast.makeText(MainActivity.this, response.body(), Toast.LENGTH_SHORT).show();
-                        Log.i("====",response.body());
+                        String backStr ;
+                        try {
+                            backStr = DES3.decode(response.body());
+                            Toast.makeText(MainActivity.this, backStr, Toast.LENGTH_SHORT).show();
+                            Log.i("====",backStr);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
 
                     }
                 });
