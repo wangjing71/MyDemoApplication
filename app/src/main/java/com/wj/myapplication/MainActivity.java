@@ -19,6 +19,9 @@ import com.lzy.okserver.download.DownloadListener;
 import com.lzy.okserver.download.DownloadTask;
 import com.tbruyelle.rxpermissions2.Permission;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 
 import io.reactivex.functions.Consumer;
@@ -87,9 +90,22 @@ public class MainActivity extends BaseActivity {
     }
 
     private void dostParms() {
-        OkGo.<String>post("http://www.baidu.com")
+        String mainAccount = "rz_lisr";
+        String token = "";  //token随便传
+        String serviceId = "SHNGCRM";
+
+        String url = "http://117.135.11.22:8081/portal-4a/"+"user/getToken";
+
+        String parms = "";
+        try {
+            parms = DES3.encode(getRequestParms(serviceId));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        OkGo.<String>post(url)
                 .tag(this)
-                .upJson("") //这里传JSON参数
+                .upJson(parms) //这里传JSON参数
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
@@ -180,5 +196,19 @@ public class MainActivity extends BaseActivity {
                         Log.i("====",response.body());
                     }
                 });
+    }
+
+    private  String getRequestParms(String serviceId) {
+        JSONObject jsonObject = new JSONObject();
+        JSONObject jObject = new JSONObject();
+        try {
+            jsonObject.put("mainAccount", "rz_lisr");
+            jsonObject.put("token", "123");
+            jsonObject.put("serviceId", serviceId);
+            jObject.put("data", jsonObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jObject.toString();
     }
 }
