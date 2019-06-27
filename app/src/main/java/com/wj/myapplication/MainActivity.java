@@ -8,6 +8,9 @@ import android.widget.Toast;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import okhttp3.Call;
 
 
@@ -47,11 +50,23 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
+        String mainAccount = "rz_lisr";
+        String token = "";  //token随便传
+        String serviceId = "SHNGCRM";
 
-        OkHttpUtils.get()
+        String url = "http://117.135.11.22:8081/portal-4a/"+"user/getToken.do";
+
+        String parms = "";
+        try {
+            parms = DES3.encode(getRequestParms(serviceId));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        OkHttpUtils.postString()
                 .url("http://www.baidu.com")
-                .addParams("username", "hyman")
-                .addParams("password", "123")
+                .content(parms)
                 .build()
                 .execute(new StringCallback() {
                     @Override
@@ -64,5 +79,19 @@ public class MainActivity extends BaseActivity {
                         Toast.makeText(MainActivity.this, response, Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    private  String getRequestParms(String serviceId) {
+        JSONObject jsonObject = new JSONObject();
+        JSONObject jObject = new JSONObject();
+        try {
+            jsonObject.put("mainAccount", "rz_lisr");
+            jsonObject.put("token", "123");
+            jsonObject.put("serviceId", serviceId);
+            jObject.put("data", jsonObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jObject.toString();
     }
 }
