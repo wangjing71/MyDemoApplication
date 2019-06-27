@@ -12,6 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import okhttp3.Call;
+import okhttp3.MediaType;
 
 
 public class MainActivity extends BaseActivity {
@@ -65,8 +66,9 @@ public class MainActivity extends BaseActivity {
 
 
         OkHttpUtils.postString()
-                .url("http://www.baidu.com")
+                .url(url)
                 .content(parms)
+                .mediaType(MediaType.parse("application/json; charset=utf-8"))
                 .build()
                 .execute(new StringCallback() {
                     @Override
