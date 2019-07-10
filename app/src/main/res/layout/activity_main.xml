@@ -16,4 +16,9 @@
         android:layout_gravity="center_horizontal"
         android:text="图片转成Base64" />
 
+    <ImageView
+        android:id="@+id/show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

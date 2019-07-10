@@ -1,13 +1,19 @@
 package com.wj.myapplication;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 
 public class MainActivity extends BaseActivity {
 
     private Button button;
+    private String base;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +29,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         button = findViewById(R.id.button);
+        imageView = findViewById(R.id.show);
     }
 
     @Override
@@ -41,6 +48,10 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.activity_home3_tip);
+        base = Base64BitmapUtil.bitmapToBase64(bitmap);
+        Log.i("====",base);
 
+        imageView.setImageBitmap(Base64BitmapUtil.base64ToBitmap(base));
     }
 }
