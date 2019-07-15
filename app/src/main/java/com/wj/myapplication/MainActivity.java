@@ -170,5 +170,12 @@ public class MainActivity extends BaseActivity {
             }
         });
 
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myAdapter.add(0,"222");
+            }
+        });
+
     }
 }
