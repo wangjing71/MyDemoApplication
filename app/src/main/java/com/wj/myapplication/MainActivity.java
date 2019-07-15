@@ -7,6 +7,7 @@ import android.os.Vibrator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
@@ -155,6 +156,13 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setEvent() {
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myAdapter.remove(0);
+            }
+        });
 
     }
 }
