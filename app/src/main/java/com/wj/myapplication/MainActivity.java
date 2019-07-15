@@ -6,12 +6,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 
 public class MainActivity extends BaseActivity {
 
     private Button add,delete;
     private RecyclerView mRecyclerView;
     private MyAdapter myAdapter;
+    private ArrayList<String> dataList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +36,14 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        for (int i = 0; i < 15; i++) {
+            dataList.add("条目_"+i);
+        }
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         myAdapter = new MyAdapter(this);
+        myAdapter.setDataList(dataList);
         mRecyclerView.setAdapter(myAdapter);
     }
 
