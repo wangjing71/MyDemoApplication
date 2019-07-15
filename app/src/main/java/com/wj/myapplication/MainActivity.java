@@ -176,6 +176,5 @@ public class MainActivity extends BaseActivity {
                 myAdapter.add(0,"222");
             }
         });
-
     }
 }
