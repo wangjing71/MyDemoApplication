@@ -1,7 +1,9 @@
 package com.wj.myapplication;
 
+import android.app.Service;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -18,6 +20,7 @@ public class MainActivity extends BaseActivity {
     private SwipeRecyclerView mRecyclerView;
     private MyAdapter myAdapter;
     private ArrayList<String> dataList = new ArrayList<>();
+    private ItemTouchHelper mItemTouchHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +56,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initLongPressCanMove(RecyclerView mRecyclerView, final MyAdapter myAdapter, final ArrayList<String> dataList) {
-        ItemTouchHelper mItemTouchHelper;
+        final ItemTouchHelper finalMItemTouchHelper = mItemTouchHelper;
         mRecyclerView.addOnItemTouchListener(new OnRecyclerItemClickListener(mRecyclerView) {
             @Override
             public void onItemClick(RecyclerView.ViewHolder vh) {
@@ -62,7 +65,9 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onItemLongClick(RecyclerView.ViewHolder vh) {
-                int position = vh.getLayoutPosition();
+                finalMItemTouchHelper.startDrag(vh);
+                Vibrator vib = (Vibrator) getSystemService(Service.VIBRATOR_SERVICE);
+                vib.vibrate(50);
             }
         });
 
