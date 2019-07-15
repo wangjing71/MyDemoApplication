@@ -4,6 +4,7 @@ import android.app.Service;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -48,6 +49,11 @@ public class MainActivity extends BaseActivity {
 
         GridLayoutManager linearLayoutManager = new GridLayoutManager(this,3);
         mRecyclerView.setLayoutManager(linearLayoutManager);
+        DefaultItemAnimator animator = new DefaultItemAnimator();
+        animator.setAddDuration(200);
+        animator.setRemoveDuration(200);
+        mRecyclerView.setItemAnimator(animator);
+
         myAdapter = new MyAdapter(this);
         myAdapter.setDataList(dataList);
         mRecyclerView.setAdapter(myAdapter);
