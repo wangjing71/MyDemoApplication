@@ -15,7 +15,7 @@ import java.util.List;
 public class MainActivity extends BaseActivity {
 
     private Button add,delete;
-    private RecyclerView mRecyclerView;
+    private SwipeRecyclerView mRecyclerView;
     private MyAdapter myAdapter;
     private ArrayList<String> dataList = new ArrayList<>();
 
