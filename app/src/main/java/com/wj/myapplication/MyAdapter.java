@@ -7,10 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * author wangjing
@@ -55,11 +57,13 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         ImageView icon;
         TextView title;
+        LinearLayout ll_item;
 
         public MyViewHolder(View view) {
             super(view);
             icon = view.findViewById(R.id.icon);
             title = view.findViewById(R.id.title);
+            ll_item = view.findViewById(R.id.ll_item);
         }
     }
 }
