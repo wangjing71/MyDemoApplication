@@ -17,7 +17,7 @@ import java.util.Collections;
 
 public class MainActivity extends BaseActivity {
 
-    private Button add,delete;
+    private Button add, delete;
     private RecyclerView mRecyclerView;
     private MyAdapter myAdapter;
     private ArrayList<String> dataList = new ArrayList<>();
@@ -44,11 +44,12 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initData() {
         for (int i = 0; i < 15; i++) {
-            dataList.add("条目_"+i);
+            dataList.add("条目_" + i);
         }
 
-        GridLayoutManager linearLayoutManager = new GridLayoutManager(this,3);
+        GridLayoutManager linearLayoutManager = new GridLayoutManager(this, 3);
         mRecyclerView.setLayoutManager(linearLayoutManager);
+
         DefaultItemAnimator animator = new DefaultItemAnimator();
         animator.setAddDuration(200);
         animator.setRemoveDuration(200);
@@ -58,7 +59,7 @@ public class MainActivity extends BaseActivity {
         myAdapter.setDataList(dataList);
         mRecyclerView.setAdapter(myAdapter);
 
-        initLongPressCanMove(mRecyclerView,myAdapter,dataList);
+        initLongPressCanMove(mRecyclerView, myAdapter, dataList);
     }
 
     private void initLongPressCanMove(RecyclerView mRecyclerView, final MyAdapter myAdapter, final ArrayList<String> dataList) {
@@ -173,7 +174,7 @@ public class MainActivity extends BaseActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myAdapter.add(0,"222");
+                myAdapter.add(0, "222");
             }
         });
     }
