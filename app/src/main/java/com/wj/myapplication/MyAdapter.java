@@ -3,7 +3,12 @@ package com.wj.myapplication;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -26,8 +31,9 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return null;
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
+        RecyclerView.ViewHolder viewHolder = new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.my_demo_item, parent, false));
+        return viewHolder;
     }
 
     @Override
@@ -37,10 +43,22 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        if(dataList == null){
+        if (dataList == null) {
             return 0;
-        }else{
+        } else {
             return dataList.size();
+        }
+    }
+
+    class MyViewHolder extends RecyclerView.ViewHolder {
+
+        ImageView icon;
+        TextView title;
+
+        public MyViewHolder(View view) {
+            super(view);
+            icon = view.findViewById(R.id.icon);
+            title = view.findViewById(R.id.title);
         }
     }
 }
