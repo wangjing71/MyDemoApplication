@@ -2,12 +2,11 @@ package com.wj.myapplication;
 
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends BaseActivity {
@@ -46,6 +45,14 @@ public class MainActivity extends BaseActivity {
         myAdapter = new MyAdapter(this);
         myAdapter.setDataList(dataList);
         mRecyclerView.setAdapter(myAdapter);
+
+        initLongPressCanMove(mRecyclerView,myAdapter,dataList);
+    }
+
+    private void initLongPressCanMove(RecyclerView mRecyclerView, MyAdapter myAdapter, ArrayList<String> dataList) {
+
+
+
     }
 
     @Override
