@@ -50,7 +50,17 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initLongPressCanMove(RecyclerView mRecyclerView, MyAdapter myAdapter, ArrayList<String> dataList) {
+        mRecyclerView.addOnItemTouchListener(new OnRecyclerItemClickListener(mRecyclerView) {
+            @Override
+            public void onItemClick(RecyclerView.ViewHolder vh) {
 
+            }
+
+            @Override
+            public void onItemLongClick(RecyclerView.ViewHolder vh) {
+
+            }
+        });
 
 
     }
