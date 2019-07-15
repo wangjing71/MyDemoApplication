@@ -10,6 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.animation.LinearInterpolator;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Scroller;
 
@@ -30,7 +31,7 @@ public class SwipeRecyclerView extends RecyclerView {
     private int curSelectPosition;
     private Scroller mScroller;
 
-    private RelativeLayout mCurItemLayout, mLastItemLayout;
+    private LinearLayout mCurItemLayout, mLastItemLayout;
 
     /**
      * 隐藏部分长度
