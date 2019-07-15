@@ -1,6 +1,7 @@
 package com.wj.myapplication;
 
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -40,7 +41,7 @@ public class MainActivity extends BaseActivity {
             dataList.add("条目_"+i);
         }
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        GridLayoutManager linearLayoutManager = new GridLayoutManager(this,3);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         myAdapter = new MyAdapter(this);
         myAdapter.setDataList(dataList);
