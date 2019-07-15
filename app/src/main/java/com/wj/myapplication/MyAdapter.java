@@ -66,4 +66,20 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             ll_item = view.findViewById(R.id.ll_item);
         }
     }
+
+    public void remove(int position) {
+        dataList.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    public void add(int position, String data) {
+        dataList.add(position, data);
+        notifyItemInserted(position);
+    }
+
+    public void change(int position, String data) {
+        dataList.remove(position);
+        dataList.add(position, data);
+        notifyItemChanged(position);
+    }
 }
