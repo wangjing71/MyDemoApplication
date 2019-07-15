@@ -17,7 +17,7 @@ import java.util.List;
 public class MainActivity extends BaseActivity {
 
     private Button add,delete;
-    private SwipeRecyclerView mRecyclerView;
+    private RecyclerView mRecyclerView;
     private MyAdapter myAdapter;
     private ArrayList<String> dataList = new ArrayList<>();
     private ItemTouchHelper mItemTouchHelper;
@@ -65,7 +65,7 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onItemLongClick(RecyclerView.ViewHolder vh) {
-                finalMItemTouchHelper.startDrag(vh);
+                mItemTouchHelper.startDrag(vh);
                 Vibrator vib = (Vibrator) getSystemService(Service.VIBRATOR_SERVICE);
                 vib.vibrate(50);
             }
