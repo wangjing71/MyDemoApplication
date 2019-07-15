@@ -1,6 +1,7 @@
 package com.wj.myapplication;
 
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
@@ -8,6 +9,7 @@ import android.widget.Button;
 public class MainActivity extends BaseActivity {
 
     private Button add,delete;
+    private RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         add = findViewById(R.id.add);
         delete = findViewById(R.id.delete);
+        mRecyclerView = findViewById(R.id.mRecyclerView);
     }
 
     @Override
