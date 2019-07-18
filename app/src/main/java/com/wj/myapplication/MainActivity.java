@@ -1,5 +1,6 @@
 package com.wj.myapplication;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -10,6 +11,10 @@ import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.tbruyelle.rxpermissions2.Permission;
+
+import io.reactivex.functions.Consumer;
 
 
 public class MainActivity extends BaseActivity {
@@ -43,8 +48,14 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-        Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-        startActivityForResult(intent, 0);
+        rxPermissions.requestEach(Manifest.permission.READ_CONTACTS)
+                .subscribe(new Consumer<Permission>() {
+                    @Override
+                    public void accept(Permission permission) throws Exception {
+                        Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+                        startActivityForResult(intent, 0);
+                    }
+                });
     }
 
     @Override
