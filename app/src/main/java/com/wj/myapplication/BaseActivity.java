@@ -42,4 +42,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onDestroy();
         ImmersionBar.with(this).destroy();
     }
+
+    public static void main(String[] args) {
+        System.out.println("1111");
+    }
 }
