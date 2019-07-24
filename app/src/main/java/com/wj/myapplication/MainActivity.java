@@ -11,8 +11,6 @@ import android.widget.Toast;
 
 import java.lang.ref.WeakReference;
 
-import me.leolin.shortcutbadger.ShortcutBadger;
-
 
 public class MainActivity extends BaseActivity {
 
@@ -74,7 +72,7 @@ public class MainActivity extends BaseActivity {
         WeakReference<Activity> mWeakReference;
 
         public MyHandler(Activity activity) {
-            mWeakReference = new WeakReference<Activity>(activity);
+            mWeakReference = new WeakReference<>(activity);
         }
 
         @Override
