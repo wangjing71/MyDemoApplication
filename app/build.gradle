@@ -43,4 +43,5 @@ dependencies {
     implementation 'com.gyf.immersionbar:immersionbar:2.3.3'
     implementation 'com.jakewharton:butterknife:10.1.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+    implementation files('libs/commons-codec-1.8.jar')
 }

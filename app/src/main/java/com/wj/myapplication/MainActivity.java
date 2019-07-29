@@ -1,5 +1,6 @@
 package com.wj.myapplication;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -50,7 +51,9 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-        Toast.makeText(this, "1111111", Toast.LENGTH_SHORT).show();
+        String str = "wangjing1";
+        Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
