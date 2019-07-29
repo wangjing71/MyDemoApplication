@@ -10,7 +10,7 @@
 
     <style name="MyTheme" parent="@style/AppTheme">
         <item name="android:windowBackground">@mipmap/splash_new</item>
-        <item name="android:windowFullscreen">true</item>
+        <!--<item name="android:windowFullscreen">true</item>-->
     </style>
 
 </resources>
