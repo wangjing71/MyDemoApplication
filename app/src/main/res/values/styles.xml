@@ -20,7 +20,7 @@
     </style>
 
     <style name="MySplash" parent="@style/Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowBackground">@drawable/splash</item>/
+        <item name="android:windowBackground">@mipmap/splash_bg</item>/
         <item name="android:windowFullscreen">true</item>
         <!--<item name="android:windowAnimationStyle">@style/Animation.Activity.Splash</item>-->
         <!--<item name="android:windowIsTranslucent">true</item>-->
