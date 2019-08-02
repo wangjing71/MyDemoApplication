@@ -24,7 +24,6 @@ public class SplashActivity extends FragmentActivity {
     }
 
     private void initData() {
-        Toast.makeText(this, "1111111111111", Toast.LENGTH_SHORT).show();
 
     }
 
