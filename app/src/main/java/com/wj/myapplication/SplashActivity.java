@@ -18,6 +18,8 @@ public class SplashActivity extends FragmentActivity {
         public void handleMessage(Message msg) {
             Intent intent = new Intent(SplashActivity.this,MainActivity.class);
             startActivity(intent);
+            finish();
+            overridePendingTransition(R.anim.ap2, R.anim.ap1);
         }
     };
 
