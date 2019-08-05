@@ -1,6 +1,9 @@
 package com.wj.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
 
@@ -10,6 +13,14 @@ import android.widget.Toast;
  * Description
  */
 public class SplashActivity extends FragmentActivity {
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            Intent intent = new Intent(SplashActivity.this,MainActivity.class);
+            startActivity(intent);
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +35,7 @@ public class SplashActivity extends FragmentActivity {
     }
 
     private void initData() {
-
+        handler.sendEmptyMessageDelayed(0,3000);
     }
 
     private void setEvent() {
