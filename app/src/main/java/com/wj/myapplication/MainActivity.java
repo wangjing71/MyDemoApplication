@@ -1,6 +1,5 @@
 package com.wj.myapplication;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +23,8 @@ public class MainActivity extends BaseActivity {
     Button button1;
     @BindView(R.id.button2)
     Button button2;
+    @BindView(R.id.wangjing)
+    Button wangjing;
 
     @Override
     protected int setLayoutId() {

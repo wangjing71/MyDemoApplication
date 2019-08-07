@@ -29,5 +29,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Button" />
-
+    <Button
+        android:id="@+id/wangjing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Button" />
 </LinearLayout>
