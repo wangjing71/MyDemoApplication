@@ -53,7 +53,6 @@ public class MainActivity extends BaseActivity {
     private void doSomeThing() {
         String str = "wangjing1";
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
-
     }
 
     @Override
