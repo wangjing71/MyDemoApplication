@@ -2,6 +2,7 @@ package com.wj.myapplication;
 
 import android.app.Application;
 
+import com.lzy.okgo.OkGo;
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.crashreport.CrashReport;
 

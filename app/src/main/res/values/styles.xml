@@ -8,4 +8,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MyApp" parent="@style/Theme.AppCompat.Light.NoActionBar">
+    </style>
+
+    <style name="MyTheme" parent="@android:style/Theme.NoTitleBar.Fullscreen">
+        <item name="android:windowBackground">@mipmap/splash_bg</item>/.
+        <!--<item name="android:windowAnimationStyle">@style/Animation.Activity.Splash</item>-->
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+    </style>
+
 </resources>
