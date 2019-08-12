@@ -15,6 +15,8 @@ import androidx.fragment.app.Fragment;
 import com.gyf.immersionbar.ImmersionBar;
 import com.wj.myapplication.R;
 
+import butterknife.ButterKnife;
+
 
 public abstract class BaseLazyFragment extends Fragment {
     public Activity activity;
@@ -36,6 +38,7 @@ public abstract class BaseLazyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         isFirstLoad = true;
         View view = View.inflate(activity, setContentViewId(), null);
+        ButterKnife.bind(this, view);
         View barView = view.findViewById(R.id.barView);
         ImmersionBar.setStatusBarView(getActivity(), barView);
         isPrepared = true;
