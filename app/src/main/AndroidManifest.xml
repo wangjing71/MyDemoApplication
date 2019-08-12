@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:hardwareAccelerated="true"
         android:theme="@style/MyApp">
-        <activity android:name="com.wj.wandroid.activity.SplashActivity"
+        <activity android:name="com.wj.myapplication.activity.SplashActivity"
             android:theme="@style/MyTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
