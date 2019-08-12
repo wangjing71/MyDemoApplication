@@ -17,15 +17,12 @@ public abstract class BaseFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(setContentViewId(), null);
         ButterKnife.bind(this,root);
-        initView(root);
         initData();
         setEvent();
         return root;
     }
 
     public abstract int setContentViewId();
-
-    public abstract void initView(View root);
 
     public abstract void initData();
 

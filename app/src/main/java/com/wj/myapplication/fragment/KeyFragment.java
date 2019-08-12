@@ -16,9 +16,6 @@ import com.wj.myapplication.base.BaseFragment;
  */
 public class KeyFragment extends BaseFragment {
 
-    private TextView title;
-    private ImageView right;
-
     //需要无参构造方法
     public KeyFragment() {
     }
@@ -29,9 +26,7 @@ public class KeyFragment extends BaseFragment {
     }
 
     @Override
-    public void initView(View root) {
-        title = root.findViewById(R.id.title);
-        right = root.findViewById(R.id.right);
-    }
+    public void initData() {
 
+    }
 }
