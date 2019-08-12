@@ -41,7 +41,6 @@ public class HomeFragment extends BaseLazyFragment {
     private BannerAdapter bannerAdapter;
     private int bannerIndex = 0;
 
-    private RecyclerView fastEnterRecyclerView;
     private FastEnterAdapter fastEnterAdapter;
     private ArrayList<FloorItemBean> fastListData = new ArrayList<>();
 
@@ -66,11 +65,6 @@ public class HomeFragment extends BaseLazyFragment {
     }
 
     @Override
-    public void initView(View root) {
-        fastEnterRecyclerView = root.findViewById(R.id.fastEnter);
-    }
-
-    @Override
     protected void initData() {
         initBanner();
 
@@ -88,16 +82,16 @@ public class HomeFragment extends BaseLazyFragment {
         fastListData.add(new FloorItemBean("周末", R.mipmap.fast_7));
         fastListData.add(new FloorItemBean("优惠券", R.mipmap.fast_8));
 
-        fastEnterRecyclerView.postDelayed(new Runnable() {
+        fastEnter.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Log.i("====", fastEnterRecyclerView.getHeight() + "");
+                Log.i("====", fastEnter.getHeight() + "");
                 fastEnterAdapter = new FastEnterAdapter(getContext());
-                fastEnterAdapter.setParentHeight(fastEnterRecyclerView.getHeight());
+                fastEnterAdapter.setParentHeight(fastEnter.getHeight());
                 fastEnterAdapter.setFastListData(fastListData);
                 GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 4);
-                fastEnterRecyclerView.setLayoutManager(gridLayoutManager);
-                fastEnterRecyclerView.setAdapter(fastEnterAdapter);
+                fastEnter.setLayoutManager(gridLayoutManager);
+                fastEnter.setAdapter(fastEnterAdapter);
             }
         }, 200);
     }

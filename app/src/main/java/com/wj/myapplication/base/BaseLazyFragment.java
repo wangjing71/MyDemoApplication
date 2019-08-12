@@ -42,7 +42,6 @@ public abstract class BaseLazyFragment extends Fragment {
         View barView = view.findViewById(R.id.barView);
         ImmersionBar.setStatusBarView(getActivity(), barView);
         isPrepared = true;
-        initView(view);
         lazyLoad();
         return view;
     }
@@ -100,8 +99,6 @@ public abstract class BaseLazyFragment extends Fragment {
     }
 
     public abstract int setContentViewId();
-
-    public abstract void initView(View root);
 
     protected abstract void initData();
 
