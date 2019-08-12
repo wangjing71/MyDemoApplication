@@ -18,11 +18,6 @@ public class HomePageFragment2 extends BaseLazyFragment {
     }
 
     @Override
-    public void initView(View root) {
-
-    }
-
-    @Override
     protected void initData() {
 
     }

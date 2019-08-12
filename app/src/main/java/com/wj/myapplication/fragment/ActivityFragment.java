@@ -18,11 +18,6 @@ public class ActivityFragment extends BaseLazyFragment {
     }
 
     @Override
-    public void initView(View root) {
-
-    }
-
-    @Override
     protected void initData() {
 
     }
