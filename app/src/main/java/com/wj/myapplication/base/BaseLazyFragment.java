@@ -5,14 +5,16 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.gyf.immersionbar.ImmersionBar;
-import com.richeninfo.a4aportal.R;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.gyf.barlibrary.ImmersionBar;
+import com.wj.myapplication.R;
+
 
 public abstract class BaseLazyFragment extends Fragment {
     public Activity activity;
@@ -35,7 +37,7 @@ public abstract class BaseLazyFragment extends Fragment {
         isFirstLoad = true;
         View view = View.inflate(activity, setContentViewId(), null);
         View barView = view.findViewById(R.id.barView);
-        ImmersionBar.setStatusBarView(this, barView);
+        ImmersionBar.setStatusBarView(getActivity(), barView);
         isPrepared = true;
         initView(view);
         lazyLoad();

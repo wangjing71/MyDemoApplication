@@ -3,9 +3,13 @@ package com.wj.myapplication.base;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
+import com.gyf.barlibrary.ImmersionBar;
 import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.wj.myapplication.R;
 
 
 public abstract class BaseActivity extends AppCompatActivity {
