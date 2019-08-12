@@ -35,8 +35,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected abstract int setLayoutId();
-    protected abstract void initData() ;
-    protected void setEvent() {};
+
+    protected abstract void initData();
+
+    protected void setEvent() {
+    }
 
     @Override
     protected void onDestroy() {
