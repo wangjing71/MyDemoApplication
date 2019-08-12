@@ -24,8 +24,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
         setContentView(setLayoutId());
+        ButterKnife.bind(this);
         ImmersionBar.with(this).init();
         rxPermissions = new RxPermissions(this);
         barView = findViewById(R.id.barView);
