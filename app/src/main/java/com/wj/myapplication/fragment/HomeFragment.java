@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-
 import com.wj.myapplication.R;
 import com.wj.myapplication.adapter.FastEnterAdapter;
 import com.wj.myapplication.base.BaseLazyFragment;
@@ -22,13 +21,21 @@ import com.wj.myapplication.view.ViewPagerScroller;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+
 /**
  * author wangjing
  * Date 2019/6/24
  * Description
  */
 public class HomeFragment extends BaseLazyFragment {
-    private ViewPager banner;
+
+
+    @BindView(R.id.id_banner)
+    ViewPager idBanner;
+    @BindView(R.id.fastEnter)
+    RecyclerView fastEnter;
+
 
     private ArrayList<View> viewList = new ArrayList<>();
     private BannerAdapter bannerAdapter;
@@ -39,13 +46,13 @@ public class HomeFragment extends BaseLazyFragment {
     private ArrayList<FloorItemBean> fastListData = new ArrayList<>();
 
 
-    private Handler handler = new Handler(){
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             bannerIndex++;
-            banner.setCurrentItem(bannerIndex);
+            idBanner.setCurrentItem(bannerIndex);
             handler.removeMessages(0);
-            handler.sendEmptyMessageDelayed(0,5000);
+            handler.sendEmptyMessageDelayed(0, 5000);
         }
     };
 
@@ -60,7 +67,6 @@ public class HomeFragment extends BaseLazyFragment {
 
     @Override
     public void initView(View root) {
-        banner = root.findViewById(R.id.id_banner);
         fastEnterRecyclerView = root.findViewById(R.id.fastEnter);
     }
 
@@ -73,43 +79,43 @@ public class HomeFragment extends BaseLazyFragment {
 
 
     private void initFastEnter() {
-        fastListData.add(new FloorItemBean("自驾游",R.mipmap.fast_1));
-        fastListData.add(new FloorItemBean("狼人杀",R.mipmap.fast_2));
-        fastListData.add(new FloorItemBean("运动",R.mipmap.fast_3));
-        fastListData.add(new FloorItemBean("KTV",R.mipmap.fast_4));
-        fastListData.add(new FloorItemBean("徒步",R.mipmap.fast_5));
-        fastListData.add(new FloorItemBean("附近",R.mipmap.fast_6));
-        fastListData.add(new FloorItemBean("周末",R.mipmap.fast_7));
-        fastListData.add(new FloorItemBean("优惠券",R.mipmap.fast_8));
+        fastListData.add(new FloorItemBean("自驾游", R.mipmap.fast_1));
+        fastListData.add(new FloorItemBean("狼人杀", R.mipmap.fast_2));
+        fastListData.add(new FloorItemBean("运动", R.mipmap.fast_3));
+        fastListData.add(new FloorItemBean("KTV", R.mipmap.fast_4));
+        fastListData.add(new FloorItemBean("徒步", R.mipmap.fast_5));
+        fastListData.add(new FloorItemBean("附近", R.mipmap.fast_6));
+        fastListData.add(new FloorItemBean("周末", R.mipmap.fast_7));
+        fastListData.add(new FloorItemBean("优惠券", R.mipmap.fast_8));
 
         fastEnterRecyclerView.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Log.i("====",fastEnterRecyclerView.getHeight()+"");
+                Log.i("====", fastEnterRecyclerView.getHeight() + "");
                 fastEnterAdapter = new FastEnterAdapter(getContext());
                 fastEnterAdapter.setParentHeight(fastEnterRecyclerView.getHeight());
                 fastEnterAdapter.setFastListData(fastListData);
-                GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),4);
+                GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 4);
                 fastEnterRecyclerView.setLayoutManager(gridLayoutManager);
                 fastEnterRecyclerView.setAdapter(fastEnterAdapter);
             }
-        },200);
+        }, 200);
     }
 
     private void initBanner() {
         ViewPagerScroller scroller = new ViewPagerScroller(getContext());
         scroller.setScrollDuration(1500);
-        scroller.initViewPagerScroll(banner);
-        bannerIndex = viewList.size()*10;
-        banner.setCurrentItem(bannerIndex);
+        scroller.initViewPagerScroll(idBanner);
+        bannerIndex = viewList.size() * 10;
+        idBanner.setCurrentItem(bannerIndex);
         bannerAdapter = new BannerAdapter();
-        banner.setAdapter(bannerAdapter);
-        handler.sendEmptyMessageDelayed(0,5000);
+        idBanner.setAdapter(bannerAdapter);
+        handler.sendEmptyMessageDelayed(0, 5000);
     }
 
     @Override
     public void setEvent() {
-        banner.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        idBanner.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
 
@@ -136,7 +142,7 @@ public class HomeFragment extends BaseLazyFragment {
         @NonNull
         @Override
         public Object instantiateItem(@NonNull ViewGroup container, final int position) {
-            View page1 = LayoutInflater.from(getContext()).inflate(R.layout.home_banner_item,null,false);
+            View page1 = LayoutInflater.from(getContext()).inflate(R.layout.home_banner_item, null, false);
             container.addView(page1);
             return page1;
         }
