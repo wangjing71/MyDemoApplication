@@ -29,6 +29,7 @@ import java.util.ArrayList;
  */
 public class HomeFragment extends BaseLazyFragment {
     private ViewPager banner;
+
     private ArrayList<View> viewList = new ArrayList<>();
     private BannerAdapter bannerAdapter;
     private int bannerIndex = 0;
