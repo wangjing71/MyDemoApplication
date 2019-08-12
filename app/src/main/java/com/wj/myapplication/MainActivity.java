@@ -6,6 +6,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.wj.myapplication.base.BaseActivity;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -52,14 +54,11 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-        String str = "wangjing1";
-        Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
     }
 }
