@@ -3,6 +3,7 @@ package com.wj.myapplication;
 import android.app.Application;
 
 import com.tencent.bugly.Bugly;
+import com.tencent.bugly.crashreport.CrashReport;
 
 /**
  * author wangjing
@@ -13,6 +14,15 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Bugly.init(getApplicationContext(), "9c59c60539", false);
+        initOKGo();
+        initBugly();
+    }
+
+    private void initBugly() {
+        CrashReport.initCrashReport(getApplicationContext(), "bf2285b85d", false);
+    }
+
+    private void initOKGo() {
+        OkGo.getInstance().init(this);
     }
 }
