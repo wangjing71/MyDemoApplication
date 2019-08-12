@@ -29,11 +29,6 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @Override
-    protected void setEvent() {
-
-    }
-
     @OnClick({R.id.button, R.id.button1, R.id.button2})
     public void onViewClicked(View view) {
         switch (view.getId()) {
