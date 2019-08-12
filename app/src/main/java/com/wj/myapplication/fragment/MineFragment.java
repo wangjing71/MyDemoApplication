@@ -18,11 +18,6 @@ public class MineFragment extends BaseLazyFragment {
     }
 
     @Override
-    public void initView(View root) {
-        ImmersionBar.setStatusBarView(this, root.findViewById(R.id.barView));
-    }
-
-    @Override
     protected void initData() {
 
     }
