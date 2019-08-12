@@ -11,6 +11,8 @@ import com.gyf.barlibrary.ImmersionBar;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.wj.myapplication.R;
 
+import butterknife.ButterKnife;
+
 
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -22,6 +24,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ButterKnife.bind(this);
         setContentView(setLayoutId());
         ImmersionBar.with(this).init();
         rxPermissions = new RxPermissions(this);

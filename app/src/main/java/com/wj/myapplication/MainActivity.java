@@ -1,6 +1,5 @@
 package com.wj.myapplication;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -8,7 +7,6 @@ import android.widget.Toast;
 import com.wj.myapplication.base.BaseActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
@@ -34,12 +32,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void setEvent() {
 
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
     }
 
     @OnClick({R.id.button, R.id.button1, R.id.button2})
