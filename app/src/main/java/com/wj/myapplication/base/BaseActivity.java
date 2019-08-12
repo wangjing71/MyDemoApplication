@@ -27,13 +27,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         rxPermissions = new RxPermissions(this);
         barView = findViewById(R.id.barView);
         ImmersionBar.setStatusBarView(this, barView);
-        initView();
         initData();
         setEvent();
     }
 
     protected abstract int setLayoutId();
-    protected abstract void initView() ;
     protected abstract void initData() ;
     protected abstract void setEvent() ;
 
