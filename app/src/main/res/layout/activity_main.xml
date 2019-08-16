@@ -23,6 +23,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/dp_10"
-        android:text="MeasureSpec" />
+        android:text="自定义TextView" />
 
 </LinearLayout>
