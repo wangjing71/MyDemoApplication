@@ -6,6 +6,7 @@
     tools:context="com.wj.myapplication.activity.Main2Activity">
 
     <com.wj.myapplication.view.MyTextView
+        android:textSize="@dimen/sp_20"
         android:text="1234556"
         android:padding="@dimen/dp_5"
         android:layout_width="wrap_content"
