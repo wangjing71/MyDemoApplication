@@ -12,10 +12,6 @@ import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
 
-
-    @BindView(R.id.button1)
-    Button button1;
-
     @Override
     protected int setLayoutId() {
         return R.layout.activity_main;
