@@ -60,7 +60,7 @@ public class MyTextView extends AppCompatTextView {
                         0,
                         mViewWidth,
                         0,
-                        new int[]{Color.BLUE, 0xffffffff, Color.BLUE},
+                        new int[]{Color.BLUE, 0xffff00ff, Color.BLUE},
                         null,
                         Shader.TileMode.CLAMP
                 );
@@ -75,7 +75,7 @@ public class MyTextView extends AppCompatTextView {
         canvas.drawRect(0, 0, getMeasuredWidth(), getMeasuredHeight(), paint1);
         canvas.drawRect(2, 2, getMeasuredWidth() - 2, getMeasuredHeight() - 2, paint2);
         canvas.save();
-        canvas.translate(0, 10);
+//        canvas.translate(0, 10);
         super.onDraw(canvas);
         canvas.restore();
 
