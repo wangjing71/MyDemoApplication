@@ -132,7 +132,6 @@ public abstract class BaseLazyFragment extends Fragment {
     }
 
     protected void onAttachToContext(Context context) {
-        activity = getActivity();
     }
 
 }
