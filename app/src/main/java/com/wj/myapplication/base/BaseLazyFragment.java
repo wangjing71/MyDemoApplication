@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.gyf.barlibrary.ImmersionBar;
@@ -17,7 +18,7 @@ import com.wj.myapplication.R;
 
 
 public abstract class BaseLazyFragment extends Fragment {
-    public Activity activity;
+    public AppCompatActivity activity;
     private boolean isFragmentVisible;
     private boolean isPrepared;
     private boolean isFirstLoad = true;
