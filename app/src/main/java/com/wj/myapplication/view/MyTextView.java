@@ -42,6 +42,11 @@ public class MyTextView extends AppCompatTextView {
 
     @Override
     protected void onDraw(Canvas canvas) {
+        canvas.drawRect(0,0,getMeasuredWidth(),getMeasuredHeight(),paint1);
+        canvas.drawRect(2,2,getMeasuredWidth()-2,getMeasuredHeight()-2,paint2);
+        canvas.save();
+
+
         super.onDraw(canvas);
     }
 }

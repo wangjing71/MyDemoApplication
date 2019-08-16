@@ -7,8 +7,9 @@
 
     <com.wj.myapplication.view.MyTextView
         android:text="1234556"
-        android:layout_width="@dimen/dp_200"
-        android:layout_height="@dimen/dp_200"
+        android:padding="@dimen/dp_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
 
 </RelativeLayout>
