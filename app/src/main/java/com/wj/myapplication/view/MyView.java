@@ -38,7 +38,7 @@ public class MyView extends View {
         if(specMode == MeasureSpec.EXACTLY){
             result = specSize;
         }else{
-            result = 200;
+            result = 10;
             if(specMode == MeasureSpec.AT_MOST){
                 result = Math.min(result,specSize);
             }

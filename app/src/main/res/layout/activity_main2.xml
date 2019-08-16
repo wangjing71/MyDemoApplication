@@ -4,6 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.Main2Activity">
+    tools:context="com.wj.myapplication.activity.Main2Activity">
+
+    <com.wj.myapplication.view.MyView
+        android:layout_width="@dimen/dp_200"
+        android:layout_height="@dimen/dp_200"
+        android:layout_centerInParent="true"
+        android:background="@color/red" />
 
 </RelativeLayout>
