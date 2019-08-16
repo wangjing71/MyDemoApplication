@@ -5,10 +5,12 @@
     android:layout_height="match_parent"
     tools:context="com.wj.myapplication.activity.Main2Activity">
 
-    <com.wj.myapplication.view.MyView
-        android:layout_width="@dimen/dp_200"
-        android:layout_height="@dimen/dp_200"
-        android:layout_centerInParent="true"
-        android:background="@color/red" />
+    <com.wj.myapplication.view.MyTextView
+        android:textSize="@dimen/sp_20"
+        android:text="1234556"
+        android:padding="@dimen/dp_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>
