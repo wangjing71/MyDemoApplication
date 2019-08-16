@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.wj.myapplication.activity.Main2Activity;
+import com.wj.myapplication.activity.Main3Activity;
 import com.wj.myapplication.base.BaseActivity;
 
 import butterknife.BindView;
@@ -32,12 +33,15 @@ public class MainActivity extends BaseActivity {
 
     @OnClick({R.id.button1, R.id.button2})
     public void onViewClicked(View view) {
+        Intent intent;
         switch (view.getId()) {
             case R.id.button1:
-                Intent intent = new Intent(this, Main2Activity.class);
+                 intent = new Intent(this, Main2Activity.class);
                 startActivity(intent);
                 break;
             case R.id.button2:
+                 intent = new Intent(this, Main3Activity.class);
+                startActivity(intent);
                 break;
         }
     }
