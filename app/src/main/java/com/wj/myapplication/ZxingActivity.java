@@ -1,5 +1,7 @@
 package com.wj.myapplication;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,7 +27,7 @@ public class ZxingActivity extends AppCompatActivity implements QRCodeView.Deleg
     public void onScanQRCodeSuccess(String result) {
         Log.i("====", "result:" + result);
         vibrate();
-//        mZBarView.startSpot(); // 开始识别
+        mZBarView.startSpot(); // 开始识别
     }
 
     @Override
@@ -73,5 +75,13 @@ public class ZxingActivity extends AppCompatActivity implements QRCodeView.Deleg
     private void vibrate() {
         Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
         vibrator.vibrate(200);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        mZBarView.showScanRect();
+
     }
 }
