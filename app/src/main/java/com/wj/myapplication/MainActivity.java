@@ -1,8 +1,12 @@
 package com.wj.myapplication;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import io.reactivex.functions.Consumer;
 
 
 public class MainActivity extends BaseActivity {
@@ -40,7 +44,15 @@ public class MainActivity extends BaseActivity {
         });
     }
 
+    @SuppressLint("CheckResult")
     private void doSomeThing() {
-
+        rxPermissions.request(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE)
+                .subscribe(new Consumer<Boolean>() {
+                    @Override
+                    public void accept(Boolean aBoolean)  {
+                        if(aBoolean){
+                        }
+                    }
+                });
     }
 }
