@@ -1,8 +1,10 @@
 package com.wj.myapplication;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MainActivity extends BaseActivity {
@@ -39,6 +41,8 @@ public class MainActivity extends BaseActivity {
         HttpRequestUtil.request(this, "", parms, new HttpRequestUtil.StringCallBack() {
             @Override
             public void onSuccess(String result) {
+                Log.i("====",result);
+                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
 
             }
 
