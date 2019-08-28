@@ -24,7 +24,6 @@ public class HttpRequestUtil {
 
     public interface StringCallBack {
         void onSuccess(String result);
-
         void onFail();
     }
 
