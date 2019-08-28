@@ -69,7 +69,7 @@ public class HttpRequestUtil {
     }
 
 
-    private String obtinRequestParam(String params, boolean isCID) {
+    private String obtinRequestParam(String params) {
         JSONObject json = null;
         try {
             if (TextUtils.isEmpty(params)) {
