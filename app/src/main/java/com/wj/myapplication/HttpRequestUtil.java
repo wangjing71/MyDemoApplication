@@ -24,7 +24,7 @@ public class HttpRequestUtil {
     }
 
     //主要请求逻辑
-    public static void request(Context context, String path, String parms, final StringCallBack callback) {
+    public static void request(String path, String parms, final StringCallBack callback) {
         final Handler handler = new Handler(Looper.getMainLooper()) {
             @Override
             public void handleMessage(Message msg) {
@@ -43,7 +43,6 @@ public class HttpRequestUtil {
 
         Log.i("====入参",parms);
         OkGo.<String>post(HOST + path)
-                .tag(context)
                 .headers("User-Agent","Mozilla/5.0 (Linux; U; Android 8.0.0; zh-cn; MI 5 Build/OPR1.170623.032) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30")
                 .upJson(Des3.encode(parms))
                 .execute(new StringCallback() {

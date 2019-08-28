@@ -38,10 +38,10 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-        HttpRequestUtil.request(this, "/ui/launch", parms, new HttpRequestUtil.StringCallBack() {
+        HttpRequestUtil.request("/ui/launch", parms, new HttpRequestUtil.StringCallBack() {
             @Override
             public void onSuccess(String result) {
-                Log.i("====",result);
+                Log.i("====", result);
                 Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
             }
 
