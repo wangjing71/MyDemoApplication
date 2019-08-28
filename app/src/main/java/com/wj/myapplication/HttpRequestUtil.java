@@ -4,11 +4,15 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * author wangjing
@@ -62,5 +66,38 @@ public class HttpRequestUtil {
                         handler.sendMessage(message);
                     }
                 });
+    }
+
+
+    private String obtinRequestParam(String params, boolean isCID) {
+        JSONObject json = null;
+        try {
+            if (TextUtils.isEmpty(params)) {
+                json = new JSONObject();
+            } else {
+                json = new JSONObject(params);
+            }
+            JSONObject device = new JSONObject()
+                    .put("os", "android")
+                    .put("model", RichenInfoUtil.getModel())
+                    .put("osVersion", RichenInfoUtil.getAndroidSDKVersion())
+                    .put("density", RichenInfoUtil.getDensity(context))
+                    .put("token", getToken())
+                    .put("appVersion", RichenInfoUtil.getVersion(context));
+            DeviceIDUtil deviceIDUtil = new DeviceIDUtil(context);
+            device.put("cid", deviceIDUtil.getID());
+            device.put("c_id", deviceIDUtil.getID());
+            //新APP增加标识符
+            device.put("clientId", "1");
+
+            //增加渠道标识
+            device.put("channelId", context.getString(R.string.channel_id));
+            //增加服务协议号
+            device.put("protocolId", SharedPreferenceUtil.getProtocolId(context));
+            json.put("device", device);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return json.toString();
     }
 }
