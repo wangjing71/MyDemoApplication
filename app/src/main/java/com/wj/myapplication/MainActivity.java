@@ -36,6 +36,16 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
+        HttpRequestUtil.request(this, "", parms, new HttpRequestUtil.StringCallBack() {
+            @Override
+            public void onSuccess(String result) {
 
+            }
+
+            @Override
+            public void onFail() {
+
+            }
+        });
     }
 }
