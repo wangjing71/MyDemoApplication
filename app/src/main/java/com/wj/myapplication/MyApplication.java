@@ -2,6 +2,7 @@ package com.wj.myapplication;
 
 import android.app.Application;
 
+import com.lzy.okgo.OkGo;
 import com.tencent.bugly.Bugly;
 
 /**
@@ -13,6 +14,10 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Bugly.init(getApplicationContext(), "9c59c60539", false);
+        initOKGo();
+    }
+
+    private void initOKGo() {
+        OkGo.getInstance().init(this);
     }
 }
