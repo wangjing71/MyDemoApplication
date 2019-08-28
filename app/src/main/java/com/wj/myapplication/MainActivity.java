@@ -10,7 +10,7 @@ import android.widget.Toast;
 public class MainActivity extends BaseActivity {
 
     private Button button;
-    private String parms = "{\"device\":{\"os\":\"android\",\"model\":\"MI 5\",\"osVersion\":26,\"density\":3,\"token\":\"\",\"appVersion\":\"2.3.0\",\"cid\":\"039194fbb0a65c0a\",\"c_id\":\"039194fbb0a65c0a\",\"clientId\":\"1\",\"channelId\":\"YD\",\"protocolId\":\"\"}}";
+    private String parms = "";
 
     @Override
     protected int setLayoutId() {
