@@ -46,12 +46,12 @@ public class HttpRequestUtil {
             }
         };
 
-        String entry = obtinRequestParam(context, parms);
-        Log.i("====入参", entry);
+//        String entry = obtinRequestParam(context, parms);
+//        Log.i("====入参", entry);
         OkGo.<String>post(HOST + path)
                 .tag(context)
                 .headers("User-Agent", "Mozilla/5.0 (Linux; U; Android 8.0.0; zh-cn; MI 5 Build/OPR1.170623.032) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30")
-                .upJson(Des3.encode(entry))
+                .upJson(Des3.encode(parms))
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
@@ -72,35 +72,35 @@ public class HttpRequestUtil {
     }
 
 
-    private static String obtinRequestParam(Context context, String params) {
-        JSONObject json = null;
-        try {
-            if (TextUtils.isEmpty(params)) {
-                json = new JSONObject();
-            } else {
-                json = new JSONObject(params);
-            }
-            JSONObject device = new JSONObject()
-                    .put("os", "android")
-                    .put("model", RichenInfoUtil.getModel())
-                    .put("osVersion", RichenInfoUtil.getAndroidSDKVersion())
-                    .put("density", RichenInfoUtil.getDensity(context))
-                    .put("token", getToken())
-                    .put("appVersion", RichenInfoUtil.getVersion(context));
-            DeviceIDUtil deviceIDUtil = new DeviceIDUtil(context);
-            device.put("cid", deviceIDUtil.getID());
-            device.put("c_id", deviceIDUtil.getID());
-            //新APP增加标识符
-            device.put("clientId", "1");
-
-            //增加渠道标识
-            device.put("channelId", context.getString(R.string.channel_id));
-            //增加服务协议号
-            device.put("protocolId", SharedPreferenceUtil.getProtocolId(context));
-            json.put("device", device);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return json.toString();
-    }
+//    private static String obtinRequestParam(Context context, String params) {
+//        JSONObject json = null;
+//        try {
+//            if (TextUtils.isEmpty(params)) {
+//                json = new JSONObject();
+//            } else {
+//                json = new JSONObject(params);
+//            }
+//            JSONObject device = new JSONObject()
+//                    .put("os", "android")
+//                    .put("model", RichenInfoUtil.getModel())
+//                    .put("osVersion", RichenInfoUtil.getAndroidSDKVersion())
+//                    .put("density", RichenInfoUtil.getDensity(context))
+//                    .put("token", getToken())
+//                    .put("appVersion", RichenInfoUtil.getVersion(context));
+//            DeviceIDUtil deviceIDUtil = new DeviceIDUtil(context);
+//            device.put("cid", deviceIDUtil.getID());
+//            device.put("c_id", deviceIDUtil.getID());
+//            //新APP增加标识符
+//            device.put("clientId", "1");
+//
+//            //增加渠道标识
+//            device.put("channelId", context.getString(R.string.channel_id));
+//            //增加服务协议号
+//            device.put("protocolId", SharedPreferenceUtil.getProtocolId(context));
+//            json.put("device", device);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return json.toString();
+//    }
 }
