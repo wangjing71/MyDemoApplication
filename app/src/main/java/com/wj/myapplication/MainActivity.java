@@ -38,7 +38,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-        HttpRequestUtil.request(this, "", parms, new HttpRequestUtil.StringCallBack() {
+        HttpRequestUtil.request(this, "/ui/launch", parms, new HttpRequestUtil.StringCallBack() {
             @Override
             public void onSuccess(String result) {
                 Log.i("====",result);
