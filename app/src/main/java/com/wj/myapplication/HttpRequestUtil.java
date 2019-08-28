@@ -45,7 +45,7 @@ public class HttpRequestUtil {
         OkGo.<String>post(HOST + path)
                 .tag(context)
                 .headers("User-Agent","Mozilla/5.0 (Linux; U; Android 8.0.0; zh-cn; MI 5 Build/OPR1.170623.032) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30")
-                .upJson(parms)
+                .upJson(Des3.encode(parms))
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
