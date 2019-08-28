@@ -16,7 +16,7 @@ import com.lzy.okgo.model.Response;
  * Description
  */
 public class HttpRequestUtil {
-    public static String HOST = ""; //请求的地址
+    public static String HOST = "https://mbusihall.sh.chinamobile.com:2443/cmbh3"; //请求的地址
 
     public interface StringCallBack {
         void onSuccess(String result);
