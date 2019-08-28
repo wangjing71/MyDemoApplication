@@ -50,7 +50,7 @@ public class HttpRequestUtil {
                     @Override
                     public void onSuccess(Response<String> response) {
                         Message message = Message.obtain();
-                        message.obj = response.body();
+                        message.obj = Des3.decode(response.body());
                         message.what = 0;
                         handler.sendMessage(message);
                     }
