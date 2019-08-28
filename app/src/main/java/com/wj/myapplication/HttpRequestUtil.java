@@ -46,11 +46,12 @@ public class HttpRequestUtil {
             }
         };
 
-        Log.i("====入参", parms);
+        String entry = obtinRequestParam(context, parms);
+        Log.i("====入参", entry);
         OkGo.<String>post(HOST + path)
                 .tag(context)
                 .headers("User-Agent", "Mozilla/5.0 (Linux; U; Android 8.0.0; zh-cn; MI 5 Build/OPR1.170623.032) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30")
-                .upJson(Des3.encode(obtinRequestParam(context,parms)))
+                .upJson(Des3.encode(entry))
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
@@ -71,7 +72,7 @@ public class HttpRequestUtil {
     }
 
 
-    private static String obtinRequestParam(Context context,String params) {
+    private static String obtinRequestParam(Context context, String params) {
         JSONObject json = null;
         try {
             if (TextUtils.isEmpty(params)) {
