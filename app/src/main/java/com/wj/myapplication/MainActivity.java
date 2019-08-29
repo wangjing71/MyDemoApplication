@@ -98,17 +98,18 @@ public class MainActivity extends BaseActivity {
         }else{
             builder = new NotificationCompat.Builder(this);
         }
-
+        NotificationCompat.Style style = new NotificationCompat.BigTextStyle();
         builder.setContentTitle("正在更新...")
                 .setContentText("地铁沿线30万商铺抢购中！")
                 .setWhen(System.currentTimeMillis())
                 .setSmallIcon(R.mipmap.ic_launcher)
+                .setStyle(style)
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
                 .setDefaults(Notification.DEFAULT_LIGHTS) //设置通知的提醒方式： 呼吸灯
                 .setPriority(NotificationCompat.PRIORITY_MAX) //设置通知的优先级：最大
-                .setAutoCancel(false)//设置通知被点击一次是否自动取消
-                .setContentText("下载进度:" + "0%")
-                .setProgress(100, 0, false);
+                .setAutoCancel(false);//设置通知被点击一次是否自动取消
+//                .setContentText("下载进度:" + "0%")
+//                .setProgress(100, 0, false);
         notification = builder.build();
         //发送通知
         manager.notify(1, notification);
