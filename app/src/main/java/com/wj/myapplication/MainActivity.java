@@ -98,12 +98,11 @@ public class MainActivity extends BaseActivity {
         }else{
             builder = new NotificationCompat.Builder(this);
         }
-        NotificationCompat.Style style = new NotificationCompat.BigTextStyle();
         builder.setContentTitle("正在更新...")
-                .setContentText("地铁沿线30万商铺抢购中！")
+                .setContentText("地铁沿线30万商铺抢购中！地铁沿线30万商铺抢购中！地铁")
                 .setWhen(System.currentTimeMillis())
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setStyle(style)
+                .setStyle(new NotificationCompat.BigTextStyle())
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
                 .setDefaults(Notification.DEFAULT_LIGHTS) //设置通知的提醒方式： 呼吸灯
                 .setPriority(NotificationCompat.PRIORITY_MAX) //设置通知的优先级：最大
