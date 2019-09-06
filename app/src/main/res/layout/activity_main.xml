@@ -9,12 +9,10 @@
     <!--标题栏-->
     <include layout="@layout/include_title" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Button" />
+    <com.wj.myapplication.MyView
+        android:background="@color/red"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
 
 
 </LinearLayout>
