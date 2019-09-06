@@ -13,18 +13,18 @@ import android.view.ViewGroup;
  * Date 2019/9/6
  * Description 可移动的View 第一种实现方案
  */
-public class MyView1 extends View {
+public class MyView extends View {
     private int lastX, lastY;
 
-    public MyView1(Context context) {
+    public MyView(Context context) {
         super(context);
     }
 
-    public MyView1(Context context, @Nullable AttributeSet attrs) {
+    public MyView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public MyView1(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public MyView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -50,10 +50,10 @@ public class MyView1 extends View {
 //                offsetLeftAndRight(offsetX);
 //                offsetTopAndBottom(offsetY);
 
-                //方案三
+                //方案三()
                 ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
                 layoutParams.leftMargin = getLeft()+offsetX;
-                layoutParams.topMargin = getTop()+offsetY;
+                layoutParams.bottomMargin = getBottom()+offsetY;
                 setLayoutParams(layoutParams);
 
                 lastX = rawX;

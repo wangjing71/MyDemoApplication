@@ -9,7 +9,7 @@
     <!--标题栏-->
     <include layout="@layout/include_title" />
 
-    <com.wj.myapplication.MyView1
+    <com.wj.myapplication.MyView
         android:background="@color/red"
         android:layout_width="100dp"
         android:layout_height="100dp" />
