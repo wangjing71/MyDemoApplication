@@ -53,7 +53,7 @@ public class MyView extends View {
                 //方案三()
                 ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
                 layoutParams.leftMargin = getLeft()+offsetX;
-                layoutParams.bottomMargin = getBottom()+offsetY;
+//                layoutParams.topMargin = (int) ((int) (event.getRawY())-getY());
                 setLayoutParams(layoutParams);
 
                 lastX = rawX;
