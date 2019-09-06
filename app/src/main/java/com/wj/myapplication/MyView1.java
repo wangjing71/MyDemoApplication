@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 
 /**
  * author wangjing
@@ -42,11 +43,18 @@ public class MyView1 extends View {
                 int offsetY = rawY - lastY;
                 Log.i("===", offsetX + "_" + offsetY);
 
+                //方案一
 //                layout(getLeft() + offsetX, getTop() + offsetY, getRight() + offsetX, getBottom() + offsetY);
 
-                //与上面方法任选一种都可以实现移动
-                offsetLeftAndRight(offsetX);
-                offsetTopAndBottom(offsetY);
+                //方案二
+//                offsetLeftAndRight(offsetX);
+//                offsetTopAndBottom(offsetY);
+
+                //方案三
+                ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
+                layoutParams.leftMargin = getLeft()+offsetX;
+                layoutParams.topMargin = getTop()+offsetY;
+                setLayoutParams(layoutParams);
 
                 lastX = rawX;
                 lastY = rawY;
