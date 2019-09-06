@@ -41,7 +41,13 @@ public class MyView1 extends View {
                 int offsetX = rawX - lastX;
                 int offsetY = rawY - lastY;
                 Log.i("===", offsetX + "_" + offsetY);
-                layout(getLeft() + offsetX, getTop() + offsetY, getRight() + offsetX, getBottom() + offsetY);
+
+//                layout(getLeft() + offsetX, getTop() + offsetY, getRight() + offsetX, getBottom() + offsetY);
+
+                //与上面方法任选一种都可以实现移动
+                offsetLeftAndRight(offsetX);
+                offsetTopAndBottom(offsetY);
+
                 lastX = rawX;
                 lastY = rawY;
                 break;
