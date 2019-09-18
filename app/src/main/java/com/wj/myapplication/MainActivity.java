@@ -1,5 +1,6 @@
 package com.wj.myapplication;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,7 +30,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        new QBadgeView(this).bindTarget(button).setBadgeNumber(5);
+        new QBadgeView(this).bindTarget(button).setBadgeNumber(5).setBadgeBackgroundColor(Color.parseColor("#FF00FF"));
     }
 
     @Override

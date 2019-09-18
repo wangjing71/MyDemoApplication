@@ -8,6 +8,7 @@
     tools:context="com.wj.myapplication.MainActivity">
 
     <Button
+        android:layout_marginTop="@dimen/dp_20"
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
