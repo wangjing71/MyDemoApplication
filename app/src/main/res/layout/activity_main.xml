@@ -17,6 +17,9 @@
         android:text="Button" />
 
     <TextView
+        android:paddingTop="@dimen/dp_10"
+        android:paddingRight="@dimen/dp_10"
+        android:textSize="@dimen/sp_22"
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
