@@ -5,12 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import q.rorbin.badgeview.Badge;
 import q.rorbin.badgeview.QBadgeView;
 
 
 public class MainActivity extends BaseActivity {
 
     private Button button;
+
+    private Badge bar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +33,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        new QBadgeView(this).bindTarget(button).setBadgeNumber(5).setBadgeBackgroundColor(Color.parseColor("#FF00FF"));
+        bar = new QBadgeView(this).bindTarget(button);
+        bar.setBadgeNumber(5);
     }
 
     @Override
@@ -44,6 +48,6 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-
+        bar.hide(true);
     }
 }
