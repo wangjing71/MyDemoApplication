@@ -1,6 +1,7 @@
 package com.wj.myapplication
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -31,15 +32,24 @@ class MainActivity : BaseActivity() {
 
     override fun initData() {}
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun setEvent() {
         button!!.setOnClickListener {
             doSomeThing() }
 
-        but1!!.setOnClickListener{
-
+        button!!.setOnTouchListener { v, event ->
+            v.layoutParams
+            event.action
+            event.rawX
+            false
         }
+        button!!.setOnTouchListener{q,w ->
+            false
+        }
+
     }
 
+    @SuppressLint("CheckResult")
     fun doSomeThing() {
         val rxPermissions = RxPermissions(this)
         rxPermissions.requestEach(Manifest.permission.READ_SMS, Manifest.permission.RECEIVE_SMS)
