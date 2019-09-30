@@ -19,6 +19,7 @@ import io.reactivex.functions.Consumer
 class MainActivity : BaseActivity() {
 
     var button: Button? = null
+    var but1: Button? = null
 
     override fun setLayoutId(): Int {
         return R.layout.activity_main
@@ -31,7 +32,12 @@ class MainActivity : BaseActivity() {
     override fun initData() {}
 
     override fun setEvent() {
-        button!!.setOnClickListener { doSomeThing() }
+        button!!.setOnClickListener {
+            doSomeThing() }
+
+        but1!!.setOnClickListener{
+
+        }
     }
 
     fun doSomeThing() {
