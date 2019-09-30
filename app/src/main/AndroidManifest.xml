@@ -23,11 +23,6 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.wj.myapplication.SMSBroadcastReceiver">
-            <intent-filter android:priority="1000">
-                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
-            </intent-filter>
-        </receiver>
     </application>
 
 </manifest>
