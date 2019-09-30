@@ -18,7 +18,7 @@ import io.reactivex.functions.Consumer
 
 class MainActivity : BaseActivity() {
 
-    private var button: Button? = null
+    var button: Button? = null
 
     override fun setLayoutId(): Int {
         return R.layout.activity_main
@@ -34,7 +34,7 @@ class MainActivity : BaseActivity() {
         button!!.setOnClickListener { doSomeThing() }
     }
 
-    private fun doSomeThing() {
+    fun doSomeThing() {
         val rxPermissions = RxPermissions(this)
         rxPermissions.requestEach(Manifest.permission.READ_SMS, Manifest.permission.RECEIVE_SMS)
                 .subscribe { permission ->
