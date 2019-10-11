@@ -16,5 +16,11 @@
         android:layout_gravity="center_horizontal"
         android:text="Button" />
 
+    <com.wj.myapplication.ArcImageView
+        android:src="@mipmap/ic_launcher"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/red"
+        android:layout_width="@dimen/dp_200"
+        android:layout_height="@dimen/dp_200"/>
 
 </LinearLayout>
