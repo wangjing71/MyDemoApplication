@@ -41,13 +41,12 @@ public class ArcImageView extends android.support.v7.widget.AppCompatImageView {
     @Override
     protected void onDraw(Canvas canvas) {
         Path path = new Path();
-        path.moveTo(0, 0);
-        path.lineTo(0, getHeight());
+        path.lineTo(200, getHeight());
         path.quadTo(getWidth() / 2, getHeight() - 2 * mArcHeight, getWidth(), getHeight());
         path.lineTo(getWidth(), 0);
         path.close();
-        canvas.drawPath(path, mPaint);
-//        canvas.clipPath(path);
+//        canvas.drawPath(path, mPaint);
+        canvas.clipPath(path);
         super.onDraw(canvas);
     }
 }
