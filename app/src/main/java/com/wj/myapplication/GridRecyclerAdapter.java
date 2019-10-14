@@ -15,76 +15,76 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHolder> {
 
-	public static final int VIEW_TYPE_ITEM_TIME    = 0;
-	private static final int VIEW_TYPE_ITEM_CONTENT = 1;
+    public static final int VIEW_TYPE_ITEM_TIME = 0;
+    private static final int VIEW_TYPE_ITEM_CONTENT = 1;
 
-	private List<String> mDataList;
+    private List<ItemBean> mDataList;
 
-	public GridRecyclerAdapter() {
-		this(null);
-	}
+    public GridRecyclerAdapter() {
+        this(null);
+    }
 
-	public GridRecyclerAdapter(List<String> dataList) {
-		mDataList = dataList;
-	}
+    public GridRecyclerAdapter(List<ItemBean> dataList) {
+        mDataList = dataList;
+    }
 
-	@Override
-	public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-		if (viewType == VIEW_TYPE_ITEM_TIME) {
-			return new TitleHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_title, parent, false));
-		} else {
-			return new ContentHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_content, parent, false));
-		}
-	}
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        if (viewType == VIEW_TYPE_ITEM_TIME) {
+            return new TitleHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_title, parent, false));
+        } else {
+            return new ContentHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_content, parent, false));
+        }
+    }
 
-	@Override
-	public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-		if (getItemViewType(position) == VIEW_TYPE_ITEM_TIME) {
-			TitleHolder titleHolder = (TitleHolder) holder;
-			titleHolder.mTextTitle.setText(mDataList.get(position));
-		} else {
-			ContentHolder contentHolder = (ContentHolder) holder;
-			Picasso.with(contentHolder.mImage.getContext()).load(mDataList.get(position)).into(contentHolder.mImage);
-		}
-	}
+    @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        if (getItemViewType(position) == VIEW_TYPE_ITEM_TIME) {
+            TitleHolder titleHolder = (TitleHolder) holder;
+            titleHolder.mTextTitle.setText(mDataList.get(position).getDat());
+        } else {
+            ContentHolder contentHolder = (ContentHolder) holder;
+            Picasso.with(contentHolder.mImage.getContext()).load(mDataList.get(position).getDat()).into(contentHolder.mImage);
+        }
+    }
 
-	@Override
-	public int getItemCount() {
-		return mDataList == null ? 0 : mDataList.size();
-	}
+    @Override
+    public int getItemCount() {
+        return mDataList == null ? 0 : mDataList.size();
+    }
 
-	@Override
-	public int getItemViewType(int position) {
-		if (position % 5 == 0) {
-			return VIEW_TYPE_ITEM_TIME;
-		} else {
-			return VIEW_TYPE_ITEM_CONTENT;
-		}
-	}
+    @Override
+    public int getItemViewType(int position) {
+        if (mDataList.get(position).getType() == 0) {
+            return VIEW_TYPE_ITEM_TIME;
+        } else {
+            return VIEW_TYPE_ITEM_CONTENT;
+        }
+    }
 
-	@Override
-	public boolean isPinnedPosition(int position) {
-		return getItemViewType(position) == VIEW_TYPE_ITEM_TIME;
-	}
+    @Override
+    public boolean isPinnedPosition(int position) {
+        return getItemViewType(position) == VIEW_TYPE_ITEM_TIME;
+    }
 
-	static class ContentHolder extends RecyclerView.ViewHolder {
+    static class ContentHolder extends RecyclerView.ViewHolder {
 
-		CircleImageView mImage;
+        CircleImageView mImage;
 
-		ContentHolder(View itemView) {
-			super(itemView);
-			mImage = itemView.findViewById(R.id.image_icon);
-		}
-	}
+        ContentHolder(View itemView) {
+            super(itemView);
+            mImage = itemView.findViewById(R.id.image_icon);
+        }
+    }
 
-	static class TitleHolder extends RecyclerView.ViewHolder {
+    static class TitleHolder extends RecyclerView.ViewHolder {
 
-		TextView mTextTitle;
+        TextView mTextTitle;
 
-		TitleHolder(View itemView) {
-			super(itemView);
-			mTextTitle = itemView.findViewById(R.id.text_adapter_title_name);
-		}
-	}
+        TitleHolder(View itemView) {
+            super(itemView);
+            mTextTitle = itemView.findViewById(R.id.text_adapter_title_name);
+        }
+    }
 
 }
