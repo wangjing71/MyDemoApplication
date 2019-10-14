@@ -24,7 +24,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Title"
+            android:text="我是淘宝首页"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/sp_17" />
     </LinearLayout>
