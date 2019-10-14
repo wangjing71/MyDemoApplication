@@ -15,12 +15,6 @@ public class MainActivity extends BaseActivity {
     private RecyclerView recyclerView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
-
-    @Override
     protected int setLayoutId() {
         return R.layout.activity_main;
     }
@@ -48,7 +42,6 @@ public class MainActivity extends BaseActivity {
         GridRecyclerAdapter adapter = new GridRecyclerAdapter(obtainData());
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new PinnedHeaderItemDecoration());
-
     }
 
     @Override
