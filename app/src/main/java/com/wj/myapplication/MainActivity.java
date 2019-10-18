@@ -8,12 +8,7 @@ import android.widget.Button;
 public class MainActivity extends BaseActivity {
 
     private Button button;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
+    private AVLoadingIndicatorView avLoadingIndicatorView;
 
     @Override
     protected int setLayoutId() {
@@ -23,11 +18,12 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         button = findViewById(R.id.button);
+        avLoadingIndicatorView = findViewById(R.id.loading);
     }
 
     @Override
     protected void initData() {
-
+        avLoadingIndicatorView.setIndicator(new LineSpinFadeLoaderIndicator());
     }
 
     @Override
