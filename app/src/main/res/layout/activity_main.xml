@@ -17,7 +17,7 @@
         android:layout_gravity="center_horizontal"
         android:text="Button" />
 
-    <com.richeninfo.cm.shydhn.ui.v6.widget.AVLoadingIndicatorView
+    <com.wj.myapplication.AVLoadingIndicatorView
         android:id="@+id/loading"
         style="@style/AVLoadingIndicatorView.Large"
         android:layout_width="@dimen/dp_25"
