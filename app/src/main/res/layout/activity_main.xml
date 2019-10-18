@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.wj.myapplication.MainActivity">
 
@@ -16,5 +17,14 @@
         android:layout_gravity="center_horizontal"
         android:text="Button" />
 
+    <com.richeninfo.cm.shydhn.ui.v6.widget.AVLoadingIndicatorView
+        android:id="@+id/loading"
+        style="@style/AVLoadingIndicatorView.Large"
+        android:layout_width="@dimen/dp_25"
+        android:layout_height="@dimen/dp_25"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/dp_5"
+        android:visibility="visible"
+        app:indicatorColor="#989898" />
 
 </LinearLayout>
