@@ -20,9 +20,9 @@
     <com.wj.myapplication.AVLoadingIndicatorView
         android:id="@+id/loading"
         style="@style/AVLoadingIndicatorView.Large"
-        android:layout_width="@dimen/dp_25"
-        android:layout_height="@dimen/dp_25"
-        android:layout_gravity="center_vertical"
+        android:layout_width="@dimen/dp_35"
+        android:layout_height="@dimen/dp_35"
+        android:layout_gravity="center_horizontal"
         android:layout_marginLeft="@dimen/dp_5"
         android:visibility="visible"
         app:indicatorColor="#989898" />
