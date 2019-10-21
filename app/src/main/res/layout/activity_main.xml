@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.wj.myapplication.MainActivity">
 
@@ -18,10 +18,19 @@
         android:text="Button" />
 
     <com.wj.myapplication.ArcImageView
-        app:arcHeight="@dimen/dp_20"
-        android:src="@mipmap/ic_launcher"
-        android:layout_gravity="center_horizontal"
         android:layout_width="@dimen/dp_200"
-        android:layout_height="@dimen/dp_200"/>
+        android:layout_height="@dimen/dp_200"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/ic_launcher"
+        app:arcHeight="@dimen/dp_20" />
+
+    <com.wj.myapplication.ArcView
+        android:background="@color/blue"
+        android:layout_width="@dimen/dp_200"
+        android:layout_height="@dimen/dp_200"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_22"
+        android:src="@mipmap/ic_launcher"
+        app:arcHeight="@dimen/dp_20" />
 
 </LinearLayout>
