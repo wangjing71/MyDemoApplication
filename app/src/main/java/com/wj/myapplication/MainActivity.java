@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.xuexiang.xui.XUI;
+
 
 public class MainActivity extends BaseActivity {
 
@@ -11,8 +13,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        XUI.initTheme(this);
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
