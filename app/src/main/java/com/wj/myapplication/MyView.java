@@ -112,31 +112,44 @@ public class MyView extends View {
 //        canvas.drawArc(rectF,0,270,true,mPaint);
 
 
+//
+//        Paint paint = new Paint();
+//        paint.setColor(Color.BLUE);
+//
+//        paint.setStyle(Paint.Style.STROKE);
+//        paint.setStrokeWidth(20);
+//        canvas.drawCircle(200,200,100,paint);
 
-        Paint paint = new Paint();
-        paint.setColor(Color.BLUE);
-
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(20);
-        canvas.drawCircle(200,200,100,paint);
-
-
-
-
-
-
-
-
-
-
-
+//        mPaint.setColor(Color.BLACK);
+//        canvas.translate(getWidth() / 2, getHeight() / 2);
+//        canvas.drawCircle(0,0,100,mPaint);
+//
+//// 在坐标原点绘制一个蓝色圆形
+//        mPaint.setColor(Color.BLUE);
+//        canvas.translate(500,500);
+//        canvas.drawCircle(0,0,100,mPaint);
 
 
+//        canvas.translate(getWidth() / 2, getHeight() / 2);
+//
+//        RectF rect = new RectF(0,-400,400,0);   // 矩形区域
+//
+//        mPaint.setColor(Color.BLACK);           // 绘制黑色矩形
+//        canvas.drawRect(rect,mPaint);
+//
+//
+//        canvas.scale(0.5f,0.5f);                // 画布缩放
+//        mPaint.setColor(Color.BLUE);            // 绘制蓝色矩形
+//        canvas.drawRect(rect,mPaint);
 
 
+        canvas.translate(getWidth() / 2, getHeight() / 2);
+        mPaint.setStyle(Paint.Style.STROKE);
+        RectF rect = new RectF(-400, -400, 400, 400);   // 矩形区域
 
-
-
-
+        for (int i = 0; i <= 50; i++) {
+            canvas.scale(0.9f, 0.9f);
+            canvas.drawRect(rect, mPaint);
+        }
     }
 }
