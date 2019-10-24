@@ -39,7 +39,7 @@ public class MyView extends View {
     private void initPaint() {
         mPaint.setColor(Color.RED);       //设置画笔颜色
         mPaint.setStyle(Paint.Style.STROKE);  //设置画笔模式为填充
-        mPaint.setStrokeWidth(10f);         //设置画笔宽度为10px
+        mPaint.setStrokeWidth(30f);         //设置画笔宽度为10px
     }
 
     @Override
@@ -62,7 +62,7 @@ public class MyView extends View {
         Path path = new Path();
         path.moveTo(0, 0);
         path.lineTo(0, getHeight());
-        path.quadTo(getWidth() / 2, getHeight() - 2 * 200, getWidth(), getHeight());
+        path.quadTo(getWidth() / 2, getHeight() - 2 * 100, getWidth(), getHeight());
         path.lineTo(getWidth(), 0);
         path.close();
         canvas.drawPath(path, mPaint);
