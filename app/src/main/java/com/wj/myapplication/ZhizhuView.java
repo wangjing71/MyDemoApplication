@@ -51,7 +51,7 @@ public class ZhizhuView extends View {
 
         Path path = new Path();
         for (int i = 0; i < 6; i++) {
-            float r = (100 + 20 * i);
+            float r = (100 + 60 * i);
             path.moveTo(r, 0);
             path.lineTo(r / 2, (float) (r * Math.sin(angle)));
             path.lineTo(-r / 2, (float) (r * Math.sin(angle)));
