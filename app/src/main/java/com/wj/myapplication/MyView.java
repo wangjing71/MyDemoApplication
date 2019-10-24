@@ -56,13 +56,13 @@ public class MyView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        canvas.translate(getWidth() / 2, getHeight() / 2);  // 移动坐标系到屏幕中心
-        canvas.scale(1,-1);                         // <-- 注意 翻转y坐标轴
+//        canvas.translate(getWidth() / 2, getHeight() / 2);  // 移动坐标系到屏幕中心
+//        canvas.scale(1,-1);                         // <-- 注意 翻转y坐标轴
 
         Path path = new Path();
         path.moveTo(0, 0);
         path.lineTo(0, getHeight());
-        path.quadTo(getWidth() / 2, getHeight() - 2 * 20, getWidth(), getHeight());
+        path.quadTo(getWidth() / 2, getHeight() - 2 * 50, getWidth(), getHeight());
         path.lineTo(getWidth(), 0);
         path.close();
         canvas.drawPath(path, mPaint);
