@@ -61,8 +61,8 @@ public class MyView extends View {
 
         Path path = new Path();
         path.moveTo(0, 0);
-        path.lineTo(0, getHeight());
-        path.quadTo(getWidth() / 2, getHeight() - 2 * 100, getWidth(), getHeight());
+        path.lineTo(0, getHeight() - 2 * 100);
+        path.quadTo(getWidth() / 2, getHeight() + 2 * 100, getWidth(), getHeight() - 2 * 100);
         path.lineTo(getWidth(), 0);
         path.close();
         canvas.drawPath(path, mPaint);
