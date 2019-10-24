@@ -60,12 +60,10 @@ public class MyView extends View {
         canvas.scale(1,-1);                         // <-- 注意 翻转y坐标轴
 
         Path path = new Path();
-        path.lineTo(100, 100);
-
-        RectF oval = new RectF(0, 0, 300, 300);
-
-        path.arcTo(oval, 0, 270, false);   // <-- 和上面一句作用等价
-
+        path.moveTo(0, 0);
+        path.lineTo(0, getHeight());
+        path.quadTo(getWidth() / 2, getHeight() - 2 * 20, getWidth(), getHeight());
+        path.lineTo(getWidth(), 0);
         path.close();
         canvas.drawPath(path, mPaint);
 
