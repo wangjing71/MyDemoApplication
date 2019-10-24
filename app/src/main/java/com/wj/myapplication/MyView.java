@@ -39,7 +39,7 @@ public class MyView extends View {
     private void initPaint() {
         mPaint.setColor(Color.RED);       //设置画笔颜色
         mPaint.setStyle(Paint.Style.STROKE);  //设置画笔模式为填充
-        mPaint.setStrokeWidth(30f);         //设置画笔宽度为10px
+        mPaint.setStrokeWidth(10f);         //设置画笔宽度为10px
     }
 
     @Override
