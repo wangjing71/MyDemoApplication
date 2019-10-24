@@ -55,8 +55,9 @@ public class MyView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.translate(getWidth() / 2, getHeight() / 2);  // 移动坐标系到屏幕中心(宽高数据在onSizeChanged中获取)
-        canvas.scale(1, -1);
+
+        canvas.translate(getWidth() / 2, getHeight() / 2);  // 移动坐标系到屏幕中心
+        canvas.scale(1,-1);                         // <-- 注意 翻转y坐标轴
 
         Path path = new Path();
         path.lineTo(100, 100);
