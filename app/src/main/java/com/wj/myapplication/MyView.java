@@ -66,7 +66,5 @@ public class MyView extends View {
         path.lineTo(getWidth(), 0);
         path.close();
         canvas.drawPath(path, mPaint);
-
-
     }
 }
