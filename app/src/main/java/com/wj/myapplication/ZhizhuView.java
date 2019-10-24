@@ -61,5 +61,7 @@ public class ZhizhuView extends View {
             path.close();
             canvas.drawPath(path, mPaint);
         }
+
+
     }
 }
