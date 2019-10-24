@@ -18,7 +18,6 @@ import android.view.View;
  */
 public class MyView extends View {
     private Paint mPaint = new Paint();
-    private Picture mPicture = new Picture();
 
     public MyView(Context context) {
         super(context);
@@ -40,24 +39,6 @@ public class MyView extends View {
         mPaint.setColor(Color.RED);       //设置画笔颜色
         mPaint.setStyle(Paint.Style.FILL);  //设置画笔模式为填充
         mPaint.setStrokeWidth(10f);         //设置画笔宽度为10px
-    }
-
-    // 2.录制内容方法
-    private void recording() {
-        // 开始录制 (接收返回值Canvas)
-        Canvas canvas = mPicture.beginRecording(500, 500);
-        // 创建一个画笔
-        Paint paint = new Paint();
-        paint.setColor(Color.BLUE);
-        paint.setStyle(Paint.Style.FILL);
-
-        // 在Canvas中具体操作
-        // 位移
-        canvas.translate(250,250);
-        // 绘制一个圆
-        canvas.drawCircle(0,0,100,paint);
-
-        mPicture.endRecording();
     }
 
     @Override
