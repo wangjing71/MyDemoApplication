@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -98,12 +99,12 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
             contentHolder.btn1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    recyclerView.smoothScrollToPosition(10);
+                    recyclerView.scrollToPosition(10);
+                    LinearLayoutManager mLayoutManager =
+                            (LinearLayoutManager) recyclerView.getLayoutManager();
+                    mLayoutManager.scrollToPositionWithOffset(10, 0);
                 }
             });
-
-
-
         }
     }
 
