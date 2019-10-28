@@ -99,10 +99,11 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
             contentHolder.btn1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    recyclerView.scrollToPosition(10);
+                    int position = 16;
+                    recyclerView.scrollToPosition(position);
                     LinearLayoutManager mLayoutManager =
                             (LinearLayoutManager) recyclerView.getLayoutManager();
-                    mLayoutManager.scrollToPositionWithOffset(10, 0);
+                    mLayoutManager.scrollToPositionWithOffset(position, 0);
                 }
             });
         }
