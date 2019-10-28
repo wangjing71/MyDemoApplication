@@ -3,6 +3,7 @@ package com.wj.myapplication;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -101,10 +102,12 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
     static class TitleHolder extends RecyclerView.ViewHolder {
 
         LinearLayout dotll;
+        ViewPager viewPager;
 
         TitleHolder(View itemView) {
             super(itemView);
             dotll = itemView.findViewById(R.id.dotll);
+            viewPager = itemView.findViewById(R.id.mViewPager);
         }
     }
 
