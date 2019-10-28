@@ -2,18 +2,14 @@ package com.wj.myapplication;
 
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -86,7 +82,7 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
                 titleHolder.dotll.addView(view);
 
 
-                frameLayoutArrayList.add(new BusinessItemFragment());
+                frameLayoutArrayList.add(new Fragment1());
             }
 
             MyBusinessItemAdapter myBusinessItemAdapter = new MyBusinessItemAdapter(((FragmentActivity) context).getSupportFragmentManager(), frameLayoutArrayList);
