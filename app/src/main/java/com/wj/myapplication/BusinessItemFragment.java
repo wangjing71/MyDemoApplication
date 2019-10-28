@@ -23,7 +23,6 @@ public class BusinessItemFragment extends BaseFragment {
     public BusinessItemFragment() {
     }
 
-
     public int setContentViewId() {
         return R.layout.business_item;
     }

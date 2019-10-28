@@ -53,6 +53,7 @@ public class MainActivity extends BaseActivity {
         list.add(new ItemBean(1,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1730874133,3861130981&fm=27&gp=0.jpg"));
         list.add(new ItemBean(1,"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=4117837678,3129898700&fm=27&gp=0.jpg"));
         list.add(new ItemBean(0,"我是标题"));
+
         return list;
     }
 }
