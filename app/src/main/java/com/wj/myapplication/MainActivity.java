@@ -30,6 +30,7 @@ public class MainActivity extends BaseActivity {
         recyclerView.setLayoutManager(manager);
 
         GridRecyclerAdapter adapter = new GridRecyclerAdapter(obtainData());
+        adapter.setContext(this);
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new PinnedHeaderItemDecoration());
     }

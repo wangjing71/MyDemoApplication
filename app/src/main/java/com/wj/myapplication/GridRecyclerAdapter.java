@@ -1,6 +1,7 @@
 package com.wj.myapplication;
 
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,12 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
 
     public static final int VIEW_TYPE_ITEM_TIME = 0;
     private static final int VIEW_TYPE_ITEM_CONTENT = 1;
+
+    private Context context;
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
 
     private List<ItemBean> mDataList;
 
@@ -42,7 +49,11 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (getItemViewType(position) == VIEW_TYPE_ITEM_TIME) {
             TitleHolder titleHolder = (TitleHolder) holder;
-
+            for (int i = 0; i < 4; i++) {
+                TextView tv = new TextView(context);
+                tv.setText("条目"+i);
+                titleHolder.dotll.addView(tv);
+            }
 
 
 
