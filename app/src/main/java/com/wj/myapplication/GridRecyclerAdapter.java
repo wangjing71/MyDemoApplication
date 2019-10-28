@@ -33,6 +33,8 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
     private Context context;
 
     private RecyclerView recyclerView;
+    private boolean mShouldScroll;
+    private int mToPosition = 16;
 
     public void setRecyclerView(RecyclerView recyclerView) {
         this.recyclerView = recyclerView;
@@ -99,11 +101,7 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
             contentHolder.btn1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int position = 16;
-                    recyclerView.scrollToPosition(position);
-                    LinearLayoutManager mLayoutManager =
-                            (LinearLayoutManager) recyclerView.getLayoutManager();
-                    mLayoutManager.scrollToPositionWithOffset(position, 0);
+                    smoothMoveToPosition(recyclerView,mToPosition);
                 }
             });
         }
@@ -163,4 +161,27 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
         }
     }
 
+
+    private void smoothMoveToPosition(RecyclerView mRecyclerView, final int position) {
+        // 第一个可见位置
+        int firstItem = mRecyclerView.getChildLayoutPosition(mRecyclerView.getChildAt(0));
+        // 最后一个可见位置
+        int lastItem = mRecyclerView.getChildLayoutPosition(mRecyclerView.getChildAt(mRecyclerView.getChildCount() - 1));
+        if (position < firstItem) {
+            // 第一种可能:跳转位置在第一个可见位置之前
+            mRecyclerView.smoothScrollToPosition(position);
+        } else if (position <= lastItem) {
+            // 第二种可能:跳转位置在第一个可见位置之后
+            int movePosition = position - firstItem;
+            if (movePosition >= 0 && movePosition < mRecyclerView.getChildCount()) {
+                int top = mRecyclerView.getChildAt(movePosition).getTop();
+                mRecyclerView.smoothScrollBy(0, top);
+            }
+        } else {
+            // 第三种可能:跳转位置在最后可见项之后
+            mRecyclerView.smoothScrollToPosition(position);
+            mToPosition = position;
+            mShouldScroll = true;
+        }
+    }
 }
