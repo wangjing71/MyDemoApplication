@@ -31,6 +31,12 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
 
     private Context context;
 
+    private RecyclerView recyclerView;
+
+    public void setRecyclerView(RecyclerView recyclerView) {
+        this.recyclerView = recyclerView;
+    }
+
     public void setContext(Context context) {
         this.context = context;
     }
@@ -89,7 +95,12 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
             Picasso.with(contentHolder.mImage.getContext()).load(mDataList.get(position).getDat()).into(contentHolder.mImage);
         }else if(type == VIEW_TYPE_ITEM_TAB){
             TabHolder contentHolder = (TabHolder) holder;
-
+            contentHolder.btn1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    recyclerView.smoothScrollToPosition(10);
+                }
+            });
 
 
 

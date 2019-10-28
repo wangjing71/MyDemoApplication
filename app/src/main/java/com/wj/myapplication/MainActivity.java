@@ -31,6 +31,7 @@ public class MainActivity extends BaseActivity {
 
         GridRecyclerAdapter adapter = new GridRecyclerAdapter(obtainData());
         adapter.setContext(this);
+        adapter.setRecyclerView(recyclerView);
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new PinnedHeaderItemDecoration());
     }
