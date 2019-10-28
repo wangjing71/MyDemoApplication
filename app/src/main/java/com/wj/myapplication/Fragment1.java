@@ -26,6 +26,7 @@ public class Fragment1 extends BaseFragment {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(new MyAdapter(getContext()));
     }
 
     @Override
