@@ -53,14 +53,11 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
             TitleHolder titleHolder = (TitleHolder) holder;
             titleHolder.dotll.removeAllViews();
             for (int i = 0; i < 4; i++) {
-                TextView tv = new TextView(context);
-                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(context.getResources().getDimensionPixelSize(R.dimen.dp_12), ViewGroup.LayoutParams.MATCH_PARENT);
-                params.weight = 1.0f;
-                params.gravity = Gravity.CENTER;
-                tv.setTextColor(Color.WHITE);
-                tv.setLayoutParams(params);
+
+                View view = LayoutInflater.from(context).inflate(R.layout.item_title,null,false);
+                TextView tv = view.findViewById(R.id.title);
                 tv.setText("条目"+i);
-                titleHolder.dotll.addView(tv);
+                titleHolder.dotll.addView(view);
             }
 
 
