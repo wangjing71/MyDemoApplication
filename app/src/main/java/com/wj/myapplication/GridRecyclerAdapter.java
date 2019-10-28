@@ -26,6 +26,7 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
 
     public static final int VIEW_TYPE_ITEM_TIME = 0;
     private static final int VIEW_TYPE_ITEM_CONTENT = 1;
+    private static final int VIEW_TYPE_ITEM_TAB = 2;
 
     private Context context;
 
@@ -47,8 +48,12 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == VIEW_TYPE_ITEM_TIME) {
             return new TitleHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_title, parent, false));
-        } else {
+        } else if(viewType == VIEW_TYPE_ITEM_CONTENT){
             return new ContentHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_content, parent, false));
+        }else if(viewType == VIEW_TYPE_ITEM_TAB){
+            return new TabHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_grid_tab, parent, false));
+        }else{
+            return null;
         }
     }
 
@@ -59,21 +64,21 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
             ArrayList<Fragment> frameLayoutArrayList = new ArrayList<>();
             titleHolder.dotll.removeAllViews();
             for (int i = 0; i < 4; i++) {
-                View view = LayoutInflater.from(context).inflate(R.layout.item_title,null,false);
-                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                View view = LayoutInflater.from(context).inflate(R.layout.item_title, null, false);
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
                 params.weight = 1.0f;
                 params.leftMargin = context.getResources().getDimensionPixelSize(R.dimen.dp_2);
                 params.rightMargin = context.getResources().getDimensionPixelSize(R.dimen.dp_2);
                 view.setLayoutParams(params);
                 TextView tv = view.findViewById(R.id.title);
-                tv.setText("条目"+i);
+                tv.setText("条目" + i);
                 titleHolder.dotll.addView(view);
 
 
                 frameLayoutArrayList.add(new BusinessItemFragment());
             }
 
-            MyBusinessItemAdapter myBusinessItemAdapter = new MyBusinessItemAdapter(((FragmentActivity)context).getSupportFragmentManager(),frameLayoutArrayList);
+            MyBusinessItemAdapter myBusinessItemAdapter = new MyBusinessItemAdapter(((FragmentActivity) context).getSupportFragmentManager(), frameLayoutArrayList);
             titleHolder.viewPager.setOffscreenPageLimit(3);
             titleHolder.viewPager.setAdapter(myBusinessItemAdapter);
 
@@ -90,11 +95,7 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
 
     @Override
     public int getItemViewType(int position) {
-        if (mDataList.get(position).getType() == 0) {
-            return VIEW_TYPE_ITEM_TIME;
-        } else {
-            return VIEW_TYPE_ITEM_CONTENT;
-        }
+        return mDataList.get(position).getType();
     }
 
     @Override
@@ -121,6 +122,14 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
             super(itemView);
             dotll = itemView.findViewById(R.id.dotll);
             viewPager = itemView.findViewById(R.id.mViewPager);
+        }
+    }
+
+    static class TabHolder extends RecyclerView.ViewHolder {
+
+
+        TabHolder(View itemView) {
+            super(itemView);
         }
     }
 
