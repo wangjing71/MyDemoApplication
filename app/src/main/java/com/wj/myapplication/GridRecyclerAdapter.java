@@ -80,10 +80,11 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
                 TextView tv = view.findViewById(R.id.title);
                 tv.setText("条目" + i);
                 titleHolder.dotll.addView(view);
-
-
-                frameLayoutArrayList.add(new Fragment1());
             }
+            frameLayoutArrayList.add(new Fragment1());
+            frameLayoutArrayList.add(new Fragment2());
+            frameLayoutArrayList.add(new Fragment3());
+            frameLayoutArrayList.add(new Fragment4());
 
             MyBusinessItemAdapter myBusinessItemAdapter = new MyBusinessItemAdapter(((FragmentActivity) context).getSupportFragmentManager(), frameLayoutArrayList);
             titleHolder.viewPager.setOffscreenPageLimit(3);
