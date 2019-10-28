@@ -60,7 +60,8 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (getItemViewType(position) == VIEW_TYPE_ITEM_TIME) {
+        int type = getItemViewType(position);
+        if (type == VIEW_TYPE_ITEM_TIME) {
             TitleHolder titleHolder = (TitleHolder) holder;
             ArrayList<Fragment> frameLayoutArrayList = new ArrayList<>();
             titleHolder.dotll.removeAllViews();
@@ -83,9 +84,15 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
             titleHolder.viewPager.setOffscreenPageLimit(3);
             titleHolder.viewPager.setAdapter(myBusinessItemAdapter);
 
-        } else {
+        } else if(type == VIEW_TYPE_ITEM_CONTENT){
             ContentHolder contentHolder = (ContentHolder) holder;
             Picasso.with(contentHolder.mImage.getContext()).load(mDataList.get(position).getDat()).into(contentHolder.mImage);
+        }else if(type == VIEW_TYPE_ITEM_TAB){
+            TabHolder contentHolder = (TabHolder) holder;
+
+
+
+
         }
     }
 
