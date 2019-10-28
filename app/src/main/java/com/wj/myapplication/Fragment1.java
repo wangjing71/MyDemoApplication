@@ -1,6 +1,9 @@
 package com.wj.myapplication;
 
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.LinearLayout;
 
 /**
  * author wangjing
@@ -8,6 +11,7 @@ import android.view.View;
  * Description
  */
 public class Fragment1 extends BaseFragment {
+    private RecyclerView recyclerView;
 
     public Fragment1() {
     }
@@ -18,6 +22,10 @@ public class Fragment1 extends BaseFragment {
 
     @Override
     public void initView(View root) {
+        recyclerView = root.findViewById(R.id.recycler_view);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
     }
 
     @Override
