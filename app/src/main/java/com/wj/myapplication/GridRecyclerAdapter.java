@@ -161,7 +161,6 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
         }
     }
 
-
     private void smoothMoveToPosition(RecyclerView mRecyclerView, final int position) {
         // 第一个可见位置
         int firstItem = mRecyclerView.getChildLayoutPosition(mRecyclerView.getChildAt(0));
