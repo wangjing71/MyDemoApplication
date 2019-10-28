@@ -77,8 +77,6 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
             titleHolder.viewPager.setOffscreenPageLimit(3);
             titleHolder.viewPager.setAdapter(myBusinessItemAdapter);
 
-
-
         } else {
             ContentHolder contentHolder = (ContentHolder) holder;
             Picasso.with(contentHolder.mImage.getContext()).load(mDataList.get(position).getDat()).into(contentHolder.mImage);
