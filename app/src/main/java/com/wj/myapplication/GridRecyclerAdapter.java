@@ -2,7 +2,9 @@ package com.wj.myapplication;
 
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +56,8 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
                 TextView tv = new TextView(context);
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(context.getResources().getDimensionPixelSize(R.dimen.dp_12), ViewGroup.LayoutParams.MATCH_PARENT);
                 params.weight = 1.0f;
+                params.gravity = Gravity.CENTER;
+                tv.setTextColor(Color.WHITE);
                 tv.setLayoutParams(params);
                 tv.setText("条目"+i);
                 titleHolder.dotll.addView(tv);
