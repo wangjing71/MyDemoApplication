@@ -11,6 +11,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -127,9 +128,18 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
 
     static class TabHolder extends RecyclerView.ViewHolder {
 
+        Button btn1;
+        Button btn2;
+        Button btn3;
+        Button btn4;
+
 
         TabHolder(View itemView) {
             super(itemView);
+            btn1 = itemView.findViewById(R.id.button1);
+            btn2 = itemView.findViewById(R.id.button2);
+            btn3 = itemView.findViewById(R.id.button3);
+            btn4 = itemView.findViewById(R.id.button4);
         }
     }
 
