@@ -12,9 +12,9 @@
         android:orientation="horizontal" />
 
     <View
-        android:background="@color/red"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"/>
+        android:layout_height="800dp"
+        android:background="@color/red" />
 
 
 </LinearLayout>
