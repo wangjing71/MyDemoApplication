@@ -67,7 +67,7 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         int type = getItemViewType(position);
         if (type == VIEW_TYPE_ITEM_TIME) {
-            TitleHolder titleHolder = (TitleHolder) holder;
+            final TitleHolder titleHolder = (TitleHolder) holder;
             ArrayList<Fragment> frameLayoutArrayList = new ArrayList<>();
             titleHolder.dotll.removeAllViews();
             for (int i = 0; i < 4; i++) {
@@ -80,6 +80,13 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
                 TextView tv = view.findViewById(R.id.title);
                 tv.setText("条目" + i);
                 titleHolder.dotll.addView(view);
+                final int finalI = i;
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        titleHolder.viewPager.setCurrentItem(finalI);
+                    }
+                });
             }
             frameLayoutArrayList.add(new Fragment1());
             frameLayoutArrayList.add(new Fragment2());
