@@ -1,5 +1,6 @@
 package com.wj.myapplication;
 
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -24,7 +25,7 @@ public class Fragment1 extends BaseFragment {
     public void initView(View root) {
         recyclerView = root.findViewById(R.id.recycler_view);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        GridLayoutManager linearLayoutManager = new GridLayoutManager(getContext(),2);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(new MyAdapter(getContext()));
     }
