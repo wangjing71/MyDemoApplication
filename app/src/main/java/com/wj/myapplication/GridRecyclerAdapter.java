@@ -53,14 +53,16 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
             TitleHolder titleHolder = (TitleHolder) holder;
             titleHolder.dotll.removeAllViews();
             for (int i = 0; i < 4; i++) {
-
                 View view = LayoutInflater.from(context).inflate(R.layout.item_title,null,false);
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                params.weight = 1.0f;
+                params.leftMargin = context.getResources().getDimensionPixelSize(R.dimen.dp_2);
+                params.rightMargin = context.getResources().getDimensionPixelSize(R.dimen.dp_2);
+                view.setLayoutParams(params);
                 TextView tv = view.findViewById(R.id.title);
                 tv.setText("条目"+i);
                 titleHolder.dotll.addView(view);
             }
-
-
         } else {
             ContentHolder contentHolder = (ContentHolder) holder;
             Picasso.with(contentHolder.mImage.getContext()).load(mDataList.get(position).getDat()).into(contentHolder.mImage);
