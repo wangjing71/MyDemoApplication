@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -41,7 +42,10 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (getItemViewType(position) == VIEW_TYPE_ITEM_TIME) {
             TitleHolder titleHolder = (TitleHolder) holder;
-            titleHolder.mTextTitle.setText(mDataList.get(position).getDat());
+
+
+
+
         } else {
             ContentHolder contentHolder = (ContentHolder) holder;
             Picasso.with(contentHolder.mImage.getContext()).load(mDataList.get(position).getDat()).into(contentHolder.mImage);
@@ -79,11 +83,11 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
 
     static class TitleHolder extends RecyclerView.ViewHolder {
 
-        TextView mTextTitle;
+        LinearLayout dotll;
 
         TitleHolder(View itemView) {
             super(itemView);
-            mTextTitle = itemView.findViewById(R.id.text_adapter_title_name);
+            dotll = itemView.findViewById(R.id.dotll);
         }
     }
 
