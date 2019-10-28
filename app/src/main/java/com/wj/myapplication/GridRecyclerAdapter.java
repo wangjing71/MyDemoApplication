@@ -46,6 +46,7 @@ public class GridRecyclerAdapter extends PinnedHeaderAdapter<RecyclerView.ViewHo
 
 
 
+
         } else {
             ContentHolder contentHolder = (ContentHolder) holder;
             Picasso.with(contentHolder.mImage.getContext()).load(mDataList.get(position).getDat()).into(contentHolder.mImage);
