@@ -22,7 +22,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        button = findViewById(R.id.button);
+
     }
 
     @Override
