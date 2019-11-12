@@ -1,10 +1,12 @@
 package com.wj.myapplication;
 
 import android.content.Context;
+import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -43,7 +45,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     class MyItem extends RecyclerView.ViewHolder {
 
-        private TextView icon;
+        private ImageView icon;
 
 
         public MyItem(View view) {
