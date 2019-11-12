@@ -9,6 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
+
 
 /**
  * author wangjing
@@ -17,7 +21,11 @@ import android.widget.TextView;
  */
 public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context context;
+    private ArrayList<Integer> dataList;
 
+    public void setDataList(ArrayList<Integer> dataList) {
+        this.dataList = dataList;
+    }
 
     public MyAdapter(Context context) {
         this.context = context;
@@ -33,7 +41,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         MyItem myViewHolder = (MyItem) holder;
-
+        Glide.with(context).load(dataList.get(position)).into(myViewHolder.icon);
     }
 
 

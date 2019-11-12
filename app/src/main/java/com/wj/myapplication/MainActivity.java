@@ -6,11 +6,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 
 public class MainActivity extends BaseActivity {
     private RecyclerView recyclerView1;
     private MyAdapter adapter1;
-
+    private ArrayList<Integer> dataList1 = new ArrayList<>();
+    private ArrayList<Integer> dataList2 = new ArrayList<>();
+    private ArrayList<Integer> dataList3 = new ArrayList<>();
 
 
     @Override
