@@ -9,7 +9,7 @@
     <!--标题栏-->
     <include layout="@layout/include_title" />
 
-    <com.wj.myapplication.MyView
+    <com.wj.myapplication.SearchView
         android:padding="@dimen/dp_20"
         android:layout_margin="@dimen/dp_20"
         android:layout_width="match_parent"
