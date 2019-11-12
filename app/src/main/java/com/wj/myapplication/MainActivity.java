@@ -11,7 +11,9 @@ import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity {
     private RecyclerView recyclerView1;
+    private RecyclerView recyclerView2;
     private MyAdapter adapter1;
+    private MyAdapter adapter2;
     private ArrayList<Integer> dataList1 = new ArrayList<>();
     private ArrayList<Integer> dataList2 = new ArrayList<>();
     private ArrayList<Integer> dataList3 = new ArrayList<>();
@@ -25,6 +27,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         recyclerView1 = findViewById(R.id.mRecyclerView1);
+        recyclerView2 = findViewById(R.id.mRecyclerView2);
     }
 
     @Override
@@ -37,6 +40,11 @@ public class MainActivity extends BaseActivity {
         adapter1 = new MyAdapter(this);
         adapter1.setDataList(dataList1);
         recyclerView1.setAdapter(adapter1);
+
+        recyclerView2.setLayoutManager(manager);
+        adapter2 = new MyAdapter(this);
+        adapter2.setDataList(dataList2);
+        recyclerView2.setAdapter(adapter2);
 
     }
 
@@ -55,6 +63,27 @@ public class MainActivity extends BaseActivity {
         dataList1.add(R.mipmap.bg_1_back_12);
         dataList1.add(R.mipmap.bg_1_back_13);
         dataList1.add(R.mipmap.bg_1_back_14);
+
+        dataList2.add(R.mipmap.bg_1_middle_01);
+        dataList2.add(R.mipmap.bg_1_middle_02);
+        dataList2.add(R.mipmap.bg_1_middle_03);
+        dataList2.add(R.mipmap.bg_1_middle_04);
+        dataList2.add(R.mipmap.bg_1_middle_05);
+        dataList2.add(R.mipmap.bg_1_middle_06);
+        dataList2.add(R.mipmap.bg_1_middle_07);
+        dataList2.add(R.mipmap.bg_1_middle_08);
+        dataList2.add(R.mipmap.bg_1_middle_09);
+        dataList2.add(R.mipmap.bg_1_middle_10);
+        dataList2.add(R.mipmap.bg_1_middle_11);
+        dataList2.add(R.mipmap.bg_1_middle_12);
+        dataList2.add(R.mipmap.bg_1_middle_13);
+        dataList2.add(R.mipmap.bg_1_middle_14);
+        dataList2.add(R.mipmap.bg_1_middle_15);
+        dataList2.add(R.mipmap.bg_1_middle_16);
+        dataList2.add(R.mipmap.bg_1_middle_17);
+        dataList2.add(R.mipmap.bg_1_middle_18);
+        dataList2.add(R.mipmap.bg_1_middle_19);
+        dataList2.add(R.mipmap.bg_1_middle_20);
     }
 
     @Override
