@@ -34,14 +34,17 @@ public class MainActivity extends BaseActivity {
     protected void initData() {
         setData();
 
-        LinearLayoutManager manager = new LinearLayoutManager(this);
-        manager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        recyclerView1.setLayoutManager(manager);
+        LinearLayoutManager manager1 = new LinearLayoutManager(this);
+        manager1.setOrientation(LinearLayoutManager.HORIZONTAL);
+        recyclerView1.setLayoutManager(manager1);
         adapter1 = new MyAdapter(this);
         adapter1.setDataList(dataList1);
         recyclerView1.setAdapter(adapter1);
 
-        recyclerView2.setLayoutManager(manager);
+        LinearLayoutManager manager2 = new LinearLayoutManager(this);
+        manager2.setOrientation(LinearLayoutManager.HORIZONTAL);
+        recyclerView1.setLayoutManager(manager2);
+        recyclerView2.setLayoutManager(manager2);
         adapter2 = new MyAdapter(this);
         adapter2.setDataList(dataList2);
         recyclerView2.setAdapter(adapter2);
