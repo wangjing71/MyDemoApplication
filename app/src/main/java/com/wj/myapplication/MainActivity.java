@@ -43,7 +43,6 @@ public class MainActivity extends BaseActivity {
 
         LinearLayoutManager manager2 = new LinearLayoutManager(this);
         manager2.setOrientation(LinearLayoutManager.HORIZONTAL);
-        recyclerView1.setLayoutManager(manager2);
         recyclerView2.setLayoutManager(manager2);
         adapter2 = new MyAdapter(this);
         adapter2.setDataList(dataList2);
