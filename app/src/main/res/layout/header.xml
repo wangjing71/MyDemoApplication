@@ -12,6 +12,7 @@
             android:id="@+id/iv"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_270"
+            android:background="@color/white"
             android:orientation="vertical"
             android:paddingBottom="@dimen/dp_40"
             android:scaleType="centerCrop"
