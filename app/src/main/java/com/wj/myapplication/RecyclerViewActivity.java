@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.gyf.barlibrary.ImmersionBar;
 import com.wj.myapplication.adapter.SimpleListAdapter;
 import com.wj.myapplication.flexible.FlexibleLayout;
 import com.wj.myapplication.flexible.callback.OnReadyPullListener;
@@ -26,6 +27,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view);
+        ImmersionBar.with(this).init();
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv);
         View header = LayoutInflater.from(this).inflate(R.layout.header, null);
         View headerImage = header.findViewById(R.id.iv);
