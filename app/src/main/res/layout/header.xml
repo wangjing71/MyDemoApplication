@@ -1,13 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_220">
 
     <ImageView
         android:id="@+id/iv"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="@dimen/dp_220"
         android:orientation="vertical"
         android:scaleType="centerCrop"
         android:src="@drawable/my_global_normal_bac" />
-</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="1111111111111111"
+            android:textSize="@dimen/sp_18" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="1111111111111111"
+            android:textSize="@dimen/sp_18" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="1111111111111111"
+            android:textSize="@dimen/sp_18" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="1111111111111111"
+            android:textSize="@dimen/sp_18" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="1111111111111111"
+            android:textSize="@dimen/sp_18" />
+
+    </LinearLayout>
+
+</RelativeLayout>

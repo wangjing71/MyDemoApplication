@@ -8,9 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import com.gavin.view.flexible.FlexibleLayout;
-import com.gavin.view.flexible.callback.OnReadyPullListener;
 import com.wj.myapplication.adapter.SimpleListAdapter;
+import com.wj.myapplication.flexible.FlexibleLayout;
+import com.wj.myapplication.flexible.callback.OnReadyPullListener;
 
 import java.util.ArrayList;
 import java.util.List;

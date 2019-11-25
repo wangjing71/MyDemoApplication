@@ -14,11 +14,11 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import com.gavin.view.flexible.IFlexible;
-import com.gavin.view.flexible.callback.OnPullListener;
-import com.gavin.view.flexible.callback.OnReadyPullListener;
-import com.gavin.view.flexible.callback.OnRefreshListener;
-import com.gavin.view.flexible.util.PullAnimatorUtil;
+import com.wj.myapplication.flexible.callback.OnPullListener;
+import com.wj.myapplication.flexible.callback.OnReadyPullListener;
+import com.wj.myapplication.flexible.callback.OnRefreshListener;
+import com.wj.myapplication.flexible.util.PullAnimatorUtil;
+
 
 /**
  * Created by gavin
@@ -345,18 +345,6 @@ public class FlexibleLayout extends FrameLayout implements IFlexible {
         mRefreshView.setTranslationY(-mRefreshSize);
         addView(mRefreshView);
         return this;
-    }
-
-    /**
-     * 设置默认的刷新头
-     *
-     * @param listener
-     * @return
-     */
-    public FlexibleLayout setDefaultRefreshView(OnRefreshListener listener) {
-        ImageView refreshView = new ImageView(getContext());
-        refreshView.setImageResource(com.gavin.view.flexible.R.drawable.flexible_loading);
-        return setRefreshView(refreshView, listener);
     }
 
     /**
