@@ -29,6 +29,9 @@ public class RecyclerViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view);
         ImmersionBar.with(this).init();
+        View statbarHeight = findViewById(R.id.statbarheight);
+        ImmersionBar.setStatusBarView(this, statbarHeight);
+
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv);
         View header = LayoutInflater.from(this).inflate(R.layout.header, null);
         View headerImage = header.findViewById(R.id.iv);
