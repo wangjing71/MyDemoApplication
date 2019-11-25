@@ -9,5 +9,5 @@
         android:layout_height="170dp"
         android:orientation="vertical"
         android:scaleType="centerCrop"
-        android:src="@mipmap/ic_launcher_round" />
+        android:src="@drawable/my_global_normal_bac" />
 </LinearLayout>

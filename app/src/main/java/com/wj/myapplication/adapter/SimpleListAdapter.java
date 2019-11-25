@@ -6,9 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.wj.myapplication.R;
+
 import java.util.List;
 
-import view.gavin.com.flexibleview.R;
 
 /**
  * Created by gavin
