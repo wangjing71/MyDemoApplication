@@ -55,6 +55,6 @@ public class RecyclerViewActivity extends AppCompatActivity {
                 return manager.findFirstCompletelyVisibleItemPosition() == 0;
             }
         });
-        flexibleLayout.setHeader(header);
+        flexibleLayout.setHeader(headerImage);
     }
 }
