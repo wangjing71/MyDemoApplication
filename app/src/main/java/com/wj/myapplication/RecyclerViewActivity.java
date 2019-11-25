@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.gyf.barlibrary.ImmersionBar;
+import com.wj.myapplication.adapter.HeaderAndFooterWrapper;
 import com.wj.myapplication.adapter.SimpleListAdapter;
 import com.wj.myapplication.flexible.FlexibleLayout;
 import com.wj.myapplication.flexible.callback.OnReadyPullListener;
@@ -36,11 +37,15 @@ public class RecyclerViewActivity extends AppCompatActivity {
         for (int i = 0; i < 20; i++) {
             list.add("Item : " + i);
         }
+
         SimpleListAdapter adapter = new SimpleListAdapter(this, list);
-        adapter.addHeaderView(header);
+//        adapter.addHeaderView(header);
+        HeaderAndFooterWrapper wrapper = new HeaderAndFooterWrapper(adapter);
+        wrapper.addHeaderView(header);
+
         final LinearLayoutManager manager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(manager);
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(wrapper);
 
 
         FlexibleLayout flexibleLayout = (FlexibleLayout) findViewById(R.id.fv);
