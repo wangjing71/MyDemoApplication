@@ -6,9 +6,10 @@
 
 
         <ImageView
+            android:paddingBottom="@dimen/dp_40"
             android:id="@+id/iv"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_230"
+            android:layout_height="@dimen/dp_270"
             android:orientation="vertical"
             android:scaleType="centerCrop"
             android:src="@drawable/my_global_normal_bac" />
