@@ -1,50 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ffv"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.wj.myapplication.MainActivity">
+    android:layout_height="match_parent">
 
-    <!--标题栏-->
-    <include layout="@layout/include_title" />
-
-
-    <LinearLayout
+    <Button
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_80"
-        android:layout_marginTop="@dimen/dp_50"
-        android:background="@color/gray_primary"
-        android:orientation="horizontal"
-        android:paddingTop="@dimen/dp_5"
-        android:paddingBottom="@dimen/dp_5">
+        android:layout_marginTop="10dp"
+        android:text="RecyclerView"
+        android:onClick="toRecyclerView"
+        android:layout_height="wrap_content" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/dp_5"
-            android:layout_marginRight="@dimen/dp_5"
-            android:layout_weight="1"
-            android:background="@color/white" />
-
-
-    </LinearLayout>
-    <LinearLayout
+    <Button
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_80"
-        android:background="@color/gray_primary"
-        android:orientation="horizontal"
-        android:paddingBottom="@dimen/dp_5">
+        android:text="ScrollView"
+        android:layout_marginTop="10dp"
+        android:onClick="toScrollView"
+        android:layout_height="wrap_content" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginRight="@dimen/dp_5"
-            android:layout_marginLeft="@dimen/dp_5"
-            android:layout_weight="1"
-            android:background="@color/white" />
+    <Button
+        android:layout_width="match_parent"
+        android:text="CoordinatorLayout"
+        android:layout_marginTop="10dp"
+        android:onClick="toCoordinatorLayout"
+        android:layout_height="wrap_content" />
 
-
-
-    </LinearLayout>
 </LinearLayout>
