@@ -32,6 +32,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv);
         View header = LayoutInflater.from(this).inflate(R.layout.header, null);
         View headerImage = header.findViewById(R.id.iv);
+        View zhanwei = header.findViewById(R.id.zhanwei);
 
         List<String> list = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
@@ -56,5 +57,6 @@ public class RecyclerViewActivity extends AppCompatActivity {
             }
         });
         flexibleLayout.setHeader(headerImage);
+        flexibleLayout.setZhanwei(zhanwei);
     }
 }

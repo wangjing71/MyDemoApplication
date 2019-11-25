@@ -57,6 +57,7 @@ public class FlexibleLayout extends FrameLayout implements IFlexible {
      */
     private View mHeaderView;
 
+
     /**
      * 刷新
      */
@@ -106,6 +107,12 @@ public class FlexibleLayout extends FrameLayout implements IFlexible {
      * 下拉监听
      */
     private OnPullListener mOnPullListener;
+
+    private View zhanwei;
+
+    public void setZhanwei(View zhanwei) {
+        this.zhanwei = zhanwei;
+    }
 
     /**
      * 刷新动画消失监听
@@ -206,11 +213,14 @@ public class FlexibleLayout extends FrameLayout implements IFlexible {
 
     @Override
     public void changeHeader(int offsetY) {
+        Log.i("====",offsetY+"");
+        PullAnimatorUtil.pullAnimator(zhanwei, 0, mHeaderWidth, offsetY, mMaxPullHeight);
         PullAnimatorUtil.pullAnimator(mHeaderView, mHeaderHeight, mHeaderWidth, offsetY, mMaxPullHeight);
     }
 
     @Override
     public void resetHeader() {
+        PullAnimatorUtil.resetAnimator(zhanwei, 0, mHeaderWidth);
         PullAnimatorUtil.resetAnimator(mHeaderView, mHeaderHeight, mHeaderWidth);
     }
 
