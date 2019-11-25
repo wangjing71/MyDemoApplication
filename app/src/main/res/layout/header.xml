@@ -17,7 +17,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <View
             android:id="@+id/zhanwei"
@@ -61,43 +62,30 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <android.support.v7.widget.CardView
+
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginRight="@dimen/dp_15"
+        android:visibility="visible"
+        card_view:cardCornerRadius="8dp"
+        card_view:cardElevation="@dimen/dp_5"
+        card_view:cardPreventCornerOverlap="false">
 
-        <View
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_height="wrap_content">
 
-        <android.support.v7.widget.CardView
-
-            android:id="@+id/card_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="@dimen/dp_15"
-            android:layout_marginRight="@dimen/dp_15"
-            android:visibility="visible"
-            card_view:cardCornerRadius="8dp"
-            card_view:cardElevation="@dimen/dp_5"
-            card_view:cardPreventCornerOverlap="false">
-
-            <RelativeLayout
+            <ImageView
+                android:id="@+id/global_level"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/my_global_normal" />
 
-                <ImageView
-                    android:id="@+id/global_level"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/my_global_normal" />
-
-            </RelativeLayout>
-        </android.support.v7.widget.CardView>
-    </LinearLayout>
-
-
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
 </RelativeLayout>
