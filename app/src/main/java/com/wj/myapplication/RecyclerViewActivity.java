@@ -40,7 +40,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
         View zhanwei = header.findViewById(R.id.zhanwei);
 
         List<String> list = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 200; i++) {
             list.add("Item : " + i);
         }
 
