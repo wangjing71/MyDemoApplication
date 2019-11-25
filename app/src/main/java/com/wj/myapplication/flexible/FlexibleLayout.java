@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -385,7 +386,7 @@ public class FlexibleLayout extends FrameLayout implements IFlexible {
     }
 
     private void log(String str) {
-        //Log.i("FlexibleView", str);
+//        Log.i("FlexibleView", str);
     }
 
     class RefreshAnimatorListener extends AnimatorListenerAdapter {
