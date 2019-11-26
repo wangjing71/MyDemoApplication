@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -12,6 +13,7 @@ import com.gyf.barlibrary.ImmersionBar;
 import com.wj.myapplication.adapter.HeaderAndFooterWrapper;
 import com.wj.myapplication.adapter.SimpleListAdapter;
 import com.wj.myapplication.flexible.FlexibleLayout;
+import com.wj.myapplication.flexible.callback.OnPullListener;
 import com.wj.myapplication.flexible.callback.OnReadyPullListener;
 
 import java.util.ArrayList;
@@ -63,5 +65,18 @@ public class RecyclerViewActivity extends AppCompatActivity {
         });
         flexibleLayout.setHeader(headerImage);
         flexibleLayout.setZhanwei(zhanwei);
+
+        flexibleLayout.setOnPullListener(new OnPullListener() {
+            @Override
+            public void onPull(int offset) {
+                Log.i("====",offset+"");
+
+            }
+
+            @Override
+            public void onRelease() {
+                Log.i("====","onRelease");
+            }
+        });
     }
 }
