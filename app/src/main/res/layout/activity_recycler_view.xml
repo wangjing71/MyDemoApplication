@@ -110,9 +110,17 @@
                         android:visibility="gone" />
                 </RelativeLayout>
 
+
             </LinearLayout>
 
         </RelativeLayout>
     </LinearLayout>
+
+    <Button
+        android:layout_alignParentBottom="true"
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 
 </RelativeLayout>

@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.wj.myapplication.adapter.HeaderAndFooterWrapper;
@@ -25,6 +27,9 @@ import java.util.List;
  * date 2018/6/18
  */
 public class RecyclerViewActivity extends AppCompatActivity {
+    private RelativeLayout loginParent;
+    private LinearLayout unLoginParent;
+    private boolean haha = true;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,6 +43,9 @@ public class RecyclerViewActivity extends AppCompatActivity {
         statbarHeight.getBackground().mutate().setAlpha(0);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv);
         View header = LayoutInflater.from(this).inflate(R.layout.header, null);
+        loginParent = header.findViewById(R.id.login_parent);
+        unLoginParent = header.findViewById(R.id.unlogin_parent);
+
         View headerImage = header.findViewById(R.id.iv);
         View zhanwei = header.findViewById(R.id.zhanwei);
 
@@ -45,6 +53,22 @@ public class RecyclerViewActivity extends AppCompatActivity {
         for (int i = 0; i < 200; i++) {
             list.add("Item : " + i);
         }
+
+        findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (haha) {
+                    haha = false;
+                    loginParent.setVisibility(View.GONE);
+                    unLoginParent.setVisibility(View.VISIBLE);
+                } else {
+                    haha = true;
+                    loginParent.setVisibility(View.VISIBLE);
+                    unLoginParent.setVisibility(View.GONE);
+                }
+
+            }
+        });
 
         SimpleListAdapter adapter = new SimpleListAdapter(this, list);
 //        adapter.addHeaderView(header);
@@ -69,13 +93,13 @@ public class RecyclerViewActivity extends AppCompatActivity {
         flexibleLayout.setOnPullListener(new OnPullListener() {
             @Override
             public void onPull(int offset) {
-                Log.i("====",offset+"");
+                Log.i("====", offset + "");
 
             }
 
             @Override
             public void onRelease() {
-                Log.i("====","onRelease");
+                Log.i("====", "onRelease");
             }
         });
     }
