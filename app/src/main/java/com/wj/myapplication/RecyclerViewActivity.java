@@ -66,7 +66,6 @@ public class RecyclerViewActivity extends AppCompatActivity {
                     loginParent.setVisibility(View.VISIBLE);
                     unLoginParent.setVisibility(View.GONE);
                 }
-
             }
         });
 
