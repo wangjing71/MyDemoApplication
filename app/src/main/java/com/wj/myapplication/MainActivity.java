@@ -1,5 +1,7 @@
 package com.wj.myapplication;
 
+import android.graphics.Color;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -34,20 +36,22 @@ public class MainActivity extends BaseActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                iv.setColorFilter(Color.parseColor("#FF4081"));
             }
         });
-
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                iv.setColorFilter(Color.parseColor("#3390E8"));
             }
         });
 
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                iv.setColorFilter(Color.parseColor("#F8CE40"));
             }
         });
-    }
 
+    }
 }
