@@ -33,12 +33,14 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setEvent() {
+
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 iv.setColorFilter(Color.parseColor("#FF4081"));
             }
         });
+
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
