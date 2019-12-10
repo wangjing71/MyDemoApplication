@@ -1,19 +1,16 @@
 package com.wj.myapplication;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 
 public class MainActivity extends BaseActivity {
 
     private Button button;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
+    private ImageView iv;
 
     @Override
     protected int setLayoutId() {
@@ -23,11 +20,11 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         button = findViewById(R.id.button);
+        iv = findViewById(R.id.imageView);
     }
 
     @Override
     protected void initData() {
-
     }
 
     @Override
@@ -41,6 +38,6 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-
+        iv.setColorFilter(Color.WHITE);
     }
 }
