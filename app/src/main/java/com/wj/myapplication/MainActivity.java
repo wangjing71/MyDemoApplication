@@ -38,6 +38,6 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-        iv.setColorFilter(Color.WHITE);
+        iv.setColorFilter(Color.parseColor("#424242"));
     }
 }
