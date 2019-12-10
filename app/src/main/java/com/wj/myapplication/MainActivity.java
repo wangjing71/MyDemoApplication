@@ -1,7 +1,5 @@
 package com.wj.myapplication;
 
-import android.graphics.Color;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -9,7 +7,9 @@ import android.widget.ImageView;
 
 public class MainActivity extends BaseActivity {
 
-    private Button button;
+    private Button button1;
+    private Button button2;
+    private Button button3;
     private ImageView iv;
 
     @Override
@@ -19,7 +19,9 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        button = findViewById(R.id.button);
+        button1 = findViewById(R.id.button1);
+        button2 = findViewById(R.id.button2);
+        button3 = findViewById(R.id.button3);
         iv = findViewById(R.id.imageView);
     }
 
@@ -29,15 +31,23 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setEvent() {
-        button.setOnClickListener(new View.OnClickListener() {
+        button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                doSomeThing();
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
             }
         });
     }
 
-    private void doSomeThing() {
-        iv.setColorFilter(Color.parseColor("#424242"));
-    }
 }
