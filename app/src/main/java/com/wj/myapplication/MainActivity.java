@@ -6,6 +6,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
+import jp.wasabeef.glide.transformations.BlurTransformation;
+import jp.wasabeef.glide.transformations.ColorFilterTransformation;
+
 
 public class MainActivity extends BaseActivity {
 
@@ -37,7 +43,12 @@ public class MainActivity extends BaseActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iv.setColorFilter(Color.parseColor("#FF4081"));
+                RequestOptions options = new RequestOptions()
+                        .bitmapTransform(new BlurTransformation(25, 3));
+                Glide.with(MainActivity.this)
+                        .load(R.mipmap.tu)
+                        .apply(options)
+                        .into(iv);
             }
         });
 
