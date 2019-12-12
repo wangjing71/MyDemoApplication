@@ -44,7 +44,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 RequestOptions options = new RequestOptions()
-                        .bitmapTransform(new BlurTransformation(25, 3));
+                        .bitmapTransform(new ColorFilterTransformation(0x7900CCCC));
                 Glide.with(MainActivity.this)
                         .load(R.mipmap.tu)
                         .apply(options)

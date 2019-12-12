@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <declare-styleable name="MyImageView">
+        <attr name="my_drawable" format="reference"></attr>
+        <attr name="start_color" format="color"></attr>
+        <attr name="end_color" format="color"></attr>
+    </declare-styleable>
 </resources>
