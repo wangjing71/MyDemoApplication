@@ -19,9 +19,10 @@
 
 
     <com.wj.myapplication.IOSLoadingView
+        android:layout_marginTop="@dimen/dp_50"
         android:id="@+id/iosLoadingView"
-        android:layout_width="@dimen/dp_30"
-        android:layout_height="@dimen/dp_30"
+        android:layout_width="@dimen/dp_20"
+        android:layout_height="@dimen/dp_20"
         android:layout_gravity="center_horizontal"
         android:text="Button" />
 

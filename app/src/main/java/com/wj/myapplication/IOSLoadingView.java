@@ -123,7 +123,7 @@ public class IOSLoadingView extends View {
 
     public void start() {
         ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 12);
-        valueAnimator.setDuration(1500);
+        valueAnimator.setDuration(500);
         valueAnimator.setRepeatCount(ValueAnimator.INFINITE);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
