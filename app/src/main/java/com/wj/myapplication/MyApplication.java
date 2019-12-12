@@ -16,7 +16,5 @@ public class MyApplication extends Application {
         super.onCreate();
         Bugly.init(getApplicationContext(), "9c59c60539", false);
 
-        XUI.init(this); //初始化UI框架
-        XUI.debug(true);  //开启UI框架调试日志
     }
 }

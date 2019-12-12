@@ -17,7 +17,6 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        XUI.initTheme(this);
         super.onCreate(savedInstanceState);
     }
 

@@ -10,42 +10,16 @@
     <!--标题栏-->
     <include layout="@layout/include_title" />
 
-    <com.xuexiang.xui.widget.button.ButtonView
-        style="@style/ButtonView.Green"
-        android:layout_margin="20dp" />
-
-    <com.xuexiang.xui.widget.button.RippleView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp_20"
-        android:layout_marginTop="?attr/xui_config_content_spacing_horizontal"
-        app:rv_type="simpleRipple">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="?attr/xui_config_content_spacing_horizontal"
-            android:layout_marginEnd="?attr/xui_config_content_spacing_horizontal"
-            android:background="#EE5261"
-            android:gravity="center"
-            android:text="单波纹"
-            android:textColor="@color/xui_config_color_white"
-            android:textSize="25sp" />
-
-    </com.xuexiang.xui.widget.button.RippleView>
-
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Button" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
+    <com.wj.myapplication.LoadingView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:text="Button" />
 
 </LinearLayout>
