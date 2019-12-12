@@ -14,7 +14,6 @@ import static com.xuexiang.xui.XUI.getContext;
 public class MainActivity extends BaseActivity {
 
     private Button button;
-    private LoadingView loadingView;
     private IOSLoadingView iosLoadingView;
 
     @Override
@@ -30,10 +29,8 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         button = findViewById(R.id.button);
-        loadingView = findViewById(R.id.load);
         iosLoadingView = findViewById(R.id.iosLoadingView);
 
-        loadingView.start();
         iosLoadingView.start();
     }
 
