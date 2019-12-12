@@ -43,21 +43,52 @@
 
 
     <ImageView
-        android:layout_gravity="center_horizontal"
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_10"
         android:src="@mipmap/android_icon" />
 
 
     <com.wj.myapplication.MyImageView
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/img"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
         android:layout_centerInParent="true"
-        app:end_color="@android:color/holo_red_dark"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_10"
+        app:end_color="#595b64"
         app:my_drawable="@mipmap/android_icon"
-        app:start_color="@android:color/holo_blue_bright" />
+        app:start_color="#aeaeb2" />
+
+    <com.wj.myapplication.MyImageView
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_10"
+        app:end_color="#cf8b1b"
+        app:my_drawable="@mipmap/android_icon"
+        app:start_color="#e4c898" />
+
+    <com.wj.myapplication.MyImageView
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_10"
+        app:end_color="#65413d"
+        app:my_drawable="@mipmap/android_icon"
+        app:start_color="#8f6051" />
+
+    <com.wj.myapplication.MyImageView
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_10"
+        app:end_color="#4b485b"
+        app:my_drawable="@mipmap/android_icon"
+        app:start_color="#826e83" />
 
 </LinearLayout>
