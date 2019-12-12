@@ -16,7 +16,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Button" />
+
     <com.wj.myapplication.LoadingView
+
+        android:id="@+id/load"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
