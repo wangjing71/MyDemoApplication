@@ -18,15 +18,14 @@
         android:text="Button" />
 
     <com.wj.myapplication.LoadingView
-        android:background="@color/gray"
         android:id="@+id/load"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:background="@color/gray"
         android:text="Button" />
 
     <com.wj.myapplication.IOSLoadingView
-        android:background="@color/gray"
         android:id="@+id/iosLoadingView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
