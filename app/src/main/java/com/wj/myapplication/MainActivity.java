@@ -3,8 +3,12 @@ package com.wj.myapplication;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.xuexiang.xui.XUI;
+import com.xuexiang.xui.widget.dialog.materialdialog.MaterialDialog;
+
+import static com.xuexiang.xui.XUI.getContext;
 
 
 public class MainActivity extends BaseActivity {
@@ -43,6 +47,10 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-
+        new MaterialDialog.Builder(getContext())
+                .content("111111111111")
+                .positiveText("是")
+                .negativeText("否")
+                .show();
     }
 }
