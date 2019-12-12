@@ -18,6 +18,7 @@
         android:text="Button" />
 
     <com.wj.myapplication.LoadingView
+        android:background="@color/gray"
 
         android:id="@+id/load"
         android:layout_width="wrap_content"
