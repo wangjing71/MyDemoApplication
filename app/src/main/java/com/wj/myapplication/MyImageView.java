@@ -23,7 +23,7 @@ import android.widget.ImageView;
  * Created by HeTingwei on 2018/6/23.
  */
 
-public class MyImageView extends ImageView {
+public class MyImageView extends android.support.v7.widget.AppCompatImageView {
 
 
     private int height;
