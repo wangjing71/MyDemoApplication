@@ -4,6 +4,7 @@ package com.wj.myapplication;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -32,7 +33,11 @@ public class MainActivity extends BaseActivity {
 //        viewPager2.setUserInputEnabled(false);
 
         //设置间距
-        viewPager2.setPageTransformer(new MarginPageTransformer((int) getResources().getDimension(R.dimen.dp_30)));
+
+        CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
+        compositePageTransformer.addTransformer(new MarginPageTransformer((int) getResources().getDimension(R.dimen.dp_30)));
+        viewPager2.setPageTransformer(compositePageTransformer);
+
     }
 
     @Override
