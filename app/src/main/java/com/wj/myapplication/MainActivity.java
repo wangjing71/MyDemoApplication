@@ -1,6 +1,7 @@
 package com.wj.myapplication;
 
 
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.viewpager2.widget.ViewPager2;
@@ -25,6 +26,8 @@ public class MainActivity extends BaseActivity {
         myAdapter = new MyAdapter();
         myAdapter.setData(null);
         viewPager2.setAdapter(myAdapter);
+
+//        viewPager2.setUserInputEnabled(false);
     }
 
     @Override
@@ -33,9 +36,20 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
-                Toast.makeText(MainActivity.this, position+"", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, position + "", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                viewPager2.beginFakeDrag();
+//                if (viewPager2.fakeDragBy(-310f)) {
+//                    viewPager2.endFakeDrag();
+//                }
+
+
             }
         });
     }
-
 }
