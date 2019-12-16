@@ -27,7 +27,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         setContentView(setLayoutId());
         ImmersionBar
                 .with(this)
-                .navigationBarColorTransform(R.color.orange)
+                .navigationBarColorTransform(R.color.blue_primary)
 //                .navigationBarDarkIcon(true) //导航栏图标是深色，不写默认为亮色
 //                .fullScreen(true)
                 .navigationBarAlpha(1.0f)  //导航栏透明度，不写默认0.0F
