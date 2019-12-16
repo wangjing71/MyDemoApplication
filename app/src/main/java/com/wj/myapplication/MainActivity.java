@@ -2,6 +2,8 @@ package com.wj.myapplication;
 
 
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.viewpager2.widget.CompositePageTransformer;
@@ -32,8 +34,18 @@ public class MainActivity extends BaseActivity {
         //禁止滑动 可以通过代码模拟滑动
 //        viewPager2.setUserInputEnabled(false);
 
-        //设置间距
 
+        LinearLayout parent = findViewById(R.id.main);
+        parent.setClipChildren(false);
+        viewPager2.setClipChildren(false);
+        viewPager2.setOffscreenPageLimit(2);
+
+        ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) viewPager2.getLayoutParams();
+        params.leftMargin = (int) getResources().getDimension(R.dimen.dp_20);
+        params.rightMargin = params.leftMargin;
+
+
+        //设置间距
         CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
         compositePageTransformer.addTransformer(new ScaleInTransformer());
         compositePageTransformer.addTransformer(new MarginPageTransformer((int) getResources().getDimension(R.dimen.dp_30)));
