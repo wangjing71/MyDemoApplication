@@ -39,7 +39,7 @@ public class MainActivity extends BaseActivity {
         compositePageTransformer.addTransformer(new MarginPageTransformer((int) getResources().getDimension(R.dimen.dp_30)));
         viewPager2.setPageTransformer(compositePageTransformer);
 
-        viewPager2.setOrientation(ViewPager2.ORIENTATION_VERTICAL);
+//        viewPager2.setOrientation(ViewPager2.ORIENTATION_VERTICAL);
 
     }
 
