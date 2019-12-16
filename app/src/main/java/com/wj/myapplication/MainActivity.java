@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
@@ -35,7 +36,7 @@ public class MainActivity extends BaseActivity {
 //        viewPager2.setUserInputEnabled(false);
 
 
-        LinearLayout parent = findViewById(R.id.main);
+        ConstraintLayout parent = findViewById(R.id.cl_main);
         parent.setClipChildren(false);
         viewPager2.setClipChildren(false);
         viewPager2.setOffscreenPageLimit(2);
@@ -43,13 +44,15 @@ public class MainActivity extends BaseActivity {
         ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) viewPager2.getLayoutParams();
         params.leftMargin = (int) getResources().getDimension(R.dimen.dp_20);
         params.rightMargin = params.leftMargin;
-
+        viewPager2.setLayoutParams(params);
 
         //设置间距
         CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
         compositePageTransformer.addTransformer(new ScaleInTransformer());
         compositePageTransformer.addTransformer(new MarginPageTransformer((int) getResources().getDimension(R.dimen.dp_30)));
         viewPager2.setPageTransformer(compositePageTransformer);
+
+        viewPager2.setPageTransformer(new MarginPageTransformer((int) getResources().getDimension(R.dimen.dp_10)));
 
 //        viewPager2.setOrientation(ViewPager2.ORIENTATION_VERTICAL);
 
@@ -65,16 +68,5 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                viewPager2.beginFakeDrag();
-//                if (viewPager2.fakeDragBy(-310f)) {
-//                    viewPager2.endFakeDrag();
-//                }
-
-
-            }
-        });
     }
 }
