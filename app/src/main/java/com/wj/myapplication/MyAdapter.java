@@ -1,6 +1,7 @@
 package com.wj.myapplication;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private ArrayList<Integer> mList;
+    private String[] colors = {"#CCFF99", "#41F1E5", "#8D41F1", "#FF99CC"};
 
     public void setData(ArrayList<Integer> mList) {
         this.mList = mList;
@@ -34,7 +36,9 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-
+        final ItemHolder itemHolder = (ItemHolder) holder;
+        itemHolder.tv_text.setText(position + "");
+        itemHolder.tv_text.setBackgroundColor(Color.parseColor(colors[position]));
     }
 
     @Override
