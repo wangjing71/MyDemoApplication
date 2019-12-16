@@ -4,6 +4,7 @@ package com.wj.myapplication;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
 public class MainActivity extends BaseActivity {
@@ -28,6 +29,8 @@ public class MainActivity extends BaseActivity {
         viewPager2.setAdapter(myAdapter);
 
 //        viewPager2.setUserInputEnabled(false);
+
+        viewPager2.setPageTransformer(new MarginPageTransformer((int) getResources().getDimension(R.dimen.dp_30)));
     }
 
     @Override
