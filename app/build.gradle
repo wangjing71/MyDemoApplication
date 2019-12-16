@@ -35,7 +35,7 @@ dependencies {
     implementation 'com.tencent.bugly:nativecrashreport:latest.release'
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    implementation 'com.gyf.immersionbar:immersionbar:2.3.3'
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
 
     implementation "androidx.viewpager2:viewpager2:1.0.0"
 }
