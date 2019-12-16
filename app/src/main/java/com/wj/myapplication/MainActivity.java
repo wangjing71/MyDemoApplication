@@ -28,8 +28,10 @@ public class MainActivity extends BaseActivity {
         myAdapter.setData(null);
         viewPager2.setAdapter(myAdapter);
 
+        //禁止滑动 可以通过代码模拟滑动
 //        viewPager2.setUserInputEnabled(false);
 
+        //设置间距
         viewPager2.setPageTransformer(new MarginPageTransformer((int) getResources().getDimension(R.dimen.dp_30)));
     }
 
