@@ -35,6 +35,7 @@ public class MainActivity extends BaseActivity {
         //设置间距
 
         CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
+        compositePageTransformer.addTransformer(new ScaleInTransformer());
         compositePageTransformer.addTransformer(new MarginPageTransformer((int) getResources().getDimension(R.dimen.dp_30)));
         viewPager2.setPageTransformer(compositePageTransformer);
 
