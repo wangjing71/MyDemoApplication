@@ -18,7 +18,11 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private ArrayList<Integer> mList = new ArrayList();
+    private ArrayList<Integer> mList;
+
+    public void setData(ArrayList<Integer> mList) {
+        this.mList = mList;
+    }
 
     @NonNull
     @Override
@@ -35,7 +39,11 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        if (mList == null) {
+            return 0;
+        } else {
+            return mList.size();
+        }
     }
 
     class ItemHolder extends RecyclerView.ViewHolder {
