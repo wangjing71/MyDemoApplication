@@ -23,7 +23,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        viewPager2 = findViewById(R.id.view_pager);
+        super.initView();
     }
 
     @Override
