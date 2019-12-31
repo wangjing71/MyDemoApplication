@@ -89,5 +89,5 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'com.gyf.immersionbar:immersionbar:2.3.3'
 
-    implementation 'com.qihoo360.replugin:replugin-plugin-lib:2.3.2' // 集成 RePlugin 添加的配置
+    implementation rootProject.ext.dependencies['replugin-host-lib']// 集成 RePlugin 添加的配置
 }

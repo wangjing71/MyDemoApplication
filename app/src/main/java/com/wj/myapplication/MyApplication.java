@@ -2,6 +2,7 @@ package com.wj.myapplication;
 
 import android.app.Application;
 
+import com.qihoo360.replugin.RePluginApplication;
 import com.tencent.bugly.Bugly;
 
 /**
