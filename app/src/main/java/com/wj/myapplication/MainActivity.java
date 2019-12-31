@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_plugin1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = RePlugin.createIntent("plugin1", "com.test.android.plugin1.MainActivity");
+                Intent intent = RePlugin.createIntent("process_map", "com.wj.mychajian.MainActivity");
                 intent.putExtra("data","wangjing");
                 RePlugin.startActivity(MainActivity.this, intent);
             }
