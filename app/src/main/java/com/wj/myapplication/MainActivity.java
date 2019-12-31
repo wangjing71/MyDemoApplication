@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = RePlugin.createIntent("plugin1", "com.test.android.plugin1.MainActivity");
+                intent.putExtra("data","wangjing");
                 RePlugin.startActivity(MainActivity.this, intent);
             }
         });
