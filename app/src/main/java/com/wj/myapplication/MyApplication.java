@@ -1,7 +1,7 @@
 package com.wj.myapplication;
 
-import android.app.Application;
 
+import com.qihoo360.replugin.RePluginApplication;
 import com.tencent.bugly.Bugly;
 
 /**
@@ -9,7 +9,7 @@ import com.tencent.bugly.Bugly;
  * Date 2018/11/29
  * Description
  */
-public class MyApplication extends Application {
+public class MyApplication extends RePluginApplication {
     @Override
     public void onCreate() {
         super.onCreate();

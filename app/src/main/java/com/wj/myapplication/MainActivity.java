@@ -1,46 +1,65 @@
 package com.wj.myapplication;
 
+import com.qihoo360.replugin.RePlugin;
+import com.qihoo360.replugin.model.PluginInfo;
+import com.tbruyelle.rxpermissions2.RxPermissions;
+
+import android.Manifest;
+import android.content.Intent;
+import android.os.Environment;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.Toast;
 
+import java.io.File;
 
-public class MainActivity extends BaseActivity {
+import io.reactivex.functions.Consumer;
 
-    private Button button;
+public class MainActivity extends AppCompatActivity {
+    private final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        RxPermissions rxPermissions = new RxPermissions(this);
+        rxPermissions.request(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
+                .subscribe(new Consumer<Boolean>() {
+                    @Override
+                    public void accept(Boolean aBoolean) {
 
-    }
-
-    @Override
-    protected int setLayoutId() {
-        return R.layout.activity_main;
-    }
-
-    @Override
-    protected void initView() {
-        button = findViewById(R.id.button);
-    }
-
-    @Override
-    protected void initData() {
-
-    }
-
-    @Override
-    protected void setEvent() {
-        button.setOnClickListener(new View.OnClickListener() {
+                    }
+                });
+        /**
+         * 简单测试activity
+         */
+        findViewById(R.id.btn_plugin1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                doSomeThing();
+                Intent intent = RePlugin.createIntent("plugin1", "com.test.android.plugin1.MainActivity");
+                RePlugin.startActivity(MainActivity.this, intent);
             }
         });
-    }
 
-    private void doSomeThing() {
+
+        /**
+         * 测试插件升级
+         */
+        findViewById(R.id.id_btn_test_update_plugins).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                File file = new File(Environment
+                        .getExternalStorageDirectory() + File.separator + "plu.apk");
+                if (file.exists()) {
+                    PluginInfo info = RePlugin.install(file.getAbsolutePath());
+                    Log.i(TAG, "installPluginInfo: " + info.toString());
+                } else {
+                    Toast.makeText(MainActivity.this, "文件不存在", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
 }
