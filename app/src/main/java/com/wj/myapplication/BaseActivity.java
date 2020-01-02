@@ -15,15 +15,10 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 
 public abstract class BaseActivity extends Activity {
 
-
-    protected RxPermissions rxPermissions;
-    private View barView;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(setLayoutId());
-        barView = findViewById(R.id.barView);
         initView();
         initData();
         setEvent();
