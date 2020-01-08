@@ -45,14 +45,13 @@ public class MainActivity extends BaseActivity {
 //        StatusBarUtil.setMargin(this, findViewById(R.id.header));
 
         final View parallax = findViewById(R.id.parallax);
-        parallax.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+        parallax.postDelayed(new Runnable() {
             @Override
-            public void onGlobalLayout() {
+            public void run() {
                 imageHeight = parallax.getHeight();
             }
-        });
+        },200);
         final RefreshLayout refreshLayout = findViewById(R.id.refreshLayout);
-
 
         refreshLayout.setOnMultiPurposeListener(new SimpleMultiPurposeListener() {
             @Override
@@ -67,12 +66,12 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onHeaderMoving(RefreshHeader header, boolean isDragging, float percent, int offset, int headerHeight, int maxDragHeight) {
-                Log.i("====offset", offset + "");
-                mOffset = offset / 2;
 //                parallax.setTranslationY(mOffset - mScrollY);
                 RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) parallax.getLayoutParams();
                 params.height = imageHeight + offset;
+                Log.i("====params.height", params.height + "");
                 parallax.setLayoutParams(params);
+
             }
         });
     }
