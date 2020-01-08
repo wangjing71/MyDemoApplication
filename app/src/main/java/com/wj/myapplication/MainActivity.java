@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.gyf.immersionbar.ImmersionBar;
@@ -67,7 +68,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onHeaderMoving(RefreshHeader header, boolean isDragging, float percent, int offset, int headerHeight, int maxDragHeight) {
 //                parallax.setTranslationY(mOffset - mScrollY);
-                RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) parallax.getLayoutParams();
+                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) parallax.getLayoutParams();
                 params.height = imageHeight + offset;
                 Log.i("====params.height", params.height + "");
                 parallax.setLayoutParams(params);
