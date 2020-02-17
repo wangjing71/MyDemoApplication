@@ -10,11 +10,11 @@
     <include layout="@layout/include_title" />
 
     <View
-        android:layout_marginTop="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_150"
         android:background="@drawable/shape_gradient_gray"
         android:id="@+id/button"
-        android:layout_width="@dimen/dp_50"
-        android:layout_height="@dimen/dp_50"
+        android:layout_width="@dimen/dp_150"
+        android:layout_height="@dimen/dp_150"
         android:layout_gravity="center_horizontal" />
 
 
