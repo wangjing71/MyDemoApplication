@@ -34,7 +34,7 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
     @Override
     public void onNestedPreScroll(View target, int dx, int dy, int[] consumed) {
         Log.i("====", dx + "___" + dy);
-        super.onNestedPreScroll(target, dx, dy, consumed);
+        scrollBy(0, dy);
     }
 
     @Override
