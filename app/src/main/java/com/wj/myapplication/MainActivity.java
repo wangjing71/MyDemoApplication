@@ -29,7 +29,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initData() {
         myPage.add(new ChildFragment());
-        myPage.add(new ChildFragment());
+        myPage.add(new ChildFragment1());
         myPage.add(new ChildFragment());
         viewParent.setAdapter(new MyPageAdapter(getSupportFragmentManager()));
     }
