@@ -2,6 +2,7 @@ package com.wj.myapplication;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
+import android.support.v4.view.NestedScrollingParent;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
@@ -10,7 +11,7 @@ import android.widget.LinearLayout;
  * Date 2020/3/10
  * Description
  */
-public class StickyNavLayout extends LinearLayout {
+public class StickyNavLayout extends LinearLayout implements NestedScrollingParent {
     public StickyNavLayout(Context context) {
         super(context);
     }
