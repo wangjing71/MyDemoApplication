@@ -3,6 +3,8 @@ package com.wj.myapplication;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v4.view.NestedScrollingParent;
+import android.support.v4.view.NestedScrollingParent2;
+import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -33,8 +35,14 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
 
     @Override
     public void onNestedPreScroll(View target, int dx, int dy, int[] consumed) {
-        Log.i("====", dx + "___" + dy);
-        scrollBy(0, dy);
+        Log.i("====dy", dy+"");
+        Log.i("====getScrollY", getScrollY()+"");
+        Log.i("====", ViewCompat.canScrollVertically(target, -1)+"");
+        boolean showTop = dy < 0 && getScrollY() > 0 && !ViewCompat.canScrollVertically(target, -1);
+        if(showTop){
+            scrollBy(0, dy);
+            consumed[1] = dy;
+        }
     }
 
     @Override
