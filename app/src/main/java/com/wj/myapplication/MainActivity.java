@@ -41,6 +41,17 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                    }
+                });
+            }
+        }).start();
 
     }
 }
