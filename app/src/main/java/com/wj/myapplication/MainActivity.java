@@ -1,13 +1,9 @@
 package com.wj.myapplication;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.View;
-import android.view.ViewParent;
-import android.widget.Button;
 
 import java.util.ArrayList;
 
