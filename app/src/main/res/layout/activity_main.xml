@@ -30,6 +30,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/id_stickynavlayout_indicator"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_50"
             android:background="@color/red" />
