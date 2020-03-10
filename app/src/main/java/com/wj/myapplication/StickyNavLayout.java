@@ -28,7 +28,7 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
 
     @Override
     public boolean onStartNestedScroll(View child, View target, int nestedScrollAxes) {
-        return super.onStartNestedScroll(child, target, nestedScrollAxes);
+        return true;
     }
 
     @Override
