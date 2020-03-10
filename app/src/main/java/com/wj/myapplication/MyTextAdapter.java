@@ -48,11 +48,7 @@ public class MyTextAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     @Override
     public int getItemCount() {
-        if (lists == null) {
-            return 0;
-        } else {
-            return lists.size();
-        }
+        return 100;
     }
 
     class ItemHolder extends RecyclerView.ViewHolder {
