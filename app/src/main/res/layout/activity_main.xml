@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginTop="@dimen/dp_20"
-        android:text="Button" />
+        android:text="结合ViewPager使用" />
 
     <Button
         android:id="@+id/button3"
