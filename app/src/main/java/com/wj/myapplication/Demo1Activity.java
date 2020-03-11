@@ -3,13 +3,13 @@ package com.wj.myapplication;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-public class MainActivity extends BaseActivity {
+public class Demo1Activity extends BaseActivity {
 
     private RecyclerView recyclerView;
 
     @Override
     protected int setLayoutId() {
-        return R.layout.activity_main;
+        return R.layout.activity_demo1;
     }
 
     @Override
@@ -25,5 +25,6 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setEvent() {
+
     }
 }
