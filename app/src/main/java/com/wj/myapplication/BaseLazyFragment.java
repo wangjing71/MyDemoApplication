@@ -3,27 +3,21 @@ package com.wj.myapplication;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.Random;
 
 public abstract class BaseLazyFragment extends Fragment {
     public Activity atx;
-    public String fragmentTitle;
     private boolean isFragmentVisible;
     private boolean isPrepared;
     private boolean isFirstLoad = true;
     private boolean forceLoad = false;
-
-    private Random random;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -85,7 +79,6 @@ public abstract class BaseLazyFragment extends Fragment {
         }
     }
 
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -104,10 +97,6 @@ public abstract class BaseLazyFragment extends Fragment {
 
     public boolean isPrepared() {
         return isPrepared;
-    }
-
-    public void setForceLoad(boolean forceLoad) {
-        this.forceLoad = forceLoad;
     }
 
     public boolean isFirstLoad() {
