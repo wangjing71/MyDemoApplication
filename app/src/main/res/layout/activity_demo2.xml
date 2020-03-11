@@ -1,7 +1,6 @@
-<android.support.design.widget.CoordinatorLayout
-    android:id="@+id/main_content"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,17 +10,24 @@
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <LinearLayout
-            app:layout_scrollFlags="scroll|enterAlways"
-            android:background="@color/colorPrimary"
-            android:orientation="vertical"
+
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="@dimen/dp_200"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher"
+            app:layout_scrollFlags="scroll|enterAlways" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FF00FF"
+            android:orientation="vertical">
 
             <View
                 android:id="@+id/barView"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"/>
+                android:layout_height="0dp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -35,5 +41,5 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 </android.support.design.widget.CoordinatorLayout>
