@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,25 +15,20 @@ import android.view.ViewGroup;
  * Date 2020/3/10
  * Description
  */
-public class ChildFragment1 extends Fragment {
+public class ChildFragment1 extends BaseLazyFragment {
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.child_fragment_1,null,false);
-        initView(view);
-        initData();
-        setEvent();
-        return view;
+    public int setContentViewId() {
+        return R.layout.child_fragment_1;
     }
 
-    private void initView(View view) {
+    public void initView(View view) {
     }
 
-    private void initData() {
+    public void initData() {
+        Log.i("====","initData2");
     }
 
-    private void setEvent() {
-
+    public void setEvent() {
     }
 }

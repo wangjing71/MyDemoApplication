@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,29 +16,25 @@ import android.view.ViewGroup;
  * Date 2020/3/10
  * Description
  */
-public class ChildFragment extends Fragment {
+public class ChildFragment extends BaseLazyFragment {
     private RecyclerView recyclerView;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.child_fragment,null,false);
-        initView(view);
-        initData();
-        setEvent();
-        return view;
+    public int setContentViewId() {
+        return R.layout.child_fragment;
     }
 
-    private void initView(View view) {
+    public void initView(View view) {
         recyclerView = view.findViewById(R.id.mRecyclerView);
     }
 
-    private void initData() {
+    public void initData() {
+        Log.i("====","initData1");
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new MyTextAdapter(getContext()));
     }
 
-    private void setEvent() {
+    public void setEvent() {
 
     }
 }
