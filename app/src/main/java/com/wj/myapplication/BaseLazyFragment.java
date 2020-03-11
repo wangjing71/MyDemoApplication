@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 
 
 public abstract class BaseLazyFragment extends Fragment {
-    public Activity atx;
+    public Activity activity;
     private boolean isFragmentVisible;
     private boolean isPrepared;
     private boolean isFirstLoad = true;
@@ -30,9 +30,8 @@ public abstract class BaseLazyFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         isFirstLoad = true;
-        View rootView = View.inflate(atx, setContentViewId(), null);
+        View rootView = inflater.inflate(setContentViewId(),null,false);
         isPrepared = true;
         initView(rootView);
         lazyLoad();
@@ -90,7 +89,7 @@ public abstract class BaseLazyFragment extends Fragment {
 
     public abstract int setContentViewId();
 
-    public abstract void initView(View root);
+    public abstract void initView(View rootView);
 
     protected abstract void initData();
     protected abstract void setEvent();
@@ -124,7 +123,6 @@ public abstract class BaseLazyFragment extends Fragment {
     }
 
     protected void onAttachToContext(Context context) {
-        atx = getActivity();
+        activity = getActivity();
     }
-
 }
