@@ -22,6 +22,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(setLayoutId());
         ImmersionBar.with(this).init();
+        ImmersionBar.setStatusBarView(this, findViewById(R.id.barView));
         rxPermissions = new RxPermissions(this);
         initView();
         initData();
@@ -29,9 +30,12 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected abstract int setLayoutId();
-    protected abstract void initView() ;
-    protected abstract void initData() ;
-    protected abstract void setEvent() ;
+
+    protected abstract void initView();
+
+    protected abstract void initData();
+
+    protected abstract void setEvent();
 
     @Override
     protected void onDestroy() {
