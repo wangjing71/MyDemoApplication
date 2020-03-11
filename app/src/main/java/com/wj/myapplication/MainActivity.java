@@ -1,12 +1,15 @@
 package com.wj.myapplication;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
 
 public class MainActivity extends BaseActivity {
 
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +24,13 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        recyclerView = findViewById(R.id.recyclerView);
     }
 
     @Override
     protected void initData() {
-
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new MyTextAdapter(this));
     }
 
     @Override
