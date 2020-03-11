@@ -8,11 +8,11 @@
     tools:context="com.wj.myapplication.MainActivity">
 
     <Button
-        android:layout_marginTop="@dimen/dp_50"
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/dp_50"
         android:text="标题随RecyclerView进行移动显示或者隐藏" />
 
     <Button
@@ -20,6 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/dp_20"
         android:text="Button" />
 
     <Button
@@ -27,6 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/dp_20"
         android:text="Button" />
 
 </LinearLayout>
