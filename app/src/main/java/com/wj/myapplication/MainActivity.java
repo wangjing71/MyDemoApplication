@@ -1,11 +1,12 @@
 package com.wj.myapplication;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 public class MainActivity extends BaseActivity {
 
-    private RecyclerView recyclerView;
 
     @Override
     protected int setLayoutId() {
@@ -14,16 +15,20 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        recyclerView = findViewById(R.id.recyclerView);
     }
 
     @Override
     protected void initData() {
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new MyTextAdapter(this));
     }
 
     @Override
     protected void setEvent() {
+        findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Demo1Activity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

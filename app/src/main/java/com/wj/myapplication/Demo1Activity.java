@@ -4,7 +4,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 public class Demo1Activity extends BaseActivity {
-
     private RecyclerView recyclerView;
 
     @Override
