@@ -37,7 +37,9 @@ public class MainActivity extends BaseActivity {
         String text = "2020年3月31日";
         Log.i("====",text.length()+"");
         Spannable textSpan = new SpannableStringBuilder(text);
-        textSpan.setSpan(new AbsoluteSizeSpan(50), text.indexOf("年")-1, text.indexOf("年"), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        textSpan.setSpan(new AbsoluteSizeSpan(50), text.indexOf("年"), text.indexOf("年")+1, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        textSpan.setSpan(new AbsoluteSizeSpan(50), text.indexOf("月"), text.indexOf("月")+1, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        textSpan.setSpan(new AbsoluteSizeSpan(50), text.indexOf("日"), text.indexOf("日")+1, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
 //        textSpan.setSpan(new AbsoluteSizeSpan(50), 4, text.indexOf("月"), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
 //        textSpan.setSpan(new AbsoluteSizeSpan(50), text.indexOf("月")-1, text.indexOf("日")-1, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         tv.setText(textSpan);
