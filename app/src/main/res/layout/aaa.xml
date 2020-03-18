@@ -9,6 +9,8 @@
         android:id="@+id/tab1"
         android:layout_width="0dp"
         android:layout_height="30dp"
+        android:layout_marginLeft="@dimen/dp_50"
+        android:layout_marginRight="@dimen/dp_50"
         android:background="#f67"
         android:gravity="center"
         android:text="Tab1"
@@ -21,6 +23,8 @@
         android:id="@+id/tab2"
         android:layout_width="0dp"
         android:layout_height="30dp"
+        android:layout_marginLeft="@dimen/dp_50"
+        android:layout_marginRight="@dimen/dp_50"
         android:background="#A67"
         android:gravity="center"
         android:text="Tab2"
@@ -33,6 +37,8 @@
         android:id="@+id/tab3"
         android:layout_width="0dp"
         android:layout_height="30dp"
+        android:layout_marginLeft="@dimen/dp_50"
+        android:layout_marginRight="@dimen/dp_50"
         android:background="#767"
         android:gravity="center"
         android:text="Tab3"
@@ -42,26 +48,33 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/button9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Button"
         app:layout_constraintBottom_toTopOf="@+id/tab1"
-        tools:layout_editor_absoluteX="30dp" />
+        app:layout_constraintEnd_toEndOf="@+id/tab1"
+        app:layout_constraintStart_toStartOf="@+id/tab1"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/button10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Button"
         app:layout_constraintBottom_toTopOf="@+id/tab2"
-        tools:layout_editor_absoluteX="154dp" />
+        app:layout_constraintEnd_toEndOf="@+id/tab2"
+        app:layout_constraintStart_toStartOf="@+id/tab2"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/button11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Button"
         app:layout_constraintBottom_toTopOf="@+id/tab3"
-        tools:layout_editor_absoluteX="297dp" />
+        app:layout_constraintEnd_toEndOf="@+id/tab3"
+        app:layout_constraintStart_toStartOf="@+id/tab3"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
