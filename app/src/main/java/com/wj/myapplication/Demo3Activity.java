@@ -20,26 +20,12 @@ public class Demo3Activity extends BaseActivity {
     protected void initView() {
         recyclerView = findViewById(R.id.recyclerView_view);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
     }
 
     @Override
     protected void initData() {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new MyTextAdapter(this));
-        FloatingActionButton floatingActionButton = findViewById(R.id.fab);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Snackbar.make(v,"data delete",Snackbar.LENGTH_LONG).setAction("确定", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(Demo3Activity.this, "222222222", Toast.LENGTH_SHORT).show();
-                    }
-                }).show();
-            }
-        });
     }
 
     @Override
