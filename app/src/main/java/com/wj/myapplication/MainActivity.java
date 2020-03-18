@@ -1,13 +1,13 @@
 package com.wj.myapplication;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
 
 
 public class MainActivity extends BaseActivity {
-
-    private Button button;
+    private RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,22 +22,17 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        button = findViewById(R.id.button);
+        mRecyclerView = findViewById(R.id.mRecyclerView);
     }
 
     @Override
     protected void initData() {
-
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setAdapter(new MyTextAdapter(this));
     }
 
     @Override
     protected void setEvent() {
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                doSomeThing();
-            }
-        });
     }
 
     private void doSomeThing() {
