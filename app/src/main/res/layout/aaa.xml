@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="@dimen/dp_400">
 
     <TextView
         android:id="@+id/tab1"
@@ -15,9 +15,11 @@
         android:gravity="center"
         android:text="Tab1"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/tab2"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/button1"
+        app:layout_constraintVertical_weight="1" />
 
     <TextView
         android:id="@+id/tab2"
@@ -29,9 +31,11 @@
         android:gravity="center"
         android:text="Tab2"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintLeft_toRightOf="@id/tab1"
         app:layout_constraintRight_toLeftOf="@+id/tab3"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintVertical_weight="1" />
 
     <TextView
         android:id="@+id/tab3"
@@ -43,56 +47,44 @@
         android:gravity="center"
         android:text="Tab3"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintLeft_toRightOf="@id/tab2"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:layout_constraintVertical_weight="1" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/button1"
         android:layout_width="@dimen/dp_50"
-        android:layout_height="@dimen/dp_25"
+        android:layout_height="@dimen/dp_20"
         android:text="Button"
         app:layout_constraintBottom_toTopOf="@+id/tab1"
-        app:layout_constraintEnd_toEndOf="@+id/tab1"
-        app:layout_constraintStart_toStartOf="@+id/tab1"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintLeft_toLeftOf="@+id/tab1"
+        app:layout_constraintRight_toRightOf="@+id/tab1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="1" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/button2"
         android:layout_width="@dimen/dp_50"
-        android:layout_height="@dimen/dp_25"
+        android:layout_height="@dimen/dp_20"
         android:text="Button"
         app:layout_constraintBottom_toTopOf="@+id/tab2"
-        app:layout_constraintEnd_toEndOf="@+id/tab2"
-        app:layout_constraintStart_toStartOf="@+id/tab2"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintLeft_toLeftOf="@+id/tab2"
+        app:layout_constraintRight_toRightOf="@+id/tab2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="1" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/button3"
         android:layout_width="@dimen/dp_50"
-        android:layout_height="@dimen/dp_25"
+        android:layout_height="@dimen/dp_20"
         android:text="Button"
         app:layout_constraintBottom_toTopOf="@+id/tab3"
-        app:layout_constraintEnd_toEndOf="@+id/tab3"
-        app:layout_constraintStart_toStartOf="@+id/tab3"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintLeft_toLeftOf="@+id/tab3"
+        app:layout_constraintRight_toRightOf="@+id/tab3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="1" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/button9"
-        app:layout_constraintStart_toEndOf="@+id/button9"
-        app:layout_constraintTop_toTopOf="@+id/button9" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/button10"
-        app:layout_constraintStart_toEndOf="@+id/button10"
-        app:layout_constraintTop_toTopOf="@+id/button10" />
 
 </android.support.constraint.ConstraintLayout>
