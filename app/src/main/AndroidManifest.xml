@@ -17,8 +17,8 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".Demo1Activity"></activity>
         <activity android:name=".Demo2Activity"></activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".Demo3Activity">
+        <activity android:name=".Demo3Activity"></activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
