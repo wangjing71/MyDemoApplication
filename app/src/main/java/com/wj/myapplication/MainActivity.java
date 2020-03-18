@@ -38,5 +38,13 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Demo3Activity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
