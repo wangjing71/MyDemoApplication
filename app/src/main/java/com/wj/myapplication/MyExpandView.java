@@ -37,4 +37,8 @@ public class MyExpandView extends LinearLayout {
         expandParent = findViewById(R.id.expand_layout_parent);
         expandConent = findViewById(R.id.expand_layout_content);
     }
+
+    public void addExpandView(View chindView){
+        expandConent.addView(chindView);
+    }
 }
