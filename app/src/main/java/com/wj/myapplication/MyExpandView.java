@@ -36,6 +36,17 @@ public class MyExpandView extends LinearLayout {
         titleParent = findViewById(R.id.title_parent);
         expandParent = findViewById(R.id.expand_layout_parent);
         expandConent = findViewById(R.id.expand_layout_content);
+
+        titleParent.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(expandParent.isExpand()){
+                    expandParent.collapse();
+                }else{
+                    expandParent.expand();
+                }
+            }
+        });
     }
 
     public void addExpandView(View chindView){
