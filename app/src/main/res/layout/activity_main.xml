@@ -51,6 +51,28 @@
                 android:lineSpacingExtra="@dimen/dp_4"
                 android:text="11111112312312321312321321ewdsudiguwierfg8disfh8eiqwedgyiasgda8sidgiasdgsaidgsaifgsaifdgasfsaifgasidga7iweqi"
                 android:textSize="@dimen/sp_14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_12"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:layout_marginRight="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_12"
+                android:lineSpacingExtra="@dimen/dp_4"
+                android:text="11111112312312321312321321ewdsudiguwierfg8disfh8eiqwedgyiasgda8sidgiasdgsaidgsaifgsaifdgasfsaifgasidga7iweqi"
+                android:textSize="@dimen/sp_14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_12"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:layout_marginRight="@dimen/dp_20"
+                android:layout_marginTop="@dimen/dp_12"
+                android:lineSpacingExtra="@dimen/dp_4"
+                android:text="11111112312312321312321321ewdsudiguwierfg8disfh8eiqwedgyiasgda8sidgiasdgsaidgsaifgsaifdgasfsaifgasidga7iweqi"
+                android:textSize="@dimen/sp_14" />
         </LinearLayout>
     </com.wj.myapplication.UMExpandLayout>
 
