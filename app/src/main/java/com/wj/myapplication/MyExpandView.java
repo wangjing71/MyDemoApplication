@@ -12,6 +12,10 @@ import android.widget.LinearLayout;
  * Description
  */
 public class MyExpandView extends LinearLayout {
+    private LinearLayout titleParent;
+    private UMExpandLayout expandParent;
+    private LinearLayout expandConent;
+
     public MyExpandView(Context context) {
         super(context);
         init();
@@ -29,6 +33,8 @@ public class MyExpandView extends LinearLayout {
 
     private void init() {
         View.inflate(getContext(), R.layout.my_expand_view, this);
-
+        titleParent = findViewById(R.id.title_parent);
+        expandParent = findViewById(R.id.expand_layout_parent);
+        expandConent = findViewById(R.id.expand_layout_content);
     }
 }
