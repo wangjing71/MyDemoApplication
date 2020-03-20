@@ -35,7 +35,7 @@ public class UMExpandLayout extends RelativeLayout {
     private void initView() {
         layoutView = this;
         isExpand = true;
-        animationDuration = 300;
+        animationDuration = 5000;
         setViewDimensions();
     }
 

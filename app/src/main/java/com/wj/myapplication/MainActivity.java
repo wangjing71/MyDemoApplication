@@ -7,6 +7,7 @@ import android.widget.Button;
 
 public class MainActivity extends BaseActivity {
 
+    private UMExpandLayout umExpandLayout;
 
     @Override
     protected int setLayoutId() {
@@ -15,6 +16,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        umExpandLayout = findViewById(R.id.setting_about_content);
     }
 
     @Override
@@ -24,6 +26,19 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setEvent() {
+        findViewById(R.id.zhankai).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                umExpandLayout.expand();
+            }
+        });
+
+        findViewById(R.id.zhedie).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                umExpandLayout.collapse();
+            }
+        });
     }
 
     private void doSomeThing() {
