@@ -20,7 +20,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 4; i++) {
             MyExpandView view1 = (MyExpandView) LayoutInflater.from(this).inflate(R.layout.items_layout, null, false);
             view1.initExpand(false);
             view1.expandDelayed(2000);
