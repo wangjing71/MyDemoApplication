@@ -17,7 +17,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        umExpandLayout = findViewById(R.id.mMyExpandView);
+        umExpandLayout = findViewById(R.id.mMyExpandView1);
+        umExpandLayout.initExpand(false);
     }
 
     @Override

@@ -49,6 +49,14 @@ public class MyExpandView extends LinearLayout {
         });
     }
 
+    /**
+     * @param isExpand 初始状态是否折叠
+     */
+    public void initExpand(boolean isExpand) {
+        expandParent.initExpand(isExpand);
+    }
+
+
     public void addExpandView(View chindView){
         expandConent.addView(chindView);
     }
