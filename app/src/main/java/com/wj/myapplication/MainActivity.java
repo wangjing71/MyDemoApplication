@@ -1,11 +1,7 @@
 package com.wj.myapplication;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 
 
@@ -24,12 +20,15 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        for (int i = 0; i < 4; i++) {
-            MyExpandView view1 = (MyExpandView) LayoutInflater.from(this).inflate(R.layout.items_layout,null,false);
-            View view2 = LayoutInflater.from(this).inflate(R.layout.chindviewlauouit,null,false);
-            View view3 = LayoutInflater.from(this).inflate(R.layout.chindviewlauouit,null,false);
+        for (int i = 0; i < 2; i++) {
+            MyExpandView view1 = (MyExpandView) LayoutInflater.from(this).inflate(R.layout.items_layout, null, false);
+            view1.initExpand(false);
+            view1.expandDelayed(2000);
+            View view2 = LayoutInflater.from(this).inflate(R.layout.chindviewlauouit, null, false);
+            View view3 = LayoutInflater.from(this).inflate(R.layout.chindviewlauouit, null, false);
             view1.addExpandView(view2);
             view1.addExpandView(view3);
+            parent.addView(view1);
         }
     }
 

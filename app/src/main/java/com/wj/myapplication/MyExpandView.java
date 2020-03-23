@@ -81,6 +81,7 @@ public class MyExpandView extends LinearLayout {
 
     public void addExpandView(View chindView){
         expandConent.addView(chindView);
+        expandParent.reSetViewDimensions();
     }
 
     /**

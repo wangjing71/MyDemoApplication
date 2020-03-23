@@ -150,4 +150,16 @@ public class UMExpandLayout extends RelativeLayout {
             expand();
         }
     }
+
+    /**
+     * 重新计算View 高度
+     */
+    public void reSetViewDimensions() {
+        layoutView.post(new Runnable() {
+            @Override
+            public void run() {
+                viewHeight = layoutView.getMeasuredHeight();
+            }
+        });
+    }
 }
