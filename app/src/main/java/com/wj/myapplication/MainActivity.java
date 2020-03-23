@@ -27,6 +27,8 @@ public class MainActivity extends BaseActivity {
         umExpandLayout.addExpandView(child1);
         View child2 = LayoutInflater.from(this).inflate(R.layout.chindviewlauouit,null,false);
         umExpandLayout.addExpandView(child2);
+
+        umExpandLayout.expand();
     }
 
     @Override

@@ -56,6 +56,20 @@ public class MyExpandView extends LinearLayout {
         expandParent.initExpand(isExpand);
     }
 
+    /**
+     * 折叠view
+     */
+    public void collapse() {
+        expandParent.collapse();
+    }
+
+
+    /**
+     * 展开view
+     */
+    public void expand() {
+        expandParent.expand();
+    }
 
     public void addExpandView(View chindView){
         expandConent.addView(chindView);
