@@ -83,4 +83,10 @@ public class MyExpandView extends LinearLayout {
         expandConent.addView(chindView);
     }
 
+    /**
+     * 展开view
+     */
+    public void expandDelayed(long delayMillis) {
+        expandParent.expandDelayed(delayMillis);
+    }
 }
