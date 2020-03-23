@@ -43,7 +43,7 @@ public class MainActivity extends BaseActivity {
             View view2 = LayoutInflater.from(this).inflate(R.layout.chindviewlauouit, null, false);
             view1.addExpandView(view2);
             parent.addView(view1);
-            view1.expandDelayed(200 + 500 * i);
+            view1.expandDelayed(200 + 200 * i);
         }
     }
 }

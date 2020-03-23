@@ -44,6 +44,7 @@ public class MyExpandView extends LinearLayout {
         titleParent = findViewById(R.id.title_parent);
         expandParent = findViewById(R.id.expand_layout_parent);
         expandConent = findViewById(R.id.expand_layout_content);
+        expandConent.setVisibility(GONE);
 
         titleParent.setOnClickListener(new OnClickListener() {
             @Override
@@ -73,6 +74,7 @@ public class MyExpandView extends LinearLayout {
      */
     public void expand() {
         expandParent.expand();
+        expandConent.setVisibility(VISIBLE);
     }
 
     public void addExpandView(View chindView){
@@ -85,5 +87,6 @@ public class MyExpandView extends LinearLayout {
      */
     public void expandDelayed(long delayMillis) {
         expandParent.expandDelayed(delayMillis);
+        expandConent.setVisibility(VISIBLE);
     }
 }
