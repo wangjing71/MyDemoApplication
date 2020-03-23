@@ -132,7 +132,7 @@ public class UMExpandLayout extends RelativeLayout {
     /**
      * 展开view
      */
-    public void expandDelate(long delayMillis) {
+    public void expandDelayed(long delayMillis) {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
