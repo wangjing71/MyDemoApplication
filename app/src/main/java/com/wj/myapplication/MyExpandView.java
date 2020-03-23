@@ -1,6 +1,8 @@
 package com.wj.myapplication;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -12,6 +14,12 @@ import android.widget.LinearLayout;
  * Description
  */
 public class MyExpandView extends LinearLayout {
+    private android.os.Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+        }
+    };
+
     private LinearLayout titleParent;
     private UMExpandLayout expandParent;
     private LinearLayout expandConent;
@@ -74,4 +82,5 @@ public class MyExpandView extends LinearLayout {
     public void addExpandView(View chindView){
         expandConent.addView(chindView);
     }
+
 }

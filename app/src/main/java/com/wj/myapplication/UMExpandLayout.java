@@ -2,6 +2,8 @@ package com.wj.myapplication;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +33,14 @@ public class UMExpandLayout extends RelativeLayout {
     private int viewHeight;
     private boolean isExpand;
     private long animationDuration;
+
+    private android.os.Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+
+        }
+    };
+
 
     private void initView() {
         layoutView = this;
