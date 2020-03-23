@@ -25,9 +25,7 @@ public class MainActivity extends BaseActivity {
             view1.initExpand(false);
             view1.expandDelayed(2000);
             View view2 = LayoutInflater.from(this).inflate(R.layout.chindviewlauouit, null, false);
-            View view3 = LayoutInflater.from(this).inflate(R.layout.chindviewlauouit, null, false);
             view1.addExpandView(view2);
-            view1.addExpandView(view3);
             parent.addView(view1);
         }
     }

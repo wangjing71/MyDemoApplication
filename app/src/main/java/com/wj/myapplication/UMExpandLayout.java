@@ -159,6 +159,7 @@ public class UMExpandLayout extends RelativeLayout {
             @Override
             public void run() {
                 viewHeight = layoutView.getMeasuredHeight();
+                invalidate();
             }
         });
     }
