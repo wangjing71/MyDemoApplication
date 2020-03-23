@@ -23,7 +23,7 @@ public class MainActivity extends BaseActivity {
         for (int i = 0; i < 4; i++) {
             MyExpandView view1 = (MyExpandView) LayoutInflater.from(this).inflate(R.layout.items_layout, null, false);
             view1.initExpand(false);
-            view1.expandDelayed(2000);
+            view1.expandDelayed(1500 + 500 * i);
             View view2 = LayoutInflater.from(this).inflate(R.layout.chindviewlauouit, null, false);
             view1.addExpandView(view2);
             parent.addView(view1);

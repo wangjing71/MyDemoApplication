@@ -147,12 +147,9 @@ public class UMExpandLayout extends RelativeLayout {
     public void toggleExpand() {
         if (isExpand) {
             collapse();
-            Log.i("====","collapse");
         } else {
             expand();
-            Log.i("====","expand");
         }
-        Log.i("====",layoutView.getMeasuredHeight()+"");
     }
 
     /**
