@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
@@ -149,6 +150,7 @@ public class UMExpandLayout extends RelativeLayout {
         } else {
             expand();
         }
+        Log.i("====",layoutView.getMeasuredHeight()+"");
     }
 
     /**
@@ -159,7 +161,7 @@ public class UMExpandLayout extends RelativeLayout {
             @Override
             public void run() {
                 viewHeight = layoutView.getMeasuredHeight();
-                invalidate();
+                Log.i("====",viewHeight+"");
             }
         });
     }

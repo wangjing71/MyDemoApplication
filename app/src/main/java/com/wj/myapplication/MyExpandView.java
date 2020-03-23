@@ -48,11 +48,7 @@ public class MyExpandView extends LinearLayout {
         titleParent.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(expandParent.isExpand()){
-                    expandParent.collapse();
-                }else{
-                    expandParent.expand();
-                }
+                expandParent.toggleExpand();
             }
         });
     }
