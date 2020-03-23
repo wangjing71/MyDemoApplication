@@ -129,6 +129,20 @@ public class UMExpandLayout extends RelativeLayout {
         animateToggle(animationDuration);
     }
 
+    /**
+     * 展开view
+     */
+    public void expandDelate(long delayMillis) {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                isExpand = true;
+                animateToggle(animationDuration);
+            }
+        },delayMillis);
+    }
+
+
     public void toggleExpand() {
         if (isExpand) {
             collapse();
