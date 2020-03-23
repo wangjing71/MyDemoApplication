@@ -6,18 +6,11 @@ import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 
 public class MainActivity extends BaseActivity {
-
-    private MyExpandView umExpandLayout;
-
-    private Handler handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            umExpandLayout.expand();
-        }
-    };
+    private LinearLayout parent;
 
     @Override
     protected int setLayoutId() {
@@ -26,18 +19,18 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        umExpandLayout = findViewById(R.id.mMyExpandView1);
-        umExpandLayout.initExpand(false);
+        parent = findViewById(R.id.parent);
     }
 
     @Override
     protected void initData() {
-        View child1 = LayoutInflater.from(this).inflate(R.layout.chindviewlauouit,null,false);
-        umExpandLayout.addExpandView(child1);
-        View child2 = LayoutInflater.from(this).inflate(R.layout.chindviewlauouit,null,false);
-        umExpandLayout.addExpandView(child2);
-
-        handler.sendEmptyMessageDelayed(0,800);
+        for (int i = 0; i < 4; i++) {
+            MyExpandView view1 = (MyExpandView) LayoutInflater.from(this).inflate(R.layout.items_layout,null,false);
+            View view2 = LayoutInflater.from(this).inflate(R.layout.chindviewlauouit,null,false);
+            View view3 = LayoutInflater.from(this).inflate(R.layout.chindviewlauouit,null,false);
+            view1.addExpandView(view2);
+            view1.addExpandView(view3);
+        }
     }
 
     @Override
