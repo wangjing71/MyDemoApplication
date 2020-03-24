@@ -50,13 +50,12 @@ public class MyExpandView1 extends LinearLayout {
 
     public void addChildView(View child){
         content.addView(child);
-
-        child.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+        postDelayed(new Runnable() {
             @Override
-            public void onGlobalLayout() {
+            public void run() {
                 realHeight = getContentHeight();
             }
-        });
+        },1000);
     }
 
     public int getContentHeight(){
