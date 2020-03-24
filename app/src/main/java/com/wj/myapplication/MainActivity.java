@@ -39,7 +39,7 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                umExpandLayout.expandDelayed(2000);
+                umExpandLayout.toggleExpand();
             }
         });
     }
