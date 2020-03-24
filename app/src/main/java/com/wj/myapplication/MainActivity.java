@@ -2,7 +2,6 @@ package com.wj.myapplication;
 
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 
 
