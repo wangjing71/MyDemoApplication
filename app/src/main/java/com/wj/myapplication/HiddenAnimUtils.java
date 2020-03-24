@@ -5,7 +5,6 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -73,10 +72,12 @@ public class HiddenAnimUtils {
 
     private void openAnim(View v) {
         v.setVisibility(View.VISIBLE);
-        int height = getContentHeight();
-        Log.i("====",height+"");
-        ValueAnimator animator = createDropAnimator(v, 0, height);
+        ValueAnimator animator = createDropAnimator(v, 0, mHeight);
         animator.start();
+    }
+
+    public void setmHeight(int mHeight) {
+        this.mHeight = mHeight;
     }
 
     private void closeAnimate(final View view) {
@@ -104,10 +105,6 @@ public class HiddenAnimUtils {
             }
         });
         return animator;
-    }
-
-    public int getContentHeight(){
-        return hideView.getHeight();
     }
 }
 
