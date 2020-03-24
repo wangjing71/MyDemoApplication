@@ -4,11 +4,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
 public class MainActivity1 extends BaseActivity {
 
     private LinearLayout parent;
+    private MyExpandView1 myExpandView1;
     @Override
     protected int setLayoutId() {
         return R.layout.activity_main_1;
@@ -21,7 +23,7 @@ public class MainActivity1 extends BaseActivity {
 
     @Override
     protected void initData() {
-
+        myExpandView1 = (MyExpandView1) LayoutInflater.from(MainActivity1.this).inflate(R.layout.item_view_1,null,false);
     }
 
     @Override
@@ -29,14 +31,16 @@ public class MainActivity1 extends BaseActivity {
         findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View view = LayoutInflater.from(MainActivity1.this).inflate(R.layout.item_view_1,null,false);
-                parent.addView(view);
+                parent.addView(myExpandView1);
             }
         });
 
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                TextView textView = new TextView(MainActivity1.this);
+                textView.setText("12345456");
+                myExpandView1.addChildView(textView);
             }
         });
     }

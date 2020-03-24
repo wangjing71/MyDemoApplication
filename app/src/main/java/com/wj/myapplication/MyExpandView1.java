@@ -45,4 +45,8 @@ public class MyExpandView1 extends LinearLayout {
             }
         });
     }
+
+    public void addChildView(View child){
+        content.addView(child);
+    }
 }
