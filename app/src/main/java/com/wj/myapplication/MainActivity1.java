@@ -34,17 +34,16 @@ public class MainActivity1 extends BaseActivity {
             @Override
             public void onClick(View v) {
                 myExpandView1 = (MyExpandView1) LayoutInflater.from(MainActivity1.this).inflate(R.layout.item_view_1, null, false);
-                myExpandView1.setExpand(false);
-                parent.addView(myExpandView1);
+//                myExpandView1.setExpand(false);
+                parent.addView(myExpandView1,3);
             }
         });
 
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView textView = new TextView(MainActivity1.this);
-                textView.setText("12345456");
-                myExpandView1.addChildView(textView);
+                View item = LayoutInflater.from(MainActivity1.this).inflate(R.layout.item1,null,false);
+                myExpandView1.addChildView(item);
             }
         });
 

@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
@@ -60,12 +61,29 @@ public class MyExpandView1 extends LinearLayout {
         });
     }
 
-    public void addChildView(View child){
+    public void addChildView(final View child){
         content.addView(child);
         realHeight = realHeight + getResources().getDimensionPixelOffset(R.dimen.dp_50);
+        Log.i("====1",getResources().getDimensionPixelOffset(R.dimen.dp_50)+"");
+        Log.i("====3",dip2px(getContext(),getResources().getDimensionPixelOffset(R.dimen.dp_50))+"");
+        postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.i("====2",child.getHeight()+"");
+            }
+        },500);
     }
 
     public int getContentHeight(){
         return content.getHeight();
     }
+
+    public static int dip2px(Context context, float dpValue) {
+        if (null == context) {
+            return (int) (dpValue * 2 + 0.5f);
+        }
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }
+
 }
