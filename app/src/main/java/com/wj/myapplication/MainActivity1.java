@@ -7,7 +7,6 @@ import android.widget.LinearLayout;
 
 
 public class MainActivity1 extends BaseActivity {
-    private ExpandView expandView;
 
     @Override
     protected int setLayoutId() {
@@ -16,7 +15,6 @@ public class MainActivity1 extends BaseActivity {
 
     @Override
     protected void initView() {
-        expandView = findViewById(R.id.expandView);
     }
 
     @Override
@@ -29,14 +27,12 @@ public class MainActivity1 extends BaseActivity {
         findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                expandView.collapse();
             }
         });
 
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                expandView.expand();
             }
         });
     }
