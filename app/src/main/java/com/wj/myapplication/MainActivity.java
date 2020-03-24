@@ -32,6 +32,8 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                View view2 = LayoutInflater.from(MainActivity.this).inflate(R.layout.item1, null, false);
+                content.addView(view2);
             }
         });
 
@@ -39,8 +41,7 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View view2 = LayoutInflater.from(MainActivity.this).inflate(R.layout.item1, null, false);
-                content.addView(view2);
+                umExpandLayout.toggleExpand();
             }
         });
 
