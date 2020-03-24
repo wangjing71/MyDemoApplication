@@ -41,7 +41,7 @@ public class MyExpandView1 extends LinearLayout {
         icon.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                HiddenAnimUtils.newInstance(getContext(),content,icon,77).toggle();
+                HiddenAnimUtils.newInstance(getContext(),content,icon,144).toggle();
             }
         });
     }
