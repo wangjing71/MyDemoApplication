@@ -7,8 +7,8 @@ import android.widget.LinearLayout;
 
 
 public class MainActivity extends BaseActivity {
-    private UMExpandLayout umExpandLayout;
     private LinearLayout content;
+    private UMExpandLayout umExpandLayout;
 
     @Override
     protected int setLayoutId() {
@@ -17,9 +17,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        umExpandLayout = findViewById(R.id.expand_layout_parent);
-        umExpandLayout.initExpand(true);
-        content = findViewById(R.id.content);
+        content = findViewById(R.id.parent);
     }
 
     @Override
@@ -33,9 +31,16 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                umExpandLayout = (UMExpandLayout) LayoutInflater.from(MainActivity.this).inflate(R.layout.items_layout,null,false);
+                View view1 = LayoutInflater.from(MainActivity.this).inflate(R.layout.item1, null, false);
+                umExpandLayout.addChildView(view1);
                 View view2 = LayoutInflater.from(MainActivity.this).inflate(R.layout.item1, null, false);
-                content.addView(view2);
-                umExpandLayout.reSetViewDimensions();}
+                umExpandLayout.addChildView(view2);
+                View view3 = LayoutInflater.from(MainActivity.this).inflate(R.layout.item1, null, false);
+                umExpandLayout.addChildView(view3);
+
+                content.addView(umExpandLayout,3);
+            }
         });
 
 
@@ -45,12 +50,5 @@ public class MainActivity extends BaseActivity {
                 umExpandLayout.toggleExpand();
             }
         });
-
-        findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });
     }
-
 }

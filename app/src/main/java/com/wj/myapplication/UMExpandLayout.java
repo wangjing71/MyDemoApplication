@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 /**
@@ -34,6 +35,7 @@ public class UMExpandLayout extends RelativeLayout {
     private int viewHeight;
     private boolean isExpand;
     private long animationDuration;
+    private LinearLayout content;
 
     private android.os.Handler handler = new Handler(){
         @Override
@@ -46,7 +48,14 @@ public class UMExpandLayout extends RelativeLayout {
         layoutView = this;
         isExpand = true;
         animationDuration = 200;
+        content = findViewById(R.id.content);
         setViewDimensions();
+    }
+
+    public void addChildView(View view){
+        if(content!=null){
+            content.addView(view);
+        }
     }
 
     /**

@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.wj.myapplication.MyExpandView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.wj.myapplication.UMExpandLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <!--您要显示和隐藏的内容-->
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</com.wj.myapplication.MyExpandView>
+    </LinearLayout>
+</com.wj.myapplication.UMExpandLayout>
