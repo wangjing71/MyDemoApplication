@@ -61,5 +61,7 @@ public class MainActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         umExpandLayout.toggleExpand();
+
+        umExpandLayout.expandDelayed(500);
     }
 }
