@@ -2,7 +2,10 @@ package com.wj.myapplication;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
@@ -32,10 +35,17 @@ public class UMExpandLayout extends RelativeLayout {
     private boolean isExpand;
     private long animationDuration;
 
+    private android.os.Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+
+        }
+    };
+
     private void initView() {
         layoutView = this;
         isExpand = true;
-        animationDuration = 300;
+        animationDuration = 200;
         setViewDimensions();
     }
 
@@ -119,11 +129,37 @@ public class UMExpandLayout extends RelativeLayout {
         animateToggle(animationDuration);
     }
 
+    /**
+     * 展开view
+     */
+    public void expandDelayed(long delayMillis) {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                isExpand = true;
+                animateToggle(animationDuration);
+            }
+        },delayMillis);
+    }
+
+
     public void toggleExpand() {
         if (isExpand) {
             collapse();
         } else {
             expand();
         }
+    }
+
+    /**
+     * 重新计算View 高度
+     */
+    public void reSetViewDimensions() {
+        layoutView.post(new Runnable() {
+            @Override
+            public void run() {
+                viewHeight = layoutView.getMeasuredHeight();
+            }
+        });
     }
 }
