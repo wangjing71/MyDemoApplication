@@ -138,8 +138,7 @@ public class UMExpandLayout extends RelativeLayout {
         postDelayed(new Runnable() {
             @Override
             public void run() {
-                isExpand = true;
-                animateToggle(animationDuration);
+                toggleExpand();
             }
         },delayMillis);
     }
