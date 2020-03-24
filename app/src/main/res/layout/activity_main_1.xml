@@ -9,23 +9,12 @@
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="增加一个展开View" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="增加一个条目" />
 
-    <com.wj.myapplication.MyExpandView1
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <com.wj.myapplication.MyExpandView1
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <com.wj.myapplication.MyExpandView1
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 </LinearLayout>

@@ -29,6 +29,8 @@ public class MainActivity1 extends BaseActivity {
         findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                View view = LayoutInflater.from(MainActivity1.this).inflate(R.layout.item_view_1,null,false);
+                parent.addView(view);
             }
         });
 
