@@ -7,7 +7,8 @@ import android.widget.LinearLayout;
 
 
 public class MainActivity extends BaseActivity {
-    private LinearLayout parent;
+    private UMExpandLayout umExpandLayout;
+    private LinearLayout content;
 
     @Override
     protected int setLayoutId() {
@@ -16,7 +17,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        parent = findViewById(R.id.parent);
+        umExpandLayout = findViewById(R.id.expand_layout_parent);
+        content = findViewById(R.id.content);
     }
 
     @Override
@@ -38,8 +40,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 View view2 = LayoutInflater.from(MainActivity.this).inflate(R.layout.item1, null, false);
-                myExpandView.addExpandView(view2);
-//                myExpandView.expandDelayed(300);
+                content.addView(view2);
             }
         });
 
