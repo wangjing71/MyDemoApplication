@@ -62,14 +62,7 @@ public class MyExpandView1 extends LinearLayout {
 
     public void addChildView(View child){
         content.addView(child);
-        postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if(getContentHeight()>realHeight){
-                    realHeight = getContentHeight();
-                }
-            }
-        },200);
+        realHeight = realHeight + getResources().getDimensionPixelOffset(R.dimen.dp_50);
     }
 
     public int getContentHeight(){
