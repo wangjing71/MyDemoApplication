@@ -41,7 +41,7 @@ public class MainActivity extends BaseActivity {
                 View view3 = LayoutInflater.from(MainActivity.this).inflate(R.layout.item1, null, false);
                 content.addView(view3);
 
-                parent.addView(umExpandLayout);
+                parent.addView(umExpandLayout,3);
             }
         });
 

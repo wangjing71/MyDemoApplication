@@ -37,13 +37,6 @@ public class UMExpandLayout extends RelativeLayout {
     private long animationDuration;
     private LinearLayout content;
 
-    private android.os.Handler handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-
-        }
-    };
-
     private void initView() {
         layoutView = this;
         isExpand = true;
@@ -142,7 +135,7 @@ public class UMExpandLayout extends RelativeLayout {
      * 展开view
      */
     public void expandDelayed(long delayMillis) {
-        handler.postDelayed(new Runnable() {
+        postDelayed(new Runnable() {
             @Override
             public void run() {
                 isExpand = true;
