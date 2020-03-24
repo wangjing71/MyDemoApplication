@@ -56,6 +56,7 @@ public class UMExpandLayout extends RelativeLayout {
     public void initExpand(boolean isExpand) {
         this.isExpand = isExpand;
         if (!isExpand) {
+            setVisibility(INVISIBLE);
             animateToggle(10);
         }
     }

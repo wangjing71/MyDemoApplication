@@ -37,13 +37,11 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-        for (int i = 0; i < 4; i++) {
-            MyExpandView view1 = (MyExpandView) LayoutInflater.from(this).inflate(R.layout.items_layout, null, false);
-            view1.initExpand(false);
-            View view2 = LayoutInflater.from(this).inflate(R.layout.chindviewlauouit, null, false);
-            view1.addExpandView(view2);
-            parent.addView(view1);
-            view1.expandDelayed(200 + 200 * i);
-        }
+        MyExpandView view1 = (MyExpandView) LayoutInflater.from(this).inflate(R.layout.items_layout, null, false);
+        view1.initExpand(false);
+        View view2 = LayoutInflater.from(this).inflate(R.layout.chindviewlauouit, null, false);
+        view1.addExpandView(view2);
+        parent.addView(view1);
+        view1.expandDelayed(300);
     }
 }
