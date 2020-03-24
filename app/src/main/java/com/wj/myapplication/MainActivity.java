@@ -32,6 +32,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 umExpandLayout = (UMExpandLayout) LayoutInflater.from(MainActivity.this).inflate(R.layout.items_layout,null,false);
+//                umExpandLayout.initExpand(false);
                 LinearLayout content = umExpandLayout.findViewById(R.id.content);
                 View view1 = LayoutInflater.from(MainActivity.this).inflate(R.layout.item1, null, false);
                 content.addView(view1);
