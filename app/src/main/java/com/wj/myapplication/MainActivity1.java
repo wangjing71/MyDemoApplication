@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 
 public class MainActivity1 extends BaseActivity {
 
+    private LinearLayout parent;
     @Override
     protected int setLayoutId() {
         return R.layout.activity_main_1;
@@ -15,6 +16,7 @@ public class MainActivity1 extends BaseActivity {
 
     @Override
     protected void initView() {
+        parent = findViewById(R.id.parent);
     }
 
     @Override
