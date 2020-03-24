@@ -46,10 +46,10 @@ public class MainActivity1 extends BaseActivity {
             }
         });
 
-        findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity1.this, myExpandView1.getContentHeight() + "", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity1.this, myExpandView1.getContentHeight() + "_", Toast.LENGTH_SHORT).show();
             }
         });
     }

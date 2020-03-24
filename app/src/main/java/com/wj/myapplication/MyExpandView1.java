@@ -6,6 +6,7 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -17,6 +18,7 @@ import android.widget.LinearLayout;
 public class MyExpandView1 extends LinearLayout {
     private ImageView icon;
     private LinearLayout content;
+    private int realHeight ;
 
     public MyExpandView1(Context context) {
         super(context);
@@ -41,13 +43,20 @@ public class MyExpandView1 extends LinearLayout {
         icon.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                HiddenAnimUtils.newInstance(getContext(),content,icon,144).toggle();
+                HiddenAnimUtils.newInstance(getContext(),content,icon,realHeight).toggle();
             }
         });
     }
 
     public void addChildView(View child){
         content.addView(child);
+
+        child.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                realHeight = getContentHeight();
+            }
+        });
     }
 
     public int getContentHeight(){
