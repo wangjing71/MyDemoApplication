@@ -16,5 +16,7 @@
         android:layout_height="wrap_content"
         android:text="Button" />
 
-
+    <com.wj.myapplication.MyExpandView1
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
