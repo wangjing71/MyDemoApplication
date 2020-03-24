@@ -46,7 +46,6 @@ public class MainActivity extends BaseActivity {
 
     private void doSomeThing() {
         umExpandLayout = (UMExpandLayout) LayoutInflater.from(MainActivity.this).inflate(R.layout.items_layout,null,false);
-        umExpandLayout.initExpand(false);
         LinearLayout content = umExpandLayout.findViewById(R.id.content);
         View view1 = LayoutInflater.from(MainActivity.this).inflate(R.layout.item1, null, false);
         content.addView(view1);
@@ -56,5 +55,11 @@ public class MainActivity extends BaseActivity {
         content.addView(view3);
 
         parent.addView(umExpandLayout,3);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        umExpandLayout.toggleExpand();
     }
 }
