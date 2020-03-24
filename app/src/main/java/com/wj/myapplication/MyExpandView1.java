@@ -19,6 +19,15 @@ public class MyExpandView1 extends LinearLayout {
     private ImageView icon;
     private LinearLayout content;
     private int realHeight ;
+    private boolean isExpand;
+
+    public boolean isExpand() {
+        return isExpand;
+    }
+
+    public void setExpand(boolean expand) {
+        isExpand = expand;
+    }
 
     public MyExpandView1(Context context) {
         super(context);
@@ -39,6 +48,9 @@ public class MyExpandView1 extends LinearLayout {
         View.inflate(getContext(), R.layout.my_expand_view_1, this);
         icon = findViewById(R.id.icon);
         content = findViewById(R.id.content);
+        if(isExpand){
+            content.setVisibility(GONE);
+        }
 
         icon.setOnClickListener(new OnClickListener() {
             @Override

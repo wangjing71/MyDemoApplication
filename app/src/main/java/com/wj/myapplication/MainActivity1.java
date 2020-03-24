@@ -26,6 +26,7 @@ public class MainActivity1 extends BaseActivity {
     @Override
     protected void initData() {
         myExpandView1 = (MyExpandView1) LayoutInflater.from(MainActivity1.this).inflate(R.layout.item_view_1, null, false);
+        myExpandView1.setExpand(false);
     }
 
     @Override
