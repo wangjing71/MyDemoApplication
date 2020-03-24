@@ -21,6 +21,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        doSomeThing();
 
     }
 
@@ -30,17 +31,7 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                umExpandLayout = (UMExpandLayout) LayoutInflater.from(MainActivity.this).inflate(R.layout.items_layout,null,false);
-                umExpandLayout.initExpand(false);
-                LinearLayout content = umExpandLayout.findViewById(R.id.content);
-                View view1 = LayoutInflater.from(MainActivity.this).inflate(R.layout.item1, null, false);
-                content.addView(view1);
-                View view2 = LayoutInflater.from(MainActivity.this).inflate(R.layout.item1, null, false);
-                content.addView(view2);
-                View view3 = LayoutInflater.from(MainActivity.this).inflate(R.layout.item1, null, false);
-                content.addView(view3);
-
-                parent.addView(umExpandLayout,3);
+                doSomeThing();
             }
         });
 
@@ -51,5 +42,19 @@ public class MainActivity extends BaseActivity {
                 umExpandLayout.expandDelayed(2000);
             }
         });
+    }
+
+    private void doSomeThing() {
+        umExpandLayout = (UMExpandLayout) LayoutInflater.from(MainActivity.this).inflate(R.layout.items_layout,null,false);
+        umExpandLayout.initExpand(false);
+        LinearLayout content = umExpandLayout.findViewById(R.id.content);
+        View view1 = LayoutInflater.from(MainActivity.this).inflate(R.layout.item1, null, false);
+        content.addView(view1);
+        View view2 = LayoutInflater.from(MainActivity.this).inflate(R.layout.item1, null, false);
+        content.addView(view2);
+        View view3 = LayoutInflater.from(MainActivity.this).inflate(R.layout.item1, null, false);
+        content.addView(view3);
+
+        parent.addView(umExpandLayout,3);
     }
 }
