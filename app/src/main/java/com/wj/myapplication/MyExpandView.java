@@ -14,11 +14,6 @@ import android.widget.LinearLayout;
  * Description
  */
 public class MyExpandView extends LinearLayout {
-    private android.os.Handler handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-        }
-    };
 
     private LinearLayout titleParent;
     private UMExpandLayout expandParent;
