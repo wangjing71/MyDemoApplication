@@ -53,9 +53,11 @@ public class MyExpandView1 extends LinearLayout {
         postDelayed(new Runnable() {
             @Override
             public void run() {
-                realHeight = getContentHeight();
+                if(getContentHeight()>realHeight){
+                    realHeight = getContentHeight();
+                }
             }
-        },1000);
+        },200);
     }
 
     public int getContentHeight(){
