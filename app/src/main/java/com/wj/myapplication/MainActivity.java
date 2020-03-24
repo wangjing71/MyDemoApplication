@@ -35,7 +35,7 @@ public class MainActivity extends BaseActivity {
             public void onClick(View v) {
                 View view2 = LayoutInflater.from(MainActivity.this).inflate(R.layout.item1, null, false);
                 content.addView(view2);
-            }
+                umExpandLayout.reSetViewDimensions();}
         });
 
 
