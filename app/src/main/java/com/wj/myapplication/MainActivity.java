@@ -8,7 +8,6 @@ import android.widget.LinearLayout;
 
 public class MainActivity extends BaseActivity {
     private LinearLayout parent;
-    private MyExpandView myExpandView;
 
     @Override
     protected int setLayoutId() {
@@ -31,9 +30,6 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myExpandView = (MyExpandView) LayoutInflater.from(MainActivity.this).inflate(R.layout.items_layout, null, false);
-                myExpandView.initExpand(false);
-                parent.addView(myExpandView);
             }
         });
 
