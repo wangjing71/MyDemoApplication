@@ -19,6 +19,7 @@ public class MainActivity extends BaseActivity {
     private AppsAdapter appsAdapter;
     private DslTabLayout dslTabLayout;
     private boolean iScroll = false;
+    private Long time;
 
     @Override
     protected int setLayoutId() {
@@ -46,9 +47,9 @@ public class MainActivity extends BaseActivity {
             public Unit invoke(Integer fromIndex, List<Integer> selectIndexList, Boolean reselect) {
                 int toIndex = selectIndexList.get(0);
                 Log.i("====", toIndex + "");
-                if(!iScroll){
-                    smoothMoveToPosition(recyclerView,toIndex);
-
+                if (!iScroll) {
+                    time = System.currentTimeMillis();
+                    smoothMoveToPosition(recyclerView, toIndex);
                 }
                 return null;
             }
@@ -58,10 +59,10 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-                Log.i("====newState",newState+"");
-                if(newState== 1){
+                Log.i("====newState", newState + "");
+                if (newState == 1) {
                     iScroll = true;
-                }else if(newState == 0){
+                } else if (newState == 0) {
                     iScroll = false;
                 }
             }
@@ -74,14 +75,16 @@ public class MainActivity extends BaseActivity {
                     LinearLayoutManager linearManager = (LinearLayoutManager) layoutManager;
                     int firstItemPosition = linearManager.findFirstVisibleItemPosition();
                     int lastItemPosition = linearManager.findLastVisibleItemPosition();
-                    dslTabLayout.setCurrentItem(firstItemPosition, true);
+                    if (System.currentTimeMillis() - time > 1000){
+                        dslTabLayout.setCurrentItem(firstItemPosition, true);
+                    }
                 }
             }
         });
     }
 
-    public void move(int position){
-        RecyclerView.SmoothScroller smoothScroller = new LinearSmoothScroller(this){
+    public void move(int position) {
+        RecyclerView.SmoothScroller smoothScroller = new LinearSmoothScroller(this) {
             @Override
             protected int getVerticalSnapPreference() {
                 return LinearSmoothScroller.SNAP_TO_START;
