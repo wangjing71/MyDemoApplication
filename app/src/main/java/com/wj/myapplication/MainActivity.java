@@ -8,7 +8,6 @@ import com.angcyo.tablayout.DslTabLayout;
 import java.util.List;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function3;
