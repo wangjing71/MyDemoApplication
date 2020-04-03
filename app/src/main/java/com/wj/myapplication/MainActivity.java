@@ -8,6 +8,7 @@ import com.angcyo.tablayout.DslTabLayout;
 import java.util.List;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function3;
@@ -44,6 +45,11 @@ public class MainActivity extends BaseActivity {
             public Unit invoke(Integer fromIndex, List<Integer> selectIndexList, Boolean reselect) {
                 int toIndex = selectIndexList.get(0);
                 Log.i("====", toIndex + "");
+                recyclerView.scrollToPosition(toIndex);
+                LinearLayoutManager mLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+                mLayoutManager.scrollToPositionWithOffset(toIndex, 0);
+
+
                 return null;
             }
         });
@@ -66,5 +72,14 @@ public class MainActivity extends BaseActivity {
                 }
             }
         });
+    }
+
+    public void move(int position){
+        RecyclerView.SmoothScroller smoothScroller = new LinearSmoothScroller(this){
+            @Override
+            protected int getVerticalSnapPreference() {
+                return LinearSmoothScroller.SNAP_TO_START;
+            }
+        };
     }
 }
