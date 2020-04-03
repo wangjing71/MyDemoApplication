@@ -83,21 +83,6 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    public void move(int position) {
-        RecyclerView.SmoothScroller smoothScroller = new LinearSmoothScroller(this) {
-            @Override
-            protected int getVerticalSnapPreference() {
-                return LinearSmoothScroller.SNAP_TO_START;
-            }
-        };
-    }
-
-
-    //目标项是否在最后一个可见项之后
-    private boolean mShouldScroll;
-    //记录目标项位置
-    private int mToPosition;
-
     /**
      * 滑动到指定位置
      */
@@ -121,8 +106,6 @@ public class MainActivity extends BaseActivity {
             // 第三种可能:跳转位置在最后可见项之后，则先调用smoothScrollToPosition将要跳转的位置滚动到可见位置
             // 再通过onScrollStateChanged控制再次调用smoothMoveToPosition，执行上一个判断中的方法
             mRecyclerView.smoothScrollToPosition(position);
-            mToPosition = position;
-            mShouldScroll = true;
         }
     }
 }
