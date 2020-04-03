@@ -52,16 +52,15 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-                // 第一个可见位置
-                int firstItem = recyclerView.getChildLayoutPosition(recyclerView.getChildAt(0));
-                Log.i("====", firstItem + "");
-                dslTabLayout.setCurrentItem(firstItem,true);
             }
 
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-
+                // 第一个可见位置
+                int firstItem = recyclerView.getChildLayoutPosition(recyclerView.getChildAt(0));
+                Log.i("====", firstItem + "");
+                dslTabLayout.setCurrentItem(firstItem,true);
             }
         });
     }
