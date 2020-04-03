@@ -1,12 +1,22 @@
 package com.wj.myapplication;
 
+import android.util.Log;
+
+import com.angcyo.tablayout.DslTabLayout;
+
+import java.util.List;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function3;
 
 public class MainActivity extends BaseActivity {
 
     private RecyclerView recyclerView;
     private AppsAdapter appsAdapter;
+    private DslTabLayout dslTabLayout;
+
     @Override
     protected int setLayoutId() {
         return R.layout.activity_main;
@@ -15,6 +25,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         recyclerView = findViewById(R.id.recyclerView);
+        dslTabLayout = findViewById(R.id.dsl_tabLayout);
     }
 
     @Override
@@ -26,6 +37,13 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setEvent() {
+        dslTabLayout.getTabLayoutConfig().setOnSelectIndexChange(new Function3<Integer, List<Integer>, Boolean, Unit>() {
+            @Override
+            public Unit invoke(Integer fromIndex, List<Integer> selectIndexList, Boolean reselect) {
+                int toIndex = selectIndexList.get(0);
+                Log.i("====",toIndex+"");
+                return null;
+            }
+        });
     }
-
 }
