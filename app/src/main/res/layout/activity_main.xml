@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.wj.myapplication.MainActivity">
 
@@ -23,85 +23,90 @@
         app:tab_select_color="@color/black">
 
         <TextView
-            android:layout_marginLeft="@dimen/dp_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
             android:gravity="center"
             android:text="网格化"
             android:textSize="@dimen/sp_14" />
 
         <TextView
-            android:layout_marginLeft="@dimen/dp_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
             android:gravity="center"
             android:text="ESOP"
             android:textSize="@dimen/sp_14" />
 
         <TextView
-            android:layout_marginLeft="@dimen/dp_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
             android:gravity="center"
             android:text="装维一体化"
             android:textSize="@dimen/sp_14" />
 
         <TextView
-            android:layout_marginLeft="@dimen/dp_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
             android:gravity="center"
             android:text="网管BOMC"
             android:textSize="@dimen/sp_14" />
 
         <TextView
-            android:layout_marginLeft="@dimen/dp_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
             android:gravity="center"
             android:text="CRM"
             android:textSize="@dimen/sp_14" />
 
         <TextView
-            android:layout_marginLeft="@dimen/dp_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
             android:gravity="center"
             android:text="网格化"
             android:textSize="@dimen/sp_14" />
 
         <TextView
-            android:layout_marginLeft="@dimen/dp_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
             android:gravity="center"
             android:text="ESOP"
             android:textSize="@dimen/sp_14" />
 
         <TextView
-            android:layout_marginLeft="@dimen/dp_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
             android:gravity="center"
             android:text="装维一体化"
             android:textSize="@dimen/sp_14" />
 
         <TextView
-            android:layout_marginLeft="@dimen/dp_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
             android:gravity="center"
             android:text="网管BOMC"
             android:textSize="@dimen/sp_14" />
 
         <TextView
-            android:layout_marginLeft="@dimen/dp_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
             android:gravity="center"
             android:text="CRM"
             android:textSize="@dimen/sp_14" />
 
     </com.angcyo.tablayout.DslTabLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>
