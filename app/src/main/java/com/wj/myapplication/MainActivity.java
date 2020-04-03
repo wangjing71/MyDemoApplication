@@ -57,10 +57,13 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                // 第一个可见位置
-                int firstItem = recyclerView.getChildLayoutPosition(recyclerView.getChildAt(0));
-                Log.i("====", firstItem + "");
-                dslTabLayout.setCurrentItem(firstItem,true);
+                RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
+                if (layoutManager instanceof LinearLayoutManager) {
+                    LinearLayoutManager linearManager = (LinearLayoutManager) layoutManager;
+                    int firstItemPosition = linearManager.findFirstVisibleItemPosition();
+                    int lastItemPosition = linearManager.findLastVisibleItemPosition();
+                    dslTabLayout.setCurrentItem(firstItemPosition, true);
+                }
             }
         });
     }
