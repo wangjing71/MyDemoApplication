@@ -75,7 +75,7 @@ public class MainActivity extends BaseActivity {
                     LinearLayoutManager linearManager = (LinearLayoutManager) layoutManager;
                     int firstItemPosition = linearManager.findFirstVisibleItemPosition();
                     int lastItemPosition = linearManager.findLastVisibleItemPosition();
-                    if (System.currentTimeMillis() - time > 1000){
+                    if (System.currentTimeMillis() - time > 500){
                         dslTabLayout.setCurrentItem(firstItemPosition, true);
                     }
                 }
