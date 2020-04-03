@@ -28,7 +28,4 @@ public class MainActivity extends BaseActivity {
     protected void setEvent() {
     }
 
-    private void doSomeThing() {
-
-    }
 }
