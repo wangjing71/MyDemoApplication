@@ -1,6 +1,7 @@
 package com.wj.myapplication;
 
 import android.util.Log;
+import android.view.View;
 
 import com.angcyo.tablayout.DslTabLayout;
 
@@ -33,6 +34,7 @@ public class MainActivity extends BaseActivity {
         appsAdapter = new AppsAdapter(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(appsAdapter);
+
     }
 
     @Override
@@ -45,5 +47,30 @@ public class MainActivity extends BaseActivity {
                 return null;
             }
         });
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState){
+                super.onScrollStateChanged(recyclerView, newState);
+                RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
+                //判断是当前layoutManager是否为LinearLayoutManager
+                // 只有LinearLayoutManager才有查找第一个和最后一个可见view位置的方法
+                if (layoutManager instanceof LinearLayoutManager) {
+                    LinearLayoutManager linearManager = (LinearLayoutManager) layoutManager;
+                    //获取第一个可见view的位置
+                    int firstItemPosition = linearManager.findFirstVisibleItemPosition();
+                    //获取最后一个可见view的位置
+                    int lastItemPosition = linearManager.findLastVisibleItemPosition();
+                    Log.i("====",firstItemPosition+"____"+lastItemPosition);
+                    dslTabLayout.setCurrentItem(firstItemPosition,true);
+                }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+            }
+        });
+
     }
 }
