@@ -34,7 +34,9 @@ public class AppsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         final MyAppHolder myAppHolder = (MyAppHolder) holder;
-        myAppHolder.itemView.setPadding(0,0,0,0);
+        RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) myAppHolder.itemView.getLayoutParams();
+        params.bottomMargin = 0;
+        myAppHolder.itemView.setLayoutParams(params);
     }
 
 
