@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_20"
             android:gravity="center"
-            android:text="网格化"
+            android:text="条目1"
             android:textSize="@dimen/sp_14" />
 
         <TextView
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_20"
             android:gravity="center"
-            android:text="ESOP"
+            android:text="条目2"
             android:textSize="@dimen/sp_14" />
 
         <TextView
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_20"
             android:gravity="center"
-            android:text="装维一体化"
+            android:text="条目3"
             android:textSize="@dimen/sp_14" />
 
         <TextView
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_20"
             android:gravity="center"
-            android:text="网管BOMC"
+            android:text="条目4"
             android:textSize="@dimen/sp_14" />
 
         <TextView
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_20"
             android:gravity="center"
-            android:text="CRM"
+            android:text="条目5"
             android:textSize="@dimen/sp_14" />
 
         <TextView
@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_20"
             android:gravity="center"
-            android:text="网格化"
+            android:text="条目6"
             android:textSize="@dimen/sp_14" />
 
         <TextView
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_20"
             android:gravity="center"
-            android:text="ESOP"
+            android:text="条目7"
             android:textSize="@dimen/sp_14" />
 
         <TextView
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_20"
             android:gravity="center"
-            android:text="装维一体化"
+            android:text="条目8"
             android:textSize="@dimen/sp_14" />
 
         <TextView
@@ -91,7 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_20"
             android:gravity="center"
-            android:text="网管BOMC"
+            android:text="条目9"
             android:textSize="@dimen/sp_14" />
 
         <TextView
@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_20"
             android:gravity="center"
-            android:text="CRM"
+            android:text="条目10"
             android:textSize="@dimen/sp_14" />
 
     </com.angcyo.tablayout.DslTabLayout>
