@@ -45,7 +45,6 @@ public class MainActivity extends BaseActivity {
             @Override
             public Unit invoke(Integer fromIndex, List<Integer> selectIndexList, Boolean reselect) {
                 int toIndex = selectIndexList.get(0);
-                Log.i("====", toIndex + "");
                 if (!iScroll) {
                     time = System.currentTimeMillis();
                     smoothMoveToPosition(recyclerView, toIndex);
@@ -58,7 +57,6 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-                Log.i("====newState", newState + "");
                 if (newState == 1) {
                     iScroll = true;
                 } else if (newState == 0) {
