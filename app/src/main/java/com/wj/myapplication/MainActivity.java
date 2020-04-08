@@ -74,6 +74,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
+                Log.i("====","onScrolled");
                 RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
                 if (layoutManager instanceof LinearLayoutManager) {
                     LinearLayoutManager linearManager = (LinearLayoutManager) layoutManager;
@@ -81,7 +82,7 @@ public class MainActivity extends BaseActivity {
                     int firstItemPosition = linearManager.findFirstVisibleItemPosition();
                     int lastItemPosition = recyclerView.getAdapter().getItemCount();
 
-                    if (System.currentTimeMillis() - time > 500) {
+                    if (System.currentTimeMillis() - time > 1000) {
                         dslTabLayout.setCurrentItem(firstItemPosition, true);
                     }
 

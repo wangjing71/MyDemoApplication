@@ -36,9 +36,9 @@ public class AppsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         final MyAppHolder myAppHolder = (MyAppHolder) holder;
         myAppHolder.title.setText("条目" + (position + 1));
-//        RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) myAppHolder.itemView.getLayoutParams();
-//        params.bottomMargin = 0;
-//        myAppHolder.itemView.setLayoutParams(params);
+        RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) myAppHolder.itemView.getLayoutParams();
+        params.bottomMargin = 0;
+        myAppHolder.itemView.setLayoutParams(params);
     }
 
 
