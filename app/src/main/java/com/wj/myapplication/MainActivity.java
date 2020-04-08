@@ -82,6 +82,9 @@ public class MainActivity extends BaseActivity {
                         dslTabLayout.setCurrentItem(firstItemPosition, true);
                     }
 
+
+                    Log.i("====lastView",firstItemPosition+"_"+lastItemPosition);
+                    Log.i("====lastView",recyclerView.getAdapter().getItemCount()+"");
                     Log.i("====lastView",lastView.getHeight()+"");
                 }
             }
