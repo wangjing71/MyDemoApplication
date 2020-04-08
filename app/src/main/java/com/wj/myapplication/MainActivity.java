@@ -22,8 +22,6 @@ public class MainActivity extends BaseActivity {
     private LinearLayout barLayout;
     private boolean iScroll = false;
     private Long time;
-    private HeaderAndFooterWrapper wrapper;
-    private View view;
 
     @Override
     protected int setLayoutId() {
@@ -35,17 +33,13 @@ public class MainActivity extends BaseActivity {
         recyclerView = findViewById(R.id.recyclerView);
         dslTabLayout = findViewById(R.id.dsl_tabLayout);
         barLayout = findViewById(R.id.barLayout);
-
-        view = new View(this);
     }
 
     @Override
     protected void initData() {
         appsAdapter = new AppsAdapter(this);
-        wrapper = new HeaderAndFooterWrapper(appsAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(wrapper);
-        wrapper.addFootView(view);
+        recyclerView.setAdapter(appsAdapter);
 
     }
 
@@ -88,12 +82,12 @@ public class MainActivity extends BaseActivity {
                         dslTabLayout.setCurrentItem(firstItemPosition, true);
                     }
 
-                    View lastView = linearManager.findViewByPosition(9);
+                    View lastView = linearManager.findViewByPosition(lastItemPosition-1);
                     if (lastView != null) {
                         Log.i("====", lastView.getHeight() + "");
                         int padBottom = ScreenUtils.getScreenHeight(MainActivity.this) - lastView.getHeight() - dslTabLayout.getHeight() - barLayout.getHeight();
-                        RecyclerView.LayoutParams parms = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, padBottom);
-                        view.setLayoutParams(parms);
+
+                        lastView.setPadding(0,0,0,padBottom);
                     }
                 }
             }
