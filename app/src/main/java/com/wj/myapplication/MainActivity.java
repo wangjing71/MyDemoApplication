@@ -81,7 +81,7 @@ public class MainActivity extends BaseActivity {
                     int firstItemPosition = linearManager.findFirstVisibleItemPosition();
                     int lastItemPosition = recyclerView.getAdapter().getItemCount();
 
-                    if (System.currentTimeMillis() - time > 1500) {
+                    if (System.currentTimeMillis() - time > 500) {
                         dslTabLayout.setCurrentItem(firstItemPosition, true);
                     }
 
