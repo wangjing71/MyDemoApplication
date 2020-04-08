@@ -34,6 +34,7 @@ public class AppsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         final MyAppHolder myAppHolder = (MyAppHolder) holder;
+        myAppHolder.itemView.setPadding(0,0,0,0);
     }
 
 
@@ -43,10 +44,11 @@ public class AppsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public class MyAppHolder extends RecyclerView.ViewHolder {
+        View itemView;
 
         public MyAppHolder(View view) {
             super(view);
+            itemView = view;
         }
-
     }
 }
