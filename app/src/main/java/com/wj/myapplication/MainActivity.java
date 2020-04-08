@@ -2,6 +2,7 @@ package com.wj.myapplication;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.angcyo.tablayout.DslTabLayout;
 
@@ -17,6 +18,7 @@ public class MainActivity extends BaseActivity {
     private RecyclerView recyclerView;
     private AppsAdapter appsAdapter;
     private DslTabLayout dslTabLayout;
+    private LinearLayout barLayout;
     private boolean iScroll = false;
     private Long time;
 
@@ -29,6 +31,7 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         recyclerView = findViewById(R.id.recyclerView);
         dslTabLayout = findViewById(R.id.dsl_tabLayout);
+        barLayout = findViewById(R.id.barLayout);
     }
 
     @Override
@@ -78,9 +81,11 @@ public class MainActivity extends BaseActivity {
                         dslTabLayout.setCurrentItem(firstItemPosition, true);
                     }
 
-                    View lastView = linearManager.findViewByPosition(lastItemPosition);
+                    View lastView = linearManager.findViewByPosition(lastItemPosition - 1);
                     if (lastView != null) {
                         Log.i("====", lastView.getHeight() + "");
+                        int padBottom = ScreenUtils.getScreenHeight(MainActivity.this) - lastView.getHeight() - dslTabLayout.getHeight() - barLayout.getHeight();
+                        recyclerView.setPadding(0, 0, 0, padBottom);
                     }
                 }
             }
