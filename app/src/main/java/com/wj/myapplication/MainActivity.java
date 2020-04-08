@@ -72,11 +72,17 @@ public class MainActivity extends BaseActivity {
                 RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
                 if (layoutManager instanceof LinearLayoutManager) {
                     LinearLayoutManager linearManager = (LinearLayoutManager) layoutManager;
+
                     int firstItemPosition = linearManager.findFirstVisibleItemPosition();
                     int lastItemPosition = linearManager.findLastVisibleItemPosition();
+
+                    View lastView = linearManager.findViewByPosition(lastItemPosition);
+
                     if (System.currentTimeMillis() - time > 500){
                         dslTabLayout.setCurrentItem(firstItemPosition, true);
                     }
+
+                    Log.i("====lastView",lastView.getHeight()+"");
                 }
             }
         });
