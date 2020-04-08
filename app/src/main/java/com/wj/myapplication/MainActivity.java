@@ -85,7 +85,10 @@ public class MainActivity extends BaseActivity {
                     if (lastView != null) {
                         Log.i("====", lastView.getHeight() + "");
                         int padBottom = ScreenUtils.getScreenHeight(MainActivity.this) - lastView.getHeight() - dslTabLayout.getHeight() - barLayout.getHeight();
-                        recyclerView.setPadding(0, 0, 0, padBottom);
+                        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) recyclerView.getLayoutParams();
+                        params.setMargins(0,0,0,padBottom);
+                        recyclerView.setLayoutParams(params);
+//                        recyclerView.setPadding(0, 0, 0, padBottom);
                     }
                 }
             }
