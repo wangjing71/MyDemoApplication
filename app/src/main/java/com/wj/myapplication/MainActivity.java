@@ -54,10 +54,7 @@ public class MainActivity extends BaseActivity {
                 int toIndex = selectIndexList.get(0);
                 if (!iScroll) {
                     time = System.currentTimeMillis();
-
                     smoothToPosition(toIndex);
-
-//                    smoothMoveToPosition(recyclerView, toIndex);
                 }
                 return null;
             }
@@ -72,12 +69,6 @@ public class MainActivity extends BaseActivity {
                 } else if (newState == 0) {
                     iScroll = false;
                 }
-
-//                if (mShouldScroll){
-//                    mShouldScroll = false;
-//                    smoothMoveToPosition(recyclerView,mToPosition);
-//                }
-
             }
 
             @Override
