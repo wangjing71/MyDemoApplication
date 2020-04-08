@@ -45,6 +45,7 @@ public class MainActivity extends BaseActivity {
         wrapper = new HeaderAndFooterWrapper(appsAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(wrapper);
+        wrapper.addFootView(view);
 
     }
 
@@ -87,16 +88,12 @@ public class MainActivity extends BaseActivity {
                         dslTabLayout.setCurrentItem(firstItemPosition, true);
                     }
 
-                    View lastView = linearManager.findViewByPosition(lastItemPosition - 1);
+                    View lastView = linearManager.findViewByPosition(9);
                     if (lastView != null) {
                         Log.i("====", lastView.getHeight() + "");
                         int padBottom = ScreenUtils.getScreenHeight(MainActivity.this) - lastView.getHeight() - dslTabLayout.getHeight() - barLayout.getHeight();
-                        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) recyclerView.getLayoutParams();
-                        params.setMargins(0,0,0,padBottom);
-                        recyclerView.setLayoutParams(params);
                         RecyclerView.LayoutParams parms = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, padBottom);
                         view.setLayoutParams(parms);
-                        wrapper.addFootView(view);
                     }
                 }
             }
