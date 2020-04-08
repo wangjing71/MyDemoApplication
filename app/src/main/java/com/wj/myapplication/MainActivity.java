@@ -55,9 +55,7 @@ public class MainActivity extends BaseActivity {
                 if (!iScroll) {
                     time = System.currentTimeMillis();
 
-                    LinearSmoothScroller s3 = new TopSmoothScroller(MainActivity.this);
-                    s3.setTargetPosition(toIndex);
-                    manager.startSmoothScroll(s3);
+                    smoothToPosition(toIndex);
 
 //                    smoothMoveToPosition(recyclerView, toIndex);
                 }
@@ -144,5 +142,11 @@ public class MainActivity extends BaseActivity {
             mShouldScroll = true;
 
         }
+    }
+
+    private void smoothToPosition(int position) {
+        LinearSmoothScroller s3 = new TopSmoothScroller(MainActivity.this);
+        s3.setTargetPosition(position);
+        manager.startSmoothScroll(s3);
     }
 }
