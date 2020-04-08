@@ -2,6 +2,7 @@ package com.wj.myapplication;
 
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.angcyo.tablayout.DslTabLayout;
@@ -21,6 +22,8 @@ public class MainActivity extends BaseActivity {
     private LinearLayout barLayout;
     private boolean iScroll = false;
     private Long time;
+    private HeaderAndFooterWrapper wrapper;
+    private View view;
 
     @Override
     protected int setLayoutId() {
@@ -32,13 +35,16 @@ public class MainActivity extends BaseActivity {
         recyclerView = findViewById(R.id.recyclerView);
         dslTabLayout = findViewById(R.id.dsl_tabLayout);
         barLayout = findViewById(R.id.barLayout);
+
+        view = new View(this);
     }
 
     @Override
     protected void initData() {
         appsAdapter = new AppsAdapter(this);
+        wrapper = new HeaderAndFooterWrapper(appsAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(appsAdapter);
+        recyclerView.setAdapter(wrapper);
 
     }
 
@@ -88,7 +94,9 @@ public class MainActivity extends BaseActivity {
                         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) recyclerView.getLayoutParams();
                         params.setMargins(0,0,0,padBottom);
                         recyclerView.setLayoutParams(params);
-//                        recyclerView.setPadding(0, 0, 0, padBottom);
+                        RecyclerView.LayoutParams parms = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, padBottom);
+                        view.setLayoutParams(parms);
+                        wrapper.addFootView(view);
                     }
                 }
             }
