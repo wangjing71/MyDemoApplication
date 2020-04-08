@@ -74,18 +74,16 @@ public class MainActivity extends BaseActivity {
                     LinearLayoutManager linearManager = (LinearLayoutManager) layoutManager;
 
                     int firstItemPosition = linearManager.findFirstVisibleItemPosition();
-                    int lastItemPosition = linearManager.findLastVisibleItemPosition();
+                    int lastItemPosition = recyclerView.getAdapter().getItemCount();
 
-                    View lastView = linearManager.findViewByPosition(lastItemPosition);
-
-                    if (System.currentTimeMillis() - time > 500){
+                    if (System.currentTimeMillis() - time > 500) {
                         dslTabLayout.setCurrentItem(firstItemPosition, true);
                     }
 
-
-                    Log.i("====lastView",firstItemPosition+"_"+lastItemPosition);
-                    Log.i("====lastView",recyclerView.getAdapter().getItemCount()+"");
-                    Log.i("====lastView",lastView.getHeight()+"");
+                    View lastView = linearManager.findViewByPosition(lastItemPosition);
+                    if (lastView != null) {
+                        Log.i("====", lastView.getHeight() + "");
+                    }
                 }
             }
         });
