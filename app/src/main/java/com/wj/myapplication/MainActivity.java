@@ -10,6 +10,7 @@ import com.angcyo.tablayout.DslTabLayout;
 import java.util.List;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function3;
@@ -22,6 +23,7 @@ public class MainActivity extends BaseActivity {
     private LinearLayout barLayout;
     private boolean iScroll = false;
     private Long time;
+    private LinearLayoutManager manager;
 
     @Override
     protected int setLayoutId() {
@@ -38,7 +40,8 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initData() {
         appsAdapter = new AppsAdapter(this);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        manager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(appsAdapter);
 
     }
@@ -51,7 +54,12 @@ public class MainActivity extends BaseActivity {
                 int toIndex = selectIndexList.get(0);
                 if (!iScroll) {
                     time = System.currentTimeMillis();
-                    smoothMoveToPosition(recyclerView, toIndex);
+
+                    LinearSmoothScroller s3 = new TopSmoothScroller(MainActivity.this);
+                    s3.setTargetPosition(toIndex);
+                    manager.startSmoothScroll(s3);
+
+//                    smoothMoveToPosition(recyclerView, toIndex);
                 }
                 return null;
             }
@@ -67,10 +75,10 @@ public class MainActivity extends BaseActivity {
                     iScroll = false;
                 }
 
-                if (mShouldScroll){
-                    mShouldScroll = false;
-                    smoothMoveToPosition(recyclerView,mToPosition);
-                }
+//                if (mShouldScroll){
+//                    mShouldScroll = false;
+//                    smoothMoveToPosition(recyclerView,mToPosition);
+//                }
 
             }
 
@@ -84,7 +92,7 @@ public class MainActivity extends BaseActivity {
                     int firstItemPosition = linearManager.findFirstVisibleItemPosition();
                     int lastItemPosition = recyclerView.getAdapter().getItemCount();
 
-                    if (System.currentTimeMillis() - time > 500) {
+                    if (System.currentTimeMillis() - time > 1500) {
                         dslTabLayout.setCurrentItem(firstItemPosition, true);
                     }
 
