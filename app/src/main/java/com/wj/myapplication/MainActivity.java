@@ -86,12 +86,12 @@ public class MainActivity extends BaseActivity {
                     }
 
                     View lastView = linearManager.findViewByPosition(lastItemPosition - 1);
-//                    if (lastView != null) {
-//                        int padBottom = ScreenUtils.getScreenHeight(MainActivity.this) - lastView.getHeight() - dslTabLayout.getHeight() - barLayout.getHeight();
-//                        RecyclerView.LayoutParams parms = (RecyclerView.LayoutParams) lastView.getLayoutParams();
-//                        parms.bottomMargin = padBottom;
-//                        lastView.setLayoutParams(parms);
-//                    }
+                    if (lastView != null) {
+                        int padBottom = ScreenUtils.getScreenHeight(MainActivity.this) - lastView.getHeight() - dslTabLayout.getHeight() - barLayout.getHeight();
+                        RecyclerView.LayoutParams parms = (RecyclerView.LayoutParams) lastView.getLayoutParams();
+                        parms.bottomMargin = padBottom;
+                        lastView.setLayoutParams(parms);
+                    }
                 }
             }
         });
