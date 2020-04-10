@@ -43,10 +43,14 @@ public class MyView extends View {
         paint.setAntiAlias(false); //设置画笔为无锯齿
         paint.setStrokeWidth((float) 3.0); //线宽
         paint.setStyle(Paint.Style.STROKE); //空心效果
-
-        length = getWidth();
         Log.i("====",length+"");
         mRectf = new RectF((float) (length * 0.1), (float) (length * 0.1), (float) (length * 0.9), (float) (length * 0.9));
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        length = getMeasuredWidth();
     }
 
     @Override
@@ -55,6 +59,5 @@ public class MyView extends View {
 
         canvas.drawCircle(length / 2, length / 2, length / 4, paint);
 
-        canvas.drawCircle(50, 50, 10, paint); //绘制圆形
     }
 }
