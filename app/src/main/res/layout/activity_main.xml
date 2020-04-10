@@ -17,8 +17,8 @@
         android:text="Button" />
 
     <com.wj.myapplication.MyView
-        android:layout_width="@dimen/dp_250"
-        android:layout_height="@dimen/dp_250"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/dp_20" />
 
