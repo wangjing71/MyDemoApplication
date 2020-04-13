@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.angcyo.tablayout.DslTabLayout;
+import com.gyf.immersionbar.ImmersionBar;
 
 import java.util.List;
 
@@ -90,6 +91,11 @@ public class MainActivity extends BaseActivity {
                     if (lastView != null) {
                         int padBottom = ScreenUtils.getScreenHeight(MainActivity.this) - lastView.getHeight() - dslTabLayout.getHeight() - barLayout.getHeight();
                         RecyclerView.LayoutParams parms = (RecyclerView.LayoutParams) lastView.getLayoutParams();
+                        if(ImmersionBar.hasNavigationBar(MainActivity.this)){
+                            parms.bottomMargin = padBottom+ImmersionBar.getNavigationBarHeight(MainActivity.this);
+                        }else{
+                            parms.bottomMargin = padBottom;
+                        }
                         parms.bottomMargin = padBottom;
                         lastView.setLayoutParams(parms);
                     }
