@@ -39,6 +39,13 @@ public class AppsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) myAppHolder.itemView.getLayoutParams();
         params.bottomMargin = 0;
         myAppHolder.itemView.setLayoutParams(params);
+
+        myAppHolder.background.post(new Runnable() {
+            @Override
+            public void run() {
+                Log.i("====", myAppHolder.itemView.getHeight() + "");
+            }
+        });
     }
 
 
@@ -50,11 +57,13 @@ public class AppsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public class MyAppHolder extends RecyclerView.ViewHolder {
         View itemView;
         TextView title;
+        View background;
 
         public MyAppHolder(View view) {
             super(view);
             itemView = view;
             title = view.findViewById(R.id.title);
+            background = view.findViewById(R.id.background);
         }
     }
 }
