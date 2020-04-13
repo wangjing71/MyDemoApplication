@@ -42,7 +42,7 @@ public class MyView extends View {
         paint.setColor(Color.RED);
         paint.setAntiAlias(false); //设置画笔为无锯齿
         paint.setStrokeWidth((float) 3.0); //线宽
-        paint.setStyle(Paint.Style.STROKE); //空心效果
+        paint.setStyle(Paint.Style.FILL); //空心效果
         Log.i("====",length+"");
         mRectf = new RectF((float) (length * 0.1), (float) (length * 0.1), (float) (length * 0.9), (float) (length * 0.9));
     }
@@ -56,8 +56,6 @@ public class MyView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
         canvas.drawCircle(length / 2, length / 2, length / 4, paint);
-
     }
 }
