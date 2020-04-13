@@ -97,7 +97,6 @@ public class MainActivity extends BaseActivity {
                             Log.i("====","2");
                             parms.bottomMargin = padBottom;
                         }
-                        parms.bottomMargin = padBottom;
                         lastView.setLayoutParams(parms);
                     }
                 }
