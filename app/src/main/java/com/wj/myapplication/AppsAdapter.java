@@ -43,7 +43,9 @@ public class AppsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         myAppHolder.background.post(new Runnable() {
             @Override
             public void run() {
-                Log.i("====", myAppHolder.itemView.getHeight() + "");
+                ViewGroup.LayoutParams parms = myAppHolder.background.getLayoutParams();
+                parms.height = myAppHolder.itemView.getHeight();
+                myAppHolder.background.setLayoutParams(parms);
             }
         });
     }
