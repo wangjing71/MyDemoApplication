@@ -75,7 +75,6 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                Log.i("====","onScrolled");
                 RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
                 if (layoutManager instanceof LinearLayoutManager) {
                     LinearLayoutManager linearManager = (LinearLayoutManager) layoutManager;
@@ -92,8 +91,10 @@ public class MainActivity extends BaseActivity {
                         int padBottom = ScreenUtils.getScreenHeight(MainActivity.this) - lastView.getHeight() - dslTabLayout.getHeight() - barLayout.getHeight();
                         RecyclerView.LayoutParams parms = (RecyclerView.LayoutParams) lastView.getLayoutParams();
                         if(ImmersionBar.hasNavigationBar(MainActivity.this)){
+                            Log.i("====",ImmersionBar.getNavigationBarHeight(MainActivity.this)+"_");
                             parms.bottomMargin = padBottom+ImmersionBar.getNavigationBarHeight(MainActivity.this);
                         }else{
+                            Log.i("====","2");
                             parms.bottomMargin = padBottom;
                         }
                         parms.bottomMargin = padBottom;
