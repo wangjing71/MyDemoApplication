@@ -60,9 +60,9 @@ public class MyView extends View {
 //        canvas.drawCircle(length / 2, length / 2, length / 4, paint);
 //        canvas.drawArc(mRectf,50,270,true,paint);
         for (int i = 0; i < 10; i++) {
-            canvas.drawRect(0,
+            canvas.drawRect(10 + 20 * i,
                     500,
-                    20,
+                    30 + 20 * i,
                     0,
                     paint);
         }
