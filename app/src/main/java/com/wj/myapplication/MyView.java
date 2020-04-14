@@ -62,7 +62,7 @@ public class MyView extends View {
         for (int i = 0; i < 10; i++) {
             canvas.drawRect(10 + 20 * i,
                     500,
-                    30 + 20 * i,
+                    20 + 20 * i,
                     0,
                     paint);
         }
