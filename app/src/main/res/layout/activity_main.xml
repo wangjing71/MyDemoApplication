@@ -19,7 +19,7 @@
     <com.wj.myapplication.MyView
         android:background="@color/gray_primary"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/dp_400"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/dp_20" />
 

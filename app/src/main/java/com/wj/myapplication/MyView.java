@@ -21,6 +21,7 @@ public class MyView extends View {
     private RectF mRectf;
 
     private int length;
+    private int weith;
 
     public MyView(Context context) {
         super(context);
@@ -43,7 +44,7 @@ public class MyView extends View {
         paint.setAntiAlias(false); //设置画笔为无锯齿
         paint.setStrokeWidth((float) 3.0); //线宽
         paint.setStyle(Paint.Style.FILL); //空心效果
-        Log.i("====",length+"");
+        Log.i("====", length + "");
     }
 
     @Override
@@ -57,6 +58,13 @@ public class MyView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 //        canvas.drawCircle(length / 2, length / 2, length / 4, paint);
-        canvas.drawArc(mRectf,50,270,true,paint);
+//        canvas.drawArc(mRectf,50,270,true,paint);
+        for (int i = 0; i < 10; i++) {
+            canvas.drawRect(0,
+                    500,
+                    20,
+                    0,
+                    paint);
+        }
     }
 }
