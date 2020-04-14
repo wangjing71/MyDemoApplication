@@ -44,19 +44,19 @@ public class MyView extends View {
         paint.setStrokeWidth((float) 3.0); //线宽
         paint.setStyle(Paint.Style.FILL); //空心效果
         Log.i("====",length+"");
-        mRectf = new RectF((float) (length * 0.1), (float) (length * 0.1), (float) (length * 0.9), (float) (length * 0.9));
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         length = getMeasuredWidth();
+        mRectf = new RectF((float) (length * 0.1), (float) (length * 0.1), (float) (length * 0.9), (float) (length * 0.9));
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 //        canvas.drawCircle(length / 2, length / 2, length / 4, paint);
-        canvas.drawArc(mRectf,270,30,false,paint);
+        canvas.drawArc(mRectf,270,30,true,paint);
     }
 }
