@@ -59,9 +59,10 @@ public class MyView extends View {
         super.onDraw(canvas);
 //        canvas.drawCircle(length / 2, length / 2, length / 4, paint);
 //        canvas.drawArc(mRectf,50,270,true,paint);
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 50; i++) {
+            double ran = Math.random() * 500;
             canvas.drawRect(10 + 20 * i,
-                    500,
+                    (float) ran,
                     20 + 20 * i,
                     0,
                     paint);
