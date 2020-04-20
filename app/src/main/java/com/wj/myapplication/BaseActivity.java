@@ -25,6 +25,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected RxPermissions rxPermissions;
     private View barView;
     protected Dialog dialog;
+    private View mohu;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         ImmersionBar.with(this).init();
         rxPermissions = new RxPermissions(this);
         barView = findViewById(R.id.barView);
+        mohu =  findViewById(R.id.mohu);
         ImmersionBar.setStatusBarView(this, barView);
         initView();
         initData();
@@ -51,6 +53,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         ImmersionBar.with(this).destroy();
+    }
+
+    public void show(){
+        mohu.setVisibility(View.VISIBLE);
+    }
+
+    public void hide(){
+        mohu.setVisibility(View.GONE);
     }
 
     public void showMohu() {
