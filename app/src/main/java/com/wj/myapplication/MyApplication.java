@@ -62,8 +62,6 @@ public class MyApplication extends Application {
                 Log.d("====", activity + "onActivityDestroyed");
             }
         });
-
-
     }
 
     private void initBackFrontGround() {
