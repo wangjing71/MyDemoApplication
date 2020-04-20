@@ -37,7 +37,7 @@ public class MainActivity extends BaseActivity {
 
     private void doSomeThing() {
         Intent intent = new Intent();
-        intent.putExtra("account", "传递过去的账号"); //主账号
+        intent.putExtra("account", "13681768891"); //主账号
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.setClassName("com.richeninfo.pboss", "com.richeninfo.pboss.ui.SplashActivity");
         startActivity(intent);
