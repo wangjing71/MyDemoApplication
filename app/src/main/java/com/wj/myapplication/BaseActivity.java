@@ -33,7 +33,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         ImmersionBar.with(this).init();
         rxPermissions = new RxPermissions(this);
         barView = findViewById(R.id.barView);
-        dialog = new Dialog(this);
         ImmersionBar.setStatusBarView(this, barView);
         initView();
         initData();
@@ -56,6 +55,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public void showMohu() {
         if (dialog == null) {
+            dialog = new Dialog(this);
             View receviverCardView = LayoutInflater.from(this).inflate(R.layout.dialog_layout_20181010, null);
             Context context = dialog.getContext();
             int divierId = context.getResources().getIdentifier("android:id/titleDivider", null, null);
