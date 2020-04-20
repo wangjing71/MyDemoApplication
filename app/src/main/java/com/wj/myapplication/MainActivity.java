@@ -33,6 +33,14 @@ public class MainActivity extends BaseActivity {
                 doSomeThing();
             }
         });
+
+        findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //设置背景模糊
+                getWindow().setBackgroundDrawableResource(R.color.gray);
+            }
+        });
     }
 
     private void doSomeThing() {
