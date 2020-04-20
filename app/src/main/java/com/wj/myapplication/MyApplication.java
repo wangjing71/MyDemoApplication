@@ -64,7 +64,6 @@ public class MyApplication extends Application {
             }
         });
     }
-
     private void initBackFrontGround() {
     }
 }
