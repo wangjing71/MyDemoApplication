@@ -33,6 +33,7 @@ public class MyApplication extends Application {
             public void onActivityStarted(Activity activity) {
                 Log.d("====", activity + "onActivityStarted");
                 currentActivity = (BaseActivity) activity;
+                currentActivity.hide();
             }
 
             @Override
