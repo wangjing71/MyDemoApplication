@@ -37,9 +37,9 @@ public class MainActivity extends BaseActivity {
 
     private void doSomeThing() {
         Intent intent = new Intent();
-//        intent.putExtra("account", Constants.account); //主账号
+        intent.putExtra("account", "1234"); //主账号
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setClassName("packageName", "className");
+        intent.setClassName("com.richeninfo.pboss", "com.richeninfo.pboss.ui.SplashActivity");
         startActivity(intent);
     }
 }
