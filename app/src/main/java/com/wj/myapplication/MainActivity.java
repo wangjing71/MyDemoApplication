@@ -50,4 +50,6 @@ public class MainActivity extends BaseActivity {
         intent.setClassName("com.richeninfo.pboss", "com.richeninfo.pboss.ui.SplashActivity");
         startActivity(intent);
     }
+
+
 }
