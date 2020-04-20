@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/barParenr"
         android:layout_gravity="center_horizontal"
-        android:text="跳转" />
+        android:text="跳到下个界面" />
 
     <Button
         android:id="@+id/button1"
