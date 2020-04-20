@@ -38,7 +38,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 //设置背景模糊
-                getWindow().setBackgroundDrawableResource(R.color.gray);
+                showMohu();
             }
         });
     }
