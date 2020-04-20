@@ -44,8 +44,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-        Intent intent = new Intent();
-        intent.setClassName(this, "com.richeninfo.pboss.ui.SplashActivity");
+        Intent intent = new Intent(this,A.class);
         startActivity(intent);
     }
 
