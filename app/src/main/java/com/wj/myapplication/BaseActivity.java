@@ -66,7 +66,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             dialog.setContentView(receviverCardView);
             dialog.setCancelable(false);
             dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-            dialog.getWindow().setLayout(this.getResources().getDisplayMetrics().widthPixels * 4 / 5, LinearLayout.LayoutParams.WRAP_CONTENT);
+            dialog.getWindow().setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         }
         dialog.show();
     }
