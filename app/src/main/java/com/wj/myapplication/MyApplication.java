@@ -44,7 +44,7 @@ public class MyApplication extends Application {
             public void onActivityPaused(Activity activity) {
                 Log.d("====", activity + "onActivityPaused");
                 currentActivity = (BaseActivity) activity;
-                currentActivity.showMohu();
+                currentActivity.show();
             }
 
             @Override
