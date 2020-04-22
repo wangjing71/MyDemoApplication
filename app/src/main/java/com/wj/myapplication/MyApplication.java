@@ -16,5 +16,7 @@ public class MyApplication extends Application {
         Bugly.init(getApplicationContext(), "9c59c60539", false);
 
 
+
+
     }
 }
