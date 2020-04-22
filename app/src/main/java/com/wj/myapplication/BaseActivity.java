@@ -15,7 +15,6 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-
     protected RxPermissions rxPermissions;
     private View barView;
 
