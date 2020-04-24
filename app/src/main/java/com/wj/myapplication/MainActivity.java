@@ -11,7 +11,7 @@ import android.widget.Toast;
 public class MainActivity extends BaseActivity {
 
     private Button button;
-    private RelativeLayout parent;
+    private MyRelativeLayout parent;
 
     @Override
     protected int setLayoutId() {
