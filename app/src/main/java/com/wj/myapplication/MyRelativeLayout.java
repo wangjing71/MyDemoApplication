@@ -2,6 +2,7 @@ package com.wj.myapplication;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.widget.RelativeLayout;
 
 /**
@@ -20,5 +21,35 @@ public class MyRelativeLayout extends RelativeLayout {
 
     public MyRelativeLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+    }
+
+    int mLastXIntercepted;
+    int mLastYIntercepted;
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        boolean intercepted = false;
+        int x = (int) ev.getX();
+        int y = (int) ev.getY();
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                intercepted = false;
+                break;
+            case MotionEvent.ACTION_MOVE:
+                if (父容器需要事件) {
+                    intercepted = true;
+                } else {
+                    intercepted = false;
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                intercepted = false;
+                break;
+            default:
+                break;
+        }
+        mLastXIntercepted = x;
+        mLastYIntercepted = x;
+        return intercepted;
     }
 }
