@@ -1,14 +1,17 @@
 package com.wj.myapplication;
 
-import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 
 public class MainActivity extends BaseActivity {
 
     private Button button;
+    private RelativeLayout parent;
 
     @Override
     protected int setLayoutId() {
@@ -18,6 +21,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         button = findViewById(R.id.button);
+        parent = findViewById(R.id.parent);
     }
 
     @Override
@@ -31,6 +35,24 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 doSomeThing();
+            }
+        });
+
+        parent.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.i("====onTouch", "====onTouch");
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        Log.i("====Raw", event.getRawX() + "_" + event.getRawY());
+                        Log.i("====", event.getX() + "_" + event.getY());
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        break;
+                }
+                return false;
             }
         });
     }
