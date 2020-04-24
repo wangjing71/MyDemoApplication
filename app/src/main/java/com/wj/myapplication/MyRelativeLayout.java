@@ -49,7 +49,7 @@ public class MyRelativeLayout extends RelativeLayout {
                 break;
         }
         mLastXIntercepted = x;
-        mLastYIntercepted = x;
+        mLastYIntercepted = y;
         return intercepted;
     }
 }
