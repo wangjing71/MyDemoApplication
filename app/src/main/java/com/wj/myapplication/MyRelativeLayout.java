@@ -36,11 +36,7 @@ public class MyRelativeLayout extends RelativeLayout {
                 intercepted = false;
                 break;
             case MotionEvent.ACTION_MOVE:
-                if (父容器需要事件) {
                     intercepted = true;
-                } else {
-                    intercepted = false;
-                }
                 break;
             case MotionEvent.ACTION_UP:
                 intercepted = false;
