@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class MainActivity extends BaseActivity {
 
-    private Button button;
+    private MyButton  button;
     private MyRelativeLayout parent;
 
     @Override
