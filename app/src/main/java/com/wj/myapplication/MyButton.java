@@ -2,6 +2,7 @@ package com.wj.myapplication;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.Button;
 
@@ -25,7 +26,19 @@ public class MyButton extends android.support.v7.widget.AppCompatButton {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        performClick();
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                Log.i("====MyRelativeLayout", "====ACTION_DOWN");
+                break;
+            case MotionEvent.ACTION_MOVE:
+                Log.i("====MyRelativeLayout", "Raw:" + event.getRawX() + "_" + event.getRawY());
+                Log.i("====MyRelativeLayout", event.getX() + "_" + event.getY());
+                break;
+            case MotionEvent.ACTION_UP:
+                Log.i("====MyRelativeLayout", "====ACTION_UP");
+                break;
+        }
+
         return false;
     }
 }
