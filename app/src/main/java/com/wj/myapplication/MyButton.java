@@ -25,6 +25,7 @@ public class MyButton extends android.support.v7.widget.AppCompatButton {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        performClick();
         return false;
     }
 }

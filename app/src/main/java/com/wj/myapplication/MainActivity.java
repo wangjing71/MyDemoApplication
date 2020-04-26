@@ -60,6 +60,6 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-        Toast.makeText(this, "按钮被点击了", Toast.LENGTH_SHORT).show();
+        Log.i("====", "按钮被点击了");
     }
 }
