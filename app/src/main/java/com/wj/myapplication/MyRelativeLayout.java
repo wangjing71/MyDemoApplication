@@ -26,26 +26,26 @@ public class MyRelativeLayout extends RelativeLayout {
     int mLastXIntercepted;
     int mLastYIntercepted;
 
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        boolean intercepted = false;
-        int x = (int) ev.getX();
-        int y = (int) ev.getY();
-        switch (ev.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                intercepted = false;
-                break;
-            case MotionEvent.ACTION_MOVE:
-                    intercepted = true;
-                break;
-            case MotionEvent.ACTION_UP:
-                intercepted = false;
-                break;
-            default:
-                break;
-        }
-        mLastXIntercepted = x;
-        mLastYIntercepted = y;
-        return intercepted;
-    }
+//    @Override
+//    public boolean onInterceptTouchEvent(MotionEvent ev) {
+//        boolean intercepted = false;
+//        int x = (int) ev.getX();
+//        int y = (int) ev.getY();
+//        switch (ev.getAction()) {
+//            case MotionEvent.ACTION_DOWN:
+//                intercepted = false;
+//                break;
+//            case MotionEvent.ACTION_MOVE:
+//                    intercepted = true;
+//                break;
+//            case MotionEvent.ACTION_UP:
+//                intercepted = false;
+//                break;
+//            default:
+//                break;
+//        }
+//        mLastXIntercepted = x;
+//        mLastYIntercepted = y;
+//        return intercepted;
+//    }
 }

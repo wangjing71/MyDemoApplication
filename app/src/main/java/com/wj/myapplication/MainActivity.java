@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class MainActivity extends BaseActivity {
 
-    private MyButton  button;
+    private MyButton button;
     private MyRelativeLayout parent;
 
     @Override
@@ -41,15 +41,17 @@ public class MainActivity extends BaseActivity {
         parent.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Log.i("====onTouch", "====onTouch");
+                Log.i("====MyRelativeLayout", "====onTouch");
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                        Log.i("====MyRelativeLayout", "====ACTION_DOWN");
                         break;
                     case MotionEvent.ACTION_MOVE:
-                        Log.i("====Raw", event.getRawX() + "_" + event.getRawY());
-                        Log.i("====", event.getX() + "_" + event.getY());
+                        Log.i("====MyRelativeLayout", "Raw:" + event.getRawX() + "_" + event.getRawY());
+                        Log.i("====MyRelativeLayout", event.getX() + "_" + event.getY());
                         break;
                     case MotionEvent.ACTION_UP:
+                        Log.i("====MyRelativeLayout", "====ACTION_UP");
                         break;
                 }
                 return false;
