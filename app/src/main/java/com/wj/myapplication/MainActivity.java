@@ -3,10 +3,6 @@ package com.wj.myapplication;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
-
 
 public class MainActivity extends BaseActivity {
 
