@@ -4,8 +4,8 @@
     android:layout_height="@dimen/dp_50">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_50"
         android:src="@mipmap/ic_launcher" />
 
 </com.wj.myapplication.DragView>
