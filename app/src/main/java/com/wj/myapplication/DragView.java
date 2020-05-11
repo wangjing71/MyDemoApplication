@@ -1,9 +1,13 @@
 package com.wj.myapplication;
 
 import android.content.Context;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 /**
@@ -52,5 +56,14 @@ public class DragView extends RelativeLayout {
                 break;
         }
         return true;
+    }
+
+    public static void addDragView(Context context, ViewGroup group,@LayoutRes int layoutResID){
+        View view = LayoutInflater.from(context).inflate(layoutResID,null,false);
+        if(view instanceof DragView){
+            group.addView(view);
+        }else{
+            throw new RuntimeException("必须是 DragView");
+        }
     }
 }
