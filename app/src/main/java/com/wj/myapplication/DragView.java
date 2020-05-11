@@ -20,6 +20,7 @@ import android.widget.RelativeLayout;
 public class DragView extends RelativeLayout {
 
     private boolean isLimit = true; //是否限制屏幕中可见
+    private int mScreenWidth;
 
     public DragView(Context context) {
         super(context);
@@ -37,6 +38,7 @@ public class DragView extends RelativeLayout {
     }
 
     private void init() {
+        mScreenWidth = ScreenUtils.getScreenWidth(getContext());
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(150, 150);
         setLayoutParams(params);
     }
@@ -63,7 +65,7 @@ public class DragView extends RelativeLayout {
 //                        getBottom()+offsetY);
                 Log.i("====", getWidth() + "_" + getLeft() + "_" + getRight());
                 if (((getLeft() < -0 && offsetX > 0) || getLeft() >= 0)
-                        && (getRight() <= ScreenUtils.getScreenWidth(getContext()))) {
+                        && (((getRight() <= mScreenWidth)) || (getRight() > mScreenWidth && offsetX < 0))) {
                     offsetLeftAndRight(offsetX);
                 }
                 offsetTopAndBottom(offsetY);
