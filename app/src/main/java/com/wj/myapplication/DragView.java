@@ -37,7 +37,7 @@ public class DragView extends RelativeLayout {
     }
 
     private void init() {
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(50,50);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(150, 150);
         setLayoutParams(params);
     }
 
@@ -63,7 +63,7 @@ public class DragView extends RelativeLayout {
 //                        getBottom()+offsetY);
                 Log.i("====", getWidth() + "_" + getLeft() + "_" + getRight());
                 if (((getLeft() < -0 && offsetX > 0) || getLeft() >= 0)
-                ) {
+                        && (getRight() <= ScreenUtils.getScreenWidth(getContext()))) {
                     offsetLeftAndRight(offsetX);
                 }
                 offsetTopAndBottom(offsetY);
