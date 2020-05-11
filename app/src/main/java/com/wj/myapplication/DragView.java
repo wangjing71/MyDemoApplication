@@ -19,6 +19,8 @@ import android.widget.RelativeLayout;
  */
 public class DragView extends RelativeLayout {
 
+    private boolean isLimit = true; //是否限制屏幕中可见
+
     public DragView(Context context) {
         super(context);
     }
