@@ -5,13 +5,14 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.RelativeLayout;
 
 /**
  * author wangjing
  * Date 2020/5/11
  * Description
  */
-public class DragView extends View {
+public class DragView extends RelativeLayout {
     public DragView(Context context) {
         super(context);
     }
