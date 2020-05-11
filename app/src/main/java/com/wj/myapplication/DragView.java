@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -30,11 +31,13 @@ public class DragView extends RelativeLayout {
         super(context, attrs, defStyleAttr);
     }
 
-    int lastX,lastY;
+    int lastX, lastY;
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         int rawX = (int) event.getRawX();
         int rawY = (int) event.getRawY();
+        Log.i("====", rawX + "");
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 lastX = rawX;
@@ -59,11 +62,11 @@ public class DragView extends RelativeLayout {
         return true;
     }
 
-    public static void addDragView(Context context, ViewGroup group,@LayoutRes int layoutResID){
-        View view = LayoutInflater.from(context).inflate(layoutResID,null,false);
-        if(view instanceof DragView){
+    public static void addDragView(Context context, ViewGroup group, @LayoutRes int layoutResID) {
+        View view = LayoutInflater.from(context).inflate(layoutResID, null, false);
+        if (view instanceof DragView) {
             group.addView(view);
-        }else{
+        } else {
             throw new RuntimeException("父布局必须是 DragView");
         }
     }
