@@ -23,14 +23,22 @@ public class DragView extends RelativeLayout {
 
     public DragView(Context context) {
         super(context);
+        init();
     }
 
     public DragView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        init();
     }
 
     public DragView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init();
+    }
+
+    private void init() {
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(50,50);
+        setLayoutParams(params);
     }
 
     int lastX, lastY;
