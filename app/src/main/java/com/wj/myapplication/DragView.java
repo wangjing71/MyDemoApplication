@@ -53,7 +53,7 @@ public class DragView extends RelativeLayout {
 //                        getRight()+offsetX,
 //                        getBottom()+offsetY);
 
-                if (rawX >= event.getX()) {
+                if (getLeft() > 0) {
                     offsetLeftAndRight(offsetX);
                     offsetTopAndBottom(offsetY);
                 }
