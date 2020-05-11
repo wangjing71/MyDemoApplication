@@ -59,7 +59,10 @@ public class DragView extends RelativeLayout {
             case MotionEvent.ACTION_MOVE:
                 int offsetX = rawX - lastX;
                 int offsetY = rawY - lastY;
-                offsetLeftAndRight(offsetX);
+                if (((getLeft() < -0 && offsetX > 0) || getLeft() >= 0)
+                        && (((getRight() <= mScreenWidth)) || (getRight() > mScreenWidth && offsetX < 0))) {
+                    offsetLeftAndRight(offsetX);
+                }
                 offsetTopAndBottom(offsetY);
                 lastX = rawX;
                 lastY = rawY;
