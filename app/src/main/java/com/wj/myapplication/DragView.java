@@ -24,18 +24,25 @@ public class DragView extends View {
         super(context, attrs, defStyleAttr);
     }
 
+    int lastX,lastY;
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        int rawX = (int) event.getRawX();
+        int rawY = (int) event.getRawY();
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
+                lastX = rawX;
+                lastY = rawY;
                 break;
             case MotionEvent.ACTION_MOVE:
+                int offsetX = rawX - lastX;
+                int offsetY = rawY - lastX;
                 break;
             case MotionEvent.ACTION_UP:
                 break;
         }
 
 
-        return super.onTouchEvent(event);
+        return true;
     }
 }
