@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 /**
@@ -63,7 +64,7 @@ public class DragView extends RelativeLayout {
         if(view instanceof DragView){
             group.addView(view);
         }else{
-            throw new RuntimeException("必须是 DragView");
+            throw new RuntimeException("父布局必须是 DragView");
         }
     }
 }
