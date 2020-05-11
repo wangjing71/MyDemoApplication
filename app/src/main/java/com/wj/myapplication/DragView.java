@@ -51,8 +51,6 @@ public class DragView extends RelativeLayout {
             case MotionEvent.ACTION_UP:
                 break;
         }
-
-
         return true;
     }
 }
