@@ -3,6 +3,7 @@ package com.wj.myapplication;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
 import com.gyf.barlibrary.ImmersionBar;
@@ -27,6 +28,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         rxPermissions = new RxPermissions(this);
         barView = findViewById(R.id.barView);
         ImmersionBar.setStatusBarView(this, barView);
+        barView.post(new Runnable() {
+            @Override
+            public void run() {
+                Log.i("====",barView.getWidth()+"");
+            }
+        });
         initView();
         initData();
         setEvent();
