@@ -40,9 +40,6 @@ public class DragView extends RelativeLayout {
         int rawX = (int) event.getRawX();
         int rawY = (int) event.getRawY();
         Log.i("====", rawX + "_" + event.getX());
-        if (rawX < event.getX()) {
-            return true;
-        }
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 lastX = rawX;
@@ -56,8 +53,11 @@ public class DragView extends RelativeLayout {
 //                        getRight()+offsetX,
 //                        getBottom()+offsetY);
 
-                offsetLeftAndRight(offsetX);
-                offsetTopAndBottom(offsetY);
+                if (rawX >= event.getX()) {
+                    offsetLeftAndRight(offsetX);
+                    offsetTopAndBottom(offsetY);
+                }
+
                 lastX = rawX;
                 lastY = rawY;
                 break;
