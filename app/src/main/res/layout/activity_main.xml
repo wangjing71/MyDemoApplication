@@ -10,8 +10,8 @@
     <include layout="@layout/include_title" />
 
     <com.wj.myapplication.DragView
+        android:background="@color/gray"
         android:layout_width="@dimen/dp_50"
-        android:layout_height="@dimen/dp_50"
-        android:layout_gravity="center_horizontal" />
+        android:layout_height="@dimen/dp_50" />
 
 </LinearLayout>

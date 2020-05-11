@@ -36,11 +36,14 @@ public class DragView extends View {
                 break;
             case MotionEvent.ACTION_MOVE:
                 int offsetX = rawX - lastX;
-                int offsetY = rawY - lastX;
+                int offsetY = rawY - lastY;
                 layout(getLeft()+offsetX,
                         getTop()+offsetY,
                         getRight()+offsetX,
                         getBottom()+offsetY);
+
+//                offsetLeftAndRight(offsetX);
+//                offsetTopAndBottom(offsetY);
                 lastX = rawX;
                 lastY = rawY;
                 break;
