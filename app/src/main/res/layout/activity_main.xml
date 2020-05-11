@@ -9,4 +9,10 @@
     <!--标题栏-->
     <include layout="@layout/include_title" />
 
+    <com.wj.myapplication.DragView
+        android:id="@+id/moveView"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_50"
+        android:background="@color/gray" />
+
 </LinearLayout>

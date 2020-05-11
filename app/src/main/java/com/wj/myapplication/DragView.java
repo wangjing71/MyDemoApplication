@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
  * Description
  */
 public class DragView extends RelativeLayout {
+
     public DragView(Context context) {
         super(context);
     }
