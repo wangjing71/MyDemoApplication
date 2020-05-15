@@ -1,10 +1,12 @@
 package com.wj.myapplication.vp;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.wj.myapplication.R;
 
@@ -24,6 +26,9 @@ public class MyTvPageAdapter extends YPagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, final int position) {
         View item = LayoutInflater.from(context).inflate(R.layout.view_start_page_1, null, false);
+        TextView tips = item.findViewById(R.id.textView);
+        Typeface typeFace =Typeface.createFromAsset(context.getAssets(),"fonts/MUYAO_SOFTBRUSH.TTF");
+        tips.setTypeface(typeFace);
         item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
