@@ -34,6 +34,5 @@ public class MainActivity extends BaseActivity {
                 Toast.makeText(MainActivity.this, position+"", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }
