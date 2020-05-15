@@ -1,6 +1,8 @@
 package com.wj.myapplication;
 
 
+import android.widget.Toast;
+
 import com.wj.myapplication.vp.MyTvPageAdapter;
 import com.wj.myapplication.vp.YViewPager;
 
@@ -26,6 +28,12 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setEvent() {
+        adapter.setOnBannerTvItemClick(new MyTvPageAdapter.onBannerTvItemClick() {
+            @Override
+            public void itemClick(int position) {
+                Toast.makeText(MainActivity.this, position+"", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 }
