@@ -3,11 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.wj.myapplication.MainActivity">
 
     <!--标题栏-->
     <include layout="@layout/include_title" />
 
+    <com.wj.myapplication.vp.YViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        app:orientation="vertical"/>
 
 </LinearLayout>
