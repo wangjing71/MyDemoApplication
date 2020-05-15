@@ -24,6 +24,14 @@ public class MyTvPageAdapter extends YPagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, final int position) {
         View item = LayoutInflater.from(context).inflate(R.layout.view_start_page_1, null, false);
+        item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(onBannerTvItemClick!=null){
+                    onBannerTvItemClick.itemClick(position);
+                }
+            }
+        });
         container.addView(item);
         return item;
     }
