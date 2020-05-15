@@ -1,18 +1,12 @@
 package com.wj.myapplication;
 
-import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v4.view.PagerAdapter;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-import com.wj.myapplication.vp.YPagerAdapter;
+import com.wj.myapplication.vp.MyTvPageAdapter;
 import com.wj.myapplication.vp.YViewPager;
 
 public class MainActivity extends BaseActivity {
     private YViewPager viewPager;
-    private WelcomeAdPagerAdapter adapter;
+    private MyTvPageAdapter adapter;
 
     @Override
     protected int setLayoutId() {
@@ -26,52 +20,12 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        adapter = new WelcomeAdPagerAdapter(this);
+        adapter = new MyTvPageAdapter(this);
         viewPager.setAdapter(adapter);
     }
 
     @Override
     protected void setEvent() {
 
-    }
-
-    static class WelcomeAdPagerAdapter extends YPagerAdapter {
-
-        private Context context;
-
-        public WelcomeAdPagerAdapter(Context context) {
-            this.context = context;
-        }
-
-        @NonNull
-        @Override
-        public Object instantiateItem(@NonNull ViewGroup container, final int position) {
-            View item = LayoutInflater.from(context).inflate(R.layout.view_start_page_1, null, false);
-            container.addView(item);
-            return item;
-        }
-
-        @Override
-        public int getCount() {
-            return Integer.MAX_VALUE;
-        }
-
-        @Override
-        public boolean isViewFromObject(@NonNull View view, @NonNull Object o) {
-            return view == o;
-        }
-
-        @Override
-        public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-            container.removeView((View) object);
-        }
-
-        public interface onBannerItemClick {
-            void itemClick(int position);
-        }
-
-        public void setOnBannerItemClick(onBannerItemClick onBannerItemClick) {
-            this.onBannerItemClick = onBannerItemClick;
-        }
     }
 }
