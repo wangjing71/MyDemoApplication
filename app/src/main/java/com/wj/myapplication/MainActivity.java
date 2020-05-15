@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 import com.wj.myapplication.vp.YPagerAdapter;
 import com.wj.myapplication.vp.YViewPager;
 
-import java.util.ArrayList;
-
 public class MainActivity extends BaseActivity {
     private YViewPager viewPager;
     private WelcomeAdPagerAdapter adapter;
@@ -37,7 +35,7 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    class WelcomeAdPagerAdapter extends YPagerAdapter {
+    static class WelcomeAdPagerAdapter extends YPagerAdapter {
 
         private Context context;
 
@@ -66,6 +64,14 @@ public class MainActivity extends BaseActivity {
         @Override
         public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
             container.removeView((View) object);
+        }
+
+        public interface onBannerItemClick {
+            void itemClick(int position);
+        }
+
+        public void setOnBannerItemClick(onBannerItemClick onBannerItemClick) {
+            this.onBannerItemClick = onBannerItemClick;
         }
     }
 }
