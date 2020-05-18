@@ -3,11 +3,8 @@ package com.wj.myapplication;
 
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.wj.myapplication.vp.MyTextRollView;
-import com.wj.myapplication.vp.MyTvPageAdapter;
-import com.wj.myapplication.vp.YViewPager;
 
 import java.util.ArrayList;
 
