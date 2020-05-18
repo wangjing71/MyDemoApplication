@@ -25,4 +25,8 @@ public class MyTextRollView extends LinearLayout {
         super(context, attrs, defStyleAttr);
         init();
     }
+
+    private void init() {
+
+    }
 }
