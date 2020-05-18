@@ -29,18 +29,18 @@ public class MyTextRollView extends LinearLayout {
     private RollViewItemClick rollViewItemClick;
     private int initIndex = 0; //初始位置
     private long rollTime = 1000; //轮播时间
-    private Handler handler = new Handler(){
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
+            if (msg.what == 0) {
 
-
-
+            }
         }
     };
 
     public void setInitIndex(int initIndex) {
         this.initIndex = initIndex;
-        handler.sendEmptyMessageDelayed(0,rollTime);
+        handler.sendEmptyMessageDelayed(0, rollTime);
     }
 
     public void setRollTime(long rollTime) {
