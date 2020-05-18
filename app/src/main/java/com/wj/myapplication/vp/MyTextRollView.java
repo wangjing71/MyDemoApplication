@@ -2,7 +2,9 @@ package com.wj.myapplication.vp;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
+import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 /**
@@ -11,6 +13,7 @@ import android.widget.LinearLayout;
  * Description
  */
 public class MyTextRollView extends LinearLayout {
+    private ViewPager viewPager;
     public MyTextRollView(Context context) {
         super(context);
         init();
@@ -27,6 +30,9 @@ public class MyTextRollView extends LinearLayout {
     }
 
     private void init() {
-
+        viewPager = new ViewPager(getContext());
+        LinearLayout.LayoutParams vp_parms = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        viewPager.setLayoutParams(vp_parms);
+        addView(viewPager);
     }
 }
