@@ -13,13 +13,16 @@ import android.widget.LinearLayout;
 public class MyTextRollView extends LinearLayout {
     public MyTextRollView(Context context) {
         super(context);
+        init();
     }
 
     public MyTextRollView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        init();
     }
 
     public MyTextRollView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init();
     }
 }
