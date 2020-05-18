@@ -79,9 +79,9 @@ public class MyTextRollView extends LinearLayout {
             item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Toast.makeText(context, position+"", Toast.LENGTH_SHORT).show();
                     if (onBannerTvItemClick != null) {
                         onBannerTvItemClick.itemClick(position);
-                        Toast.makeText(context, position+"", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
