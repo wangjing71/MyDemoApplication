@@ -25,10 +25,10 @@ public class MyTextRollView extends LinearLayout {
     private YViewPager viewPager;
     private MyRollPageAdapter adapter;
     private ArrayList<String> dataStrList;
-    public TvItemClick TvItemClick;
+    private RollViewItemClick rollViewItemClick;
 
-    public void setTvItemClick(TvItemClick tvItemClick) {
-        TvItemClick = tvItemClick;
+    public void setRollViewItemClick(RollViewItemClick rollViewItemClick) {
+        this.rollViewItemClick = rollViewItemClick;
     }
 
     public void setDataStrList(ArrayList<String> dataStrList) {
@@ -63,7 +63,14 @@ public class MyTextRollView extends LinearLayout {
     private void setAdapter() {
         adapter = new MyRollPageAdapter(getContext());
         viewPager.setAdapter(adapter);
-        adapter.setOnTvItemClick(TvItemClick);
+        adapter.setOnTvItemClick(new TvItemClick() {
+            @Override
+            public void itemClick(int position) {
+                if (rollViewItemClick != null) {
+                    rollViewItemClick.itemClick(position);
+                }
+            }
+        });
     }
 
     class MyRollPageAdapter extends YPagerAdapter {
@@ -84,8 +91,8 @@ public class MyTextRollView extends LinearLayout {
             item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (onBannerTvItemClick != null) {
-                        onBannerTvItemClick.itemClick(position);
+                    if (onTvItemClick != null) {
+                        onTvItemClick.itemClick(position);
                     }
                 }
             });
@@ -109,14 +116,18 @@ public class MyTextRollView extends LinearLayout {
             container.removeView((View) object);
         }
 
-        public TvItemClick onBannerTvItemClick;
+        public TvItemClick onTvItemClick;
 
-        public void setOnTvItemClick(TvItemClick onBannerTvItemClick) {
-            this.onBannerTvItemClick = onBannerTvItemClick;
+        public void setOnTvItemClick(TvItemClick onTvItemClick) {
+            this.onTvItemClick = onTvItemClick;
         }
     }
 
     public interface TvItemClick {
+        void itemClick(int position);
+    }
+
+    public interface RollViewItemClick {
         void itemClick(int position);
     }
 }
