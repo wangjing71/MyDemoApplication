@@ -3,6 +3,7 @@ package com.wj.myapplication;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.wj.myapplication.vp.MyTextRollView;
 
@@ -36,6 +37,13 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Log.i("====","myTextRollView");
+            }
+        });
+
+        myTextRollView.setTvItemClick(new MyTextRollView.TvItemClick() {
+            @Override
+            public void itemClick(int position) {
+                Toast.makeText(MainActivity.this, position+"", Toast.LENGTH_SHORT).show();
             }
         });
     }
