@@ -34,13 +34,15 @@ public class MyTextRollView extends LinearLayout {
         public void handleMessage(Message msg) {
             if (msg.what == 0) {
                 initIndex++;
+                viewPager.setCurrentItem(initIndex);
+                handler.removeMessages(0);
+                handler.sendEmptyMessageDelayed(0, rollTime);
             }
         }
     };
 
     public void setInitIndex(int initIndex) {
         this.initIndex = initIndex;
-        viewPager.setCurrentItem(initIndex);
         handler.removeMessages(0);
         handler.sendEmptyMessageDelayed(0, rollTime);
     }
