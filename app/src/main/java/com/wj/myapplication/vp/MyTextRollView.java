@@ -84,8 +84,8 @@ public class MyTextRollView extends LinearLayout {
         public Object instantiateItem(@NonNull ViewGroup container, final int position) {
             View item = LayoutInflater.from(context).inflate(R.layout.my_text_roll_view_item, null, false);
             TextView tips = item.findViewById(R.id.textView);
-            Typeface typeFace = Typeface.createFromAsset(context.getAssets(), "fonts/MUYAO_SOFTBRUSH.TTF");
-            tips.setTypeface(typeFace);
+//            Typeface typeFace = Typeface.createFromAsset(context.getAssets(), "fonts/MUYAO_SOFTBRUSH.TTF");
+//            tips.setTypeface(typeFace);
             tips.setText(dataStrList.get(position));
             item.setOnClickListener(new View.OnClickListener() {
                 @Override
