@@ -1,6 +1,8 @@
 package com.wj.myapplication;
 
 
+import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.wj.myapplication.vp.MyTextRollView;
@@ -33,5 +35,11 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setEvent() {
+        myTextRollView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("====","myTextRollView");
+            }
+        });
     }
 }

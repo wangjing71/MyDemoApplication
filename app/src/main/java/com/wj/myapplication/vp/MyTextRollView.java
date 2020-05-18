@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -72,7 +73,7 @@ public class MyTextRollView extends LinearLayout {
         @Override
         public Object instantiateItem(@NonNull ViewGroup container, final int position) {
             View item = LayoutInflater.from(context).inflate(R.layout.my_text_roll_view_item, null, false);
-            TextView tips = item.findViewById(R.id.textView);
+            Button tips = item.findViewById(R.id.textView);
             Typeface typeFace = Typeface.createFromAsset(context.getAssets(), "fonts/MUYAO_SOFTBRUSH.TTF");
             tips.setTypeface(typeFace);
             tips.setText(dataStrList.get(position));
@@ -85,6 +86,7 @@ public class MyTextRollView extends LinearLayout {
                     }
                 }
             });
+
             container.addView(item);
             return item;
         }
