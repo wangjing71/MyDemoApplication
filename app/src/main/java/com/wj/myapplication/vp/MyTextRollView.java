@@ -27,19 +27,20 @@ public class MyTextRollView extends LinearLayout {
     private MyRollPageAdapter adapter;
     private ArrayList<String> dataStrList;
     private RollViewItemClick rollViewItemClick;
-    private int initIndex = 0; //初始位置
+    private static int initIndex = 0; //初始位置
     private long rollTime = 1000; //轮播时间
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             if (msg.what == 0) {
-
+                initIndex++;
             }
         }
     };
 
     public void setInitIndex(int initIndex) {
         this.initIndex = initIndex;
+        viewPager.setCurrentItem(initIndex);
         handler.sendEmptyMessageDelayed(0, rollTime);
     }
 
