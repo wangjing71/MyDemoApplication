@@ -23,7 +23,7 @@ import java.util.ArrayList;
  */
 public class MyTextRollView extends LinearLayout {
     private YViewPager viewPager;
-    private MyTvPageAdapter adapter;
+    private MyRollPageAdapter adapter;
     private ArrayList<String> dataStrList;
 
     public void setDataStrList(ArrayList<String> dataStrList) {
@@ -54,15 +54,15 @@ public class MyTextRollView extends LinearLayout {
     }
 
     private void setAdapter() {
-        adapter = new MyTvPageAdapter(getContext());
+        adapter = new MyRollPageAdapter(getContext());
         viewPager.setAdapter(adapter);
 
     }
 
-    class MyTvPageAdapter extends YPagerAdapter {
+    class MyRollPageAdapter extends YPagerAdapter {
         private Context context;
 
-        public MyTvPageAdapter(Context context) {
+        public MyRollPageAdapter(Context context) {
             this.context = context;
         }
 
@@ -73,6 +73,7 @@ public class MyTextRollView extends LinearLayout {
             TextView tips = item.findViewById(R.id.textView);
             Typeface typeFace = Typeface.createFromAsset(context.getAssets(), "fonts/MUYAO_SOFTBRUSH.TTF");
             tips.setTypeface(typeFace);
+            tips.setText(dataStrList.get(position));
             item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
