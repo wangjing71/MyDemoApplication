@@ -22,11 +22,13 @@ import java.util.ArrayList;
  * Description
  */
 public class MyTextRollView extends LinearLayout {
-    private ViewPager viewPager;
+    private YViewPager viewPager;
+    private MyTvPageAdapter adapter;
     private ArrayList<String> dataStrList;
 
     public void setDataStrList(ArrayList<String> dataStrList) {
         this.dataStrList = dataStrList;
+        setAdapter();
     }
 
     public MyTextRollView(Context context) {
@@ -45,10 +47,16 @@ public class MyTextRollView extends LinearLayout {
     }
 
     private void init() {
-        viewPager = new ViewPager(getContext());
+        viewPager = new YViewPager(getContext());
         LinearLayout.LayoutParams vp_parms = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         viewPager.setLayoutParams(vp_parms);
         addView(viewPager);
+    }
+
+    private void setAdapter() {
+        adapter = new MyTvPageAdapter(getContext());
+        viewPager.setAdapter(adapter);
+
     }
 
     class MyTvPageAdapter extends YPagerAdapter {
