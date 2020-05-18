@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wj.myapplication.R;
 
@@ -82,7 +82,7 @@ public class MyTextRollView extends LinearLayout {
                 public void onClick(View v) {
                     if (onBannerTvItemClick != null) {
                         onBannerTvItemClick.itemClick(position);
-                        Log.i("====",position+"");
+                        Toast.makeText(context, position+"", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
