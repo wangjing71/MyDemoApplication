@@ -16,4 +16,10 @@
         android:layout_height="@dimen/dp_50"
         app:orientation="vertical"/>
 
+    <com.wj.myapplication.vp.MyTextRollView
+        android:id="@+id/myrollview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        app:orientation="vertical"/>
+
 </LinearLayout>
