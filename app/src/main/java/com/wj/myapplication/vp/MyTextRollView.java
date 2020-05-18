@@ -50,8 +50,7 @@ public class MyTextRollView extends LinearLayout {
 
     private void init() {
         setOrientation(VERTICAL);
-        viewPager = new YViewPager(getContext());
-        viewPager.setDirection(VERTICAL);
+        viewPager = (YViewPager) LayoutInflater.from(getContext()).inflate(R.layout.my_text_roll_view_parent,null,false);
         LinearLayout.LayoutParams vp_parms = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         viewPager.setLayoutParams(vp_parms);
         addView(viewPager);
