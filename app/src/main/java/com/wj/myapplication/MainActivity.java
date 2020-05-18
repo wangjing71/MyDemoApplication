@@ -25,6 +25,7 @@ public class MainActivity extends BaseActivity {
             data.add("条目"+i);
         }
         myTextRollView.setDataStrList(data);
+        myTextRollView.setInitIndex(0);
     }
 
     @Override
