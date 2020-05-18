@@ -2,6 +2,8 @@ package com.wj.myapplication.vp;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -25,6 +27,14 @@ public class MyTextRollView extends LinearLayout {
     private MyRollPageAdapter adapter;
     private ArrayList<String> dataStrList;
     private RollViewItemClick rollViewItemClick;
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+
+
+
+        }
+    };
 
     public void setRollViewItemClick(RollViewItemClick rollViewItemClick) {
         this.rollViewItemClick = rollViewItemClick;
