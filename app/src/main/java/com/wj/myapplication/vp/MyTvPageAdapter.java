@@ -17,7 +17,6 @@ import com.wj.myapplication.R;
  */
 public class MyTvPageAdapter extends YPagerAdapter {
     private Context context;
-
     public MyTvPageAdapter(Context context) {
         this.context = context;
     }
