@@ -27,6 +27,8 @@ public class MyTextRollView extends LinearLayout {
     private MyRollPageAdapter adapter;
     private ArrayList<String> dataStrList;
     private RollViewItemClick rollViewItemClick;
+    private int initIndex = 0; //初始位置
+    private long rollTime = 1000; //轮播时间
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -35,6 +37,15 @@ public class MyTextRollView extends LinearLayout {
 
         }
     };
+
+    public void setInitIndex(int initIndex) {
+        this.initIndex = initIndex;
+        handler.sendEmptyMessageDelayed(0,rollTime);
+    }
+
+    public void setRollTime(long rollTime) {
+        this.rollTime = rollTime;
+    }
 
     public void setRollViewItemClick(RollViewItemClick rollViewItemClick) {
         this.rollViewItemClick = rollViewItemClick;
