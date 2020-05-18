@@ -8,6 +8,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:clickable="true"
+        android:focusable="true"
         android:text="床前明月光"
         android:textColor="@color/black"
         android:textSize="@dimen/sp_18" />

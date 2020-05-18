@@ -71,7 +71,7 @@ public class MyTextRollView extends LinearLayout {
         @NonNull
         @Override
         public Object instantiateItem(@NonNull ViewGroup container, final int position) {
-            View item = LayoutInflater.from(context).inflate(R.layout.view_start_page_1, null, false);
+            View item = LayoutInflater.from(context).inflate(R.layout.my_text_roll_view_item, null, false);
             TextView tips = item.findViewById(R.id.textView);
             Typeface typeFace = Typeface.createFromAsset(context.getAssets(), "fonts/MUYAO_SOFTBRUSH.TTF");
             tips.setTypeface(typeFace);
