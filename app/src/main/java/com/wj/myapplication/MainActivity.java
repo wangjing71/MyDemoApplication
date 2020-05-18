@@ -40,7 +40,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        myTextRollView.setTvItemClick(new MyTextRollView.TvItemClick() {
+        myTextRollView.setRollViewItemClick(new MyTextRollView.RollViewItemClick() {
             @Override
             public void itemClick(int position) {
                 Toast.makeText(MainActivity.this, position+"", Toast.LENGTH_SHORT).show();
