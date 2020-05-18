@@ -59,7 +59,6 @@ public class MyTextRollView extends LinearLayout {
     private void setAdapter() {
         adapter = new MyRollPageAdapter(getContext());
         viewPager.setAdapter(adapter);
-
     }
 
     class MyRollPageAdapter extends YPagerAdapter {
@@ -106,14 +105,14 @@ public class MyTextRollView extends LinearLayout {
             container.removeView((View) object);
         }
 
-        public onBannerTvItemClick onBannerTvItemClick;
+        public TvItemClick onBannerTvItemClick;
 
-        public void setOnBannerTvItemClick(onBannerTvItemClick onBannerTvItemClick) {
+        public void setOnTvItemClick(TvItemClick onBannerTvItemClick) {
             this.onBannerTvItemClick = onBannerTvItemClick;
         }
     }
 
-    interface onBannerTvItemClick {
+    interface TvItemClick {
         void itemClick(int position);
     }
 }
