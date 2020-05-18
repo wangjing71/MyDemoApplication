@@ -5,11 +5,9 @@ import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,7 +48,8 @@ public class MyTextRollView extends LinearLayout {
 
     private void init() {
         setOrientation(VERTICAL);
-        viewPager = (YViewPager) LayoutInflater.from(getContext()).inflate(R.layout.my_text_roll_view_parent,null,false);
+        viewPager = new YViewPager(getContext());
+        viewPager.setDirection(YViewPager.VERTICAL);
         LinearLayout.LayoutParams vp_parms = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         viewPager.setLayoutParams(vp_parms);
         addView(viewPager);
