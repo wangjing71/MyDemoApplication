@@ -25,6 +25,11 @@ public class MyTextRollView extends LinearLayout {
     private YViewPager viewPager;
     private MyRollPageAdapter adapter;
     private ArrayList<String> dataStrList;
+    public TvItemClick TvItemClick;
+
+    public void setTvItemClick(TvItemClick tvItemClick) {
+        TvItemClick = tvItemClick;
+    }
 
     public void setDataStrList(ArrayList<String> dataStrList) {
         this.dataStrList = dataStrList;
@@ -58,6 +63,7 @@ public class MyTextRollView extends LinearLayout {
     private void setAdapter() {
         adapter = new MyRollPageAdapter(getContext());
         viewPager.setAdapter(adapter);
+        adapter.setOnTvItemClick(TvItemClick);
     }
 
     class MyRollPageAdapter extends YPagerAdapter {
