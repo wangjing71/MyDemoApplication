@@ -7,6 +7,8 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import java.util.ArrayList;
+
 /**
  * author wangjing
  * Date 2020/5/18
@@ -14,6 +16,12 @@ import android.widget.LinearLayout;
  */
 public class MyTextRollView extends LinearLayout {
     private ViewPager viewPager;
+    private ArrayList<String> dataStrList;
+
+    public void setDataStrList(ArrayList<String> dataStrList) {
+        this.dataStrList = dataStrList;
+    }
+
     public MyTextRollView(Context context) {
         super(context);
         init();
