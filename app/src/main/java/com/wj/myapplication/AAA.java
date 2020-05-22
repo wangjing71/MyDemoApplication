@@ -37,4 +37,8 @@ public class AAA extends BaseActivity {
     protected void setEvent() {
 
     }
+
+    public static void main(String[] args) {
+
+    }
 }
