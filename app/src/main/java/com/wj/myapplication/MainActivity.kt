@@ -16,7 +16,6 @@ import java.util.regex.Pattern
 
 import io.reactivex.functions.Consumer
 
-
 class MainActivity : BaseActivity() {
 
     var button: Button? = null
