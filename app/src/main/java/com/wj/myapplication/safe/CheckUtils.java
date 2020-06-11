@@ -48,17 +48,17 @@ public class CheckUtils {
                 }
             }).setNegativeButton("继续", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                    checkDoubleOpen(activity,safeCallback);
+                    checkDoubleOpen(activity, safeCallback);
                 }
             }).setCancelable(false).show();
         } else {
-            checkDoubleOpen(activity,safeCallback);
+            checkDoubleOpen(activity, safeCallback);
         }
     }
 
     /*
-    * 检查双开
-    * */
+     * 检查双开
+     * */
     private void checkDoubleOpen(final Activity activity, final SafeCallback safeCallback) {
         VirtualApkCheckUtil.getSingleInstance().checkByCreateLocalServerSocket(activity.getPackageName(), new VirtualCheckCallback() {
             @Override
@@ -70,29 +70,46 @@ public class CheckUtils {
                     }
                 }).setNegativeButton("继续", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        checkEmulator(activity,safeCallback);
+                        checkEmulator(activity, safeCallback);
                     }
                 }).setCancelable(false).show();
             }
 
             @Override
             public void next() {
-                checkEmulator(activity,safeCallback);
+                checkEmulator(activity, safeCallback);
             }
         });
 
     }
 
     /*
-    * 检查模拟器
-    * */
-    private void checkEmulator(final Activity activity, SafeCallback safeCallback) {
-        EmulatorCheckUtil.getSingleInstance().readSysProperty(activity, new EmulatorCheckCallback() {
+     * 检查模拟器
+     * */
+    private void checkEmulator(final Activity activity, final SafeCallback safeCallback) {
+        boolean isEmulator = EmulatorCheckUtil.getSingleInstance().readSysProperty(activity, new EmulatorCheckCallback() {
             @Override
             public void findEmulator(String emulatorInfo) {
-                Toast.makeText(activity, "是模拟器", Toast.LENGTH_SHORT).show();
-
             }
         });
+
+        if (isEmulator) {
+            android.support.v7.app.AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(activity);
+            alertDialogBuilder.setTitle("温馨提示").setMessage("检测到您正在模拟器运行本软件，请退出！").setPositiveButton("退出", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    activity.finish();
+                }
+            }).setNegativeButton("继续", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    if (safeCallback != null) {
+                        safeCallback.next();
+                    }
+                }
+            }).setCancelable(false).show();
+        } else {
+            if (safeCallback != null) {
+                safeCallback.next();
+            }
+        }
     }
 }

@@ -10,6 +10,7 @@ import com.wj.myapplication.safe.CheckUtils;
 import com.wj.myapplication.safe.EmulatorCheckCallback;
 import com.wj.myapplication.safe.EmulatorCheckUtil;
 import com.wj.myapplication.safe.RootUtils;
+import com.wj.myapplication.safe.SafeCallback;
 import com.wj.myapplication.safe.VirtualApkCheckUtil;
 import com.wj.myapplication.safe.VirtualCheckCallback;
 
@@ -30,7 +31,12 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        CheckUtils.getInstance().checkSafe(this, new SafeCallback() {
+            @Override
+            public void next() {
 
+            }
+        });
     }
 
     @Override
