@@ -3,6 +3,8 @@ package com.wj.myapplication;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 
 public class MainActivity extends BaseActivity {
@@ -21,7 +23,13 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
+        ViewFlipper viewFlipper = findViewById(R.id.vf);
+        for (int i = 0; i < 4; i++) {
+            View view = View.inflate(this, R.layout.item_vf, null);
+            TextView text1 = view.findViewById(R.id.item_vf_tv1);
+            text1.setText("条目" + i);
+            viewFlipper.addView(view);
+        }
     }
 
     @Override
