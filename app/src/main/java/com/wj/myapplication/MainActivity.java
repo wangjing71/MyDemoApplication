@@ -2,6 +2,7 @@ package com.wj.myapplication;
 
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -34,6 +35,7 @@ public class MainActivity extends BaseActivity {
         CheckUtils.getInstance().checkSafe(this, new SafeCallback() {
             @Override
             public void next() {
+                Log.i("====","所有通过测试");
 
             }
         });
