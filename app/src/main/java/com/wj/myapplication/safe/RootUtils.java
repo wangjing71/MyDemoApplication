@@ -1,18 +1,18 @@
-package com.wj.myapplication;
+package com.wj.myapplication.safe;
 
 import android.util.Log;
 
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * Created by Administrator on 2016/7/25.
+ * author wangjing
+ * Date 2020/6/11
+ * Description
  */
-public class CheckUtils {
-
+public class RootUtils {
     private final static String TAG = "RootUtil";
 
     public static boolean isRoot() {
