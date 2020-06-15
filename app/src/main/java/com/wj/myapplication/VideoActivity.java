@@ -20,7 +20,7 @@ import java.io.IOException;
  * Date 2020/6/15
  * Description
  */
-public class VideoActivity extends Activity {
+public class VideoActivity extends BaseActivity {
     private SurfaceView videoSurface;       //显示
     private ToggleButton startBtn;          //开始结束按钮
     private MediaRecorder mediarecorder;    // 录制视频的类
@@ -28,20 +28,28 @@ public class VideoActivity extends Activity {
     private Camera camera;                          //camera
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //去标题栏
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_video);
-        //实例化控件
+    protected int setLayoutId() {
+        return R.layout.activity_video;
+    }
+
+    @Override
+    protected void initView() {
         videoSurface = (SurfaceView) findViewById(R.id.video_surface);
         startBtn = (ToggleButton) findViewById(R.id.start_btn);
+    }
+
+    @Override
+    protected void initData() {
         mholder = videoSurface.getHolder();     // 取得holder
         mholder.setFixedSize(1280, 720);
         mholder.addCallback(surfaceCallback);   // holder加入回调接口
         // setType必须设置，要不出错.设置缓冲类型
         mholder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 
+    }
+
+    @Override
+    protected void setEvent() {
         startBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
