@@ -42,7 +42,9 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-        rxPermissions.requestEachCombined(Manifest.permission.CAMERA)
+        rxPermissions.requestEachCombined(Manifest.permission.CAMERA
+                , Manifest.permission.WRITE_EXTERNAL_STORAGE
+                , Manifest.permission.READ_EXTERNAL_STORAGE)
                 .subscribe(new Consumer<Permission>() {
                     @Override
                     public void accept(Permission permission) throws Exception {
