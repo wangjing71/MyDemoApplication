@@ -47,31 +47,6 @@ public class VideoActivity extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     try {
-                        //prepare()必须在start之前
-                        /**
-                         *2017/4/29 15:00
-                         *Created by jiangchen
-                         *官方API：
-                         * A common case of using MediaRecorder to record audio works as follows:
-
-                         MediaRecorder recorder = new MediaRecorder();
-                         recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-                         recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-                         recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-                         recorder.setOutputFile(PATH_NAME);
-                         recorder.prepare();
-                         recorder.start();   // Recording is now started
-                         ...
-                         recorder.stop();
-                         recorder.reset();   // You can reuse the object by going back to setAudioSource() step
-                         recorder.release(); // Now the object cannot be reused
-
-                         */
-                        /**prepare()
-                         * This method must be called after setting up
-                         * the desired audio and video sources, encoders, file format, etc., but before start()
-                         * 必须在设置资源、编码方式、路径之后，必须在start方法之前
-                         */
                         mediarecorder.prepare();
                         mediarecorder.start();
                     } catch (Exception e) {
@@ -150,5 +125,16 @@ public class VideoActivity extends Activity {
     @Override
     protected void onStop() {
         super.onStop();
+        if (camera != null) {
+            camera.release();
+            camera = null;
+        }
+        if (mediarecorder != null) {
+            mediarecorder.release();
+            mediarecorder = null;
+        }
+        if (mholder != null) {
+            mholder.removeCallback(surfaceCallback);
+        }
     }
 }
