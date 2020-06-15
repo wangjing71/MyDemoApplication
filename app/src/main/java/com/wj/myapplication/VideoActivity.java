@@ -98,7 +98,7 @@ public class VideoActivity extends BaseActivity {
 //              camera.setDisplayOrientation(90);   //设置camera预览的角度，因为默认图片是倾斜90度的
                 camera.setPreviewDisplay(holder);   //设置holder主要是用于surfaceView的图片的实时预览，以及获取图片等功能
                 Camera.Parameters parameters = camera.getParameters();
-//                parameters.setFlashMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
+                parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
                 camera.setParameters(parameters);
                 camera.setDisplayOrientation(90);
                 camera.startPreview();                  //开始预览
