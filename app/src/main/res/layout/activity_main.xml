@@ -1,20 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.wj.myapplication.MainActivity">
+    tools:context=".MainActivity" >
 
-    <!--标题栏-->
-    <include layout="@layout/include_title" />
+    <SurfaceView
+        android:id="@+id/surfaceView1"
+        android:layout_width="400dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="3dp" />
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/btnRecoder"
+        android:layout_margin="3dp"
+        android:layout_toRightOf="@+id/surfaceView1" >
+    </ListView>
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnRecoder"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Button" />
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/surfaceView1"
+        android:text="录像" />
 
-
-</LinearLayout>
+</RelativeLayout>
