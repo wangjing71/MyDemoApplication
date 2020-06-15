@@ -24,8 +24,8 @@ public class VideoActivity extends Activity {
     private SurfaceView videoSurface;       //显示
     private ToggleButton startBtn;          //开始结束按钮
     private MediaRecorder mediarecorder;    // 录制视频的类
-    SurfaceHolder mholder;                  //holder
-    Camera camera;                          //camera
+    private SurfaceHolder mholder;                  //holder
+    private Camera camera;                          //camera
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
