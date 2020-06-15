@@ -53,11 +53,20 @@ public class VideoActivity extends Activity {
                         Log.e("jiangchen", "onCheckedChanged: " + e.toString());
                     }
                 } else {
-                    mediarecorder.stop();
-                    mediarecorder.release();
-                    mediarecorder = null;
+                    if (mediarecorder != null) {
+                        try {
+                            mediarecorder.stop();
+                        } catch (IllegalStateException e) {
+                            // TODO 如果当前java状态和jni里面的状态不一致，
+                            //e.printStackTrace();
+                            mediarecorder = null;
+                            mediarecorder = new MediaRecorder();
+                        }
+                        mediarecorder.release();
+                        mediarecorder = null;
+                    }
+
                     mholder.removeCallback(surfaceCallback);
-                    finish();
                 }
             }
         });
@@ -103,7 +112,7 @@ public class VideoActivity extends Activity {
             // 设置录制的视频帧率。必须放在设置编码和格式的后面，否则报错，这样设置变清晰
             mediarecorder.setVideoEncodingBitRate(5 * 1024 * 1024);
             mediarecorder.setOutputFile(Environment.getExternalStorageDirectory().getAbsolutePath() +
-                    File.separator + "VisitInsData" + File.separator + "video.mp4");
+                    File.separator + "video.mp4");
         }
 
         public void surfaceChanged(SurfaceHolder holder, int format, int width,
