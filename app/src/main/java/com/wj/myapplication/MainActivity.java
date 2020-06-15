@@ -47,13 +47,14 @@ public class MainActivity extends BaseActivity {
 
     private void doSomeThing() {
         rxPermissions.requestEachCombined(Manifest.permission.CAMERA
+                ,Manifest.permission.RECORD_AUDIO
                 , Manifest.permission.WRITE_EXTERNAL_STORAGE
                 , Manifest.permission.READ_EXTERNAL_STORAGE)
                 .subscribe(new Consumer<Permission>() {
                     @Override
                     public void accept(Permission permission) throws Exception {
                         if (permission.granted) {//全部同意后调用
-                            Intent intent = new Intent(MainActivity.this,MainActivity1.class);
+                            Intent intent = new Intent(MainActivity.this,VideoActivity.class);
                             startActivity(intent);
                         } else if (permission.shouldShowRequestPermissionRationale) {
                             Toast.makeText(MainActivity.this, "拒绝了权限申请", Toast.LENGTH_SHORT).show();

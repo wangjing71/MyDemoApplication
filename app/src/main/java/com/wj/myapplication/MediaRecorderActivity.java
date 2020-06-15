@@ -38,6 +38,7 @@ public class MediaRecorderActivity extends AppCompatActivity {
         startMediaCorder(findViewById(R.id.start));
 
     }
+
     //视频录制与暂停的方法
     public void startMediaCorder(View view){
         Button button= (Button) view;

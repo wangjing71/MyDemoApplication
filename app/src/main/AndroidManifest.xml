@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wj.myapplication">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -29,7 +29,12 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MediaRecorderActivity"/>
+        <activity
+            android:name=".VideoActivity"
+            android:configChanges="layoutDirection|screenSize|screenLayout|keyboard|keyboardHidden"
+            android:screenOrientation="landscape"></activity>
+
+        <activity android:name=".MediaRecorderActivity" />
     </application>
 
 </manifest>
