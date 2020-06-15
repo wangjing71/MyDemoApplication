@@ -1,8 +1,15 @@
 package com.wj.myapplication;
 
+import android.Manifest;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.tbruyelle.rxpermissions2.Permission;
+
+import io.reactivex.functions.Consumer;
 
 
 public class MainActivity extends BaseActivity {
@@ -35,6 +42,17 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-
+        rxPermissions.requestEachCombined(Manifest.permission.CAMERA)
+                .subscribe(new Consumer<Permission>() {
+                    @Override
+                    public void accept(Permission permission) throws Exception {
+                        if (permission.granted) {//全部同意后调用
+                        } else if (permission.shouldShowRequestPermissionRationale) {
+                            Toast.makeText(MainActivity.this, "拒绝了权限申请", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(MainActivity.this, "拒绝了权限申请", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 }
