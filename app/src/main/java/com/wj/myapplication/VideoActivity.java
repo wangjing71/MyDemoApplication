@@ -47,7 +47,6 @@ public class VideoActivity extends BaseActivity {
         mholder.addCallback(surfaceCallback);   // holder加入回调接口
         // setType必须设置，要不出错.设置缓冲类型
         mholder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-        startBtn.performClick();
     }
 
     @Override
