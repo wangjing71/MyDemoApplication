@@ -1,7 +1,9 @@
 package com.wj.myapplication;
 
 import android.app.Activity;
+import android.content.Context;
 import android.hardware.Camera;
+import android.media.AudioManager;
 import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.Environment;
@@ -45,7 +47,7 @@ public class VideoActivity extends BaseActivity {
         mholder.addCallback(surfaceCallback);   // holder加入回调接口
         // setType必须设置，要不出错.设置缓冲类型
         mholder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-
+//        startBtn.performClick();
     }
 
     @Override
@@ -55,6 +57,7 @@ public class VideoActivity extends BaseActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     try {
+                        ((AudioManager)getSystemService(Context.AUDIO_SERVICE)).setStreamMute(AudioManager.STREAM_SYSTEM,true);
                         mediarecorder.prepare();
                         mediarecorder.start();
                     } catch (Exception e) {
