@@ -42,6 +42,20 @@ public class MainActivity1 extends BaseActivity {
     @Override
     protected void initData() {
         initCamera();
+        boolean creakOk = createRecordDir();
+        if (!creakOk) {
+            return;
+        }
+
+        try {
+            mCamera.unlock();
+            setConfigRecord();
+
+            mediaRecorder.prepare();
+            mediaRecorder.start();
+        } catch (Exception e) {
+            //Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
