@@ -26,7 +26,7 @@ public class MainActivity1 extends BaseActivity {
 
     @Override
     protected int setLayoutId() {
-        return R.layout.activity_main;
+        return R.layout.activity_main1;
     }
 
     @Override

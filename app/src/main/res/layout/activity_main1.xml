@@ -16,5 +16,11 @@
         android:layout_gravity="center_horizontal"
         android:text="Button" />
 
+    <SurfaceView
+        android:id="@+id/surfaceView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="3dp" />
+
 
 </LinearLayout>
