@@ -1,7 +1,9 @@
 package com.wj.myapplication;
 
-import android.Manifest;
 import android.hardware.Camera;
+import android.media.CamcorderProfile;
+import android.media.MediaRecorder;
+import android.os.Environment;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -10,9 +12,7 @@ import android.widget.Button;
 import android.widget.Toast;
 import android.view.SurfaceHolder.Callback;
 
-import com.tbruyelle.rxpermissions2.Permission;
-
-import io.reactivex.functions.Consumer;
+import java.io.File;
 
 
 public class MainActivity1 extends BaseActivity {
@@ -21,6 +21,8 @@ public class MainActivity1 extends BaseActivity {
     private Camera mCamera;
     private SurfaceView surfaceView;
     private SurfaceHolder surfaceHolder;
+    private File mVecordFile;
+    private MediaRecorder mediaRecorder;
 
     @Override
     protected int setLayoutId() {
@@ -39,7 +41,7 @@ public class MainActivity1 extends BaseActivity {
 
     @Override
     protected void initData() {
-
+        initCamera();
     }
 
     @Override
@@ -53,20 +55,20 @@ public class MainActivity1 extends BaseActivity {
     }
 
     private void doSomeThing() {
-        rxPermissions.requestEachCombined(Manifest.permission.CAMERA
-                , Manifest.permission.WRITE_EXTERNAL_STORAGE
-                , Manifest.permission.READ_EXTERNAL_STORAGE)
-                .subscribe(new Consumer<Permission>() {
-                    @Override
-                    public void accept(Permission permission) throws Exception {
-                        if (permission.granted) {//全部同意后调用
-                        } else if (permission.shouldShowRequestPermissionRationale) {
-                            Toast.makeText(MainActivity1.this, "拒绝了权限申请", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(MainActivity1.this, "拒绝了权限申请", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+        boolean creakOk = createRecordDir();
+        if (!creakOk) {
+            return;
+        }
+
+        try {
+            mCamera.unlock();
+            setConfigRecord();
+
+            mediaRecorder.prepare();
+            mediaRecorder.start();
+        } catch (Exception e) {
+            //Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+        }
     }
 
     private void initCamera() {
@@ -121,5 +123,60 @@ public class MainActivity1 extends BaseActivity {
             surfaceHolder = arg0;
         }
     };
+
+    private boolean createRecordDir() {
+        if (!Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+            Toast.makeText(this, "SD卡不存在!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        File sampleDir = new File("/sdcard/myVideo/");
+        if (!sampleDir.exists()) {
+            sampleDir.mkdirs();
+        }
+        String videoName = "VID_" + System.currentTimeMillis() + ".mp4";
+        mVecordFile = new File(sampleDir, videoName);
+
+        return true;
+    }
+
+    private void setConfigRecord() {
+        mediaRecorder = new MediaRecorder();
+        mediaRecorder.reset();
+        mediaRecorder.setCamera(mCamera);
+        mediaRecorder.setOnErrorListener(new MediaRecorder.OnErrorListener() {
+            @Override
+            public void onError(MediaRecorder mr, int what, int extra) {
+
+            }
+        });
+        //录像角度
+        mediaRecorder.setOrientationHint(90);
+        //使用SurfaceView预览
+        mediaRecorder.setPreviewDisplay(surfaceHolder.getSurface());
+        //1.设置采集声音
+        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+        //设置采集图像
+        mediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
+        //2.设置视频，音频的输出格式 mp4
+        mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.DEFAULT);
+        //3.设置音频的编码格式
+        mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
+        //设置图像的编码格式
+        mediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
+        CamcorderProfile mProfile = CamcorderProfile.get(CamcorderProfile.QUALITY_480P);
+
+        mediaRecorder.setAudioEncodingBitRate(44100);
+        if (mProfile.videoBitRate > 2 * 1024 * 1024) {
+            mediaRecorder.setVideoEncodingBitRate(2 * 1024 * 1024);
+        } else {
+            mediaRecorder.setVideoEncodingBitRate(1024 * 1024);
+        }
+        mediaRecorder.setVideoFrameRate(mProfile.videoFrameRate);
+        mediaRecorder.setVideoSize(1280, 720);
+
+        mediaRecorder.setOutputFile(mVecordFile.getAbsolutePath());
+    }
+
 
 }
