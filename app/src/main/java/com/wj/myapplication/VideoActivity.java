@@ -1,16 +1,13 @@
 package com.wj.myapplication;
 
-import android.app.Activity;
 import android.content.Context;
 import android.hardware.Camera;
 import android.media.AudioManager;
 import android.media.MediaRecorder;
-import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.Window;
 import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
