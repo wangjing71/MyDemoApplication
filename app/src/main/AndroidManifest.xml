@@ -33,7 +33,6 @@
         <activity
             android:name=".VideoActivity"
             android:configChanges="layoutDirection|screenSize|screenLayout|keyboard|keyboardHidden"
-            android:screenOrientation="landscape"
             tools:ignore="LockedOrientationActivity"/>
 
     </application>
