@@ -110,7 +110,7 @@ public class VideoActivity extends BaseActivity {
             mediarecorder.setOnErrorListener(null);
             mediarecorder.setOnInfoListener(null);
             mediarecorder.setPreviewDisplay(null);
-            mediarecorder.setOrientationHint(90);
+            mediarecorder.setOrientationHint(270);
 
             Camera.CameraInfo info= new Camera.CameraInfo();
             int count= Camera.getNumberOfCameras();
@@ -129,7 +129,7 @@ public class VideoActivity extends BaseActivity {
                 camera.setPreviewDisplay(holder);   //设置holder主要是用于surfaceView的图片的实时预览，以及获取图片等功能
                 Camera.Parameters parameters = camera.getParameters();
                 parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
-                camera.setParameters(parameters); //前置摄像机不知处这个设置
+//                camera.setParameters(parameters);
                 camera.setDisplayOrientation(90);
                 camera.startPreview();                  //开始预览
                 camera.unlock();
