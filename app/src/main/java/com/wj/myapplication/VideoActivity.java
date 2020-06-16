@@ -111,8 +111,20 @@ public class VideoActivity extends BaseActivity {
             mediarecorder.setOnInfoListener(null);
             mediarecorder.setPreviewDisplay(null);
             mediarecorder.setOrientationHint(90);
-            camera = Camera.open();                 //打开摄像头
-            Log.e("--------", "surfaceCreated");
+
+            Camera.CameraInfo info= new Camera.CameraInfo();
+            int count= Camera.getNumberOfCameras();
+            for (int i = 0; i < count; i++) {
+                Camera.getCameraInfo(i, info);
+                if (info.facing==Camera.CameraInfo.CAMERA_FACING_FRONT) {
+                    try {
+                        camera = Camera.open(i);
+                    } catch (RuntimeException e) {
+                        camera = Camera.open();
+                    }
+                }
+            }
+
             try {
 //              camera.setDisplayOrientation(90);   //设置camera预览的角度，因为默认图片是倾斜90度的
                 camera.setPreviewDisplay(holder);   //设置holder主要是用于surfaceView的图片的实时预览，以及获取图片等功能
@@ -220,9 +232,9 @@ public class VideoActivity extends BaseActivity {
             camera = openCamera(FRONT);
         }
         camera.setPreviewDisplay(mholder);
-        Camera.Parameters parameters = camera.getParameters();
-        parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
-        camera.setParameters(parameters);
+//        Camera.Parameters parameters = camera.getParameters();
+//        parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
+//        camera.setParameters(parameters);
         camera.setDisplayOrientation(90);
         camera.startPreview();
     }
