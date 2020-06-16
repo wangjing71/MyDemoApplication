@@ -1,6 +1,7 @@
 package com.wj.myapplication;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.media.AudioManager;
 import android.media.MediaRecorder;
@@ -8,6 +9,7 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
@@ -85,6 +87,17 @@ public class VideoActivity extends BaseActivity {
                 startBtn.performClick();
             }
         },1000);
+
+        findViewById(R.id.change).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    changeCamera();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     /**
@@ -164,4 +177,49 @@ public class VideoActivity extends BaseActivity {
             mholder.removeCallback(surfaceCallback);
         }
     }
+
+    private static final int FRONT = 1;//前置摄像头标记
+    private static final int BACK = 2;//后置摄像头标记
+    private int currentCameraType = 2;//当前打开的摄像头标记
+
+    private boolean checkCamera(){
+        return getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY);
+    }
+
+
+    private Camera openCamera(int type){
+        int frontIndex =-1;
+        int backIndex = -1;
+        int cameraCount = Camera.getNumberOfCameras();
+        Camera.CameraInfo info = new Camera.CameraInfo();
+        for(int cameraIndex = 0; cameraIndex<cameraCount; cameraIndex++){
+            Camera.getCameraInfo(cameraIndex, info);
+            if(info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT){
+                frontIndex = cameraIndex;
+            }else if(info.facing == Camera.CameraInfo.CAMERA_FACING_BACK){
+                backIndex = cameraIndex;
+            }
+        }
+
+        currentCameraType = type;
+        if(type == FRONT && frontIndex != -1){
+            return Camera.open(frontIndex);
+        }else if(type == BACK && backIndex != -1){
+            return Camera.open(backIndex);
+        }
+        return null;
+    }
+
+    private void changeCamera() throws IOException{
+        camera.stopPreview();
+        camera.release();
+        if(currentCameraType == FRONT){
+            camera = openCamera(BACK);
+        }else if(currentCameraType == BACK){
+            camera = openCamera(FRONT);
+        }
+        camera.setPreviewDisplay(mholder);
+        camera.startPreview();
+    }
+
 }
