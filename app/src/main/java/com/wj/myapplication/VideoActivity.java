@@ -46,11 +46,6 @@ public class VideoActivity extends BaseActivity {
         mholder.addCallback(surfaceCallback);   // holder加入回调接口
         // setType必须设置，要不出错.设置缓冲类型
         mholder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-//        try {
-//            changeCamera();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 
     @Override
@@ -116,7 +111,7 @@ public class VideoActivity extends BaseActivity {
             mediarecorder.setOnInfoListener(null);
             mediarecorder.setPreviewDisplay(null);
             mediarecorder.setOrientationHint(90);
-            camera = Camera.open(1);                 //打开摄像头
+            camera = Camera.open();                 //打开摄像头
             Log.e("--------", "surfaceCreated");
             try {
 //              camera.setDisplayOrientation(90);   //设置camera预览的角度，因为默认图片是倾斜90度的
