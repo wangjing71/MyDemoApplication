@@ -76,7 +76,7 @@ public class MainActivity extends BaseActivity {
                     @Override
                     public void accept(Permission permission) throws Exception {
                         if (permission.granted) {//全部同意后调用
-                            Intent intent = new Intent(MainActivity.this,VideoActivity.class);
+                            Intent intent = new Intent(MainActivity.this,A.class);
                             startActivity(intent);
                         } else if (permission.shouldShowRequestPermissionRationale) {
                             Toast.makeText(MainActivity.this, "拒绝了权限申请", Toast.LENGTH_SHORT).show();

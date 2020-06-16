@@ -34,6 +34,10 @@
             android:name=".VideoActivity"
             android:configChanges="layoutDirection|screenSize|screenLayout|keyboard|keyboardHidden"
             tools:ignore="LockedOrientationActivity"/>
+        <activity
+            android:name=".A"
+            android:configChanges="layoutDirection|screenSize|screenLayout|keyboard|keyboardHidden"
+            tools:ignore="LockedOrientationActivity"/>
 
     </application>
 
