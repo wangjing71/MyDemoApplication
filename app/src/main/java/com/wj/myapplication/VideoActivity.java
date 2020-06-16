@@ -55,7 +55,7 @@ public class VideoActivity extends BaseActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     try {
-                        ((AudioManager)getSystemService(Context.AUDIO_SERVICE)).setStreamMute(AudioManager.STREAM_SYSTEM,true);
+                        ((AudioManager) getSystemService(Context.AUDIO_SERVICE)).setStreamMute(AudioManager.STREAM_SYSTEM, true);
                         mediarecorder.prepare();
                         mediarecorder.start();
                     } catch (Exception e) {
@@ -85,7 +85,7 @@ public class VideoActivity extends BaseActivity {
             public void run() {
                 startBtn.performClick();
             }
-        },1000);
+        }, 1000);
 
         findViewById(R.id.change).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,48 +179,51 @@ public class VideoActivity extends BaseActivity {
 
     private static final int FRONT = 1;//前置摄像头标记
     private static final int BACK = 2;//后置摄像头标记
-    private int currentCameraType = 2 ;//当前打开的摄像头标记
+    private int currentCameraType = 2;//当前打开的摄像头标记
 
-    private boolean checkCamera(){
+    private boolean checkCamera() {
         return getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY);
     }
 
 
-    private Camera openCamera(int type){
-        int frontIndex =-1;
+    private Camera openCamera(int type) {
+        int frontIndex = -1;
         int backIndex = -1;
         int cameraCount = Camera.getNumberOfCameras();
         Camera.CameraInfo info = new Camera.CameraInfo();
-        for(int cameraIndex = 0; cameraIndex<cameraCount; cameraIndex++){
+        for (int cameraIndex = 0; cameraIndex < cameraCount; cameraIndex++) {
             Camera.getCameraInfo(cameraIndex, info);
-            if(info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT){
+            if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
                 frontIndex = cameraIndex;
-            }else if(info.facing == Camera.CameraInfo.CAMERA_FACING_BACK){
+            } else if (info.facing == Camera.CameraInfo.CAMERA_FACING_BACK) {
                 backIndex = cameraIndex;
             }
         }
 
         currentCameraType = type;
-        if(type == FRONT && frontIndex != -1){
-            Log.i("====frontIndex",frontIndex+"");
+        if (type == FRONT && frontIndex != -1) {
+            Log.i("====frontIndex", frontIndex + "");
             return Camera.open(frontIndex);
-        }else if(type == BACK && backIndex != -1){
-            Log.i("====backIndex",backIndex+"");
+        } else if (type == BACK && backIndex != -1) {
+            Log.i("====backIndex", backIndex + "");
             return Camera.open(backIndex);
         }
         return null;
     }
 
-    private void changeCamera() throws IOException{
+    private void changeCamera() throws IOException {
         camera.stopPreview();
         camera.release();
-        if(currentCameraType == FRONT){
+        if (currentCameraType == FRONT) {
             camera = openCamera(BACK);
-        }else if(currentCameraType == BACK){
+        } else if (currentCameraType == BACK) {
             camera = openCamera(FRONT);
         }
         camera.setPreviewDisplay(mholder);
+        Camera.Parameters parameters = camera.getParameters();
+        parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
+        camera.setParameters(parameters);
+        camera.setDisplayOrientation(90);
         camera.startPreview();
     }
-
 }
