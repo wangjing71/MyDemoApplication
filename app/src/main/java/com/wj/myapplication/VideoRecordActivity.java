@@ -68,7 +68,7 @@ public class VideoRecordActivity extends AppCompatActivity {
                 try {
                     mSurfaceHolder = holder;
                     //使用后置摄像头
-                    mCamera = Camera.open(Camera.CameraInfo.CAMERA_FACING_BACK);
+                    mCamera = Camera.open(Camera.CameraInfo.CAMERA_FACING_FRONT);
                     //选装90度
                     mCamera.setDisplayOrientation(90);
                     mCamera.setPreviewDisplay(holder);
@@ -181,7 +181,7 @@ public class VideoRecordActivity extends AppCompatActivity {
             mRecorder.setVideoSize(640, 480);
             mRecorder.setVideoFrameRate(30);
             mRecorder.setVideoEncodingBitRate(3 * 1024 * 1024);
-            mRecorder.setOrientationHint(90);
+            mRecorder.setOrientationHint(270);
             //设置记录会话的最大持续时间（毫秒）
             mRecorder.setMaxDuration(30 * 1000);
             path = Environment.getExternalStorageDirectory().getPath() + File.separator + "Video";
