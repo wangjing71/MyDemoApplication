@@ -69,7 +69,6 @@ public class VideoRecordActivity extends AppCompatActivity {
                     mSurfaceHolder = holder;
                     //使用后置摄像头
                     mCamera = Camera.open(Camera.CameraInfo.CAMERA_FACING_FRONT);
-                    //选装90度
                     mCamera.setDisplayOrientation(90);
                     mCamera.setPreviewDisplay(holder);
                     Camera.Parameters parameters = mCamera.getParameters();
@@ -77,7 +76,6 @@ public class VideoRecordActivity extends AppCompatActivity {
                     parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
                     mCamera.setParameters(parameters);
                 } catch (Exception e) {
-                    //开启摄像头失败
                     finish();
                 }
             }
