@@ -5,9 +5,12 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import org.json.JSONException;
 
 import io.reactivex.functions.Consumer;
 
@@ -46,7 +49,7 @@ public class MainActivity extends BaseActivity {
         rxPermissions.request(Manifest.permission.READ_CONTACTS, Manifest.permission.GET_ACCOUNTS)
                 .subscribe(new Consumer<Boolean>() {
                     @Override
-                    public void accept(Boolean aBoolean) {
+                     public void accept(Boolean aBoolean) {
                         if (aBoolean) {
                             Intent jumpIntent = new Intent(Intent.ACTION_PICK);
                             jumpIntent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
@@ -75,7 +78,6 @@ public class MainActivity extends BaseActivity {
                                             null, null, null);
 
                             while (cursor.moveToNext()) {
-                                //取出该条数据的联系人姓名
                                 String name = cursor.getString(1).replaceAll(" ", "");
                                 //取出该条数据的联系人的手机号
                                 String number = cursor.getString(0).replaceAll(" ", "").replaceAll("-", "");
@@ -86,9 +88,8 @@ public class MainActivity extends BaseActivity {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-
                     break;
-                default:
+                 default:
                     break;
             }
         }
