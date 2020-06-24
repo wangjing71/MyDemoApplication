@@ -1,10 +1,13 @@
 package com.wj.myapplication;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
+
+import io.reactivex.functions.Consumer;
 
 
 public class MainActivity extends BaseActivity {
@@ -38,8 +41,16 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-        Intent jumpIntent = new Intent(Intent.ACTION_PICK);
-        jumpIntent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
-        startActivityForResult(jumpIntent, SELECT_CONTACT);
+        rxPermissions.request(Manifest.permission.READ_CONTACTS, Manifest.permission.GET_ACCOUNTS)
+                .subscribe(new Consumer<Boolean>() {
+                    @Override
+                    public void accept(Boolean aBoolean) {
+                        if(aBoolean){
+                            Intent jumpIntent = new Intent(Intent.ACTION_PICK);
+                            jumpIntent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
+                            startActivityForResult(jumpIntent, SELECT_CONTACT);
+                        }
+                    }
+                });
     }
 }
