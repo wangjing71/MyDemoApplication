@@ -3,7 +3,8 @@ package com.wj.myapplication
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.gyf.barlibrary.ImmersionBar
+import com.gyf.immersionbar.ImmersionBar
+import com.gyf.immersionbar.ktx.immersionBar
 import com.tbruyelle.rxpermissions2.RxPermissions
 
 /**
@@ -15,10 +16,14 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(setLayoutId())
-        ImmersionBar.with(this).init()
         rxPermissions = RxPermissions(this)
         barView = findViewById(R.id.barView)
-        ImmersionBar.setStatusBarView(this, barView)
+        immersionBar {
+            statusBarColor(R.color.colorPrimary)
+            init()
+            statusBarView(barView)
+        }
+
         initView()
         initData()
         setEvent()
@@ -28,8 +33,4 @@ abstract class BaseActivity : AppCompatActivity() {
     protected abstract fun initView()
     protected abstract fun initData()
     protected abstract fun setEvent()
-    override fun onDestroy() {
-        super.onDestroy()
-        ImmersionBar.with(this).destroy()
-    }
 }
