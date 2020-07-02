@@ -1,6 +1,9 @@
 package com.wj.myapplication;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -35,6 +38,8 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.face);
+        String str = Base64BitmapUtil.bitmapToBase64(bitmap);
+        Log.i("====",str);
     }
 }
