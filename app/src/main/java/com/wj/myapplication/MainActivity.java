@@ -38,8 +38,8 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doSomeThing() {
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.baidu);
-        String str = Base64BitmapUtil.bitmapToBase64(bitmap);
-        Log.i("====",str);
+//        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.baidu);
+//        String str = Base64BitmapUtil.bitmapToBase64(bitmap);
+//        Log.i("====",str);
     }
 }
