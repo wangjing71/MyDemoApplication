@@ -14,7 +14,7 @@ import android.graphics.Rect;
 
 public class ImageUtil {
 
-    private static Bitmap createWaterMaskBitmap(Bitmap src, Bitmap watermark,
+    public static Bitmap createWaterMaskBitmap(Bitmap src, Bitmap watermark,
                                                 int paddingLeft, int paddingTop) {
         if (src == null) {
             return null;

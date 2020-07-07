@@ -1,5 +1,7 @@
 package com.wj.myapplication;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,7 +26,10 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
+        Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(), R.mipmap.a);
+        Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.mipmap.b);
+        Bitmap bitmap3 = ImageUtil.createWaterMaskBitmap(bitmap1,bitmap2,0,0);
+        show.setImageBitmap(bitmap3);
     }
 
     @Override
