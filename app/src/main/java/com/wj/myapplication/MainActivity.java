@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 
 public class MainActivity extends BaseActivity {
@@ -14,6 +15,7 @@ public class MainActivity extends BaseActivity {
     private Button button;
     private ImageView show;
     private MyFrameAnimation animationDrawable1;
+    private RelativeLayout parent;
 
     @Override
     protected int setLayoutId() {
@@ -24,6 +26,7 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         button = findViewById(R.id.button);
         show = findViewById(R.id.show);
+        parent = findViewById(R.id.parent);
     }
 
     @Override
@@ -44,6 +47,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onEnd() {
                 Log.i("====","onEnd");
+                parent.setVisibility(View.GONE);
             }
         });
         animationDrawable1.setOneShot(false);
