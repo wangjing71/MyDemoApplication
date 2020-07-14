@@ -28,7 +28,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initData() {
         animationDrawable1 = new AnimationDrawable();
-        int[] ids = {R.mipmap.a1,R.mipmap.a2,R.mipmap.a3,R.mipmap.a4};
+        int[] ids = {R.mipmap.a0,R.mipmap.a1,R.mipmap.a2,R.mipmap.a3,R.mipmap.a4};
         for(int i = 0 ; i < 4 ; i ++){
             Drawable frame = getResources().getDrawable(ids[i]);
             //设定时长
