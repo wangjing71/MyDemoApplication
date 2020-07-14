@@ -16,10 +16,17 @@
         android:layout_gravity="center_horizontal"
         android:text="Button" />
 
-    <ImageView
-        android:id="@+id/show"
-        android:layout_width="@dimen/dp_100"
-        android:layout_height="@dimen/dp_100"
-        android:layout_gravity="center_horizontal" />
+    <RelativeLayout
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_50"
+        android:background="@mipmap/bg">
 
+        <ImageView
+            android:id="@+id/show"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_100" />
+
+    </RelativeLayout>
 </LinearLayout>
