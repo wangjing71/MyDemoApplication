@@ -2,6 +2,7 @@ package com.wj.myapplication;
 
 import android.Manifest;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Base64;
 import android.view.View;
@@ -52,6 +53,8 @@ public class MainActivity extends BaseActivity {
                     @Override
                     public void accept(Boolean aBoolean) {
                         if (aBoolean) {
+                            getFileBase64(Environment.getExternalStorageDirectory().getAbsolutePath() +
+                                    File.separator+"a.jpg");
                         } else {
                             Toast.makeText(MainActivity.this, "-1", Toast.LENGTH_SHORT).show();
                         }
@@ -67,8 +70,10 @@ public class MainActivity extends BaseActivity {
             inputFile.read(buffer);
             inputFile.close();
             String result = Base64.encodeToString(buffer, Base64.DEFAULT);
+            Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
             return result;
         } catch (Exception e) {
+            e.printStackTrace();
             Toast.makeText(MainActivity.this, "-1", Toast.LENGTH_SHORT).show();
         }
         return "";
