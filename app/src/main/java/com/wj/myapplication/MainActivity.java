@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.tbruyelle.rxpermissions2.RxPermissions;
@@ -87,7 +88,8 @@ public class MainActivity extends BaseActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
+                ImageView show = findViewById(R.id.show);
+                show.setImageBitmap(Base64BitmapUtil.base64ToBitmap(result));
             }
         });
     }
