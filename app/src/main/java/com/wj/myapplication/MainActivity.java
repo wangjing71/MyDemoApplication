@@ -3,6 +3,7 @@ package com.wj.myapplication;
 import android.Manifest;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -58,12 +59,18 @@ public class MainActivity extends BaseActivity {
                 });
     }
 
-    private void getFileBase64(String filepath){
+    private String getFileBase64(String filepath) {
         try {
             File file = new File(filepath);
             FileInputStream inputFile = new FileInputStream(file);
+            byte[] buffer = new byte[(int) file.length()];
+            inputFile.read(buffer);
+            inputFile.close();
+            String result = Base64.encodeToString(buffer, Base64.DEFAULT);
+            return result;
         } catch (Exception e) {
             Toast.makeText(MainActivity.this, "-1", Toast.LENGTH_SHORT).show();
         }
+        return "";
     }
 }
