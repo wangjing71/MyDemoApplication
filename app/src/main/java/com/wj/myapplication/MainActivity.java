@@ -62,20 +62,33 @@ public class MainActivity extends BaseActivity {
                 });
     }
 
-    private String getFileBase64(String filepath) {
-        try {
-            File file = new File(filepath);
-            FileInputStream inputFile = new FileInputStream(file);
-            byte[] buffer = new byte[(int) file.length()];
-            inputFile.read(buffer);
-            inputFile.close();
-            String result = Base64.encodeToString(buffer, Base64.DEFAULT);
-            Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
-            return result;
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(MainActivity.this, "-1", Toast.LENGTH_SHORT).show();
-        }
+    private String getFileBase64(final String filepath) {
+        ThreadPoolUtil.getInstance().execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    File file = new File(filepath);
+                    FileInputStream inputFile = new FileInputStream(file);
+                    byte[] buffer = new byte[(int) file.length()];
+                    inputFile.read(buffer);
+                    inputFile.close();
+                    String result = Base64.encodeToString(buffer, Base64.DEFAULT);
+                    doTosat(result);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(MainActivity.this, "-1", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         return "";
+    }
+
+    private void doTosat(final String result) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
