@@ -59,6 +59,11 @@ public class MainActivity extends BaseActivity {
     }
 
     private void getFileBase64(String filepath){
-
+        try {
+            File file = new File(filepath);
+            FileInputStream inputFile = new FileInputStream(file);
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "-1", Toast.LENGTH_SHORT).show();
+        }
     }
 }
