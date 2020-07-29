@@ -1,17 +1,23 @@
 package com.wj.myapplication;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.tbruyelle.rxpermissions2.RxPermissions;
+
 import java.io.IOException;
 
+import io.reactivex.functions.Consumer;
 
-public class MainActivity extends Activity {
+
+public class MainActivity extends AppCompatActivity {
     private Button button;
     private Camera camera;
     private CameraView cameraView;
@@ -22,6 +28,14 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        RxPermissions rxPermissions = new RxPermissions(MainActivity.this);
+        rxPermissions.request(Manifest.permission.CAMERA)
+                .subscribe(new Consumer<Boolean>() {
+                    @Override
+                    public void accept(Boolean aBoolean) {
+                    }
+                });
+
         if(!checkCamera()){
             MainActivity.this.finish();
         }
