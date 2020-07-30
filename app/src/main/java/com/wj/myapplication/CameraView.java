@@ -54,7 +54,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback {
                 e.printStackTrace();
             }
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         mCamera.startPreview();
