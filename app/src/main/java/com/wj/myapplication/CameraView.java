@@ -38,6 +38,7 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback {
         }
         mCamera.stopPreview();
         try {
+            mCamera.setDisplayOrientation(90);
             mCamera.setPreviewDisplay(surfaceHolder);
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -52,6 +53,7 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback {
             return;
         }
         try {
+            mCamera.setDisplayOrientation(90);
             mCamera.setPreviewDisplay(surfaceHolder);
         } catch (IOException e) {
             e.printStackTrace();
