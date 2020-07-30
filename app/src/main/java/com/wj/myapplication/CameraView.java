@@ -1,12 +1,14 @@
 package com.wj.myapplication;
 
 import android.content.Context;
+import android.graphics.PixelFormat;
 import android.hardware.Camera;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * author wangjing
@@ -40,6 +42,17 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback {
         try {
             mCamera.setDisplayOrientation(90);
             mCamera.setPreviewDisplay(surfaceHolder);
+            try {
+                Camera.Parameters parameters = mCamera.getParameters();
+                parameters.setPictureFormat(PixelFormat.JPEG);
+                parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
+                List<Camera.Size> sizeList = parameters.getSupportedPreviewSizes();//获取所有支持的camera尺寸
+                Camera.Size optionSize = getOptimalPreviewSize(sizeList, getHeight(), getWidth());//获取一个最为适配的camera.size
+                parameters.setPreviewSize(optionSize.width, optionSize.height);//把camera.size赋值到parameters
+                mCamera.setParameters(parameters);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -53,7 +66,6 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback {
             return;
         }
         try {
-            mCamera.setDisplayOrientation(90);
             mCamera.setPreviewDisplay(surfaceHolder);
         } catch (IOException e) {
             e.printStackTrace();
@@ -65,5 +77,38 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
         // TODO Auto-generated method stub
+    }
+
+    private Camera.Size getOptimalPreviewSize(List<Camera.Size> sizes, int w, int h) {
+        final double ASPECT_TOLERANCE = 0.1;
+        double targetRatio = (double) w / h;
+        if (sizes == null) return null;
+
+        Camera.Size optimalSize = null;
+        double minDiff = Double.MAX_VALUE;
+
+        int targetHeight = h;
+
+        // Try to find an size match aspect ratio and size
+        for (Camera.Size size : sizes) {
+            double ratio = (double) size.width / size.height;
+            if (Math.abs(ratio - targetRatio) > ASPECT_TOLERANCE) continue;
+            if (Math.abs(size.height - targetHeight) < minDiff) {
+                optimalSize = size;
+                minDiff = Math.abs(size.height - targetHeight);
+            }
+        }
+
+        // Cannot find the one match the aspect ratio, ignore the requirement
+        if (optimalSize == null) {
+            minDiff = Double.MAX_VALUE;
+            for (Camera.Size size : sizes) {
+                if (Math.abs(size.height - targetHeight) < minDiff) {
+                    optimalSize = size;
+                    minDiff = Math.abs(size.height - targetHeight);
+                }
+            }
+        }
+        return optimalSize;
     }
 }
