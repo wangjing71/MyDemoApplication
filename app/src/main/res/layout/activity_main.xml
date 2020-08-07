@@ -29,42 +29,54 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center" />
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1" />
 
         <EditText
             android:id="@+id/edt2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center" />
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1" />
 
         <EditText
             android:id="@+id/edt3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center" />
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1" />
 
         <EditText
             android:id="@+id/edt4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center" />
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1" />
 
         <EditText
             android:id="@+id/edt5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center" />
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1" />
 
         <EditText
             android:id="@+id/edt6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center" />
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1" />
 
     </LinearLayout>
 </LinearLayout>
