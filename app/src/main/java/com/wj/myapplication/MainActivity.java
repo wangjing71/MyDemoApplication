@@ -23,6 +23,12 @@ public class MainActivity extends BaseActivity {
         edt4 = findViewById(R.id.edt4);
         edt5 = findViewById(R.id.edt5);
         edt6 = findViewById(R.id.edt6);
+        edt1.setCursorVisible(false);
+        edt2.setCursorVisible(false);
+        edt3.setCursorVisible(false);
+        edt4.setCursorVisible(false);
+        edt5.setCursorVisible(false);
+        edt6.setCursorVisible(false);
     }
 
     @Override
