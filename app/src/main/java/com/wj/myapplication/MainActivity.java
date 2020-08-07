@@ -5,11 +5,13 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class MainActivity extends BaseActivity {
 
     private EditText edt1, edt2, edt3, edt4, edt5, edt6;
+    private CustomInputView myInput;
 
     @Override
     protected int setLayoutId() {
@@ -24,6 +26,7 @@ public class MainActivity extends BaseActivity {
         edt4 = findViewById(R.id.edt4);
         edt5 = findViewById(R.id.edt5);
         edt6 = findViewById(R.id.edt6);
+        myInput = findViewById(R.id.myinput);
 //        edt1.setCursorVisible(false);
 //        edt2.setCursorVisible(false);
 //        edt3.setCursorVisible(false);
@@ -45,6 +48,18 @@ public class MainActivity extends BaseActivity {
         edtFocusChangeInit(edt4, edt3, edt5);
         edtFocusChangeInit(edt5, edt4, edt6);
         edtFocusChangeInit(edt6, edt5, null);
+
+        myInput.setOnInputStr(new CustomInputView.onInputStr() {
+            @Override
+            public void inputNumber(String num) {
+                Toast.makeText(MainActivity.this, num, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void delete() {
+                Toast.makeText(MainActivity.this, "delete", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void edtFocusChangeInit(EditText main, final EditText pre, final EditText last) {
