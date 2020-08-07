@@ -3,6 +3,7 @@ package com.wj.myapplication;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,8 +11,8 @@ import android.widget.EditText;
 
 public class MainActivity extends BaseActivity {
 
-//    private Button button;
-    private EditText edt1,edt2,edt3,edt4,edt5,edt6;
+    //    private Button button;
+    private EditText edt1, edt2, edt3, edt4, edt5, edt6;
 
     @Override
     protected int setLayoutId() {
@@ -42,27 +43,49 @@ public class MainActivity extends BaseActivity {
 //                doSomeThing();
 //            }
 //        });
-        edt1.addTextChangedListener(new TextWatcher() {
+        edtFocusChangeInit(edt1, null, edt2);
+        edtFocusChangeInit(edt2, edt1, edt3);
+        edtFocusChangeInit(edt3, edt2, edt4);
+        edtFocusChangeInit(edt4, edt3, edt5);
+        edtFocusChangeInit(edt5, edt4, edt6);
+        edtFocusChangeInit(edt6, edt5, null);
+    }
+
+    private void edtFocusChangeInit(EditText main, final EditText pre, final EditText last) {
+        main.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Log.i("====","beforeTextChanged");
 
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                Log.i("====","onTextChanged");
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if(editable.toString().length() == 1){
-                    edt2.requestFocus();
+                Log.i("====","afterTextChanged");
+                int length = editable.length();
+                if (length == 1) {
+                    if (last != null) {
+                        last.requestFocus();
+                    }
                 }
+                if (length == 0) {
+                    if (pre != null) {
+                        pre.requestFocus();
+                    }
+                }
+
+
             }
         });
     }
 
     private void doSomeThing() {
+
 
     }
 }
