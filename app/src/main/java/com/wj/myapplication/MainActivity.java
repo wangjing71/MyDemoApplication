@@ -5,9 +5,6 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import java.util.TimerTask;
 
 
 public class MainActivity extends BaseActivity {
