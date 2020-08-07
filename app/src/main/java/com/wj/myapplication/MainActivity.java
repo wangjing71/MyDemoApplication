@@ -3,7 +3,11 @@ package com.wj.myapplication;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.TimerTask;
 
 
 public class MainActivity extends BaseActivity {
@@ -23,12 +27,12 @@ public class MainActivity extends BaseActivity {
         edt4 = findViewById(R.id.edt4);
         edt5 = findViewById(R.id.edt5);
         edt6 = findViewById(R.id.edt6);
-        edt1.setCursorVisible(false);
-        edt2.setCursorVisible(false);
-        edt3.setCursorVisible(false);
-        edt4.setCursorVisible(false);
-        edt5.setCursorVisible(false);
-        edt6.setCursorVisible(false);
+//        edt1.setCursorVisible(false);
+//        edt2.setCursorVisible(false);
+//        edt3.setCursorVisible(false);
+//        edt4.setCursorVisible(false);
+//        edt5.setCursorVisible(false);
+//        edt6.setCursorVisible(false);
     }
 
     @Override
@@ -50,18 +54,18 @@ public class MainActivity extends BaseActivity {
         main.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                Log.i("====","beforeTextChanged");
+                Log.i("====", "beforeTextChanged");
 
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                Log.i("====","onTextChanged");
+                Log.i("====", "onTextChanged");
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                Log.i("====","afterTextChanged");
+                Log.i("====", "afterTextChanged");
                 int length = editable.length();
                 if (length == 1) {
                     if (last != null) {
@@ -77,5 +81,14 @@ public class MainActivity extends BaseActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        Log.i("====onKeyDown", +keyCode + "");
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+
+        }
+        return false;
     }
 }
