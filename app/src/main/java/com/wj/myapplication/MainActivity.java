@@ -28,6 +28,13 @@ public class MainActivity extends BaseActivity {
         edt4 = findViewById(R.id.edt4);
         edt5 = findViewById(R.id.edt5);
         edt6 = findViewById(R.id.edt6);
+        edt1.setClickable(false);
+        edt2.setClickable(false);
+        edt3.setClickable(false);
+        edt4.setClickable(false);
+        edt5.setClickable(false);
+        edt6.setClickable(false);
+
     }
 
     @Override
