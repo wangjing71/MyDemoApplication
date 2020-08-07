@@ -1,11 +1,27 @@
 package com.wj.myapplication;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v4.app.FragmentActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.tbruyelle.rxpermissions2.RxPermissions;
+
+import io.reactivex.functions.Consumer;
 
 
 public class MainActivity extends BaseActivity {
@@ -60,6 +76,13 @@ public class MainActivity extends BaseActivity {
                 Toast.makeText(MainActivity.this, "delete", Toast.LENGTH_SHORT).show();
             }
         });
+
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showJianPan();
+            }
+        });
     }
 
     private void edtFocusChangeInit(EditText main, final EditText pre, final EditText last) {
@@ -93,5 +116,15 @@ public class MainActivity extends BaseActivity {
 
             }
         });
+    }
+
+    public void showJianPan(){
+        View popview = LayoutInflater.from(this).inflate(R.layout.costomer_keyboard, null, false);
+        final PopupWindow window = new PopupWindow(popview, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        window.setOutsideTouchable(true);
+        window.setTouchable(true);
+        window.setAnimationStyle(R.style.change_business_anim_style);
+        window.showAtLocation(popview, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
     }
 }

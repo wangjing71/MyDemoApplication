@@ -8,4 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="change_business_anim_style">
+        <item name="android:windowEnterAnimation">@anim/business_change_popshow_anim</item>
+        <item name="android:windowExitAnimation">@anim/business_change_pophidden_anim</item>
+    </style>
+
+
 </resources>
