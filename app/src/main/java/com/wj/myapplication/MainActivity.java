@@ -1,17 +1,13 @@
 package com.wj.myapplication;
 
-import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 
 
 public class MainActivity extends BaseActivity {
 
-    //    private Button button;
     private EditText edt1, edt2, edt3, edt4, edt5, edt6;
 
     @Override
@@ -21,20 +17,12 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-//        button = findViewById(R.id.button);
         edt1 = findViewById(R.id.edt1);
         edt2 = findViewById(R.id.edt2);
         edt3 = findViewById(R.id.edt3);
         edt4 = findViewById(R.id.edt4);
         edt5 = findViewById(R.id.edt5);
         edt6 = findViewById(R.id.edt6);
-        edt1.setClickable(false);
-        edt2.setClickable(false);
-        edt3.setClickable(false);
-        edt4.setClickable(false);
-        edt5.setClickable(false);
-        edt6.setClickable(false);
-
     }
 
     @Override
@@ -44,12 +32,6 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setEvent() {
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                doSomeThing();
-//            }
-//        });
         edtFocusChangeInit(edt1, null, edt2);
         edtFocusChangeInit(edt2, edt1, edt3);
         edtFocusChangeInit(edt3, edt2, edt4);
@@ -89,10 +71,5 @@ public class MainActivity extends BaseActivity {
 
             }
         });
-    }
-
-    private void doSomeThing() {
-
-
     }
 }
