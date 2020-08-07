@@ -79,13 +79,4 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        Log.i("====onKeyDown", +keyCode + "");
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-
-        }
-        return false;
-    }
 }
