@@ -120,7 +120,7 @@ public class MainActivity extends BaseActivity {
 
     public void showJianPan(){
         View popview = LayoutInflater.from(this).inflate(R.layout.costomer_keyboard, null, false);
-        final PopupWindow window = new PopupWindow(popview, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+        final PopupWindow window = new PopupWindow(popview, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
         window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         window.setOutsideTouchable(true);
         window.setTouchable(true);
