@@ -27,7 +27,6 @@ import io.reactivex.functions.Consumer;
 public class MainActivity extends BaseActivity {
 
     private EditText edt1, edt2, edt3, edt4, edt5, edt6;
-    private CustomInputView myInput;
 
     @Override
     protected int setLayoutId() {
@@ -63,18 +62,6 @@ public class MainActivity extends BaseActivity {
         edtFocusChangeInit(edt4, edt3, edt5);
         edtFocusChangeInit(edt5, edt4, edt6);
         edtFocusChangeInit(edt6, edt5, null);
-
-        myInput.setOnInputStr(new CustomInputView.onInputStr() {
-            @Override
-            public void inputNumber(String num) {
-                Toast.makeText(MainActivity.this, num, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void delete() {
-                Toast.makeText(MainActivity.this, "delete", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,7 +105,18 @@ public class MainActivity extends BaseActivity {
     }
 
     public void showJianPan(){
-        View popview = LayoutInflater.from(this).inflate(R.layout.costomer_keyboard, null, false);
+        CustomInputView popview = (CustomInputView) LayoutInflater.from(this).inflate(R.layout.jianpan, null, false);
+        popview.setOnInputStr(new CustomInputView.onInputStr() {
+            @Override
+            public void inputNumber(String num) {
+                Toast.makeText(MainActivity.this, num, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void delete() {
+                Toast.makeText(MainActivity.this, "delete", Toast.LENGTH_SHORT).show();
+            }
+        });
         final PopupWindow window = new PopupWindow(popview, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
         window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         window.setOutsideTouchable(true);
