@@ -57,10 +57,24 @@ public class CustomInputView extends LinearLayout implements View.OnClickListene
     public void onClick(View v) {
         if (v instanceof TextView) {
             String number = ((TextView) v).getText().toString().trim();
-            mPasswordEditText.addPassword(number);
+            if(onInputStr!=null){
+                onInputStr.inputNumber(number);
+            }
         }
         if (v instanceof ImageView) {
-            mPasswordEditText.deletePassword();
+            if(onInputStr!=null){
+                onInputStr.delete();
+            }
         }
+    }
+    onInputStr onInputStr;
+
+    public void setOnInputStr(CustomInputView.onInputStr onInputStr) {
+        this.onInputStr = onInputStr;
+    }
+
+    interface onInputStr{
+        void inputNumber(String num);
+        void delete();
     }
 }
