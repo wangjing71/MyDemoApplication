@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.gyf.barlibrary.ImmersionBar;
+import com.gyf.immersionbar.ImmersionBar;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 
@@ -36,10 +36,4 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract void initView() ;
     protected abstract void initData() ;
     protected abstract void setEvent() ;
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        ImmersionBar.with(this).destroy();
-    }
 }
