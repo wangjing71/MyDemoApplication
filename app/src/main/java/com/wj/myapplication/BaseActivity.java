@@ -26,7 +26,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         ImmersionBar.with(this).init();
         rxPermissions = new RxPermissions(this);
         barView = findViewById(R.id.barView);
-//        ImmersionBar.setStatusBarView(this, barView);
+        ImmersionBar.setStatusBarView(this, barView);
         initView();
         initData();
         setEvent();
