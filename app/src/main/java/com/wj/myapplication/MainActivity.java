@@ -4,9 +4,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.xuexiang.xui.utils.StatusBarUtils;
 import com.xuexiang.xui.widget.guidview.FocusShape;
 import com.xuexiang.xui.widget.guidview.GuideCaseView;
 import com.xuexiang.xui.widget.guidview.OnViewInflateListener;
+import com.xuexiang.xutil.display.Colors;
 
 
 public class MainActivity extends BaseActivity {
@@ -25,6 +27,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        StatusBarUtils.initStatusBarStyle(this, false, Colors.TRANSPARENT);
         guideCaseView = new GuideCaseView.Builder(this)
                 .focusOn(button)
                 .focusShape(FocusShape.ROUNDED_RECTANGLE)
