@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.view.View;
+import android.view.Window;
 import android.widget.LinearLayout;
 
 /**
@@ -28,7 +29,9 @@ public class CustomDialog extends Dialog {
         if (divider != null) {
             divider.setBackgroundColor(Color.TRANSPARENT);
         }
-        getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        getWindow().setLayout(context.getResources().getDisplayMetrics().widthPixels * 4 / 5, LinearLayout.LayoutParams.WRAP_CONTENT);
+        Window window = getWindow();
+        window.setWindowAnimations(R.style.mainfstyle);
+        window.setBackgroundDrawableResource(android.R.color.transparent);
+        window.setLayout(context.getResources().getDisplayMetrics().widthPixels * 4 / 5, LinearLayout.LayoutParams.WRAP_CONTENT);
     }
 }
