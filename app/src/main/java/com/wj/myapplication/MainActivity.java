@@ -36,7 +36,5 @@ public class MainActivity extends BaseActivity {
 
     private void doSomeThing() {
         CustomDialog customDialog = new CustomDialog(this);
-
-
     }
 }

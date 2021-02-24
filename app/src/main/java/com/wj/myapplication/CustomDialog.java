@@ -29,7 +29,6 @@ public class CustomDialog extends Dialog {
             divider.setBackgroundColor(Color.TRANSPARENT);
         }
         getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        show();
         getWindow().setLayout(context.getResources().getDisplayMetrics().widthPixels * 4 / 5, LinearLayout.LayoutParams.WRAP_CONTENT);
     }
 }
